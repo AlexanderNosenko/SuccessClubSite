@@ -1,0 +1,6 @@
+/boot/grub/grub.cfg 228;1;7074
+/etc/motd 8;99;686
+/etc/network/interfaces 1;10;10
+/etc/ssh/sshd_config 27;19;686
+/etc/apt/sources.list 1;0;0
+/etc/rc.local 1;0;0

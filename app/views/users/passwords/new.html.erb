@@ -1,0 +1,18 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <div>
+      <h1 class="logo-name">КП</h1>
+    </div>
+    <h3>Востаноалвение пароля</h3>
+    <div class="panel-body">
+      <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, role: "form" }) do |f| %>
+          <div class="form-group">
+
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+          </div>
+          <%= f.submit t('.send_me_reset_password_instructions', :default => "Востановить"), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <p class="m-t"> <small>Все права защищены &copy; 2016</small> </p>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+# Этот файл viminfo автоматически создан Vim 7.3.
+# Его можно (осторожно!) редактировать.
+
+# Значение опции 'encoding' в момент записи файла
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# Last Search Pattern:
+~Msle0~/\<deb\>
+
+# Командная строка, история (начиная от свежего к старому):
+:wq
+:q!
+:q
+
+# Строка поиска, история (начиная от свежего к старому):
+? \<deb\>
+
+# Выражение, история (начиная от свежего к старому):
+
+# Строка ввода, история (начиная от свежего к старому):
+
+# Строка ввода, история (начиная от свежего к старому):
+
+# Регистры:
+""1	LINE	0
+	deb http://extras.ubuntu.com/ubuntu trusty main
+"2	LINE	0
+	# deb-src http://extras.ubuntu.com/ubuntu precise main
+"3	LINE	0
+	# deb-src http://extras.ubuntu.com/ubuntu precise main
+"4	LINE	0
+	deb http://extras.ubuntu.com/ubuntu trusty main
+"5	LINE	0
+	# deb-src http://archive.canonical.com/ubuntu precise partner
+"6	LINE	0
+	deb http://archive.canonical.com/ubuntu trusty partner
+"7	LINE	0
+	
+"8	LINE	0
+	# deb-src http://security.ubuntu.com/ubuntu precise-security main restricted universe multiverse
+"9	LINE	0
+	deb http://security.ubuntu.com/ubuntu trusty-security main restricted universe multiverse
+
+# Глобальные отметки:
+'0  13  0  /etc/apt/sources.list
+'1  14  53  /etc/apt/sources.list
+'2  27  53  /etc/apt/sources.list
+'3  58  0  /etc/apt/sources.list
+'4  81  51  /etc/apt/sources.list
+'5  93  0  /etc/apt/sources.list
+'6  1  0  /etc/apt/sources.list
+'7  96  0  /etc/apt/sources.list
+
+# Список прыжков (сначала более свежие):
+-'  13  0  /etc/apt/sources.list
+-'  1  0  /etc/apt/sources.list
+-'  14  53  /etc/apt/sources.list
+-'  27  53  /etc/apt/sources.list
+-'  58  0  /etc/apt/sources.list
+-'  81  51  /etc/apt/sources.list
+-'  93  0  /etc/apt/sources.list
+-'  94  0  /etc/apt/sources.list
+-'  96  0  /etc/apt/sources.list
+-'  38  0  /etc/apt/sources.list
+-'  39  0  /etc/apt/sources.list
+-'  41  0  /etc/apt/sources.list
+-'  45  0  /etc/apt/sources.list
+-'  68  51  /etc/apt/sources.list
+-'  80  0  /etc/apt/sources.list
+-'  83  0  /etc/apt/sources.list
+-'  25  0  /etc/apt/sources.list
+-'  26  0  /etc/apt/sources.list
+-'  28  0  /etc/apt/sources.list
+-'  44  0  /etc/apt/sources.list
+-'  67  51  /etc/apt/sources.list
+-'  79  0  /etc/apt/sources.list
+-'  82  0  /etc/apt/sources.list
+-'  24  0  /etc/apt/sources.list
+-'  31  0  /etc/apt/sources.list
+-'  54  51  /etc/apt/sources.list
+-'  66  0  /etc/apt/sources.list
+-'  69  0  /etc/apt/sources.list
+-'  15  53  /etc/apt/sources.list
+-'  29  53  /etc/apt/sources.list
+-'  60  0  /etc/apt/sources.list
+-'  95  0  /etc/apt/sources.list
+-'  98  0  /etc/apt/sources.list
+-'  40  0  /etc/apt/sources.list
+-'  43  0  /etc/apt/sources.list
+-'  47  0  /etc/apt/sources.list
+-'  70  51  /etc/apt/sources.list
+-'  85  0  /etc/apt/sources.list
+-'  30  0  /etc/apt/sources.list
+-'  46  0  /etc/apt/sources.list
+-'  84  0  /etc/apt/sources.list
+-'  33  0  /etc/apt/sources.list
+-'  56  51  /etc/apt/sources.list
+-'  71  0  /etc/apt/sources.list
+-'  16  0  /etc/apt/sources.list
+
+# История местных отметок (от более свежих к старым):
+
+> /etc/apt/sources.list
+	"	13	0
+	.	14	0
+	+	96	0
+	+	93	0
+	+	94	0
+	+	93	0
+	+	81	0
+	+	1	0
+	+	1	79
+	+	27	0
+	+	14	0
