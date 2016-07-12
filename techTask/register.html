@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+    
+	<title>Регистрация | Клуб Профессионалов</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<link rel="shortcut icon" href="img/favicon.png" type="image/png">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name">КП</h1>
+            </div>
+            <h3>Регистрация</h3>
+            <p>Для получения доступа к сервисам - необходимо зарегистрироваться.</p>
+            				
+			<form class="m-t" action="register.php" method="post">
+                <div class="form-group">
+                    <input name="name" type="text" class="form-control" placeholder="Имя" required="">
+                </div>
+                <div class="form-group">
+                    <input name="surname" type="text" class="form-control" placeholder="Фамилия" required="">
+                </div>
+                <div class="form-group">
+                    <input name="login" type="text" class="form-control" placeholder="Логин" required="">
+                </div>
+                <div class="form-group">
+                    <input name="mail" type="email" class="form-control" placeholder="E-mail" required="">
+                </div>
+                <div class="form-group">
+                    <input name="password" type="password" class="form-control" placeholder="Пароль" required="">
+                </div>
+
+                <div class="form-group">
+                        <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> С правилами сервиса согласен</label></div>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Регистрация</button>
+
+                <p class="text-muted text-center"><small>У Вас уже есть аккаунт?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="login.html">Вход</a>
+            </form>
+
+            <p class="m-t"> <small>Все права защищены &copy; 2016</small> </p>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+</body>
+
+</html>
