@@ -11,6 +11,9 @@ gem 'carrierwave', '0.11.2'
 gem 'devise', '4.1.1'
 # devise-i18n
 gem 'devise-i18n', '1.1.0'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 # Bootstrap-sass
 gem 'bootstrap-sass', '3.3.0.0'
 # font-awesome-rails
@@ -64,4 +67,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '1.7.1'
 end
-
