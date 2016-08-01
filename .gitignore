@@ -8,3 +8,5 @@
 /config/local_env.yml
 /public/assets/*
 /public/uploads/*
+.*
+!/.gitignore
