@@ -11,7 +11,18 @@ Rails.application.routes.draw do
   get 'profile/:id' => 'profile#show'
 
 
-  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords' }, path: '', path_names: { sign_in: 'login', sign_up: 'register', password: 'passwords' }
+  devise_for :users, controllers:
+    {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations',
+      passwords: 'users/passwords'
+    },
+    path: '',
+    path_names: {
+      sign_in: 'login',
+      sign_up: 'register',
+      password: 'passwords'
+    }
 
 
   # All routes

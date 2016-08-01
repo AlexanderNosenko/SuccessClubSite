@@ -26,8 +26,9 @@
 
 
             <li>
-                <a href="<%= url_for :controller => 'users/sessions', :action => 'destroy', :method => 'delete' %>">
-                <i class="fa fa-sign-out"></i> Выход
+                <%= link_to destroy_user_session_path, :method => :delete do %>
+                  <i class="fa fa-sign-out"></i> Выход
+                <% end %>
             </a>
         </li>
     </ul>
