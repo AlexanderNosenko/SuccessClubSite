@@ -23,9 +23,9 @@ gem 'sass-rails', '~> 5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # PostrgreSQL
-gem 'pg', '0.18.4'
+#gem 'pg', '0.18.4'
 # Use mysql as the database for Active Record
-# gem 'mysql2', '>= 0.3.13', '< 0.5'
+gem 'mysql2', '>= 0.3.13', '< 0.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
