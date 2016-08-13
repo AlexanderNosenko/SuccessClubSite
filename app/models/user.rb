@@ -16,8 +16,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook, :vkontakte]
 
   # User Avatar Validation
-  validates_integrity_of  :avatar
-  validates_processing_of :avatar
+  #validates_integrity_of  :avatar
+  #validates_processing_of :avatar
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -43,7 +43,13 @@ class User < ActiveRecord::Base
       # Create the user if it's a new registration
       if user.nil?
         user = User.new(
-          name: auth.extra.raw_info.name,
+          name: auth.extra.raw_info.first_name,
+          last_name: auth.extra.raw_info.last_name,
+          birthday: auth.extra.raw_info.bdate,
+          country: auth.extra.raw_info.country.title,
+          city: auth.extra.raw_info.city.title,
+          avatar: auth.extra.raw_info.photo_50,
+          sex: auth.extra.raw_info.sex,
           #username: auth.info.nickname || auth.uid,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]

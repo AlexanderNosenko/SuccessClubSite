@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   resources :businesses
+  resources :users, controller: 'profile'
   root 'landing#index'
   get 'home' => 'home#index'
   get 'team' => 'team#index'
-  get 'profile' => 'profile#index'
-  get 'profile/:id' => 'profile#show'
 
   match '/profile/:id/finish_signup' => 'profile#finish_signup', via: [:get, :patch], :as => :finish_signup
   devise_for :users, controllers:
