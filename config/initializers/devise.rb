@@ -7,7 +7,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   config.secret_key = '57097e7158554fa7d7b30c0b8287d5c8817eb5b44d397583e83bd8021b59e44383d3ece8977ed9751af85a8f0a4de05ceedae43f6d253e08636dc6d6925f6206'
-  config.omniauth :facebook, "670009683153743", "d33bae4d99d6fd325d295364078121bf"
+  config.omniauth :facebook, "147048149067477", "d3776b32693e40cfaf28dec4ad78d4be"
   config.omniauth :vkontakte, "5585689", "kboToQ2MPYLy8qqvzA5T"
 
   # ==> Mailer Configuration
