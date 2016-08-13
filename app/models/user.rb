@@ -44,9 +44,9 @@ class User < ActiveRecord::Base
       if user.nil?
         case auth.provider
         when 'facebook'
-          user_from_facebook(auth)
+          user = user_from_facebook(auth)
         when 'vkontakte'
-          user_from_vkontakte(auth)
+          user = user_from_vkontakte(auth)
         end
         user.skip_confirmation!
         user.save!
@@ -71,16 +71,7 @@ class User < ActiveRecord::Base
      all()
     end
   end
-
-  private
-  def avatar_size_validation
-    errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
-  end
-
-  def set_default_role
-    self.role ||= Role.find_by_name('user')
-  end
-
+  
   def user_from_facebook(auth)
     first, last = *(auth.extra.info.name.split(' '))
     User.new(
@@ -106,5 +97,14 @@ class User < ActiveRecord::Base
       email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
       password: Devise.friendly_token[0,20]
     )
+  end
+
+  private
+  def avatar_size_validation
+    errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
+  end
+
+  def set_default_role
+    self.role ||= Role.find_by_name('user')
   end
 end
