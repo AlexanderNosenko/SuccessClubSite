@@ -1,0 +1,37 @@
+doctype html
+html(lang="ru")
+	head
+		title= Индеец
+		meta(charset='utf-8')/
+		meta(name='keywords')/
+		meta(name='description')/
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')/
+		meta(name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no')/
+		link(rel='shortcut icon' href='favicon.ico')/
+		link(rel='stylesheet' href='css/font-awesome-4.6.3/css/font-awesome.css')/
+		link(rel='stylesheet' href='css/bootstrap/bootstrap.min.css')/
+		link(rel='stylesheet' media='all' href='css/animate.css')/
+		link(rel='stylesheet' href='css/fonts.css')/
+		link(rel='stylesheet' href='css/main.css')/
+		script(type='text/javascript' src='js/jquery-3.1.0.min.js')
+		script(src='js/bootstrap/bootstrap.min.js')
+		script(src='js/wow.min.js')
+	body
+		.container-fluid
+			.row
+				.col-sm-2.hidden-xs#sidebar
+					#user_info
+						img(src='' alt='profile picture')
+						span#username Name Surname
+						span#status Status
+					ul#menu
+						li: a.active(href='#') Главная
+						li: a(href='#') Профиль
+						li: a(href='#') Команда
+				.col-sm-10.col-sm-offset-2#main
+					.row#topbar
+						.col-sm-12
+							#topbar_menu
+								a(href='#') <i class="fa fa-sign-out" aria-hidden="true"> Выход</i>
+								a(href='#') <i class="fa fa-bell" aria-hidden="true"><div class='notif_number' id='notifications'>12</div></i>
+								a(href='#') <i class="fa fa-envelope" aria-hidden="true"><div class='notif_number' id='messages'>8</div></i>						

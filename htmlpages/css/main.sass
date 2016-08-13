@@ -1,0 +1,141 @@
+body
+	margin: 0
+	padding: 0
+	font-size: 14px
+	font-family: "RobotoRegular", sans-serif
+	transition:all 400ms
+	background: #f2f2f3
+	width: 100%
+	text-align: center
+
+ul, h3, h4
+	padding: 0
+	margin: 0
+
+#sidebar
+	height: 100vh
+	background: #2f4050
+	position: fixed
+	padding: 0
+	#user_info
+		background: url('../img/profile-bg.png')
+		background-size: cover
+		color: white
+		text-align: left
+		padding: 20px 10px 40px
+		img
+			margin: 10px 0 30px 20px
+			width: 50px
+			height: 50px
+			border-radius: 50%
+		span
+			margin: 10px 0 0 20px
+			display: block
+	#menu
+		text-align: left
+		li
+			list-style: none
+			a
+				font-size: 15px
+				color: #8cb1c2
+				padding: 10px 0 10px 30px
+				display: block
+				width: 100%
+			.active
+				background: #293846
+				color: white
+				padding-left: 26px
+				border:
+					left: 4px solid #1ab394
+			a:hover
+				text-decoration: none
+				color: white
+				background: #293846
+				cursor: pointer
+#topbar
+	height: 50px
+	background: white
+	display: flex
+	align-items: center
+	#topbar_menu
+		display: flex
+		flex-direction: row-reverse
+		align-items: center
+		a
+			margin: 0 10px
+			color: #999c9e
+			i 
+				position: relative
+				.notif_number
+					background: #1ab394
+					color: white
+					font-size: 9px
+					width: 15px
+					height: 10px
+					position: absolute
+					top: -5px
+					right: -10px
+					border-radius: 2px
+#main_content>.col-sm-12>.row
+	margin: 20px auto
+#main_content
+	hr
+		margin: 5px auto
+	.info_block
+		background: white
+		width: 100%
+		padding: 5px
+	#balances
+		height: 150px
+		@media screen and (max-width: 768px)
+			margin-bottom: 10px
+		span.balance
+			font-size: 25px
+		.mybtn
+			width: 100%
+			margin: 5px auto
+			background: #1ab394
+			color: white
+			border: none
+			border-radius: 2px
+			padding: 5px
+	#partnership
+		height: 150px
+		.partner_link
+			margin: 10px auto
+			input
+				width: 75%
+				background: #eeeeee
+				border: 1px solid #e7e8e8
+				padding: 5px
+				color: grey
+			.mybtn
+				width: 20%
+				margin: auto
+				background: #1ab394
+				color: white
+				border: none
+				border-radius: 2px
+				padding: 5px
+	#video
+		height: 300px
+	#higher
+		margin-bottom: 62px
+		@media screen and (max-width: 768px)
+			margin-bottom: 0
+	.infographics
+		h3
+			margin: 10px 0 20px 15px
+			text-align: left
+		.infographic
+			background: #1ab394
+			color: white
+			border-radius: 2px
+			@media screen and (max-width: 768px)
+				margin-bottom: 10px
+			h4
+				height: 38px
+				@media screen and (max-width: 768px)
+					height: auto
+			span
+				font-size: 20px
