@@ -1,13 +1,12 @@
 class ProfileController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
-
+  before_action :set_user, only:[:show, :finish_signup]
 
   def index
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def finish_signup
@@ -27,5 +26,9 @@ class ProfileController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :last_name, :phone, :skype, :birthday, :sex, :country, :city, :about)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
