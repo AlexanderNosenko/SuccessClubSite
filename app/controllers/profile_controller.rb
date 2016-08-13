@@ -11,15 +11,21 @@ class ProfileController < ApplicationController
   end
 
   def finish_signup
-  # authorize! :update, @user
-  if request.patch? && params[:user] #&& params[:user][:email]
-    if @user.update(user_params)
-      @user.skip_reconfirmation!
-      sign_in(@user, :bypass => true)
-      redirect_to @user, notice: 'Your profile was successfully updated.'
-    else
-      @show_errors = true
+    # authorize! :update, @user
+    if request.patch? && params[:user] #&& params[:user][:email]
+      if @user.update(user_params)
+        @user.skip_reconfirmation!
+        sign_in(@user, :bypass => true)
+        redirect_to @user, notice: 'Your profile was successfully updated.'
+      else
+        @show_errors = true
+      end
     end
   end
-end
+
+  protected
+
+  def user_params
+    params.require(:user).permit(:name, :last_name, :phone, :skype, :birthday, :sex, :country, :city, :about)
+  end
 end
