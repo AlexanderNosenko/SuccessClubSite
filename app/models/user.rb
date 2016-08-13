@@ -39,18 +39,12 @@ class User < ActiveRecord::Base
 
       # Create the user if it's a new registration
       if user.nil?
-        user = User.new(
-          name: auth.extra.raw_info.first_name,
-          last_name: auth.extra.raw_info.last_name,
-          birthday: auth.extra.raw_info.bdate,
-          country: auth.extra.raw_info.country.title,
-          city: auth.extra.raw_info.city.title,
-          avatar: auth.extra.raw_info.photo_50,
-          sex: auth.extra.raw_info.sex,
-          #username: auth.info.nickname || auth.uid,
-          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-          password: Devise.friendly_token[0,20]
-        )
+        case auth.provider
+        when 'facebook'
+          user_from_facebook(auth)
+        when 'vkontakte'
+          user_from_vkontakte(auth)
+        end
         user.skip_confirmation!
         user.save!
       end
@@ -82,5 +76,32 @@ class User < ActiveRecord::Base
 
   def set_default_role
     self.role ||= Role.find_by_name('user')
+  end
+
+  def user_from_facebook(auth)
+    first, last = *(auth.extra.info.name.split(' '))
+    User.new(
+      name: first,
+      last_name: last,
+      avatar: auth.info.image,
+      #username: auth.info.nickname || auth.uid,
+      email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+      password: Devise.friendly_token[0,20]
+    )
+  end
+
+  def user_from_vkontakte(auth)
+    User.new(
+      name: auth.extra.raw_info.first_name,
+      last_name: auth.extra.raw_info.last_name,
+      birthday: auth.extra.raw_info.bdate,
+      country: auth.extra.raw_info.country.title,
+      city: auth.extra.raw_info.city.title,
+      avatar: auth.extra.raw_info.photo_50,
+      sex: auth.extra.raw_info.sex,
+      #username: auth.info.nickname || auth.uid,
+      email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+      password: Devise.friendly_token[0,20]
+    )
   end
 end
