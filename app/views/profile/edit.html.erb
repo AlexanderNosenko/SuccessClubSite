@@ -4,10 +4,10 @@
     <div class="wrapper wrapper-content">
       <div class="panel panel-default devise-bs">
         <div class="panel-heading">
-          <h4><%= t('.title', :resource => resource_class.model_name.human , :default => "Редактировать профиль") %></h4>
+          <h4><%= t('.title', :resource => @user.model_name.human , :default => "Редактировать профиль") %></h4>
         </div>
         <div class="panel-body">
-          <%= form_for(resource, :as => resource_name, :url => edit_user_path(resource_name), :html => { :method => :put }) do |f| %>
+          <%= form_for(@user, :url => @user, :html => { :method => :patch }) do |f| %>
               <div class="form-group">
                 <%= f.label "Имя" %>
                 <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Имя" %>
@@ -16,7 +16,6 @@
                 <%= f.label "Фамилия" %>
                 <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Фамилия" %>
               </div>
-              <!--
               <div class="form-group">
                 <%= f.label :"Номер телефона" %>
                 <%= f.text_field :phone, autofocus: true, class: "form-control", placeholder: "Телефон" %>
@@ -27,7 +26,7 @@
               </div>
               <div class="form-group">
                 <%= f.label "Дата рождения" %>
-                <%= f.text_field :birthday, autofocus: true, class: "form-control", placeholder: "Дата рождения" %>
+                <%= f.text_field :birthday, autofocus: true, class: "datepicker form-control", placeholder: "Дата рождения" %>
               </div>
               <div class="form-group">
                 <%= f.label "Пол" %>
@@ -35,7 +34,7 @@
               </div>
               <div class="form-group">
                 <%= f.label "Страна" %>
-                <%= f.text_field :country, autofocus: true, class: "form-control", placeholder: "Страна" %>
+                <%=country_select("user", "country", { priority_countries: ["GB", "FR"], selected: "GB" }, { class: 'form-control',  data: { attribute: "value" } , placeholder: "Страна"})%>
               </div>
               <div class="form-group">
                 <%= f.label "Город" %>
@@ -45,12 +44,12 @@
                 <%= f.label "О себе" %>
                 <%= f.text_field :about, autofocus: true, class: "form-control", placeholder: "О себе" %>
               </div>
-              -->
+              
               <div class="form-group">
                 <%= f.label :email %>
                 <%= f.email_field :email, autofocus: true, class: "form-control" %>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <%= f.label "Новый пароль" %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', :default => "оставьте пустым, если вы не хотите, изменить его") %>)</i>
                 <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
               </div>
@@ -61,7 +60,7 @@
               <div class="form-group">
                 <%= f.label "Текущий пароль" %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', :default => 'введите пароль для применения изменений') %>)</i>
                 <%= f.password_field :current_password, class: "form-control" %>
-              </div>
+              </div> -->
               <%= f.submit t('.update', :default => "Обновить"), class: "btn btn-primary" %>
               <%= link_to t('.back', :default => 'Назад'), :back, class: "btn btn-info" %>
           <% end %>

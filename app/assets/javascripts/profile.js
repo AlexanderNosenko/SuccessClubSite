@@ -3,3 +3,7 @@
 //= require fullcalendar/moment.min.js
 //= require fullcalendar/fullcalendar.min.js
 //= require peity/jquery.peity.min.js
+//= require bootstrap-datepicker
+ $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });

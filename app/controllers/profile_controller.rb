@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
-  before_action :set_user, only:[:show, :edit, :finish_signup]
+  before_action :set_user, only:[:show, :edit, :update, :finish_signup]
 
   def index
   end
@@ -11,6 +11,15 @@ class ProfileController < ApplicationController
 
   def edit
     
+  end
+  def update
+    if request.patch? && params[:user]
+      if @user.update(user_params)
+        redirect_to users_path, notice: 'Your profile was successfully updated.'
+      else
+        @show_errors = true
+      end
+    end
   end
   def finish_signup
     # authorize! :update, @user

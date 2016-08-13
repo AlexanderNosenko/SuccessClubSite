@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :businesses
-  resources :users, controller: 'profile'
+  resources :users, controller: 'profile', path: 'profile'
   root 'landing#index'
   get 'home' => 'home#index'
   get 'team' => 'team#index'
