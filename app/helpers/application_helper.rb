@@ -8,7 +8,7 @@ module ApplicationHelper
     end
 
     def get_avatar(user)
-      if user.nil? or user.avatar.nil?
+      if user.nil? || user.avatar.nil?
         image_tag('/images/no_avatar.png')
       else
         image_tag user.avatar
