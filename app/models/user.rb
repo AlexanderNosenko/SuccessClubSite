@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  require 'json'
+
   belongs_to :role
   before_create :set_default_role
   TEMP_EMAIL_PREFIX = 'change@me'
@@ -18,7 +20,7 @@ class User < ActiveRecord::Base
 
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
-
+    logger.debug auth.to_json.to_s
     # If a signed_in_resource is provided it always overrides the existing user
     # to prevent the identity being locked with accidentally created accounts.
     # Note that this may leave zombie accounts (with no associated identity) which
