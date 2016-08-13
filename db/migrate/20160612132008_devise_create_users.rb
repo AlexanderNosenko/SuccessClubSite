@@ -2,18 +2,23 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
       ## Main
-      t.string :name
+      t.string :first_name
       t.string :last_name
-      t.string :phone
-      t.string :skype
       t.date :birthday
       t.integer :sex
       t.string :country
       t.string :city
       t.string :about
       t.string :avatar
-      t.integer :referral_code
-      t.references :role
+      t.references :role, foreign_key: true
+      t.references :parent, references: :users
+      t.references :status, foreign_key: true
+      t.string :ancestry
+
+      # t.integer :referral_code
+      ## Contacts
+      t.string :phone
+      t.string :skype
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -50,6 +55,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
+    add_index :users, :ancestry
+    add_foreign_key :users, :users, column: :parent_id
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end

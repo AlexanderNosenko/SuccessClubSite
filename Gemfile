@@ -7,6 +7,8 @@ gem 'clipboard-rails', '1.5.10'
 gem 'mini_magick', '4.5.1'
 # Carrierwave
 gem 'carrierwave', '0.11.2'
+# Materialized path tree
+gem 'ancestry'
 # Devise
 gem 'devise', '4.1.1'
 # devise-i18n
@@ -26,15 +28,11 @@ gem 'rails', '4.2.6'
 #gem 'pg', '0.18.4'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.13', '< 0.5'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.1.1'
 # jquery-turbolinks
