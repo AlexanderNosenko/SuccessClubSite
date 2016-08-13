@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
   resources :businesses
   root 'landing#index'
-
   get 'home' => 'home#index'
-
   get 'team' => 'team#index'
-
   get 'profile' => 'profile#index'
-
   get 'profile/:id' => 'profile#show'
 
-
+  match '/profile/:id/finish_signup' => 'profile#finish_signup', via: [:get, :patch], :as => :finish_signup
   devise_for :users, controllers:
     {
       sessions: 'users/sessions',
       registrations: 'users/registrations',
-      passwords: 'users/passwords'
+      passwords: 'users/passwords',
+      omniauth_callbacks: 'users/omniauth_callbacks'
     },
     path: '',
     path_names: {

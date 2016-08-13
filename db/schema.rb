@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613165613) do
+ActiveRecord::Schema.define(version: 20160813110932) do
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "provider",   limit: 255
+    t.string   "uid",        limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -23,16 +33,24 @@ ActiveRecord::Schema.define(version: 20160613165613) do
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
     t.string   "last_name",              limit: 255
-    t.string   "phone",                  limit: 255
-    t.string   "skype",                  limit: 255
     t.date     "birthday"
     t.integer  "sex",                    limit: 4
     t.string   "country",                limit: 255
     t.string   "city",                   limit: 255
     t.string   "about",                  limit: 255
     t.string   "avatar",                 limit: 255
+    t.string   "ancestry",               limit: 255
+    t.integer  "role_id",                limit: 8
+    t.integer  "parent_id",              limit: 8
+    t.integer  "status_id",              limit: 8
+    t.integer  "security_id",            limit: 8
     t.integer  "referral_code",          limit: 4
-    t.integer  "role_id",                limit: 4
+    t.string   "phone",                  limit: 255
+    t.string   "skype",                  limit: 255
+    t.string   "vk",                     limit: 255
+    t.string   "fb",                     limit: 255
+    t.string   "ok",                     limit: 255
+    t.string   "youtube",                limit: 255
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
@@ -54,4 +72,5 @@ ActiveRecord::Schema.define(version: 20160613165613) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "identities", "users"
 end
