@@ -7,6 +7,8 @@ gem 'clipboard-rails', '1.5.10'
 gem 'mini_magick', '4.5.1'
 # Carrierwave
 gem 'carrierwave', '0.11.2'
+# Materialized path tree
+gem 'ancestry'
 # Devise
 gem 'devise', '4.1.1'
 # devise-i18n
@@ -17,7 +19,6 @@ gem 'omniauth-vkontakte'
 # Bootstrap-sass
 gem 'bootstrap-sass', '3.3.0.0'
 # font-awesome-rails
-
 gem 'font-awesome-rails', '4.3.0.0'
 # Use SCSS for stylesheet
 gem 'sass-rails', '~> 5.0'
@@ -27,8 +28,6 @@ gem 'rails', '4.2.6'
 #gem 'pg', '0.18.4'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.13', '< 0.5'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
   require 'json'
-
+  has_ancestry
   belongs_to :role
+  belongs_to :parent, class_name: 'User'
+  has_many :parent, class_name: 'User'
+
   before_create :set_default_role
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
@@ -39,18 +42,12 @@ class User < ActiveRecord::Base
 
       # Create the user if it's a new registration
       if user.nil?
-        user = User.new(
-          name: auth.extra.raw_info.first_name,
-          last_name: auth.extra.raw_info.last_name,
-          birthday: auth.extra.raw_info.bdate,
-          country: auth.extra.raw_info.country.title,
-          city: auth.extra.raw_info.city.title,
-          avatar: auth.extra.raw_info.photo_50,
-          sex: auth.extra.raw_info.sex,
-          #username: auth.info.nickname || auth.uid,
-          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-          password: Devise.friendly_token[0,20]
-        )
+        case auth.provider
+        when 'facebook'
+          user = user_from_facebook(auth)
+        when 'vkontakte'
+          user = user_from_vkontakte(auth)
+        end
         user.skip_confirmation!
         user.save!
       end
@@ -73,6 +70,37 @@ class User < ActiveRecord::Base
     else
      all()
     end
+  end
+
+  def self.user_from_facebook(auth)
+    email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
+    email = auth.info.email if email_is_verified
+    first, last = *(auth.info.name.split(' '))
+    User.new(
+      name: first,
+      last_name: last,
+      avatar: auth.info.image,
+      #username: auth.info.nickname || auth.uid,
+      email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+      password: Devise.friendly_token[0,20]
+    )
+  end
+
+  def self.user_from_vkontakte(auth)
+    email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
+    email = auth.info.email if email_is_verified
+    User.new(
+      name: auth.extra.raw_info.first_name,
+      last_name: auth.extra.raw_info.last_name,
+      birthday: auth.extra.raw_info.bdate,
+      country: auth.extra.raw_info.country.title,
+      city: auth.extra.raw_info.city.title,
+      avatar: auth.extra.raw_info.photo_50,
+      sex: auth.extra.raw_info.sex,
+      #username: auth.info.nickname || auth.uid,
+      email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+      password: Devise.friendly_token[0,20]
+    )
   end
 
   private
