@@ -71,8 +71,8 @@ class User < ActiveRecord::Base
      all()
     end
   end
-  
-  def user_from_facebook(auth)
+
+  def self.user_from_facebook(auth)
     first, last = *(auth.extra.info.name.split(' '))
     User.new(
       name: first,
@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
     )
   end
 
-  def user_from_vkontakte(auth)
+  def self.user_from_vkontakte(auth)
     User.new(
       name: auth.extra.raw_info.first_name,
       last_name: auth.extra.raw_info.last_name,
