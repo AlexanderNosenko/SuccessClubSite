@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
   end
 
   def self.user_from_facebook(auth)
-    first, last = *(auth.extra.info.name.split(' '))
+    first, last = *(auth.info.name.split(' '))
     User.new(
       name: first,
       last_name: last,
