@@ -1,64 +1,110 @@
 //= require toastr/toastr.min.css
-#main_content>.col-sm-12>.row
-	margin: 20px auto
-#main_content
-	hr
-		margin: 5px auto
-	.info_block
-		background: white
-		width: 100%
-		padding: 5px
-	#balances
-		height: 150px
-		@media screen and (max-width: 768px)
-			margin-bottom: 10px
-		span.balance
-			font-size: 25px
-		.mybtn
-			width: 100%
-			margin: 5px auto
-			background: #1ab394
-			color: white
-			border: none
-			border-radius: 2px
-			padding: 5px
-	#partnership
-		height: 150px
-		.partner_link
-			margin: 10px auto
-			input
-				width: 75%
-				background: #eeeeee
-				border: 1px solid #e7e8e8
-				padding: 5px
-				color: grey
-			.mybtn
-				width: 20%
-				margin: auto
-				background: #1ab394
-				color: white
-				border: none
-				border-radius: 2px
-				padding: 5px
-	#video
-		height: 300px
-	#higher
-		margin-bottom: 62px
-		@media screen and (max-width: 768px)
-			margin-bottom: 0
-	.infographics
-		h3
-			margin: 10px 0 20px 15px
-			text-align: left
-		.infographic
-			background: #1ab394
-			color: white
-			border-radius: 2px
-			@media screen and (max-width: 768px)
-				margin-bottom: 10px
-			h4
-				height: 38px
-				@media screen and (max-width: 768px)
-					height: auto
-			span
-				font-size: 20px
+
+#main_content > .col-sm-12 > .row {
+  margin: 20px auto;
+}
+
+#main_content hr {
+  margin: 5px auto;
+}
+
+#main_content .info_block {
+  background: white;
+  width: 100%;
+  padding: 5px;
+}
+
+#main_content #balances {
+  height: 150px;
+}
+
+@media screen and (max-width: 768px) {
+  #main_content #balances {
+    margin-bottom: 10px;
+  }
+}
+
+#main_content #balances span.balance {
+  font-size: 25px;
+}
+
+#main_content #balances .mybtn {
+  width: 100%;
+  margin: 5px auto;
+  background: #1ab394;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+#main_content #partnership {
+  height: 150px;
+}
+
+#main_content #partnership .partner_link {
+  margin: 10px auto;
+}
+
+#main_content #partnership .partner_link input {
+  width: 75%;
+  background: #eeeeee;
+  border: 1px solid #e7e8e8;
+  padding: 5px;
+  color: grey;
+}
+
+#main_content #partnership .partner_link .mybtn {
+  width: 20%;
+  margin: auto;
+  background: #1ab394;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+#main_content #video {
+  height: 300px;
+}
+
+#main_content #higher {
+  margin-bottom: 62px;
+}
+
+@media screen and (max-width: 768px) {
+  #main_content #higher {
+    margin-bottom: 0;
+  }
+}
+
+#main_content .infographics h3 {
+  margin: 10px 0 20px 15px;
+  text-align: left;
+}
+
+#main_content .infographics .infographic {
+  background: #1ab394;
+  color: white;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  #main_content .infographics .infographic {
+    margin-bottom: 10px;
+  }
+}
+
+#main_content .infographics .infographic h4 {
+  height: 38px;
+}
+
+@media screen and (max-width: 768px) {
+  #main_content .infographics .infographic h4 {
+    height: auto;
+  }
+}
+
+#main_content .infographics .infographic span {
+  font-size: 20px;
+}
