@@ -4,16 +4,34 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Main
       t.string :name
       t.string :last_name
-      t.string :phone
-      t.string :skype
       t.date :birthday
       t.integer :sex
       t.string :country
       t.string :city
       t.string :about
       t.string :avatar
+      t.string :ancestry
+
+      ## References 
+      t.references :role, limit: 6
+      t.references :parent, references: :users, limit: 6
+      t.references :status, limit: 6
+      t.references :security, limit: 6
+      # t.integer :role_id
+      # t.integer :parent_id  # user model
+      # t.integer :status_id
+      # t.integer :security_id
+
+
       t.integer :referral_code
-      t.references :role
+      ## Contacts
+      t.string :phone
+      t.string :skype
+      t.string :vk
+      t.string :fb
+      t.string :ok
+      t.string :youtube
+      # t.string :viber - isn't a phone?
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -50,6 +68,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
+    # add_index :users, :ancestry,             unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end

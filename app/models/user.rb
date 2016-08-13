@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
   require 'json'
-
+  has_ancestry
   belongs_to :role
+  belongs_to :parent, class_name: 'User'
+  has_many :parent, class_name: 'User'
+
   before_create :set_default_role
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
