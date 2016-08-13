@@ -36,8 +36,6 @@ class User < ActiveRecord::Base
       # Get the existing user by email if the provider gives us a verified email.
       # If no verified email was provided we assign a temporary email and ask the
       # user to verify it on the next step via UsersController.finish_signup
-      email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
-      email = auth.info.email if email_is_verified
       user = User.where(:email => email).first if email
 
       # Create the user if it's a new registration
@@ -73,6 +71,8 @@ class User < ActiveRecord::Base
   end
 
   def self.user_from_facebook(auth)
+    email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
+    email = auth.info.email if email_is_verified
     first, last = *(auth.info.name.split(' '))
     User.new(
       name: first,
@@ -85,6 +85,8 @@ class User < ActiveRecord::Base
   end
 
   def self.user_from_vkontakte(auth)
+    email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
+    email = auth.info.email if email_is_verified
     User.new(
       name: auth.extra.raw_info.first_name,
       last_name: auth.extra.raw_info.last_name,
