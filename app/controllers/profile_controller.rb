@@ -29,7 +29,7 @@ class ProfileController < ApplicationController
       if @user.update(user_params)
         @user.skip_reconfirmation!
         sign_in(@user, :bypass => true)
-        redirect_to users_path, notice: 'Your profile was successfully updated.'
+        redirect_to users_path, notice: 'Профиль обновлен.'
       else
         @show_errors = true
       end

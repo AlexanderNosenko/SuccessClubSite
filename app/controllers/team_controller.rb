@@ -1,8 +1,9 @@
 class TeamController < ApplicationController
   before_action :authenticate_user!
+  require 'will_paginate/array'
 
   def index
-    @team = User.descendants.search(params[:search]).paginate(:per_page => 15, :page => params[:page])
+    @team = User.descendants.paginate(:per_page => 15, :page => params[:page])
 
     respond_to do |format|
       format.html { render :index }
