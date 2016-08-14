@@ -1,4 +1,4 @@
-<% if team.any? %>
+<% unless @team.empty? %>
 	<% @team.each do |user| %>
 		<tr>
 			<td class="client-avatar"><img alt="image" src="<%= image_path('a2.jpg') %>"> </td>

@@ -38,6 +38,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-datepicker-rails'
 gem 'country_select'
 gem "better_errors"
+gem 'countries'
+
 gem "binding_of_caller"
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.1.1'

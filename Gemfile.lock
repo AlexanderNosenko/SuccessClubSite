@@ -226,6 +226,7 @@ DEPENDENCIES
   carrierwave (= 0.11.2)
   clipboard-rails (= 1.5.10)
   coffee-rails (~> 4.1.0)
+  countries
   country_select
   devise (= 4.1.1)
   devise-i18n (= 1.1.0)

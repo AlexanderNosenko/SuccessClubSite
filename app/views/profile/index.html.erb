@@ -141,7 +141,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <%= label_tag "Страна" %>
-                  <%= content_tag('div', @user.country ,class: "form-control")%>
+                  <%=country_select("user", "country", { priority_countries: ["GB", "FR"], selected: "GB" }, { class: 'form-control',  data: { attribute: "value" } , placeholder: "Страна", disabled:''})%>
                 </div>
               </div>
             

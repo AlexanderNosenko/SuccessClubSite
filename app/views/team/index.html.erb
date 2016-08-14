@@ -27,7 +27,7 @@
                       <%= render :partial => 'user_list', :locals => { :team => @team} %> 
                       </tbody>
                     </table>
-                    <%= will_paginate @team %>
+                    <%= will_paginate @team unless @team.nil? %>
                   </div>
                 </div>
               </div>
