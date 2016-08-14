@@ -8,10 +8,8 @@ module ApplicationHelper
     end
 
     def get_avatar(user)
-      if user.nil? || user.avatar.nil?
-        image_tag('/images/no_avatar.png')
-      else
-        image_tag user.avatar_url
-      end
+      url = user.avatar_url
+      url = '/images/no_avatar.png' if user.avatar_url.nil?
+      image_tag(url, class: "profile-pic")
     end
 end

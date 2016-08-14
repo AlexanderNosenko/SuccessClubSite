@@ -10,11 +10,15 @@
           <%= form_for(@user, :url => @user, :html => { :method => :patch }) do |f| %>
               <div class="row">
                 <div class="col-md-12" style="text-align:center;" >
+                  <%= f.label "Фото" %>  
+                </div>
+                <div class="col-md-12" style="text-align:center; min-height:400px;" >
                   <%= get_avatar(current_user) %>
+                </div>
+                <div class="col-md-12" style="text-align:center; margin-bottom: 10px;">
                   <label class="btn btn-info btn-file">
                       Browse <%= f.file_field :avatar, style: "display: none;" %>
                   </label>
-                  
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
