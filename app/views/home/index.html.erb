@@ -9,7 +9,7 @@
 <div id="main_content" class="row">
   <div class="col-sm-12">
     <div class="row">
-      <div class="col-sm-6">
+      <!-- <div class="col-sm-6">
         <div class="row">
           <div class="col-sm-6">
             <div id="balances" class="info_block">
@@ -28,29 +28,22 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="col-sm-6">
         <div id="partnership" class="info_block">
           <h3>Партнерские ссылки:</h3>
           <hr>
           <div id="first_partner_link" class="partner_link">
-            <input type="text" value="Somelink.com/dfsssfsf" disabled name="first_partner_link">
-            <button id="copy_first_link" class="mybtn">Копировать</button><span>Просмотры: </span><span id="first_views">... </span><span>Партнеров: </span><span id="first_partners">... </span><span>Конверсия: </span><span id="first_conversion">...% </span>
+            <input type="text" value="<%= partner_link_url(current_user)%>" disabled name="first_partner_link">
+            <button id="copy_first_link" class="mybtn">Копировать</button>
+            <!-- <span>Просмотры: </span><span id="first_views">... </span> -->
+            <span> Партнеров: </span><span id="first_partners"><%= current_user.descendants.count %> </span>
+            <!-- <span>Конверсия: </span><span id="first_conversion">...% </span> -->
           </div>
-          <!--.partner_link#second_partner_link
-          input(type='text' value='Somelink.com/dfsssfsf' disabled name='second_partner_link')
-          button.mybtn#copy_second_link Копировать
-          span Просмотры: 
-          span#second_views ... 
-          span Партнеров: 
-          span#second_partners ... 
-          span Конверсия: 
-          span#second_conversion ...% 
-          -->
         </div>
       </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-sm-6">
         <div id="video" class="info_block"></div>
       </div>
@@ -85,8 +78,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="row infographics">
+    </div> -->
+    <!-- <div class="row infographics">
       <h3>Статистика Клуба:</h3>
       <div class="col-sm-2">
         <div class="info_block infographic">
@@ -124,6 +117,6 @@
           <hr><span id="payed_money">100500</span>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'landing#index'
   get 'home' => 'home#index'
   get 'team' => 'team#index'
-  get '/p/:id' => 'partner_link#partner'
+  get '/p/:id' => 'partner_link#partner', as: "partner_link"
   delete '/p' => 'partner_link#delete', as: "delete_partner_session"
 
   match '/profile/:id/finish_signup' => 'profile#finish_signup', via: [:get, :patch], :as => :finish_signup
