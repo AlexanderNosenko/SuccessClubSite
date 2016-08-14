@@ -110,6 +110,13 @@ class User < ActiveRecord::Base
     logger.debug "pars: " + pars.to_json.to_s
     new(pars)
   end
+  def search_descendants(search)
+    search_res = []
+    self.descendants.each do |user|
+      search_res.push(user) unless (/.*#{search}.*/i =~ user.name).nil?
+    end
+    return search_res
+  end
   private
   def avatar_size_validation
     errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes

@@ -3,12 +3,16 @@ class TeamController < ApplicationController
   require 'will_paginate/array'
 
   def index
-    @team = User.descendants.paginate(:per_page => 15, :page => params[:page])
 
     respond_to do |format|
-      format.html { render :index }
-      format.js { render :partial => 'user_list', :locals => { :team => @team} }
-      # format.js { render json: params[:search] }
+      format.html do 
+    	@team = current_user.descendants.paginate(:per_page => 15, :page => params[:page])
+    	render :index 
+      end
+      format.js do
+      	@team = current_user.search_descendants(params[:search])
+      	render :partial => 'user_list', :locals => { :team => @team}# unless @team.nil?
+      end 
     end
   end
 end

@@ -6,7 +6,8 @@
 $(document).ready(function (e) {
     
     $("#team_search").on("ajax:complete", function (e, data, status, xhr) {
-    	$('.table.table-striped.table-hover').find('tbody').html(data.responseText);
+    	console.log($(data.responseText));
+    	$('.table.table-striped.table-hover').find('tbody').html($(data.responseText));
     })
     
 })  

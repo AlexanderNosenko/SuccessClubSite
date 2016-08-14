@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
-  before_action :set_user, only:[:show, :edit, :update, :finish_signup]
+  before_action :set_user, only:[:index, :show, :edit, :update, :finish_signup]
 
   def index
   end
@@ -43,6 +43,7 @@ class ProfileController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) unless params[:id].nil?
+    @user = current_user
   end
 end
