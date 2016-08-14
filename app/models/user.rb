@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
   mount_uploader :avatar, AvatarUploader
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -105,7 +104,12 @@ class User < ActiveRecord::Base
       password: Devise.friendly_token[0,20]
     )
   end
-
+  def self.new_with_session(params, session)
+    pars = params.merge({parent: User.find(session[:parent_id])}) if (session[:parent_id])
+    logger.debug "session: " + session.to_json.to_s
+    logger.debug "pars: " + pars.to_json.to_s
+    new(pars)
+  end
   private
   def avatar_size_validation
     errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
