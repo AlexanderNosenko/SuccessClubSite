@@ -70,4 +70,4 @@ production:
   <<: *default
   database: <%= ENV['CLUB_DATABASE_NAME']%>
   username: <%= ENV['CLUB_DATABASE_USER']%>
-  password: <%= ENV['CLUB_DATABASE_PASS']%>
+  password: <%= ENV['CLUB_DATABASE_PASSWORD']%>
