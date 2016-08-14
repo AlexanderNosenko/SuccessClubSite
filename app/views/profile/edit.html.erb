@@ -53,11 +53,11 @@
               </div></div>
                 <div class="col-md-6"><div class="form-group">
                 <%= f.label "Дата рождения" %>
-                <%= f.text_field :birthday, autofocus: true, class: "datepicker form-control", placeholder: "Дата рождения" %>
+                <%= f.text_field :birthday, class: "form-control", placeholder: "гггг/мм/дд" %>
               </div></div>
                 <div class="col-md-6"><div class="form-group">
                 <%= f.label "Пол" %>
-                <%= f.text_field :sex, autofocus: true, class: "form-control", placeholder: "Пол" %>
+                <%= select("user", "sex", [['Мужчина', 2],['Женщина', 1]], { include_blank: true }, class: "form-control")%>
               </div></div>
                 <div class="col-md-6"><div class="form-group">
                 <%= f.label "Страна" %>

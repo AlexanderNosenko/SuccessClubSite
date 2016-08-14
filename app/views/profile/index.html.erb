@@ -135,7 +135,8 @@
             <div class="col-md-6">
               <div class="form-group">
                   <%= label_tag "Пол" %>
-                  <%= content_tag('div', @user.sex ,class: "form-control")%>
+                  <%= select("user", "sex", [['Мужчина', 2],['Женщина', 1]], { include_blank: true }, class: "form-control", :selected => @user.sex, disabled:'')%>
+                  <%content_tag('div', @user.sex ,class: "form-control")%>
                 </div>
               </div>
               <div class="col-md-6">

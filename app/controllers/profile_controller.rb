@@ -14,6 +14,7 @@ class ProfileController < ApplicationController
   end
   def update
     if request.patch? && params[:user]
+    
       if @user.update(user_params)
         redirect_to users_path, notice: 'Your profile was successfully updated.'
       else
