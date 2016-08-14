@@ -34,7 +34,7 @@
           <h3>Партнерские ссылки:</h3>
           <hr>
           <div id="first_partner_link" class="partner_link">
-            <input type="text" value="<%= partner_link_url(current_user)%>" disabled name="first_partner_link">
+            <input id="first-partner-link-input" type="text" value="<%= partner_link_url(current_user)%>" disabled name="first_partner_link">
             <button id="copy_first_link" class="mybtn">Копировать</button>
             <!-- <span>Просмотры: </span><span id="first_views">... </span> -->
             <span> Партнеров: </span><span id="first_partners"><%= current_user.descendants.count %> </span>
