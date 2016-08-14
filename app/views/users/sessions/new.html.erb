@@ -20,13 +20,17 @@
           <% end %>
           <%= f.submit  t('.sign_in', :default => "Вход"), class: "btn btn-primary block full-width m-b" %>
       <% end %>
-
+      Войти через:
+      <%= link_to user_facebook_omniauth_authorize_path do %>
+        <img src="http://icons.iconarchive.com/icons/martz90/circle/256/fb-icon.png" width=25 height="25">
+      <% end %>
+      <%= link_to user_vkontakte_omniauth_authorize_path do %>
+        <img src="https://cdn4.iconfinder.com/data/icons/social-circle/512/vk-128.png" width=25 height="25">
+      <% end %>
+      <br>
       <a href="<%= url_for :controller => 'users/passwords', :action => 'new' %>"><small>Забыли пароль?</small></a>
       <p class="text-muted text-center"><small>У вас нет аккаунта?</small></p>
       <a class="btn btn-sm btn-white btn-block" href="<%= url_for :controller => 'users/registrations', :action => 'new' %>">Зарегистрироваться</a>
     <p class="m-t"> <small>Все права защищены &copy; 2016</small> </p>
   </div>
 </div>
-
-
-
