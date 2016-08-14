@@ -6,15 +6,15 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = '57097e7158554fa7d7b30c0b8287d5c8817eb5b44d397583e83bd8021b59e44383d3ece8977ed9751af85a8f0a4de05ceedae43f6d253e08636dc6d6925f6206'
-  config.omniauth :facebook, "147048149067477", "d3776b32693e40cfaf28dec4ad78d4be"
-  config.omniauth :vkontakte, "5585689", "kboToQ2MPYLy8qqvzA5T"
+  config.secret_key = ENV['DEVISE_SECRET_KEY']
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV["FACEBOOK_APP_SECRET"]
+  config.omniauth :vkontakte, ENV['VK_APP_ID'], ENV['VK_APP_SECRET']
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'support@improf.club'
+  config.mailer_sender = ENV["DEVISE_MAIL_SENDER"]
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
