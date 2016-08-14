@@ -1,8 +1,15 @@
-<div class="middle-box text-center loginscreen   animated fadeInDown">
+<div class="middle-box text-center loginscreen animated fadeInDown">
   <div>
     <div>
-      <div class="alert alert-warning" role="alert">  <%= devise_error_messages! %> </div>
-
+      <% if devise_has_errors? %>
+        <div class="alert alert-warning" role="alert">  <%= devise_error_messages! %> </div>
+      <% end %>
+      <% if @parent %>
+        <div class="alert alert-info" role="alert" id="partner_alert">
+          Вы регистрируетесь как партнер пользователя <%= "#{@parent.name} #{@parent.last_name}" %>
+          <%= link_to 'Отменить', delete_partner_session_path, id: "delete_partner_session", remote: true, method: :delete %>
+        </div>
+      <% end %>
       <h1 class="logo-name">КП</h1>
     </div>
     <h3>Регистрация</h3>

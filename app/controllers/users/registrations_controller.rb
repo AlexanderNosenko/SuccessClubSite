@@ -3,9 +3,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
   layout 'empty', only: [:new, :create, :update, :destroy, :cancel]
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @parent = User.find(session[:parent_id]) if session[:parent_id]
+    super
+  end
 
   # POST /resource
   # def create
@@ -37,7 +38,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

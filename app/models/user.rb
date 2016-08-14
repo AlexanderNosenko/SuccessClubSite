@@ -48,6 +48,9 @@ class User < ActiveRecord::Base
         when 'vkontakte'
           user = user_from_vkontakte(auth)
         end
+        if session[:parent_id]
+          user.parent = User.find session[:parent_id]
+        end
         user.skip_confirmation!
         user.save!
       end
@@ -79,7 +82,7 @@ class User < ActiveRecord::Base
     User.new(
       name: first,
       last_name: last,
-      avatar: auth.info.image,
+      remote_avatar_url: auth.info.image,
       #username: auth.info.nickname || auth.uid,
       email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
       password: Devise.friendly_token[0,20]
@@ -95,7 +98,7 @@ class User < ActiveRecord::Base
       birthday: auth.extra.raw_info.bdate,
       country: auth.extra.raw_info.country.title,
       city: auth.extra.raw_info.city.title,
-      avatar: auth.extra.raw_info.photo_50,
+      remote_avatar_url: auth.extra.raw_info.photo_50,
       sex: auth.extra.raw_info.sex,
       #username: auth.info.nickname || auth.uid,
       email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",

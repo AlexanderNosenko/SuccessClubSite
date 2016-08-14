@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'landing#index'
   get 'home' => 'home#index'
   get 'team' => 'team#index'
+  get '/p/:id' => 'partner_link#partner'
+  delete '/p' => 'partner_link#delete', as: "delete_partner_session"
 
   match '/profile/:id/finish_signup' => 'profile#finish_signup', via: [:get, :patch], :as => :finish_signup
   devise_for :users, controllers:
