@@ -14,12 +14,12 @@ class ProfileController < ApplicationController
   end
   def update
     if request.patch? && params[:user]
-    
+
       if @user.update(user_params)
         redirect_to users_path, notice: 'Your profile was successfully updated.'
       else
         @show_errors = true
-        
+
         render "edit"
       end
     end
@@ -44,7 +44,10 @@ class ProfileController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id]) unless params[:id].nil?
-    @user = current_user
+    if params[:id].nil? then
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
   end
 end

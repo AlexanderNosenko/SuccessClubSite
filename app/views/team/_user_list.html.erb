@@ -2,14 +2,14 @@
 	<% @team.each do |user| %>
 		<tr>
 			<td class="client-avatar">
-				<%= link_to user_path(user) do%>
+				<%#= link_to user_path(user) do%>
 					<%= get_avatar(user) %>
-				<% end %>
+				<%# end %>
 			</td>
 			<td>
-				<%= link_to user_path(user) do%>
+				<%#= link_to user_path(user) do%>
 					<%= user.name %>&nbsp;<%= user.last_name %>
-				<% end %>
+				<%# end %>
 			</td>
 			<td><%= user.role.description%></td>
 			<!-- <td><%= user.created_at %></td> -->
