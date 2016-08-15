@@ -9,7 +9,7 @@
         <div>
           <div class="ibox-content no-padding border-left-right text-center">
             <br>
-            <img src="<%= current_user.avatar_url %>" class="img-circle circle-border m-b-md" alt="profile">
+            <%= get_avatar(current_user, {class:"img-circle circle-border m-b-md", style:"max-height:100px"}) %>
           </div>
           <div class="ibox-content profile-content">
             <h4><strong><%= @user.name %>&nbsp;<%= @user.last_name %></strong></h4>
@@ -70,4 +70,3 @@
     </script>
 
 <% end %>
-

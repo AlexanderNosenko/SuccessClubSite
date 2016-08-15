@@ -61,3 +61,12 @@ ru:
         few: "%{resource}: сохранение не удалось из-за %{count} ошибок"
         many: "%{resource}: сохранение не удалось из-за %{count} ошибок"
         other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Поле email должно быть не пустым"
+            password:
+              blank: "Пароль должен иметь длинну от 6 символов"

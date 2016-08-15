@@ -4,7 +4,7 @@
             <li class="nav-header">
                 <div class="dropdown profile-element">
                     <span>
-                        <img alt="image" style = "max-width:100px;" class="img-circle" src="<%= current_user.avatar_url %>"/>
+                        <%= get_avatar current_user, {style: "max-width:50px;", class: "img-circle"} %>
                     </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">

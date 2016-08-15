@@ -3,7 +3,7 @@
 		<tr>
 			<td class="client-avatar">
 				<%= link_to user_path(user) do%>
-					<img alt="image" src="<%= image_path('a2.jpg') %>">
+					<%= get_avatar(user) %>
 				<% end %>
 			</td>
 			<td>
