@@ -105,7 +105,7 @@ class User < ActiveRecord::Base
     )
   end
   def self.new_with_session(params, session)
-    pars = params.merge({parent: User.find(session[:parent_id])}) if (session[:parent_id])
+    pars = (session[:parent_id]) ? params.merge({parent: User.find(session[:parent_id])}) : params
     logger.debug "session: " + session.to_json.to_s
     logger.debug "pars: " + pars.to_json.to_s
     new(pars)
