@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
   mount_uploader :avatar, AvatarUploader
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -19,7 +18,7 @@ class User < ActiveRecord::Base
   #validates_integrity_of  :avatar
   #validates_processing_of :avatar
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
-  def self.find_for_oauth(auth, signed_in_resource = nil)
+  def self.find_for_oauth(auth, signed_in_resource = nil, session)
 
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
@@ -47,6 +46,9 @@ class User < ActiveRecord::Base
           user = user_from_facebook(auth)
         when 'vkontakte'
           user = user_from_vkontakte(auth)
+        end
+        if session[:parent_id]
+          user.parent = User.find session[:parent_id]
         end
         user.skip_confirmation!
         user.save!
@@ -79,7 +81,7 @@ class User < ActiveRecord::Base
     User.new(
       name: first,
       last_name: last,
-      avatar: auth.info.image,
+      remote_avatar_url: auth.info.image,
       #username: auth.info.nickname || auth.uid,
       email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
       password: Devise.friendly_token[0,20]
@@ -95,14 +97,26 @@ class User < ActiveRecord::Base
       birthday: auth.extra.raw_info.bdate,
       country: auth.extra.raw_info.country.title,
       city: auth.extra.raw_info.city.title,
-      avatar: auth.extra.raw_info.photo_50,
+      remote_avatar_url: auth.extra.raw_info.photo_50,
       sex: auth.extra.raw_info.sex,
       #username: auth.info.nickname || auth.uid,
       email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
       password: Devise.friendly_token[0,20]
     )
   end
-
+  def self.new_with_session(params, session)
+    pars = (session[:parent_id]) ? params.merge({parent: User.find(session[:parent_id])}) : params
+    logger.debug "session: " + session.to_json.to_s
+    logger.debug "pars: " + pars.to_json.to_s
+    new(pars)
+  end
+  def search_descendants(search)
+    search_res = []
+    self.descendants.each do |user|
+      search_res.push(user) unless (/.*#{search}.*/i =~ user.name).nil?
+    end
+    return search_res
+  end
   private
   def avatar_size_validation
     errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes

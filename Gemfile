@@ -12,10 +12,13 @@ gem 'ancestry'
 # Devise
 gem 'devise', '4.1.1'
 # devise-i18n
+gem 'rails-i18n'
 gem 'devise-i18n', '1.1.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
+gem "recaptcha", require: "recaptcha/rails"
+
 # Bootstrap-sass
 gem 'bootstrap-sass', '3.3.0.0'
 # font-awesome-rails
@@ -38,6 +41,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-datepicker-rails'
 gem 'country_select'
 gem "better_errors"
+gem 'countries'
+
 gem "binding_of_caller"
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.1.1'

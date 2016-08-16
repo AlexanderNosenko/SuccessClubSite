@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_signup_complete, only: [:new, :create, :update, :destroy]
-  before_action :set_user, only:[:show, :edit, :update, :finish_signup]
+  before_action :ensure_signup_complete, only: [:index, :new, :create, :update, :destroy]
+  before_action :set_user, only:[:index, :show, :edit, :update, :finish_signup]
 
   def index
   end
@@ -10,14 +10,17 @@ class ProfileController < ApplicationController
   end
 
   def edit
-    
+
   end
   def update
     if request.patch? && params[:user]
+
       if @user.update(user_params)
         redirect_to users_path, notice: 'Your profile was successfully updated.'
       else
         @show_errors = true
+
+        render "edit"
       end
     end
   end
@@ -27,7 +30,7 @@ class ProfileController < ApplicationController
       if @user.update(user_params)
         @user.skip_reconfirmation!
         sign_in(@user, :bypass => true)
-        redirect_to profile_path, notice: 'Your profile was successfully updated.'
+        redirect_to users_path, notice: 'Профиль обновлен.'
       else
         @show_errors = true
       end
@@ -37,10 +40,14 @@ class ProfileController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:email, :name, :last_name, :phone, :skype, :birthday, :sex, :country, :city, :about)
+    params.require(:user).permit(:email, :name, :last_name, :phone, :skype, :birthday, :sex, :country, :city, :about, :avatar)
   end
 
   def set_user
-    @user = User.find(params[:id])
+    if params[:id].nil? then
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
   end
 end

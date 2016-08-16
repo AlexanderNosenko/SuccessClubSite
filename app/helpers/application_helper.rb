@@ -7,11 +7,9 @@ module ApplicationHelper
         params[:action] == action_name ? "active" : nil
     end
 
-    def get_avatar(user)
-      if user.nil? || user.avatar.nil?
-        image_tag('/images/no_avatar.png')
-      else
-        image_tag user.avatar 
-      end
+    def get_avatar(user, params = {})
+      url = user.avatar_url
+      url = 'no_avatar.png' if user.avatar_url.nil?
+      image_tag(url, params)
     end
 end

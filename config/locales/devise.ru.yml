@@ -61,3 +61,37 @@ ru:
         few: "%{resource}: сохранение не удалось из-за %{count} ошибок"
         many: "%{resource}: сохранение не удалось из-за %{count} ошибок"
         other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Поле email должно быть не пустым"
+            password:
+              blank: "Пароль должен иметь длинну от 6 символов"
+      messages:
+        taken: "%{model} с таким именем уже существует"
+        record_invalid: "Валидация не прошла: %{errors}"
+        restrict_dependent_destroy:
+          one: "Невозможно удалить запись, так как существуют зависимости: %{record}"
+          many: "Невозможно удалить записи, так как существуют зависимости: %{record} "
+        inclusion: "недопустимое значение"
+        exclusion: "is reserved"
+        invalid: "содержит недопустимое значение"
+        confirmation: "doesn't match confirmation"
+        accepted: "must be accepted"
+        empty: "не может быть пустым"
+        blank: "не может быть пустым"
+        too_long: "слишком длинно (максимум: %{count} символов)"
+        too_short: "слишком коротко (минимум: %{count} символов)"
+        wrong_length: "is the wrong length (should be {{count}} characters)"
+        taken: "%{attribute} уже занята"
+        not_a_number: "может содержать только цифры"
+        greater_than: "должно быть больше {{count}}"
+        greater_than_or_equal_to: "должно быть больше или равно {{count}}"
+        equal_to: "должно быть равно {{count}}"
+        less_than: "должно быть меншье {{count}}"
+        less_than_or_equal_to: "должно быть меньше или равно {{count}}"
+        odd: "может быть только нечетным"
+        even: "может быть только четным"
