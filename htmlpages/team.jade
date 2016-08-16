@@ -13,7 +13,7 @@ html(lang="ru")
 		link(rel='stylesheet' media='all' href='css/animate.css')/
 		link(rel='stylesheet' href='css/fonts.css')/
 		link(rel='stylesheet' href='css/main.css')/
-		script(type='text/javascript' src='js/jquery-3.1.0.min.js')
+		script(type='text/javascript' src='js/jquery-1.12.3.min.js')
 		script(src='js/bootstrap/bootstrap.min.js')
 		script(src='js/wow.min.js')
 	body
@@ -25,13 +25,133 @@ html(lang="ru")
 						span#username Name Surname
 						span#status Status
 					ul#menu
-						li: a.active(href='#') Главная
+						li: a(href='#') Главная
 						li: a(href='#') Профиль
-						li: a(href='#') Команда
+						li: a.active(href='#') Команда
 				.col-sm-10.col-sm-offset-2#main
 					.row#topbar
 						.col-sm-12
 							#topbar_menu
 								a(href='#') <i class="fa fa-sign-out" aria-hidden="true"> Выход</i>
 								a(href='#') <i class="fa fa-bell" aria-hidden="true"><div class='notif_number' id='notifications'>12</div></i>
-								a(href='#') <i class="fa fa-envelope" aria-hidden="true"><div class='notif_number' id='messages'>8</div></i>						
+								a(href='#') <i class="fa fa-envelope" aria-hidden="true"><div class='notif_number' id='messages'>8</div></i>
+					.row
+						.col-sm-8
+							#mytabs
+								h2 Команда
+								input(type='text' placeholder='Имя Фамилия')
+								button.mybtn Поиск
+								#mytabsbtn
+									ul
+										br
+										li: a(href="#partners" data-toggle="tab"): button.active#part <i class="fa fa-user" aria-hidden="true"></i>  Партнеры
+										li: a(href="#mailing" data-toggle="tab"): button#mail Рассылка
+										li: a(href="#senpais" data-toggle="tab"): button#senp Наставники
+								.tab-content
+									.tab-pane.active#partners
+										.teammates
+											img.teammate.teammate_img(src='' alt='Партнер')
+											span.teammate.teammate_name Name Surname
+											span.teammate.teammate_login login
+											span.teammate.teammate_status VIP user
+											span.teammate 00:00 01/01/2001
+											span.teammate Online
+											span.teammate_info: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+											span.teammate: a(href='#') <i class="fa fa-envelope" aria-hidden="true"></i>
+										.teammates
+											img.teammate.teammate_img(src='' alt='Партнер')
+											span.teammate.teammate_name Name Surname
+											span.teammate.teammate_login login
+											span.teammate.teammate_status VIP user
+											span.teammate 00:00 01/01/2001
+											span.teammate Online
+											span.teammate_info: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+											span.teammate: a(href='#') <i class="fa fa-envelope" aria-hidden="true"></i>
+									.tab-pane#mailing
+										h1 mailing
+									.tab-pane#senpais
+										.teammates
+											img.teammate.teammate_img(src='' alt='Партнер')
+											span.teammate.teammate_name Name Surname
+											span.teammate.teammate_login login
+											span.teammate.teammate_status VIP user
+											span.teammate 00:00 01/01/2001
+											span.teammate Online
+											span.teammate <i class="fa fa-info-circle" aria-hidden="true"></i>
+											span.teammate <i class="fa fa-envelope" aria-hidden="true"></i>
+										.teammates
+											img.teammate.teammate_img(src='' alt='Партнер')
+											span.teammate.teammate_name Name Surname
+											span.teammate.teammate_login login
+											span.teammate.teammate_status VIP user
+											span.teammate 00:00 01/01/2001
+											span.teammate Online
+											span.teammate <i class="fa fa-info-circle" aria-hidden="true"></i>
+											span.teammate <i class="fa fa-envelope" aria-hidden="true"></i>
+						.col-sm-4
+							#all_info
+								.row
+									.col-sm-4
+										h3 Name Surname
+										img(src='#')
+									.col-sm-8
+										h4 Status
+										p.
+											some infosome infosome infosome infosome infosome info
+										button.mybtn Написать
+								.row
+									.col-sm-12
+										#contact_info
+											h3 Контакты
+											span Username@e.mail
+											hr
+											span +380931111111
+											hr
+											span login
+											hr
+											span Name Surname
+											hr
+											span Skype
+											hr
+											span Viber
+											hr
+											span Youtube
+											hr
+											span FB
+											hr
+											span OK
+											hr
+											span VK
+											h3 Пришел с:
+											hr
+											span example.ru
+											h3 Партнеры
+											hr
+											span Всего: 1
+											hr
+											span Первая линия: 1
+											h3 Бонусы
+											hr
+											span Bonuses: 200$
+											button.mybtn Команда
+		script(type='text/javascript').
+			$('#partners a').click(function (e) {
+			  e.preventDefault()
+			  $(this).tab('show')
+			});
+			$('#mailing a').click(function (e) {
+			  e.preventDefault()
+			  $(this).tab('show')
+			});	
+			$('#senpais a').click(function (e) {
+			  e.preventDefault()
+			  $(this).tab('show')
+			});	
+			$("#part").click (function (){
+				$("#part").addClass("active");
+				$("#senp").removeClass("active");
+			});
+			$("#senp").click(function (){
+				$("#senp").addClass("active");
+				$("#part").removeClass("active");
+			});

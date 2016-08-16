@@ -8,7 +8,7 @@ body {
   text-align: center;
 }
 
-ul, h3, h4 {
+ul, h3, h4, h2, hr {
   padding: 0;
   margin: 0;
 }
@@ -221,4 +221,147 @@ ul, h3, h4 {
 
 #main_content .infographics .infographic span {
   font-size: 20px;
+}
+
+#mytabs {
+  background: white;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+#mytabs h2 {
+  text-align: left;
+  margin: 0 auto 20px;
+  font-family: "RobotoLight";
+}
+
+#mytabs input {
+  width: 90%;
+  border: 1px solid #e7e8e8;
+  padding: 5px;
+  color: grey;
+}
+
+#mytabs .mybtn {
+  width: 9%;
+  margin: auto;
+  background: #1ab394;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+#mytabsbtn {
+  text-align: left;
+}
+
+#mytabsbtn ul {
+  margin: 10px auto 0;
+}
+
+#mytabsbtn ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+#mytabsbtn ul li button {
+  background: white;
+  border: 1px solid #e7e8e8;
+  color: #717476;
+  padding: 10px;
+}
+
+#mytabsbtn ul li .active {
+  border: 1px solid #e7e8e8;
+  border-bottom: 1px solid transparent;
+}
+
+#mytabsbtn ul li button:focus {
+  outline: none;
+}
+
+.teammates {
+  color: #717476;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
+  border: 1px solid #e7e8e8;
+  margin: -1px auto 0;
+}
+
+.teammates .teammate_img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.teammates .teammate_name, .teammates .teammate_status {
+  -webkit-flex-basis: 100px;
+      -ms-flex-preferred-size: 100px;
+          flex-basis: 100px;
+}
+
+.teammates .teammate_login {
+  -webkit-flex-basis: 50px;
+      -ms-flex-preferred-size: 50px;
+          flex-basis: 50px;
+}
+
+#all_info {
+  background: white;
+  margin: 10px auto;
+  padding: 10px;
+  color: #717476;
+}
+
+#all_info img {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+}
+
+#all_info h3 {
+  font-family: "RobotoLight";
+  margin: 20px auto 10px;
+  font-size: 20px;
+}
+
+#all_info h4 {
+  font-family: "RobotoBold";
+  text-align: left;
+}
+
+#all_info .mybtn {
+  width: 100%;
+  margin: auto;
+  background: #1ab394;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+#all_info p {
+  text-align: left;
+}
+
+#all_info #contact_info {
+  text-align: left;
+}
+
+#all_info #contact_info span {
+  margin: 5px 0;
+  display: block;
 }
