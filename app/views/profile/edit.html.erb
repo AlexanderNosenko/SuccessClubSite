@@ -19,7 +19,7 @@
           <%= form_for(@user, :url => @user, :html => { :method => :patch }) do |f| %>
               <div class="row">
                 <div class="col-md-12" style="text-align:center;" >
-                  <%= f.label "Фото" %>  
+                  <%= f.label "Фото" %>
                 </div>
                 <div class="col-md-12" style="text-align:center; min-height:<%=current_user.avatar.get_image_height%>px;" >
                   <%= get_avatar(current_user) %>
@@ -33,7 +33,7 @@
                   <div class="form-group">
                     <%= f.label "Имя" %>
                     <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Имя" %>
-                  </div>  
+                  </div>
                 </div>
                 <div class="col-md-6"><div class="form-group">
                 <%= f.label "Фамилия" %>
@@ -61,9 +61,9 @@
               </div></div>
                 <div class="col-md-6"><div class="form-group">
                 <%= f.label "Страна" %>
-                <%=country_select("user", "country", { priority_countries: ["GB", "FR"], selected: "GB" }, { class: 'form-control',  data: { attribute: "value" } , placeholder: "Страна"})%>
+                <%=country_select("user", "country", { priority_countries: ["GB", "FR"], selected: @user.country }, { class: 'form-control',  data: { attribute: "value" } , placeholder: "Страна"})%>
               </div></div>
-                
+
               <div class="col-md-6"><div class="form-group">
                 <%= f.label "Город" %>
                 <%= f.text_field :city, autofocus: true, class: "form-control", placeholder: "Город" %>
@@ -72,7 +72,7 @@
                 <%= f.label "О себе" %>
                 <%= f.text_area :about, autofocus: true, class: "form-control", placeholder: "О себе" %>
               </div></div>
-              
+
               <!-- <div class="form-group">
                 <%= f.label "Новый пароль" %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', :default => "оставьте пустым, если вы не хотите, изменить его") %>)</i>
                 <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
@@ -86,9 +86,9 @@
                 <%= f.password_field :current_password, class: "form-control" %>
               </div> -->
               <div class="col-md-12" style="text-align:center;">
-                <%= f.submit t('.update', :default => "Обновить"), class: "btn btn-primary" %>  
+                <%= f.submit t('.update', :default => "Обновить"), class: "btn btn-primary" %>
               </div>
-              
+
               <%# link_to t('.back', :default => 'Назад'), :back, class: "btn btn-info" %>
               </div>
           <% end %>

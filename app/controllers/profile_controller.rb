@@ -19,7 +19,6 @@ class ProfileController < ApplicationController
         redirect_to users_path, notice: 'Your profile was successfully updated.'
       else
         @show_errors = true
-
         render "edit"
       end
     end
