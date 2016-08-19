@@ -1,6 +1,6 @@
 class Users::PasswordsController < Devise::PasswordsController
   before_filter :authenticate_user!
-  prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
+  #prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
 
   layout 'empty', only: [:new, :create, :edit, :update]
   skip_before_filter :require_no_authentication#, only: [:new, :create, :edit, :update]
@@ -11,10 +11,7 @@ class Users::PasswordsController < Devise::PasswordsController
 
   private
     def check_captcha
-      unless verify_recaptcha
-        self.resource = resource_class.new sign_up_params
-        respond_with_navigational(resource) { render :new }
-      end
+      redirect_to(:new_user_password) unless verify_recaptcha
     end
   # POST /resource/password
   # def create

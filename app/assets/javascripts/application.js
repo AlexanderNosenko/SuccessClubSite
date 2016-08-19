@@ -6,18 +6,15 @@
 //
 //
 //= require jquery/jquery-2.1.1.js
-//= require jquery_ujs 
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
 //= require peity/jquery.peity.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require inspinia.js
-//= require clipboard
+
 
 $(document).ready(function(){
-
-    var clip = new Clipboard('.btn');
-    console.log(clip);
 
 });

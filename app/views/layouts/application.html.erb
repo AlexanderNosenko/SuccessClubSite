@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Клуб Професионалов</title>
+    <title>Клуб Професcионалов</title>
 
     <!-- Include style per-controller - vendor plugins -->
     <%= stylesheet_link_tag params[:controller] if (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset("#{params[:controller]}.css").to_s %>
@@ -42,7 +42,21 @@
 
         <!-- Right sidebar -->
         <%= render 'layouts/rightsidebar' %>
-
+        <% if flash[:notice] %>
+          <div class="toastr info">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <% if flash[:message] %>
+          <div class="toastr warning">
+            <%= flash[:message] %>
+          </div>
+        <% end %>
+        <% if flash[:error] %>
+          <div class="toastr error">
+            <%= flash[:error] %>
+          </div>
+        <% end %>
     </div>
     <!-- End wrapper-->
     <%= javascript_include_tag :defaults %>

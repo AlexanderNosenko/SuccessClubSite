@@ -8,7 +8,8 @@
 //= require chartjs/Chart.min.js
 //= require jvectormap/jquery-jvectormap-1.2.2.min.js
 //= require jvectormap/jquery-jvectormap-world-mill-en.js
-//= require toastr/toastr.min.js
+
+
 function copyToClipboard(element) {
     var $temp = $("<input>");
     $("body").append($temp);
