@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Клуб Професcионалов</title>
-
+    <%= render partial: 'layouts/favicons' %>
     <!-- Include style per-controller - vendor plugins -->
     <%= stylesheet_link_tag params[:controller] if (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset("#{params[:controller]}.css").to_s %>
 
