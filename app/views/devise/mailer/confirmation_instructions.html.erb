@@ -1,4 +1,162 @@
-<p>Приветствуем, <%= @email %>!</p>
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style type="text/css">
+      @font-face {
+        font-family: "GoodVibes";
+        src: url(<%= font_path "9151.ttf" %>);
+        font-style: normal;
+        font-weight: normal;
+      }
+      @font-face {
+        font-family: "CodePro";
+        src: url(<%= font_path "CodeProLight.otf" %>);
+        font-style: normal;
+        font-weight: normal;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        font-family: sans-serif;
+        text-align: center;
+        width: 100%;
+        min-width: 600px;
+      }
 
-<p>Вы можете подтвердить ваш почтовый аккаунт по
-  <%= link_to 'этой ссылке', confirmation_url(@resource, confirmation_token: @token) %>!</p>
+      ul {
+        padding: 0;
+        margin: 0;
+      }
+
+      #greetings {
+        text-align: left;
+      }
+
+      #greetings h1 {
+        text-transform: uppercase;
+        margin: 5px 0;
+        font-size: 20px;
+      }
+
+      #header {
+        background: #6e2866;
+      }
+
+      #header header {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #header header .social i {
+        color: white;
+        font-size: 40px;
+        margin: 0 5px;
+      }
+
+      #header header .name a {
+        font-size: 30px;
+        color: white;
+      }
+
+      #header header .name a:hover {
+        text-decoration: none;
+      }
+
+      #header header .cnt_img {
+        width: 250px;
+        height: 70px;
+        margin: -9px -140px -9px 0;
+      }
+
+      #header header .cnt_text {
+        margin-right: 30px;
+      }
+
+      #maintext h1 {
+        margin: 0;
+      }
+
+      #maintext .club {
+        font-family: "GoodVibes";
+        font-size: 110px;
+        margin-top: 40px;
+      }
+
+      #maintext .prof {
+        font-family: "CodePro";
+        font-size: 35px;
+        margin-bottom: 20px
+      }
+
+      #foruser img {
+        width: 100%;
+      }
+
+      #btncontainer {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+      #btncontainer #btn_btn a {
+        width: 60%;
+        background: transparent;
+        border: none;
+      }
+
+      #btncontainer #btn_btn a img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div id="greetings" class="row">
+        <div class="col-sm-offset-1 col-sm-11">
+          <h1>Добро пожаловать в Клуб проффесионалов</h1>
+        </div>
+      </div>
+      <div id="header" class="row">
+        <div class="col-sm-12">
+          <header>
+            <div class="social"><a href="https://vk.com/improfclub"><i class="fa fa-vk" aria-hidden="true"></i></a><a href="https://www.facebook.com/groups/1607694376208959/"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></div><span class="name"><a href="#">improf.club</a></span>
+            <div class="cnt"><%= image_tag "mail/cnt-bg.png", class:"cnt_img" %><span class="cnt_text"><%= ENV["DEVISE_MAIL_SENDER"] %></span></div>
+          </header>
+        </div>
+      </div>
+      <div id="maintext" class="row">
+        <div class="col-sm-12">
+          <h1 class="club">Клуб</h1>
+          <h1 class="prof">Проффесионалов</h1>
+        </div>
+      </div>
+      <div id="foruser" class="row">
+        <div class="col-sm-offset-2 col-sm-8"><%= image_tag "mail/line.png" %>
+            <p>Приветствуем, <%= @resource.name %>!</p>
+
+            <p>Вы можете подтвердить ваш почтовый аккаунт</p>
+
+
+          <%= image_tag "mail/line.png" %>
+        </div>
+      </div>
+      <div id="btncontainer" class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+          <div id="btn_btn">
+            <%= link_to confirmation_url(@resource, confirmation_token: @token) do %>
+              <%= image_tag "mail/button-bg.png" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
