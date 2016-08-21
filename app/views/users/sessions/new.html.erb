@@ -35,6 +35,7 @@
       <a href="<%= url_for :controller => 'users/passwords', :action => 'new' %>"><small>Забыли пароль?</small></a>
       <p class="text-muted text-center"><small>У вас нет аккаунта?</small></p>
       <a class="btn btn-sm btn-white btn-block" href="<%= url_for :controller => 'users/registrations', :action => 'new' %>">Зарегистрироваться</a>
+      <p><%= link_to "Не получили инструкции по подтверждению почты?", new_confirmation_path(resource_name) %></p>
     <p class="m-t"> <small>Все права защищены &copy; 2016</small> </p>
   </div>
 </div>
