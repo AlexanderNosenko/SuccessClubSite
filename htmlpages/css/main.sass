@@ -1,228 +1,292 @@
 body
 	margin: 0
 	padding: 0
-	font-size: 14px
+	font-size: 16px
 	font-family: "RobotoRegular", sans-serif
 	transition:all 400ms
-	background: #f2f2f3
-	width: 100%
 	text-align: center
-
-ul, h3, h4, h2, hr
+::-webkit-scrollbar
+    width: 4px
+::-webkit-scrollbar-thumb
+    background: #23a48a 
+::-webkit-scrollbar-thumb:window-inactive
+	background: #23a48a
+ul
 	padding: 0
 	margin: 0
-
-#sidebar
-	height: 100vh
-	background: #2f4050
-	position: fixed
-	padding: 0
-	#user_info
-		background: url('../img/profile-bg.png')
-		background-size: cover
-		color: white
-		text-align: left
-		padding: 20px 10px 40px
-		img
-			margin: 10px 0 30px 20px
-			width: 50px
-			height: 50px
-			border-radius: 50%
-		span
-			margin: 10px 0 0 20px
-			display: block
-	#menu
-		text-align: left
-		li
-			list-style: none
-			a
-				font-size: 15px
-				color: #8cb1c2
-				padding: 10px 0 10px 30px
-				display: block
-				width: 100%
-			.active
-				background: #293846
-				color: white
-				padding-left: 26px
-				border:
-					left: 4px solid #1ab394
-			a:hover
-				text-decoration: none
-				color: white
-				background: #293846
-				cursor: pointer
-#topbar
-	height: 50px
-	background: white
+.flexbox
 	display: flex
-	align-items: center
-	#topbar_menu
-		display: flex
+#top
+	background: #23a48a
+	width: 100%
+	position: fixed
+	z-index: 15
+	#flex-top
 		flex-direction: row-reverse
 		align-items: center
-		a
-			margin: 0 10px
-			color: #999c9e
-			i 
-				position: relative
-				.notif_number
-					background: #1ab394
-					color: white
-					font-size: 9px
-					width: 15px
-					height: 10px
-					position: absolute
-					top: -5px
-					right: -10px
-					border-radius: 2px
-#main_content>.col-sm-12>.row
-	margin: 20px auto
-#main_content
-	hr
-		margin: 5px auto
-	.info_block
-		background: white
-		width: 100%
-		padding: 5px
-	#balances
-		height: 150px
-		@media screen and (max-width: 768px)
-			margin-bottom: 10px
-		span.balance
-			font-size: 25px
-		.mybtn
-			width: 100%
-			margin: 5px auto
-			background: #1ab394
-			color: white
+		justify-content: space-between
+		padding: 0 10px 0 5px
+		height: 50px
+		a, button
+			color: #d4f0ea
+			display: inline-flex
+			align-items: center
+			justify-content: center
 			border: none
-			border-radius: 2px
-			padding: 5px
-	#partnership
-		height: 150px
-		.partner_link
-			margin: 10px auto
-			input
-				width: 75%
-				background: #eeeeee
-				border: 1px solid #e7e8e8
-				padding: 5px
-				color: grey
-			.mybtn
-				width: 20%
-				margin: auto
-				background: #1ab394
-				color: white
-				border: none
-				border-radius: 2px
-				padding: 5px
-	#video
-		height: 300px
-	#higher
-		margin-bottom: 62px
-		@media screen and (max-width: 768px)
-			margin-bottom: 0
-	.infographics
-		h3
-			margin: 10px 0 20px 15px
-			text-align: left
-		.infographic
-			background: #1ab394
-			color: white
-			border-radius: 2px
-			@media screen and (max-width: 768px)
-				margin-bottom: 10px
-			h4
-				height: 38px
-				@media screen and (max-width: 768px)
-					height: auto
-			span
+			border-radius: 50%
+			width: 40px
+			height: 40px
+			margin: 0 2px
+			background: #167562
+			transition: all 500ms
+			i
 				font-size: 20px
-#mytabs
-	background: white
-	padding: 10px
-	margin: 10px auto
-	h2
-		text-align: left
-		margin: 0 auto 20px
-		font-family: "RobotoLight"
-	input
-		width: 90%
-		border: 1px solid #e7e8e8
-		padding: 5px
-		color: grey
-	.mybtn
-		width: 9%
-		margin: auto
-		background: #1ab394
-		color: white
-		border: none
-		border-radius: 2px
-		padding: 5px
-#mytabsbtn
-	text-align: left
-	ul
-		margin: 10px auto 0
-		li
-			list-style: none
-			display: inline-block
-			button
-				background: white
-				border: 1px solid #e7e8e8
-				color: #717476
-				padding: 10px
+		a:hover, a:focus, button:hover
+			text-decoration: none
+			outline: none
+			transform: scale(1.1)
+		button:focus
+			outline: none
+		.no-bg
+			background: transparent
+#main
+	#sidebar
+		position: fixed
+		height: 100vh
+		top: 0
+		z-index: 10
+		overflow-y: scroll
+		overflow-x: hidden
+		#flex-sidebar
+			flex-direction: column
+			background: #167562
+			transition: all 500ms
+			padding-top: 50px
+			a
+				color: white
+				text-align: left
+				background: #1bb394
+				border: 1px solid transparent
+				transition: all 500ms
+				overflow: hidden
+				display: flex
+				align-items: center
 			.active
-				border: 1px solid #e7e8e8
-					bottom: 1px solid transparent
-			button:focus
-				outline: none
-.teammates
-	color: #717476
-	width: 100%
-	display: flex
-	flex-wrap: wrap
-	justify-content: space-around
-	align-items: center
-	padding: 10px 0
-	border: 1px solid #e7e8e8
-	margin: -1px auto 0
-	.teammate_img
-		width: 30px
-		height: 30px
-		border-radius: 50%
-	.teammate_name, .teammate_status
-		flex-basis: 100px
-	.teammate_login
-		flex-basis: 50px
-#all_info
-	background: white
-	margin: 10px auto
-	padding: 10px
-	color: #717476
-	img
-		height: 30px
-		width: 30px
-		text-align: center
-	h3
-		font-family: "RobotoLight"
-		margin: 20px auto 10px
-		font-size: 20px
-	h4
-		font-family: "RobotoBold"
-		text-align: left
-	.mybtn
+				background: #167562
+				border: 1px solid #1bb394
+					left: 5px solid #1bb394
+			.active:hover
+				background: #167562
+				border: 1px solid #1bb394
+					left: 5px solid #1bb394
+			a:hover
+				background: #167562
+				border: 1px solid #1bb394
+				text-decoration: none
+		.minimized
+			width: 53px
+			a
+				width: 90%
+				margin: 10px auto 0
+				padding: 10px
+				justify-content: center
+				.full-menu
+					display: none
+		.full
+			width: 200px
+			a
+				width: 90%
+				padding: 10px 0 10px 10px
+				margin: 10px 0 0 10px
+				i
+					margin: 0 5px 0 0
+	#content.full
+		margin: 50px auto 0 53px
+	#content.minimized
+		margin: 50px auto 0 200px
+	#content
+		justify-content: flex-start
+		align-items: center
+		flex-direction: column
 		width: 100%
-		margin: auto
-		background: #1ab394
-		color: white
-		border: none
-		border-radius: 2px
-		padding: 5px
-	p
-		text-align: left
-	#contact_info
-		text-align: left
-		span
-			margin: 5px 0
-			display: block
+		transition: all 500ms
+		#user-info
+			width: 80%
+			flex-direction: column
+			padding: 20px
+			@media screen and (max-width: 767px)
+				width: 95%
+				margin: 0 auto
+			background: #ccebe5
+			#upper-user
+				justify-content: space-around
+				flex-wrap: wrap
+				#user-pic
+					flex-direction: column
+					padding: 10px 0 0
+					@media screen and (max-width: 767px)
+						height: auto
+					text-align: center
+					justify-content: space-between
+					#about-user
+						flex-direction: column
+					img
+						width: 200px
+						max-height: 200px
+						@media screen and (max-width: 767px)
+							margin: 0 auto
+							max-height: 100%
+					.status
+						color: #859a96
+				#balances
+					justify-content: center
+					flex-wrap: wrap
+					.info-block1
+						flex-direction: column
+						align-items: center
+						justify-content: space-around
+						margin: 0 10px
+						@media screen and (max-width)
+							margin: 10px
+						.balance
+							font-size: 20px
+							color: #61716e
+						button
+							background: #167461
+							border: none
+							color: #c2eae2
+							width: 90px
+							padding: 10px 0
+							margin: 1px 0
+							border-radius: 5px
+						.circle
+							overflow: hidden
+							margin: 2px 0
+							justify-content: center
+							align-items: center
+							width: 100%
+							height: 120px
+							@media screen and (max-width: 767px)
+								width: auto
+								padding: 10px
+							.btwn
+								background: #167562
+								border-radius: 50%
+								width: 200px
+								height: 200px
+								justify-content: center
+								align-items: center
+								position: relative
+								i
+									font-size: 120px
+									color: #c2eae2
+									transition: all 500ms
+									@media screen and (max-width: 1100px)
+										font-size: 85px
+									@media screen and (max-width: 767px)
+										font-size: 150px
+								.undercover
+									font-size: 50px
+									color: transparent
+									font-weight: bold
+									position: absolute
+									transition: all 500ms
+							.btwn:hover
+								i
+									color: transparent
+								.undercover
+									color: #c2eae2
+			#link
+				color: #6a6f78
+				align-items: center
+				justify-content: flex-end
+				@media screen and (max-width: 767px)
+					justify-content: center
+				flex-wrap: wrap
+				padding: 10px 0
+				#stat-link
+					margin: 0 10px
+					i
+						margin: 0 5px
+				.partlink
+					margin-right: 10px
+					font-size: 15px
+				input
+					background: #81c7b9
+					border: none
+					color: black
+					padding: 5px
+					width: 300px
+					display: inline-block
+					font-family: "RobotoLight"
+					@media screen and (max-width: 767px)
+						text-align: center
+				#copy
+					background: transparent
+					border: none
+				a
+					color: #6a6f78
+				#copy, a
+					display: inline
+					font-size: 20px
+	#user-stat
+		width: 80%
+		justify-content: space-between
+		align-items: stretch
+		margin: 20px auto
+		@media screen and (max-width: 767px)
+			flex-wrap: wrap
+		#video
+			width: 100%
+			min-height: 200px
+			background: #eee
+			justify-content: center
+			align-items: center
+			span
+				font-size: 100px
+				color: white
+				font-weight: bold
+		#pers-svod
+			flex-direction: column
+			justify-content: flex-start
+			width: 100%
+			h2
+				margin: 0
+				font-size: 20px
+			.info-block2
+				background: #eee
+				height: 100px
+				width: 100%
+				margin: 20px 10px 0
+	#all-stat
+		width: 80%
+		flex-direction: column
+		align-items: flex-start
+		#mini-stat-circ
+			width: 100%
+			justify-content: center
+			flex-wrap: wrap
+			.info-block3
+				width: 135px
+				height: 135px
+				background: #23a48a
+				border-radius: 50%
+				position: relative
+				justify-content: center
+				align-items: center
+				cursor: pointer
+				margin: 5px
+				.undercover
+					position: absolute
+					color: transparent
+					transition: all 500ms
+					font-size: 30px
+					font-weight: bold
+				.alwvis
+					color: #fff
+					transition: all 500ms
+			.info-block3:hover
+				.undercover
+					color: #fff
+				.alwvis
+					color: transparent

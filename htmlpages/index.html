@@ -18,145 +18,94 @@
     <script src="js/wow.min.js"></script>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div id="sidebar" class="col-sm-2 hidden-xs">
-          <div id="user_info"><img src="" alt="profile picture"><span id="username">Name Surname</span><span id="status">Status</span></div>
-          <ul id="menu">
-            <li><a href="#" class="active">Главная</a></li>
-            <li><a href="#">Профиль</a></li>
-            <li><a href="#">Команда</a></li>
-          </ul>
-        </div>
-        <div id="main" class="col-sm-10 col-sm-offset-2">
-          <div id="topbar" class="row">
-            <div class="col-sm-12">
-              <div id="topbar_menu"><a href="#"><i class="fa fa-sign-out" aria-hidden="true"> Выход</i></a><a href="#"><i class="fa fa-bell" aria-hidden="true"><div class='notif_number' id='notifications'>12</div></i></a><a href="#"><i class="fa fa-envelope" aria-hidden="true"><div class='notif_number' id='messages'>8</div></i></a></div>
+    <nav id="mobile" class="visible-sx"></nav>
+    <nav id="top" class="hidden-xs">
+      <div id="flex-top" class="flexbox">
+        <div id="right-bar"><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a><a href="#"><i class="fa fa-comments" aria-hidden="true"></i></a><a href="#" class="no-bg"><i class="fa fa-sign-out" aria-hidden="true"></i></a></div>
+        <button id="menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </nav>
+    <div id="main" class="flexbox">
+      <nav id="sidebar" class="hidden-xs">
+        <div id="flex-sidebar" class="flexbox minimized"><a href="#" class="active menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="#" class="menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="#" class="menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a href="#" class="menu-item"><i class="fa fa-envelope"></i><span class="full-menu">Сообщения</span></a><a href="#" class="menu-item"><i class="fa fa-money"></i><span class="full-menu">Быстрые деньги</span></a><a href="#" class="menu-item"><i class="fa fa-bank"></i><span class="full-menu">Бизнес</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Инвестиции</span></a><a href="#" class="menu-item"><i class="fa fa-edit"></i><span class="full-menu">Инструменты</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Серфинг сайтов</span></a><a href="#" class="menu-item"><i class="fa fa-line-chart"></i><span class="full-menu">Финансы</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Лоторея</span></a><a href="#" class="menu-item"><i class="fa fa-line-chart"></i><span class="full-menu">Мероприятия</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Новости</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Благотворительность</span></a><a href="#" class="menu-item"><i class="fa fa-book"></i><span class="full-menu">FAQ</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Вакансии</span></a></div>
+      </nav>
+      <div id="content" class="flexbox bigger">
+        <div id="user-info" class="flexbox">
+          <div id="upper-user" class="flexbox">
+            <div id="user-pic" class="flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg">
+              <div id="about-user" class="flexbox"><span class="name">Олег Коваленко</span><span class="status">VIP</span></div>
+            </div>
+            <div id="balances" class="flexbox">
+              <div id="main-bl" class="flexbox info-block1"><span class="balance">Доступный баланс</span>
+                <div class="circle flexbox">
+                  <div class="btwn flexbox"><i class="fa fa-money flexbox" aria-hidden="true"></i><span class="undercover">1000$</span></div>
+                </div>
+                <div class="bl-btn">
+                  <button>Пополнить</button>
+                  <button>Вывести</button>
+                </div>
+              </div>
+              <div id="bonus-bl" class="flexbox info-block1"><span class="balance">Бонусный баланс</span>
+                <div class="circle flexbox">
+                  <div class="btwn flexbox"><i class="fa fa-credit-card flexbox" aria-hidden="true"></i><span class="undercover">1000$</span></div>
+                </div>
+                <div class="bl-btn">
+                  <button>Пополнить</button>
+                  <button>Вывести</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="link" class="flexbox">
+            <div id="stat-link">
+              <i class="fa fa-eye" aria-hidden="true">: 100</i>
+              <i class="fa fa-users" aria-hidden="true">: 100</i>
+              <i class="fa fa-bar-chart" aria-hidden="true">: 100%</i>
+            </div>
+            <div class="btns4link">
+              <input type="text" id="link" value="something.com/?asd=123" disabled>
+              <button id="copy"><i class="fa fa-clipboard" aria-hidden="true"></i>	</button>
             </div>
           </div>
-          <div id="main_content" class="row">
-            <div class="col-sm-12">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div id="balances" class="info_block">
-                        <h4>Доступный баланс:</h4>
-                        <hr><span id="main_balance" class="balance">$100500</span><br>
-                        <button id="main_balance_input" class="mybtn">Пополнить</button><br>
-                        <button id="main_balance_output" class="mybtn">Вывести</button>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div id="balances" class="info_block">
-                        <h4>Бонусный баланс:</h4>
-                        <hr><span id="bonus_balance" class="balance">$100500</span><br>
-                        <button id="bonus_balance_transfer" class="mybtn">Перевести</button><br>
-                        <button id="bonus_balance_earn" class="mybtn">Заработать</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div id="partnership" class="info_block">
-                    <h3>Партнерские ссылки:</h3>
-                    <hr>
-                    <div id="first_partner_link" class="partner_link">
-                      <input type="text" value="Somelink.com/dfsssfsf" disabled name="first_partner_link">
-                      <button id="copy_first_link" class="mybtn">Копировать</button><span>Просмотры: </span><span id="first_views">... </span><span>Партнеров: </span><span id="first_partners">... </span><span>Конверсия: </span><span id="first_conversion">...% </span>
-                    </div>
-                    <!--.partner_link#second_partner_link
-                    input(type='text' value='Somelink.com/dfsssfsf' disabled name='second_partner_link')
-                    button.mybtn#copy_second_link Копировать
-                    span Просмотры: 
-                    span#second_views ... 
-                    span Партнеров: 
-                    span#second_partners ... 
-                    span Конверсия: 
-                    span#second_conversion ...% 
-                    -->
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  <div id="video" class="info_block"></div>
-                </div>
-                <div class="col-sm-6">
-                  <div id="higher" class="row infographics">
-                    <h3>Персональная сводка:</h3>
-                    <div class="col-sm-6">
-                      <div class="info_block infographic">
-                        <h4>Новых участников за сегодня:</h4>
-                        <hr><span id="new_users_today">100500</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="info_block infographic">
-                        <h4>Работающих бизнесов:</h4>
-                        <hr><span id="working_businesses">100500</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row infographics">
-                    <div class="col-sm-6">
-                      <div class="info_block infographic">
-                        <h4>Инвестиционных проектов в работе:</h4>
-                        <hr><span id="projects_in_work">100500</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="info_block infographic">
-                        <h4>Активированных инструментов:</h4>
-                        <hr><span id="active_instruments">100500</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row infographics">
-                <h3>Статистика Клуба:</h3>
-                <div class="col-sm-2">
-                  <div class="info_block infographic">
-                    <h4>Инвестиционных проектов:</h4>
-                    <hr><span id="inv_projects">100500</span>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <div class="info_block infographic">
-                    <h4>Бизнес направлений:</h4>
-                    <hr><span id="business_directions">100500</span>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <div class="info_block infographic">
-                    <h4>Участников за сегодня:</h4>
-                    <hr><span id="todays_users">100500</span>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <div class="info_block infographic">
-                    <h4>Участников всего:</h4>
-                    <hr><span id="all_users">100500</span>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <div class="info_block infographic">
-                    <h4>Заявок на выплаты:</h4>
-                    <hr><span id="bills">100500</span>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <div class="info_block infographic">
-                    <h4>Выплачено средств:</h4>
-                    <hr><span id="payed_money">100500</span>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div id="user-stat" class="flexbox">
+          <div id="video" class="flexbox"><span>Video</span></div>
+          <div id="pers-svod" class="flexbox">
+            <h2>Персональная сводка:</h2>
+            <div class="blockset flexbox">
+              <div class="info-block2"></div>
+              <div class="info-block2"></div>
             </div>
+            <div class="blockset flexbox">
+              <div class="info-block2"></div>
+              <div class="info-block2"></div>
+            </div>
+          </div>
+        </div>
+        <div id="all-stat" class="flexbox">
+          <h2>Статистика</h2>
+          <div id="mini-stat-circ" class="flexbox">
+            <div class="info-block3 flexbox"><span class="alwvis">Инвестиционных проектов</span><span class="undercover">100</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">Бизнес направлений</span><span class="undercover">100</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">Учасников за сегодня</span><span class="undercover">100</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">Учасников всего</span><span class="undercover">100</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">Заявок на выплаты</span><span class="undercover">100</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">Выплачено средств</span><span class="undercover">100</span></div>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      $('#menu-btn').click(function(){
+        if ($( "#flex-sidebar" ).hasClass( "full" )){
+        		$( "#flex-sidebar" ).removeClass( "full" ).addClass( "minimized" );
+        		$( "#content" ).removeClass( "minimized" ).addClass( "full" );
+        	}
+        else{
+        		$( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
+        		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
+        }
+      });
+    </script>
   </body>
 </html>

@@ -57,10 +57,10 @@ ru:
       not_found: "не найдена"
       not_locked: "не заблокирована"
       not_saved:
-        one: "%{resource}: сохранение не удалось из-за %{count} ошибки"
-        few: "%{resource}: сохранение не удалось из-за %{count} ошибок"
-        many: "%{resource}: сохранение не удалось из-за %{count} ошибок"
-        other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+        one: "Cохранение не удалось из-за %{count} ошибки"
+        few: "Cохранение не удалось из-за %{count} ошибок"
+        many: "Cохранение не удалось из-за %{count} ошибок"
+        other: "Cохранение не удалось из-за %{count} ошибки"
   activerecord:
     errors:
       models:

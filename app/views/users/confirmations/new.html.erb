@@ -1,16 +1,24 @@
-<h2>Resend confirmation instructions</h2>
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <div>
+      <h1 class="logo-name">КП</h1>
+    </div>
+    <h2>Сообщение о подтверждении почты</h2>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <% if devise_has_errors? %>
+       <div class="alert alert-warning"><%= devise_error_messages! %></div>
+      <% end %>
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: "form-control", autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      <div class="form-group">
+        <%= f.submit "Отправить", class: "btn btn-primary form-control" %>
+      </div>
+    <% end %>
+
+    <%= render "users/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
