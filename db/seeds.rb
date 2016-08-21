@@ -10,9 +10,9 @@
 # end
 
 Role.create name: "leader", description: "Лидер"
+Role.create name: "user", description: "Новичок"
 Role.create name: "vip", description: "VIP Партнер"
 Role.create name: "partner", description: "Партнер"
-Role.create name: "user", description: "Новичок"
 
 # User.create name: 'Super', last_name: 'Parent', email: 'super@mail.com', password: 'Parent'
 # User.create name: 'Middle', last_name: 'Parent', email: 'middle@mail.com', password: 'Parent'
