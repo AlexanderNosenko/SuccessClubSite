@@ -1,0 +1,52 @@
+<% unless @user.nil? %>
+  <div id="all_info">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>
+          <%= link_to user_path(user) do%>
+		    <%= user.name %>&nbsp;<%= user.last_name %>
+		  <% end %>
+		</h3>
+		<!-- I have to make icon smaller-->
+		<%= link_to user_path(user) do%>
+		  <%= get_avatar(user) %>
+		<% end %>      
+	  </div>
+
+      <div class="col-sm-8">
+        <h4><%= user.role.description %></h4>
+        <!-- Where I have to find this description? -->
+<!--         <p>some infosome infosome infosome infosome infosome info</p>-->
+        <p><%= user.about %></p>
+        <!-- Add mailing function -->
+        <button class="btn btn btn-primary">Написать</button>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="contact_info">
+          <h3>Контакты</h3><span><%= @user.email %></span>
+          <hr><span><%= @user.phone %></span>
+          <!-- <hr><span>Name Surname</span> -->
+          <hr><span>Живет: <%= @user.country %>, <%= @user.city %></span>
+          <hr><span>Skype: <%= @user.skype %></span>
+          <!-- <hr><span>Viber: <%= @user.phone %></span> -->
+          <hr><span>Youtube: <%= @user.youtube %></span>
+          <hr><span>FB: <%= @user.fb %></span>
+          <hr><span>OK: <%= @user.ok %></span>
+          <hr><span>VK: <%= @user.vk %></span>
+          <h3>Пришел с:</h3>
+          <hr><span>example.ru</span>
+          <h3>Партнеры</h3>
+          <hr><span>Всего: <%= @user.descendants.size %></span>
+          <hr><span>Первая линия: <%= @user.children.size %></span>
+          <h3>Счета</h3>
+          <hr><span>Главный: 100$</span>
+          <hr><span>Бонусный: 500$</span>
+          <button class="btn btn btn-primary"> Команда</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

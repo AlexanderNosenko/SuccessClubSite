@@ -56,7 +56,7 @@
                   <div class="table-responsive">
                     <table class="table table-striped table-hover">
                       <tbody>
-                      <%= render :partial => 'parent_list', :locals => { :user => @user} %> 
+                      <%= render :partial => 'parent_list', :locals => { :user => @user.parent} %> 
                       </tbody>
                     </table>
                   </div>
@@ -68,42 +68,8 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <div id="all_info">
-        <div class="row">
-          <div class="col-sm-4">
-            <h3>Name Surname</h3><img src="#">
-          </div>
-          <div class="col-sm-8">
-            <h4>Status</h4>
-            <p>some infosome infosome infosome infosome infosome info</p>
-            <button class="mybtn">Написать</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div id="contact_info">
-              <h3>Контакты</h3><span>Username@e.mail</span>
-              <hr><span>+380931111111</span>
-              <hr><span>login</span>
-              <hr><span>Name Surname</span>
-              <hr><span>Skype</span>
-              <hr><span>Viber</span>
-              <hr><span>Youtube</span>
-              <hr><span>FB</span>
-              <hr><span>OK</span>
-              <hr><span>VK</span>
-              <h3>Пришел с:</h3>
-              <hr><span>example.ru</span>
-              <h3>Партнеры</h3>
-              <hr><span>Всего: 1</span>
-              <hr><span>Первая линия: 1</span>
-              <h3>Бонусы</h3>
-              <hr><span>Bonuses: 200$</span>
-              <button class="mybtn">Команда</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- must be not the logged user, but selected -->
+      <%= render :partial => 'detailed_user', :locals => { :user => @user} %> 
     </div>
   </div>
 </div>
