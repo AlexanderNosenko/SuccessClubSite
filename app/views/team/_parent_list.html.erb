@@ -1,5 +1,5 @@
-<% unless @parent.nil? %>
-    <% local_parent = @parent %>
+<% local_parent = @user.parent %>
+<% unless local_parent.nil? %>
 	<% while not local_parent.nil? do%>
 		<tr>
 			<td class="client-avatar">
