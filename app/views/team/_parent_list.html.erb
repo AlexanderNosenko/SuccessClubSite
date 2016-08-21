@@ -1,0 +1,24 @@
+<% unless @parent.nil? %>
+    <% local_parent = @parent %>
+	<% while not local_parent.nil? do%>
+		<tr>
+			<td class="client-avatar">
+				<%= link_to user_path(local_parent) do%>
+					<%= get_avatar(local_parent) %>
+				<% end %>
+			</td>
+			<td>
+				<%= link_to user_path(local_parent) do%>
+					<%= local_parent.name %>&nbsp;<%= local_parent.last_name %>
+				<% end %>
+			</td>
+			<td><%= local_parent.role.description%></td>
+			<!-- <td><%= user.created_at %></td> -->
+			<!-- <td class="client-status"><span class="label label-primary">Online</span></td> -->
+			<!-- <td class="contact-type"><i class="fa fa-envelope" style="font-size: 20px"></i></td> -->
+		</tr>
+		<% local_parent = local_parent.parent %>
+	<% end %>
+<% else %>
+	<tr> Вы - сам себе наставник</tr>
+<% end %>

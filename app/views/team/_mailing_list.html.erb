@@ -1,0 +1,23 @@
+<% unless @team.empty? %>
+	<% @team.each do |user| %>
+		<tr>
+			<td class="client-avatar">
+				<%= link_to user_path(user) do%>
+					<%= get_avatar(user) %>
+				<% end %>
+			</td>
+			<td>
+				<%= link_to user_path(user) do%>
+					<%= user.name %>&nbsp;<%= user.last_name %>
+				<% end %>
+			</td>
+			<td><%= user.role.description%></td>
+			<td>Отправить сообщение?</td>
+			<!-- <td><%= user.created_at %></td> -->
+			<!-- <td class="client-status"><span class="label label-primary">Online</span></td> -->
+			<!-- <td class="contact-type"><i class="fa fa-envelope" style="font-size: 20px"></i></td> -->
+		</tr>
+	<% end %>
+<% else %>
+	<tr> В вашей команде пока никого нет..</tr>
+<% end %>
