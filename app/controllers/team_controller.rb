@@ -6,6 +6,7 @@ class TeamController < ApplicationController
 
     respond_to do |format|
       format.html do 
+      @user = current_user
     	@team = current_user.descendants.paginate(:per_page => 15, :page => params[:page])
     	render :index 
       end
