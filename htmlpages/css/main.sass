@@ -65,6 +65,7 @@ ul
 			a
 				color: white
 				text-align: left
+				height: 45px
 				background: #1bb394
 				border: 1px solid transparent
 				transition: all 500ms
@@ -90,8 +91,8 @@ ul
 				margin: 10px auto 0
 				padding: 10px
 				justify-content: center
-				.full-menu
-					display: none
+			.full-menu
+				display: none
 		.full
 			width: 200px
 			a
@@ -102,8 +103,16 @@ ul
 					margin: 0 5px 0 0
 	#content.full
 		margin: 50px auto 0 53px
+		@media screen and (max-width: 767px)
+			margin: 0 auto
+			padding-top: 50px
+			padding-left: 53px
 	#content.minimized
 		margin: 50px auto 0 200px
+		@media screen and (max-width: 767px)
+			margin: 0 auto
+			padding-top: 50px
+			padding-left: 53px
 	#content
 		justify-content: flex-start
 		align-items: center
@@ -115,7 +124,7 @@ ul
 			flex-direction: column
 			padding: 20px
 			@media screen and (max-width: 767px)
-				width: 95%
+				width: 100%
 				margin: 0 auto
 			background: #ccebe5
 			#upper-user
@@ -199,7 +208,7 @@ ul
 			#link
 				color: #6a6f78
 				align-items: center
-				justify-content: flex-end
+				justify-content: center
 				@media screen and (max-width: 767px)
 					justify-content: center
 				flex-wrap: wrap
@@ -221,6 +230,7 @@ ul
 					font-family: "RobotoLight"
 					@media screen and (max-width: 767px)
 						text-align: center
+						width: 100%
 				#copy
 					background: transparent
 					border: none
@@ -236,6 +246,7 @@ ul
 		margin: 20px auto
 		@media screen and (max-width: 767px)
 			flex-wrap: wrap
+			width: 100%
 		#video
 			width: 100%
 			min-height: 200px
