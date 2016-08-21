@@ -14,12 +14,28 @@ html(lang="ru")
 		link(rel='stylesheet' href='css/fonts.css')/
 		link(rel='stylesheet' href='css/main.css')/
 		script(type='text/javascript' src='js/jquery-3.1.0.min.js')
+		script(type='text/javascript' src='js/jquery-1.12.3.min.js')
 		script(src='js/bootstrap/bootstrap.min.js')
 		script(src='js/wow.min.js')
 	body
+		div.modal.fade#links(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						#link.flexbox
+							#stat-link
+								<i class="fa fa-eye" aria-hidden="true">: 100</i>
+								<i class="fa fa-users" aria-hidden="true">: 100</i>
+								<i class="fa fa-bar-chart" aria-hidden="true">: 100%</i>
+							.btns4link
+								input(type='text' id='link' value='something.com/?asd=123' disabled)
+								button#copy <i class="fa fa-clipboard" aria-hidden="true"></i>
+							h2 Партнерская ссылка:
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
+					button(data-toggle="modal" data-target="#links") <i class="fa fa-link" aria-hidden="true"></i>
 					a(href='#') <i class="fa fa-user" aria-hidden="true"></i>
 					a(href='#') <i class="fa fa-bell" aria-hidden="true"></i>
 					a(href='#') <i class="fa fa-comments" aria-hidden="true"></i>
@@ -102,15 +118,7 @@ html(lang="ru")
 										span.undercover 1000$
 								.bl-btn
 									button Заработать
-									button Перевести
-					#link.flexbox
-						#stat-link
-							<i class="fa fa-eye" aria-hidden="true">: 100</i>
-							<i class="fa fa-users" aria-hidden="true">: 100</i>
-							<i class="fa fa-bar-chart" aria-hidden="true">: 100%</i>
-						.btns4link
-							input(type='text' id='link' value='something.com/?asd=123' disabled)
-							button#copy <i class="fa fa-clipboard" aria-hidden="true"></i>	
+									button Перевести	
 				#user-stat.flexbox
 					#video.flexbox
 						span Video

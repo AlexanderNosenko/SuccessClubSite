@@ -29,6 +29,107 @@ ul {
   display: flex;
 }
 
+.modal-body > button {
+  color: #d4f0ea;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0 2px;
+  background: #167562;
+  transition: all 500ms;
+}
+
+.modal-body > button i {
+  font-size: 20px;
+}
+
+#link {
+  color: #6a6f78;
+  -webkit-flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+@media screen and (max-width: 767px) {
+  #link {
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+#link h2 {
+  margin: 0 auto;
+}
+
+#link #stat-link {
+  margin: 0 10px 10px;
+}
+
+#link #stat-link i {
+  margin: 0 5px;
+}
+
+#link .partlink {
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+#link .btns4link {
+  margin: 20px auto;
+}
+
+#link input {
+  background: #81c7b9;
+  border: none;
+  color: black;
+  padding: 5px;
+  width: 300px;
+  display: inline-block;
+  font-family: "RobotoLight";
+}
+
+@media screen and (max-width: 767px) {
+  #link input {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+#link #copy {
+  background: transparent;
+  border: none;
+}
+
+#link a {
+  color: #6a6f78;
+}
+
+#link #copy, #link a {
+  display: inline;
+  font-size: 20px;
+}
+
 #top {
   background: #23a48a;
   width: 100%;
@@ -384,72 +485,6 @@ ul {
 
 #main #content #user-info #upper-user #balances .info-block1 .circle .btwn:hover .undercover {
   color: #c2eae2;
-}
-
-#main #content #user-info #link {
-  color: #6a6f78;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  padding: 10px 0;
-}
-
-@media screen and (max-width: 767px) {
-  #main #content #user-info #link {
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-
-#main #content #user-info #link #stat-link {
-  margin: 0 10px;
-}
-
-#main #content #user-info #link #stat-link i {
-  margin: 0 5px;
-}
-
-#main #content #user-info #link .partlink {
-  margin-right: 10px;
-  font-size: 15px;
-}
-
-#main #content #user-info #link input {
-  background: #81c7b9;
-  border: none;
-  color: black;
-  padding: 5px;
-  width: 300px;
-  display: inline-block;
-  font-family: "RobotoLight";
-}
-
-@media screen and (max-width: 767px) {
-  #main #content #user-info #link input {
-    text-align: center;
-    width: 100%;
-  }
-}
-
-#main #content #user-info #link #copy {
-  background: transparent;
-  border: none;
-}
-
-#main #content #user-info #link a {
-  color: #6a6f78;
-}
-
-#main #content #user-info #link #copy, #main #content #user-info #link a {
-  display: inline;
-  font-size: 20px;
 }
 
 #main #user-stat {
