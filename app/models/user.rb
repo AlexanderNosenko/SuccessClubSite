@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   #validates_integrity_of  :avatar
   #validates_processing_of :avatar
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+
+  def is_online?
+    !current_sign_in_at.nil?
+  end
   def self.find_for_oauth(auth, signed_in_resource = nil, session)
 
     # Get the identity and user if they exist

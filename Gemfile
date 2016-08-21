@@ -14,6 +14,7 @@ gem 'devise', '4.1.1'
 # devise-i18n
 gem 'rails-i18n'
 gem 'devise-i18n', '1.1.0'
+#gem 'devise_lastseenable'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'

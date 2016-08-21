@@ -7,6 +7,15 @@ class ProfileController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html do
+        @user = User.find params[:id]
+      end
+      format.partial do
+      	@user = current_user
+      	render :partial => 'team/detailed_user.html', :locals => { :user => User.find(params[:id])}
+      end
+    end
   end
 
   def edit
