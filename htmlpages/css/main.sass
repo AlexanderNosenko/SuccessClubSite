@@ -174,90 +174,86 @@ ul
 		transition: all 500ms
 		#user-info
 			width: 80%
-			flex-direction: column
-			padding: 20px
+			flex-direction: row
+			flex-wrap: wrap
+			justify-content: space-around
+			padding: 20px 
 			@media screen and (max-width: 767px)
 				width: 100%
 				margin: 0 auto
 			background: #ccebe5
-			#upper-user
+			#user-pic
+				flex-direction: column
+				padding: 12px 0 0
+				@media screen and (max-width: 767px)
+					height: auto
+				text-align: center
 				justify-content: space-around
-				flex-wrap: wrap
-				#user-pic
+				#about-user
 					flex-direction: column
-					padding: 10px 0 0
+				img
+					width: 200px
+					max-height: 200px
 					@media screen and (max-width: 767px)
-						height: auto
-					text-align: center
-					justify-content: space-between
-					#about-user
-						flex-direction: column
-					img
-						width: 200px
-						max-height: 200px
-						@media screen and (max-width: 767px)
-							margin: 0 auto
-							max-height: 100%
-					.status
-						color: #859a96
-				#balances
-					justify-content: center
-					flex-wrap: wrap
-					.info-block1
-						flex-direction: column
+						margin: 0 auto
+						max-height: 100%
+				.status
+					color: #859a96
+			#bal-block
+				flex-direction: row
+				justify-content: center
+				flex-wrap: wrap
+				.info-block1
+					flex-direction: column
+					align-items: center
+					justify-content: space-around
+					margin: 0 20px
+					@media screen and (max-width)
+						margin: 10px
+					.balance
+						font-size: 20px
+						color: #61716e
+					button
+						background: #167461
+						border: none
+						color: #c2eae2
+						width: 100px
+						padding: 10px 0
+						margin: 1px 0
+						border-radius: 5px
+					.circle
+						overflow: hidden
+						margin: 2px 0
+						justify-content: center
 						align-items: center
-						justify-content: space-around
-						margin: 0 10px
-						@media screen and (max-width)
-							margin: 10px
-						.balance
-							font-size: 20px
-							color: #61716e
-						button
-							background: #167461
-							border: none
-							color: #c2eae2
-							width: 90px
-							padding: 10px 0
-							margin: 1px 0
-							border-radius: 5px
-						.circle
-							overflow: hidden
-							margin: 2px 0
+						width: 100%
+						height: 120px
+						@media screen and (max-width: 767px)
+							width: auto
+							padding: 10px
+						.btwn
+							background: #167562
+							border-radius: 50%
+							width: 200px
+							height: 200px
 							justify-content: center
 							align-items: center
-							width: 100%
-							height: 120px
-							@media screen and (max-width: 767px)
-								width: auto
-								padding: 10px
-							.btwn
-								background: #167562
-								border-radius: 50%
-								width: 200px
-								height: 200px
-								justify-content: center
-								align-items: center
-								position: relative
-								i
-									font-size: 120px
-									color: #c2eae2
-									transition: all 500ms
-									@media screen and (max-width: 1100px)
-										font-size: 85px
-									@media screen and (max-width: 767px)
-										font-size: 150px
-								.undercover
-									font-size: 50px
-									color: transparent
-									font-weight: bold
-									position: absolute
-									transition: all 500ms
-							.btwn:hover
-								i
-									color: transparent
-								.undercover
-									color: #c2eae2
+							position: relative
+							i
+								font-size: 120px
+								color: #c2eae2
+								transition: all 500ms
+							.undercover
+								font-size: 50px
+								color: transparent
+								font-weight: bold
+								position: absolute
+								transition: all 500ms
+						.btwn:hover
+							i
+								color: transparent
+							.undercover
+								color: #c2eae2
 	#user-stat
 		width: 80%
 		justify-content: space-between

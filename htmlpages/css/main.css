@@ -314,9 +314,15 @@ ul {
 
 #main #content #user-info {
   width: 80%;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
   padding: 20px;
   background: #ccebe5;
 }
@@ -328,55 +334,49 @@ ul {
   }
 }
 
-#main #content #user-info #upper-user {
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-}
-
-#main #content #user-info #upper-user #user-pic {
+#main #content #user-info #user-pic {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 10px 0 0;
+  padding: 12px 0 0;
   text-align: center;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
 }
 
 @media screen and (max-width: 767px) {
-  #main #content #user-info #upper-user #user-pic {
+  #main #content #user-info #user-pic {
     height: auto;
   }
 }
 
-#main #content #user-info #upper-user #user-pic #about-user {
+#main #content #user-info #user-pic #about-user {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-#main #content #user-info #upper-user #user-pic img {
+#main #content #user-info #user-pic img {
   width: 200px;
   max-height: 200px;
 }
 
 @media screen and (max-width: 767px) {
-  #main #content #user-info #upper-user #user-pic img {
+  #main #content #user-info #user-pic img {
     margin: 0 auto;
     max-height: 100%;
   }
 }
 
-#main #content #user-info #upper-user #user-pic .status {
+#main #content #user-info #user-pic .status {
   color: #859a96;
 }
 
-#main #content #user-info #upper-user #balances {
+#main #content #user-info #bal-block {
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -385,7 +385,7 @@ ul {
           flex-wrap: wrap;
 }
 
-#main #content #user-info #upper-user #balances .info-block1 {
+#main #content #user-info #bal-block .info-block1 {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
@@ -395,31 +395,31 @@ ul {
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around;
-  margin: 0 10px;
+  margin: 0 20px;
 }
 
 @media screen and (max-width) {
-  #main #content #user-info #upper-user #balances .info-block1 {
+  #main #content #user-info #bal-block .info-block1 {
     margin: 10px;
   }
 }
 
-#main #content #user-info #upper-user #balances .info-block1 .balance {
+#main #content #user-info #bal-block .info-block1 .balance {
   font-size: 20px;
   color: #61716e;
 }
 
-#main #content #user-info #upper-user #balances .info-block1 button {
+#main #content #user-info #bal-block .info-block1 button {
   background: #167461;
   border: none;
   color: #c2eae2;
-  width: 90px;
+  width: 100px;
   padding: 10px 0;
   margin: 1px 0;
   border-radius: 5px;
 }
 
-#main #content #user-info #upper-user #balances .info-block1 .circle {
+#main #content #user-info #bal-block .info-block1 .circle {
   overflow: hidden;
   margin: 2px 0;
   -webkit-justify-content: center;
@@ -433,13 +433,13 @@ ul {
 }
 
 @media screen and (max-width: 767px) {
-  #main #content #user-info #upper-user #balances .info-block1 .circle {
+  #main #content #user-info #bal-block .info-block1 .circle {
     width: auto;
     padding: 10px;
   }
 }
 
-#main #content #user-info #upper-user #balances .info-block1 .circle .btwn {
+#main #content #user-info #bal-block .info-block1 .circle .btwn {
   background: #167562;
   border-radius: 50%;
   width: 200px;
@@ -453,25 +453,13 @@ ul {
   position: relative;
 }
 
-#main #content #user-info #upper-user #balances .info-block1 .circle .btwn i {
+#main #content #user-info #bal-block .info-block1 .circle .btwn i {
   font-size: 120px;
   color: #c2eae2;
   transition: all 500ms;
 }
 
-@media screen and (max-width: 1100px) {
-  #main #content #user-info #upper-user #balances .info-block1 .circle .btwn i {
-    font-size: 85px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  #main #content #user-info #upper-user #balances .info-block1 .circle .btwn i {
-    font-size: 150px;
-  }
-}
-
-#main #content #user-info #upper-user #balances .info-block1 .circle .btwn .undercover {
+#main #content #user-info #bal-block .info-block1 .circle .btwn .undercover {
   font-size: 50px;
   color: transparent;
   font-weight: bold;
@@ -479,11 +467,11 @@ ul {
   transition: all 500ms;
 }
 
-#main #content #user-info #upper-user #balances .info-block1 .circle .btwn:hover i {
+#main #content #user-info #bal-block .info-block1 .circle .btwn:hover i {
   color: transparent;
 }
 
-#main #content #user-info #upper-user #balances .info-block1 .circle .btwn:hover .undercover {
+#main #content #user-info #bal-block .info-block1 .circle .btwn:hover .undercover {
   color: #c2eae2;
 }
 
