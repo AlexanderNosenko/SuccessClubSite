@@ -16,6 +16,59 @@ ul
 	margin: 0
 .flexbox
 	display: flex
+.modal-body>button
+	color: #d4f0ea
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	border: none
+	border-radius: 50%
+	width: 40px
+	height: 40px
+	margin: 0 2px
+	background: #167562
+	transition: all 500ms
+	i
+		font-size: 20px
+#link
+	color: #6a6f78
+	flex-direction: column-reverse
+	align-items: center
+	justify-content: center
+	@media screen and (max-width: 767px)
+		justify-content: center
+	flex-wrap: wrap
+	padding: 10px 0
+	h2
+		margin: 0 auto
+	#stat-link
+		margin: 0 10px 10px
+		i
+			margin: 0 5px
+	.partlink
+		margin-right: 10px
+		font-size: 15px
+	.btns4link
+		margin: 20px auto
+	input
+		background: #81c7b9
+		border: none
+		color: black
+		padding: 5px
+		width: 300px
+		display: inline-block
+		font-family: "RobotoLight"
+		@media screen and (max-width: 767px)
+			text-align: center
+			width: 100%
+	#copy
+		background: transparent
+		border: none
+	a
+		color: #6a6f78
+	#copy, a
+		display: inline
+		font-size: 20px
 #top
 	background: #23a48a
 	width: 100%
@@ -94,7 +147,7 @@ ul
 			.full-menu
 				display: none
 		.full
-			width: 200px
+			width: 225px
 			a
 				width: 90%
 				padding: 10px 0 10px 10px
@@ -205,40 +258,6 @@ ul
 									color: transparent
 								.undercover
 									color: #c2eae2
-			#link
-				color: #6a6f78
-				align-items: center
-				justify-content: center
-				@media screen and (max-width: 767px)
-					justify-content: center
-				flex-wrap: wrap
-				padding: 10px 0
-				#stat-link
-					margin: 0 10px
-					i
-						margin: 0 5px
-				.partlink
-					margin-right: 10px
-					font-size: 15px
-				input
-					background: #81c7b9
-					border: none
-					color: black
-					padding: 5px
-					width: 300px
-					display: inline-block
-					font-family: "RobotoLight"
-					@media screen and (max-width: 767px)
-						text-align: center
-						width: 100%
-				#copy
-					background: transparent
-					border: none
-				a
-					color: #6a6f78
-				#copy, a
-					display: inline
-					font-size: 20px
 	#user-stat
 		width: 80%
 		justify-content: space-between

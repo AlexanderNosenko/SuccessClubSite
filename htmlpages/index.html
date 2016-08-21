@@ -14,13 +14,37 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/main.css">
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
     <script src="js/wow.min.js"></script>
   </head>
   <body>
+    <div id="links" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="link" class="flexbox">
+              <div id="stat-link">
+                <i class="fa fa-eye" aria-hidden="true">: 100</i>
+                <i class="fa fa-users" aria-hidden="true">: 100</i>
+                <i class="fa fa-bar-chart" aria-hidden="true">: 100%</i>
+              </div>
+              <div class="btns4link">
+                <input type="text" id="link" value="something.com/?asd=123" disabled>
+                <button id="copy"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+              </div>
+              <h2>Партнерская ссылка:</h2>
+            </div>
+            <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
     <nav id="top">
       <div id="flex-top" class="flexbox">
-        <div id="right-bar"><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a><a href="#"><i class="fa fa-comments" aria-hidden="true"></i></a><a href="#" class="no-bg"><i class="fa fa-sign-out" aria-hidden="true"></i></a></div>
+        <div id="right-bar">
+          <button data-toggle="modal" data-target="#links"><i class="fa fa-link" aria-hidden="true"></i></button><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a><a href="#"><i class="fa fa-comments" aria-hidden="true"></i></a><a href="#" class="no-bg"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        </div>
         <button id="menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
       </div>
     </nav>
@@ -50,20 +74,9 @@
                 </div>
                 <div class="bl-btn">
                   <button>Заработать</button>
-                  <button>Перевести</button>
+                  <button>Перевести	</button>
                 </div>
               </div>
-            </div>
-          </div>
-          <div id="link" class="flexbox">
-            <div id="stat-link">
-              <i class="fa fa-eye" aria-hidden="true">: 100</i>
-              <i class="fa fa-users" aria-hidden="true">: 100</i>
-              <i class="fa fa-bar-chart" aria-hidden="true">: 100%</i>
-            </div>
-            <div class="btns4link">
-              <input type="text" id="link" value="something.com/?asd=123" disabled>
-              <button id="copy"><i class="fa fa-clipboard" aria-hidden="true"></i>	</button>
             </div>
           </div>
         </div>
