@@ -25,9 +25,8 @@ ul
 	border-radius: 50%
 	width: 40px
 	height: 40px
-	margin: 0 2px
+	margin: 10px 2px 0
 	background: #167562
-	transition: all 500ms
 	i
 		font-size: 20px
 #link
@@ -53,6 +52,7 @@ ul
 	input
 		background: #81c7b9
 		border: none
+		border-radius: 5px
 		color: black
 		padding: 5px
 		width: 300px
@@ -69,6 +69,49 @@ ul
 	#copy, a
 		display: inline
 		font-size: 20px
+#money_input
+	flex-direction: column
+	align-items: center
+	.inputs
+		flex-direction: row
+		flex-wrap: wrap
+		justify-content: center
+		.input
+			flex-direction: column
+			justify-content: space-between
+			margin: 10px 20px
+			input[type='radio']
+				display: none
+			input[type='radio'] + label + label
+				i
+					color: #6d928b
+					font-size: 40px
+			input[type='radio']:checked + label + label
+				i
+					color: #056a02
+			.label-img
+				img
+					width: 120px
+	.confirm
+		flex-direction: column
+		align-items: center
+		input[type='text']
+			background: #81c7b9
+			border: none
+			border-radius: 5px
+			color: black
+			padding: 5px
+			font-family: "RobotoLight"
+			margin-bottom: 10px
+		input[type='submit']
+			background: #167562
+			border: none
+			border-radius: 5px
+			color: #d4f0ea
+			font-size: 20px
+			font-weight: bold
+			padding: 10px
+			font-family: "RobotoLight"
 #top
 	background: #23a48a
 	width: 100%

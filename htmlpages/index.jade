@@ -28,9 +28,32 @@ html(lang="ru")
 								<i class="fa fa-users" aria-hidden="true">: 100</i>
 								<i class="fa fa-bar-chart" aria-hidden="true">: 100%</i>
 							.btns4link
-								input(type='text' id='link' value='something.com/?asd=123' disabled)
+								input(type='text' id='link-1' value='something.com/?asd=123' disabled)
 								button#copy <i class="fa fa-clipboard" aria-hidden="true"></i>
 							h2 Партнерская ссылка:
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#input(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						form#money_input.flexbox(action='' method='post')
+							h2 Пополнение баланса:
+							.inputs.flexbox
+								.input.flexbox
+									input#PerfectMoney(type='radio' name='system' value='PerfectMoney')
+									label(for='PerfectMoney' class='label-img'): img(src='img/perfectmoney.png')
+									label(for='PerfectMoney') <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+								.input.flexbox
+									input#NixMoney(type='radio' name='system' value='NixMoney')
+									label(for='NixMoney' class='label-img'): img(src='img/advcash.png')
+									label(for='NixMoney') <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+								.input.flexbox
+									input#AdvCash(type='radio' name='system' value='AdvCash')
+									label(for='AdvCash' class='label-img'): img(src='img/nixm.png')
+									label(for='AdvCash') <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+							.confirm.flexbox
+								input(type='text' name='amount' value='Сумма, USD')
+								input(type='submit' value='Пополнить')
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
@@ -107,8 +130,8 @@ html(lang="ru")
 									<i class="fa fa-money flexbox" aria-hidden="true"></i>
 									span.undercover 1000$
 							.bl-btn
-								button Пополнить
-								button Вывести
+								button(data-toggle="modal" data-target="#input") Пополнить
+								button(data-toggle="modal" data-target="#output") Вывести
 						#bonus-bl.flexbox.info-block1
 							span.balance Бонусный баланс
 							.circle.flexbox
