@@ -78,20 +78,23 @@ ul
 		justify-content: center
 		.input
 			flex-direction: column
-			justify-content: space-between
+			justify-content: stretch
+			align-items: space-between
 			margin: 10px 20px
 			input[type='radio']
 				display: none
-			input[type='radio'] + label + label
+			input[type='radio'] + label
+				flex-direction: column
+				height: 110px
+				justify-content: space-between
 				i
 					color: #6d928b
 					font-size: 40px
-			input[type='radio']:checked + label + label
-				i
-					color: #056a02
-			.label-img
 				img
 					width: 120px
+			input[type='radio']:checked + label
+				i
+					color: #056a02
 	.confirm
 		flex-direction: column
 		align-items: center

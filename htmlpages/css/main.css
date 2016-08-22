@@ -155,9 +155,12 @@ ul {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-justify-content: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-align-items: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between;
   margin: 10px 20px;
 }
 
@@ -165,17 +168,27 @@ ul {
   display: none;
 }
 
-#money_input .inputs .input input[type='radio'] + label + label i {
+#money_input .inputs .input input[type='radio'] + label {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 110px;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#money_input .inputs .input input[type='radio'] + label i {
   color: #6d928b;
   font-size: 40px;
 }
 
-#money_input .inputs .input input[type='radio']:checked + label + label i {
-  color: #056a02;
+#money_input .inputs .input input[type='radio'] + label img {
+  width: 120px;
 }
 
-#money_input .inputs .input .label-img img {
-  width: 120px;
+#money_input .inputs .input input[type='radio']:checked + label i {
+  color: #056a02;
 }
 
 #money_input .confirm {
