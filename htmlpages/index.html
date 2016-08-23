@@ -30,11 +30,41 @@
                 <i class="fa fa-bar-chart" aria-hidden="true">: 100%</i>
               </div>
               <div class="btns4link">
-                <input type="text" id="link" value="something.com/?asd=123" disabled>
+                <input type="text" id="link-1" value="something.com/?asd=123" disabled>
                 <button id="copy"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
               </div>
               <h2>Партнерская ссылка:</h2>
             </div>
+            <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="input" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form id="money_input" action="" method="post" class="flexbox">
+              <h2>Пополнение баланса:</h2>
+              <div class="inputs flexbox">
+                <div class="input flexbox">
+                  <input id="PerfectMoney" type="radio" name="system" value="PerfectMoney" checked>
+                  <label for="PerfectMoney" class="flexbox label-img"><img src="img/perfectmoney.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+                </div>
+                <div class="input flexbox">
+                  <input id="NixMoney" type="radio" name="system" value="NixMoney">
+                  <label for="NixMoney" class="flexbox label-img"><img src="img/advcash.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+                </div>
+                <div class="input flexbox">
+                  <input id="AdvCash" type="radio" name="system" value="AdvCash">
+                  <label for="AdvCash" class="flexbox label-img"><img src="img/nixm.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+                </div>
+              </div>
+              <div class="confirm flexbox">
+                <input type="text" name="amount" value="Сумма, USD">
+                <input type="submit" value="Пополнить">
+              </div>
+            </form>
             <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
           </div>
         </div>
@@ -63,8 +93,8 @@
                 <div class="btwn flexbox"><i class="fa fa-money flexbox" aria-hidden="true"></i><span class="undercover">1000$</span></div>
               </div>
               <div class="bl-btn">
-                <button>Пополнить</button>
-                <button>Вывести</button>
+                <button data-toggle="modal" data-target="#input">Пополнить</button>
+                <button data-toggle="modal" data-target="#output">Вывести</button>
               </div>
             </div>
             <div id="bonus-bl" class="flexbox info-block1"><span class="balance">Бонусный баланс</span>

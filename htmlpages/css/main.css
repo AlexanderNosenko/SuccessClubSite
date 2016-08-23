@@ -44,9 +44,8 @@ ul {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  margin: 0 2px;
+  margin: 10px 2px 0;
   background: #167562;
-  transition: all 500ms;
 }
 
 .modal-body > button i {
@@ -102,6 +101,7 @@ ul {
 #link input {
   background: #81c7b9;
   border: none;
+  border-radius: 5px;
   color: black;
   padding: 5px;
   width: 300px;
@@ -128,6 +128,97 @@ ul {
 #link #copy, #link a {
   display: inline;
   font-size: 20px;
+}
+
+#money_input {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#money_input .inputs {
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#money_input .inputs .input {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-align-items: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between;
+  margin: 10px 20px;
+}
+
+#money_input .inputs .input input[type='radio'] {
+  display: none;
+}
+
+#money_input .inputs .input input[type='radio'] + label {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 110px;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#money_input .inputs .input input[type='radio'] + label i {
+  color: #6d928b;
+  font-size: 40px;
+}
+
+#money_input .inputs .input input[type='radio'] + label img {
+  width: 120px;
+}
+
+#money_input .inputs .input input[type='radio']:checked + label i {
+  color: #056a02;
+}
+
+#money_input .confirm {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#money_input .confirm input[type='text'] {
+  background: #81c7b9;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  padding: 5px;
+  font-family: "RobotoLight";
+  margin-bottom: 10px;
+}
+
+#money_input .confirm input[type='submit'] {
+  background: #167562;
+  border: none;
+  border-radius: 5px;
+  color: #d4f0ea;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  font-family: "RobotoLight";
 }
 
 #top {
