@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821221453) do
+ActiveRecord::Schema.define(version: 20160823192629) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -34,10 +34,22 @@ ActiveRecord::Schema.define(version: 20160821221453) do
   add_index "partner_links", ["user_id"], name: "index_partner_links_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "name",                  limit: 255
+    t.string   "description",           limit: 255
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.integer  "switch_price",          limit: 4
+    t.integer  "month_price",           limit: 4
+    t.integer  "spam_per_week",         limit: 4
+    t.integer  "adv_per_month",         limit: 4
+    t.integer  "online_event_per_week", limit: 4
+    t.integer  "landing_pages_number",  limit: 4
+    t.integer  "month_team_bonus_ppm",  limit: 4
+    t.integer  "partnership_depth",     limit: 4
+    t.boolean  "can_edit_video",                    default: false
+    t.boolean  "can_start_auction",                 default: false
+    t.boolean  "know_partners_backref",             default: false
+    t.boolean  "have_investment_belay",             default: false
   end
 
   create_table "users", force: :cascade do |t|

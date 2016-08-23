@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_ancestry
   belongs_to :role
   belongs_to :parent, class_name: 'User'
-  has_many :parent, class_name: 'User'
+  has_many :children, class_name: 'User'
   has_many :partner_links
 
   before_create :set_default_role
@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   def is_online?
     !current_sign_in_at.nil?
   end
+  
   def self.find_for_oauth(auth, signed_in_resource = nil, session)
 
     # Get the identity and user if they exist
