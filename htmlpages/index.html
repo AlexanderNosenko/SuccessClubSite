@@ -48,21 +48,51 @@
               <h2>Пополнение баланса:</h2>
               <div class="inputs flexbox">
                 <div class="input flexbox">
-                  <input id="PerfectMoney" type="radio" name="system" value="PerfectMoney" checked>
+                  <input id="PerfectMoney" type="radio" name="system_input" value="PerfectMoney" checked>
                   <label for="PerfectMoney" class="flexbox label-img"><img src="img/perfectmoney.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
                 </div>
                 <div class="input flexbox">
-                  <input id="NixMoney" type="radio" name="system" value="NixMoney">
+                  <input id="NixMoney" type="radio" name="system_input" value="NixMoney">
                   <label for="NixMoney" class="flexbox label-img"><img src="img/advcash.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
                 </div>
                 <div class="input flexbox">
-                  <input id="AdvCash" type="radio" name="system" value="AdvCash">
+                  <input id="AdvCash" type="radio" name="system_input" value="AdvCash">
                   <label for="AdvCash" class="flexbox label-img"><img src="img/nixm.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
                 </div>
               </div>
               <div class="confirm flexbox">
                 <input type="text" name="amount" value="Сумма, USD">
                 <input type="submit" value="Пополнить">
+              </div>
+            </form>
+            <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="output" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form id="money_output" action="" method="post" class="flexbox">
+              <h2>Пополнение баланса:</h2>
+              <div class="inputs flexbox">
+                <div class="input flexbox">
+                  <input id="PerfectMoney_o" type="radio" name="system_output" value="PerfectMoney" checked>
+                  <label for="PerfectMoney_o" class="flexbox label-img"><img src="img/perfectmoney.png"><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+                </div>
+                <div class="input flexbox">
+                  <input id="NixMoney_o" type="radio" name="system_output" value="NixMoney">
+                  <label for="NixMoney_o" class="flexbox label-img"><img src="img/advcash.png"><span class="red-span">Без комиссии</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+                </div>
+                <div class="input flexbox">
+                  <input id="AdvCash_o" type="radio" name="system_output" value="AdvCash">
+                  <label for="AdvCash_o" class="flexbox label-img"><img src="img/nixm.png"><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+                </div>
+              </div>
+              <div class="confirm flexbox">
+                <input type="text" name="amount" value="Сумма, USD">
+                <input type="submit" value="Вывести">
               </div>
             </form>
             <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
