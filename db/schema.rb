@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823192629) do
+ActiveRecord::Schema.define(version: 20160824191517) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20160823192629) do
   end
 
   add_index "partner_links", ["user_id"], name: "index_partner_links_on_user_id", using: :btree
+
+  create_table "partnership_depths", force: :cascade do |t|
+    t.integer  "percent",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",                  limit: 255
@@ -94,6 +100,14 @@ ActiveRecord::Schema.define(version: 20160823192629) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "wallets", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4
+    t.decimal  "main_balance",            precision: 10
+    t.decimal  "bonus_balance",           precision: 10
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
 
   add_foreign_key "identities", "users"
   add_foreign_key "partner_links", "users"

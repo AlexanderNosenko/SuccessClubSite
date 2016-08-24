@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   belongs_to :parent, class_name: 'User'
   has_many :children, class_name: 'User'
   has_many :partner_links
+  has_one :wallet, dependent: :destroy
 
   before_create :set_default_role
   TEMP_EMAIL_PREFIX = 'change@me'

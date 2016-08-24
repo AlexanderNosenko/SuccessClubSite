@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  main_balance: 9.99
+  bonus_balance: 9.99
+
+two:
+  user_id: 1
+  main_balance: 9.99
+  bonus_balance: 9.99
