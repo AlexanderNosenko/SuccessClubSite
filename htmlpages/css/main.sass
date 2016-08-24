@@ -69,7 +69,7 @@ ul
 	#copy, a
 		display: inline
 		font-size: 20px
-#money_input
+#money_input, #money_output
 	flex-direction: column
 	align-items: center
 	.inputs
@@ -78,20 +78,21 @@ ul
 		justify-content: center
 		.input
 			flex-direction: column
-			justify-content: stretch
+			justify-content: space-between
 			align-items: space-between
 			margin: 10px 20px
 			input[type='radio']
 				display: none
 			input[type='radio'] + label
 				flex-direction: column
-				height: 110px
 				justify-content: space-between
 				i
 					color: #6d928b
 					font-size: 40px
 				img
-					width: 120px
+					height: 50px
+				.red-span
+					color: red
 			input[type='radio']:checked + label
 				i
 					color: #056a02

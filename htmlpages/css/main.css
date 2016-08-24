@@ -130,7 +130,7 @@ ul {
   font-size: 20px;
 }
 
-#money_input {
+#money_input, #money_output {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
@@ -139,7 +139,7 @@ ul {
           align-items: center;
 }
 
-#money_input .inputs {
+#money_input .inputs, #money_output .inputs {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
@@ -151,47 +151,50 @@ ul {
           justify-content: center;
 }
 
-#money_input .inputs .input {
+#money_input .inputs .input, #money_output .inputs .input {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-justify-content: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-align-items: space-between;
       -ms-flex-align: space-between;
           align-items: space-between;
   margin: 10px 20px;
 }
 
-#money_input .inputs .input input[type='radio'] {
+#money_input .inputs .input input[type='radio'], #money_output .inputs .input input[type='radio'] {
   display: none;
 }
 
-#money_input .inputs .input input[type='radio'] + label {
+#money_input .inputs .input input[type='radio'] + label, #money_output .inputs .input input[type='radio'] + label {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 110px;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-#money_input .inputs .input input[type='radio'] + label i {
+#money_input .inputs .input input[type='radio'] + label i, #money_output .inputs .input input[type='radio'] + label i {
   color: #6d928b;
   font-size: 40px;
 }
 
-#money_input .inputs .input input[type='radio'] + label img {
-  width: 120px;
+#money_input .inputs .input input[type='radio'] + label img, #money_output .inputs .input input[type='radio'] + label img {
+  height: 50px;
 }
 
-#money_input .inputs .input input[type='radio']:checked + label i {
+#money_input .inputs .input input[type='radio'] + label .red-span, #money_output .inputs .input input[type='radio'] + label .red-span {
+  color: red;
+}
+
+#money_input .inputs .input input[type='radio']:checked + label i, #money_output .inputs .input input[type='radio']:checked + label i {
   color: #056a02;
 }
 
-#money_input .confirm {
+#money_input .confirm, #money_output .confirm {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
@@ -200,7 +203,7 @@ ul {
           align-items: center;
 }
 
-#money_input .confirm input[type='text'] {
+#money_input .confirm input[type='text'], #money_output .confirm input[type='text'] {
   background: #81c7b9;
   border: none;
   border-radius: 5px;
@@ -210,7 +213,7 @@ ul {
   margin-bottom: 10px;
 }
 
-#money_input .confirm input[type='submit'] {
+#money_input .confirm input[type='submit'], #money_output .confirm input[type='submit'] {
   background: #167562;
   border: none;
   border-radius: 5px;

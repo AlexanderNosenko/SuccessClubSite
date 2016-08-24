@@ -40,23 +40,52 @@ html(lang="ru")
 							h2 Пополнение баланса:
 							.inputs.flexbox
 								.input.flexbox
-									input#PerfectMoney(type='radio' name='system' value='PerfectMoney' checked)
+									input#PerfectMoney(type='radio' name='system_input' value='PerfectMoney' checked)
 									label.flexbox(for='PerfectMoney' class='label-img')
 										img(src='img/perfectmoney.png')
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 								.input.flexbox
-									input#NixMoney(type='radio' name='system' value='NixMoney')
+									input#NixMoney(type='radio' name='system_input' value='NixMoney')
 									label.flexbox(for='NixMoney' class='label-img')
 										img(src='img/advcash.png')
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 								.input.flexbox
-									input#AdvCash(type='radio' name='system' value='AdvCash')
+									input#AdvCash(type='radio' name='system_input' value='AdvCash')
 									label.flexbox(for='AdvCash' class='label-img')
 										img(src='img/nixm.png')
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 							.confirm.flexbox
 								input(type='text' name='amount' value='Сумма, USD')
 								input(type='submit' value='Пополнить')
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#output(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						form#money_output.flexbox(action='' method='post')
+							h2 Пополнение баланса:
+							.inputs.flexbox
+								.input.flexbox
+									input#PerfectMoney_o(type='radio' name='system_output' value='PerfectMoney' checked)
+									label.flexbox(for='PerfectMoney_o' class='label-img')
+										img(src='img/perfectmoney.png')
+										span.red-span Комиссия 1%
+										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+								.input.flexbox
+									input#NixMoney_o(type='radio' name='system_output' value='NixMoney')
+									label.flexbox(for='NixMoney_o' class='label-img')
+										img(src='img/advcash.png')
+										span.red-span Без комиссии
+										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+								.input.flexbox
+									input#AdvCash_o(type='radio' name='system_output' value='AdvCash')
+									label.flexbox(for='AdvCash_o' class='label-img')
+										img(src='img/nixm.png')
+										span.red-span Комиссия 1%
+										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+							.confirm.flexbox
+								input(type='text' name='amount' value='Сумма, USD')
+								input(type='submit' value='Вывести')
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
