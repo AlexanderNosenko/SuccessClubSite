@@ -3,25 +3,29 @@
     <div class="row">
       <div class="col-sm-4">
         <h3 id="detailed-user-name">
-          <%= link_to user_path(user) do%>
+          <%= link_to user_path(user) do %>
 		        <%= user.name %>&nbsp;<%= user.last_name %>
 	        <% end %>
 		    </h3>
-    		<!-- I have to make icon smaller-->
-    		<%= link_to user_path(user) do%>
-    		  <%= get_avatar(user, {id: "detailed-user-avatar"}) %>
-    		<% end %>
+        <div class="row">
+          <div class="col-sm-3">
+    		    <%= link_to user_path(user) do %>
+    		      <%= get_avatar(user, {id: "detailed-user-avatar"}) %>
+    		    <% end %>
+          </div>
+          <div class="col-sm-9">
+            <h4 id="detailed-user-role"><span class="label label-primary"><%= user.role.description %></span></h4>
+          </div>
+        </div>
 	   </div>
 
       <div class="col-sm-8">
-        <h4 id="detailed-user-role"><%= user.role.description %></h4>
-        <!-- Where I have to find this description? -->
-<!--         <p>some infosome infosome infosome infosome infosome info</p>-->
+        <!-- <h4 id="detailed-user-role"><span class="label label-primary"><%= user.role.description %></span></h4> -->
+        <!-- <span class="label label-primary"><% if user.is_online? %> online <% else %> offline <% end %> -->
         <p id='detailed-user-about'><%= user.about %></p>
         <!-- Add mailing function -->
         <!-- <button class="btn btn btn-primary">Написать</button> -->
       </div>
-      <!-- <% if user.is_online? %> online <% else %> offline <% end %> -->
     </div>
     <div class="row">
       <div class="col-sm-12">
@@ -30,14 +34,12 @@
           <% unless user.phone.nil? %>
             <hr><span><%= user.phone %></span>
           <% end %>
-          <!-- <hr><span>Name Surname</span> -->
           <% unless user.country.nil? %>
             <hr><span>Живет: <%= "#{user.country}," %> <%= user.city %></span>
           <% end %>
           <% unless user.skype.nil? %>
             <hr><span>Skype: <%= user.skype %></span>
           <% end %>
-          <!-- <hr><span>Viber: <%= @user.phone %></span> -->
           <% unless user.youtube.nil? %>
             <hr><span>Youtube: <%= user.youtube %></span>
           <% end %>
@@ -55,9 +57,9 @@
           <h3>Партнеры</h3>
           <hr><span>Всего: <%= user.descendants.size %></span>
           <hr><span>Первая линия: <%= user.children.size %></span>
-          <!-- <h3>Счета</h3>
-          <hr><span>Главный: 100$</span>
-          <hr><span>Бонусный: 500$</span>
+          <!-- <h3>Получено бонусов:</h3>
+          <hr><span>Напрямую: 100$</span>
+          <hr><span>Через команду: 500$</span>
           <button class="btn btn btn-primary"> Команда</button> -->
         </div>
       </div>

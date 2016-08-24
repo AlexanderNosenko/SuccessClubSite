@@ -1,0 +1,16 @@
+<tr>
+	<td class="client-avatar">
+		<%= link_to user_path(user) do%>
+			<%= get_avatar(user) %>
+		<% end %>
+	</td>
+	<td>
+		<%= link_to user_path(user) do%>
+			<%= user.name %>&nbsp;<%= user.last_name %>
+		<% end %>
+	</td>
+	<td><%= user.role.description%></td>
+	<td><%= distance_of_time_in_words_to_now user.created_at %> назад</td>
+	<td class="client-status"><span class="label label-primary"><%= (user.is_online?) ? "Online" : "Offline" %></td>
+	<td class="contact-type"><i class="fa fa-envelope" style="font-size: 20px"></i></td>
+</tr>
