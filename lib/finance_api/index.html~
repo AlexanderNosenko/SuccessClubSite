@@ -1,0 +1,4 @@
+<form method='post' action='https://www.nixmoney.com/merchant.jsp'>
+ <input type='hidden' name='PAYEE_ACCOUNT' value='U01234567890123'>
+ <button type="submit" value="submit">
+</form>
