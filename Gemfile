@@ -44,7 +44,7 @@ gem 'country_select'
 gem "better_errors"
 gem 'countries'
 gem 'savon', '~> 2.7.2'
-gem "rspec"
+gem "rails-rspec"
 gem "binding_of_caller"
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.1.1'

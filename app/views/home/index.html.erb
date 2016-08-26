@@ -1,3 +1,6 @@
+<% @services.each do |service| %>
+  <%= get_trasfer_money_form(service) %>
+<% end %>
 <!-- Target
 <textarea type="hidden" id="bar">http://improf.club/?p=<%= current_user.id %></textarea>
 

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'finance_api/responce_status'
+
+  get 'finance_api/success'
+
+  get 'finance_api/error'
+
   resources :businesses
   resources :users, controller: 'profile', path: 'profile'
   root 'landing#index'
