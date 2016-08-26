@@ -14,6 +14,40 @@ namespace :db do
     end
   end
 
+  desc "Adding needed partnership_depth values"
+  task create_part_depth: :environment do
+    percents = [20, 10, 5, 3, 2, 1, 1, 1, 1, 1]
+
+    ActiveRecord::Base.connection.execute("TRUNCATE partnership_depths")
+    # PartnershipDepth.delete_all
+    # ActiveRecord::Base.connection.reset_sequence!('partnership_depths', 'id')
+    percents.each do |percent|
+      depth = PartnershipDepth.create!(percent: percent)
+    end
+  end
+
+  desc "Adding wallets for already created users"
+  task create_wallets: :environment do
+    User.all.each do |user|
+      if user.wallet.nil?
+        Wallet.create(user: user, main_balance: 0, bonus_balance: 0)
+      end
+    end
+  end
+
+  # desc "Adding bonuses for first 500"
+  # task add_bonuses: :environment do
+  # # It may work in absolutely different way, have to save average value
+  # # And track, which users we have already payed
+  #   average = 500
+  #   per_person = 200
+
+  #   User.all.each do |user|
+  #     user.wallet.bonus_balance += per_person
+  #     average -= 1
+  #   end
+  # end
+
   desc "Fixing Roles table"
   task fix_roles: :environment do
     roles = Role.all
