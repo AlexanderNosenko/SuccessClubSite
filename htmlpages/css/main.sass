@@ -194,9 +194,22 @@ hr
 				background: #76a49b
 				border: none
 				cursor: not-allowed
+				position: relative
+				.dis-popup
+					background: transparent
+					color: transparent
+					position: absolute
+					width: 100%
+					height: 100%
+					opacity: 0.9
+					padding-top: 12px
+					transition: 500ms
 			.disabled:hover
 				background: #76a49b
 				border: none
+				.dis-popup
+					background: #76a49b
+					color: white
 			.active
 				background: #167562
 				border: 1px solid #1bb394
@@ -216,6 +229,9 @@ hr
 				margin: 10px auto 0
 				padding: 10px
 				justify-content: center
+			.disabled
+				.dis-popup
+					display: none
 			.full-menu
 				display: none
 		.full

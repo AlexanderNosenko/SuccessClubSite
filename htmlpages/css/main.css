@@ -351,11 +351,28 @@ hr {
   background: #76a49b;
   border: none;
   cursor: not-allowed;
+  position: relative;
+}
+
+#main #sidebar #flex-sidebar .disabled .dis-popup {
+  background: transparent;
+  color: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  padding-top: 12px;
+  transition: 500ms;
 }
 
 #main #sidebar #flex-sidebar .disabled:hover {
   background: #76a49b;
   border: none;
+}
+
+#main #sidebar #flex-sidebar .disabled:hover .dis-popup {
+  background: #76a49b;
+  color: white;
 }
 
 #main #sidebar #flex-sidebar .active {
@@ -387,6 +404,10 @@ hr {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#main #sidebar .minimized .disabled .dis-popup {
+  display: none;
 }
 
 #main #sidebar .minimized .full-menu {
