@@ -91,7 +91,8 @@ html(lang="ru")
 			.flexbox#flex-top
 				#right-bar
 					button(data-toggle="modal" data-target="#links") <i class="fa fa-link" aria-hidden="true"></i>
-					//a(href='#') <i class="fa fa-user" aria-hidden="true"></i>
+					a(href='#') 
+						<i class="fa fa-user" aria-hidden="true"></i>
 					a(href='#') 
 						i.fa.fa-bell(aria-hidden="true")
 						.notifications.flexbox
@@ -100,15 +101,16 @@ html(lang="ru")
 						i.fa.fa-comments(aria-hidden="true")
 						.notifications.flexbox
 							span 24
-					a.no-bg(href='#') <i class="fa fa-sign-out" aria-hidden="true"></i>
+					a.no-bg(href='#') 
+						<i class="fa fa-sign-out" aria-hidden="true"></i>
 				button#menu-btn <i class="fa fa-bars" aria-hidden="true"></i>
 		#main.flexbox
 			nav#sidebar
 				.flexbox.minimized#flex-sidebar
-					a.active.menu-item(href='#')
+					a.menu-item(href='/')
 						<i class="fa fa-th-large"></i>
 						span.full-menu Главная
-					a.menu-item(href='profile.html')
+					a.active.menu-item(href='#')
 						<i class="fa fa-diamond"></i>
 						span.full-menu Профиль
 					a.menu-item(href='#')
@@ -154,63 +156,60 @@ html(lang="ru")
 						<i class="fa fa-adjust" aria-hidden="true"></i>
 						span.full-menu Вакансии
 			#content.flexbox.full
-				#user-info.flexbox
-					#user-pic.flexbox
-						img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
-						#about-user.flexbox
-							span.name Олег Коваленко
-							span.status VIP
-					#bal-block.flexbox
-						#main-bl.flexbox.info-block1
-							span.balance Доступный баланс
-							.circle.flexbox
-								.btwn.flexbox
-									<i class="fa fa-money flexbox" aria-hidden="true"></i>
-									span.undercover 1000$
-							.bl-btn
-								button(data-toggle="modal" data-target="#input") Пополнить
-								button(data-toggle="modal" data-target="#output") Вывести
-						#bonus-bl.flexbox.info-block1
-							span.balance Бонусный баланс
-							.circle.flexbox
-								.btwn.flexbox
-									<i class="fa fa-credit-card flexbox" aria-hidden="true"></i>
-									span.undercover 1000$
-							.bl-btn
-								button Заработать
-								button Перевести	
-				#user-stat.flexbox
-					#video.flexbox
-						span Video
-					#pers-svod.flexbox
-						h2 Персональная сводка:
-						.blockset.flexbox
-							.info-block2
-							.info-block2
-						.blockset.flexbox
-							.info-block2
-							.info-block2
-				#all-stat.flexbox
-					h2 Статистика
-					#mini-stat-circ.flexbox
-						.info-block3.flexbox
-							span.alwvis Инвестиционных проектов
-							span.undercover 100
-						.info-block3.flexbox
-							span.alwvis Бизнес направлений
-							span.undercover 100
-						.info-block3.flexbox
-							span.alwvis Учасников за сегодня
-							span.undercover 100
-						.info-block3.flexbox
-							span.alwvis Учасников всего
-							span.undercover 100
-						.info-block3.flexbox
-							span.alwvis Заявок на выплаты
-							span.undercover 100
-						.info-block3.flexbox
-							span.alwvis Выплачено средств
-							span.undercover 100
+				#profile-links.flexbox
+					a.active(href='#') Настройки профиля
+					a(href='#') Безопасность
+					a(href='#') Статусы
+					a(href='#') Повышение дохода
+				#info-with-photo.flexbox
+					form#profile-info.flexbox(method='post' name='user-full-information')
+						#profile-info-names.flexbox
+							input(type='text' name='name' value='Oleg' placeholder='Ваше имя')
+							input(type='text' name='surname' value='Kovalenko' placeholder='Ваша фамилия')
+						#profile-info-contacts.flexbox
+							.flexbox.input-icon
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+								input(type='email' name='email' value='example@e.mail' placeholder='Email')
+							.flexbox.input-icon
+								<i class="fa fa-phone" aria-hidden="true"></i>
+								input(type='text' name='number' value='+380123456789' placeholder='Ваш номер телефона')
+							.flexbox.input-icon
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+								#for-map.flexbox
+									input(type='text' name='hor' value='34.123452' placeholder='Geo A')
+									input(type='text' name='ver' value='56.234123' placeholder='Geo B')
+						hr
+						#soc-icons.flexbox
+							.soc-icon-input.flexbox
+								input(type='text' name='skypename' value='Someone' placeholder='Ник в скайпе')
+								img(src='img/skype-icon.png')
+							.soc-icon-input.flexbox
+								input(type='text' name='vk' value='vk.com/blablabla' placeholder='Ссылка на профиль в ВК')
+								img(src='img/vk-icon.png')
+							.soc-icon-input.flexbox
+								input(type='text' name='viber' value='Oleg' placeholder='Ник в Viber')
+								img(src='img/viber-icon.ico')
+							.soc-icon-input.flexbox
+								input(type='text' name='odnoklasniki' value='ok.ru/asdsad' placeholder='Ссылка на профиль в Одноклассниках')
+								img(src='img/ok-icon.png')
+							.soc-icon-input.flexbox
+								input(type='text' name='facebook' value='fb.com/thezombie2111' placeholder='Ссылка на профиль в Facebook')
+								img(src='img/facebook-icon.png')
+							.soc-icon-input.flexbox
+								input(type='text' name='youtube' value='youtube.com/user/u/thezombie2111' placeholder='Ссылка на канал на YouTube')
+								img(src='img/youtube-icon.png')
+						hr.green
+						#edit-buttons.flexbox
+							button#hide-user-contacts Скрыть контакты
+							button#save-edits Сохранить
+					#photo-block.flexbox
+						#user-profile-photo.flexbox
+							img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+						#photo-btns.flexbox
+							button#upload Загрузить
+							//??????????????
+							button#save-userpic Сохранить
+							//??????????????
 		script.
 			$('#menu-btn').click(function(){
 			  if ($( "#flex-sidebar" ).hasClass( "full" )){
