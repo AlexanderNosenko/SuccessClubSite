@@ -418,6 +418,8 @@ hr
 				justify-content: center
 				align-items: center
 				width: 49%
+				@media screen and (max-width: 910px)
+					width: 100%
 				.flexbox
 					align-items: center
 					justify-content: center
@@ -440,6 +442,7 @@ hr
 							font-size: 25px
 							width: 25px
 							height: 25px
+							color: #23a48a
 				#soc-icons
 					flex-direction: column
 					.soc-icon-input
@@ -457,11 +460,13 @@ hr
 						margin: 0 10px
 			#photo-block
 				background: #def2ee
-				width: 49%
 				margin: 10px auto
 				flex-direction: column
 				justify-content: flex-start
 				padding: 20px 0
+				width: 49%
+				@media screen and (max-width: 910px)
+					width: 100%
 				#user-profile-photo
 					justify-content: center
 					align-items: center
