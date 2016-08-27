@@ -662,9 +662,13 @@ hr {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main #content #all-stat h2 {
+  font-size: 60px;
 }
 
 #main #content #all-stat #mini-stat-circ {
@@ -678,8 +682,8 @@ hr {
 }
 
 #main #content #all-stat #mini-stat-circ .info-block3 {
-  width: 135px;
-  height: 135px;
+  width: 150px;
+  height: 150px;
   background: #23a48a;
   border-radius: 50%;
   position: relative;
@@ -697,13 +701,13 @@ hr {
   position: absolute;
   color: transparent;
   transition: all 500ms;
-  font-size: 30px;
-  font-weight: bold;
 }
 
 #main #content #all-stat #mini-stat-circ .info-block3 .alwvis {
   color: #fff;
   transition: all 500ms;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 #main #content #all-stat #mini-stat-circ .info-block3:hover .undercover {
