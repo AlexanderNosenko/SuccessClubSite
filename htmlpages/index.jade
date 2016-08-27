@@ -54,6 +54,11 @@ html(lang="ru")
 									label.flexbox(for='AdvCash' class='label-img')
 										img(src='img/nixm.png')
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+								.input.flexbox
+									input#Liqpay(type='radio' name='system_input' value='LiqPay')
+									label.flexbox(for='Liqpay' class='label-img')
+										img(src='img/liqpay.png')
+										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 							.confirm.flexbox
 								input(type='text' name='amount' value='Сумма, USD')
 								input(type='submit' value='Пополнить')
@@ -82,6 +87,12 @@ html(lang="ru")
 									label.flexbox(for='AdvCash_o' class='label-img')
 										img(src='img/nixm.png')
 										span.red-span Комиссия 1%
+										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+								.input.flexbox
+									input#Liqpay_o(type='radio' name='system_output' value='LiqPay' checked)
+									label.flexbox(for='Liqpay_o' class='label-img')
+										img(src='img/liqpay.png')
+										span.red-span .
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 							.confirm.flexbox
 								input(type='text' name='amount' value='Сумма, USD')

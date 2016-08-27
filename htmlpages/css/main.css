@@ -152,6 +152,9 @@ hr {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -185,11 +188,11 @@ hr {
 
 #money_input .inputs .input input[type='radio'] + label i, #money_output .inputs .input input[type='radio'] + label i {
   color: #6d928b;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 #money_input .inputs .input input[type='radio'] + label img, #money_output .inputs .input input[type='radio'] + label img {
-  height: 50px;
+  height: 30px;
 }
 
 #money_input .inputs .input input[type='radio'] + label .red-span, #money_output .inputs .input input[type='radio'] + label .red-span {
@@ -201,32 +204,31 @@ hr {
 }
 
 #money_input .confirm, #money_output .confirm {
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #money_input .confirm input[type='text'], #money_output .confirm input[type='text'] {
   background: #81c7b9;
   border: none;
-  border-radius: 5px;
   color: black;
   padding: 5px;
   font-family: "RobotoLight";
-  margin-bottom: 10px;
 }
 
 #money_input .confirm input[type='submit'], #money_output .confirm input[type='submit'] {
   background: #167562;
   border: none;
-  border-radius: 5px;
   color: #d4f0ea;
-  font-size: 20px;
   font-weight: bold;
-  padding: 10px;
+  padding: 5px;
   font-family: "RobotoLight";
 }
 
