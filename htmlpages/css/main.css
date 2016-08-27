@@ -322,13 +322,13 @@ hr {
   z-index: 10;
   overflow-y: scroll;
   overflow-x: hidden;
+  background: #167562;
 }
 
 #main #sidebar #flex-sidebar {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: #167562;
   transition: all 500ms;
   padding: 50px 0 10px;
 }
@@ -732,6 +732,12 @@ hr {
   font-size: 60px;
 }
 
+@media screen and (max-width: 410px) {
+  #main #content #all-stat h2 {
+    font-size: 40px;
+  }
+}
+
 #main #content #all-stat #mini-stat-circ {
   width: 100%;
   -webkit-justify-content: center;
@@ -975,6 +981,6 @@ hr {
   background: #fff;
   color: #81c7b9;
   border: none;
-  padding: 10px 20px;
-  margin: 0 10px;
+  padding: 10px;
+  margin: 0 5px;
 }
