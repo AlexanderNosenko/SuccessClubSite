@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-# gem "rails_12factor", group: :production
+# gem 'rails_12factor', group: :production
 
 # Clipboard
 gem 'clipboard-rails', '1.5.10'
@@ -18,7 +18,7 @@ gem 'devise-i18n', '1.1.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
-gem "recaptcha", require: "recaptcha/rails"
+gem 'recaptcha', require: 'recaptcha/rails'
 
 # Bootstrap-sass
 gem 'bootstrap-sass', '3.3.0.0'
@@ -41,11 +41,11 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-datepicker-rails'
 gem 'country_select'
-gem "better_errors"
+gem 'better_errors'
 gem 'countries'
 gem 'savon', '~> 2.7.2'
-gem "rails-rspec"
-gem "binding_of_caller"
+gem 'rspec-rails', '3.5.0.beta1'
+gem 'binding_of_caller'
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.1.1'
 # jquery-turbolinks

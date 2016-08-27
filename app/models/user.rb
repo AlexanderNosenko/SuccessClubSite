@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :parent, class_name: 'User'
   has_many :children, class_name: 'User'
-  has_many :partner_links
+  has_many :partner_links, dependent: :destroy
   has_one :wallet, dependent: :destroy
 
   before_create :set_default_role
