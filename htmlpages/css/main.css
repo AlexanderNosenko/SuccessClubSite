@@ -328,7 +328,7 @@ hr {
           flex-direction: column;
   background: #167562;
   transition: all 500ms;
-  padding-top: 50px;
+  padding: 50px 0 10px;
 }
 
 #main #sidebar #flex-sidebar a {
@@ -345,6 +345,17 @@ hr {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#main #sidebar #flex-sidebar .disabled {
+  background: #76a49b;
+  border: none;
+  cursor: not-allowed;
+}
+
+#main #sidebar #flex-sidebar .disabled:hover {
+  background: #76a49b;
+  border: none;
 }
 
 #main #sidebar #flex-sidebar .active {
