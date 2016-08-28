@@ -55,14 +55,18 @@
                   <input id="NixMoney" type="radio" name="system_input" value="NixMoney">
                   <label for="NixMoney" class="flexbox label-img"><img src="img/advcash.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
                 </div>
-                <div class="input flexbox">
-                  <input id="AdvCash" type="radio" name="system_input" value="AdvCash">
-                  <label for="AdvCash" class="flexbox label-img"><img src="img/nixm.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
-                </div>
-                <div class="input flexbox">
-                  <input id="Liqpay" type="radio" name="system_input" value="LiqPay">
-                  <label for="Liqpay" class="flexbox label-img"><img src="img/liqpay.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
-                </div>
+                <!--.input.flexbox
+                input#AdvCash(type='radio' name='system_input' value='AdvCash')
+                label.flexbox(for='AdvCash' class='label-img')
+                	img(src='img/nixm.png')
+                	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                -->
+                <!--.input.flexbox
+                input#Liqpay(type='radio' name='system_input' value='LiqPay')
+                label.flexbox(for='Liqpay' class='label-img')
+                	img(src='img/liqpay.png')
+                	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                -->
               </div>
               <div class="confirm flexbox">
                 <input type="text" name="amount" value="Сумма, USD">
@@ -87,16 +91,22 @@
                 </div>
                 <div class="input flexbox">
                   <input id="NixMoney_o" type="radio" name="system_output" value="NixMoney">
-                  <label for="NixMoney_o" class="flexbox label-img"><img src="img/advcash.png"><span class="red-span">Без комиссии</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+                  <label for="NixMoney_o" class="flexbox label-img"><img src="img/advcash.png"><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
                 </div>
-                <div class="input flexbox">
-                  <input id="AdvCash_o" type="radio" name="system_output" value="AdvCash">
-                  <label for="AdvCash_o" class="flexbox label-img"><img src="img/nixm.png"><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
-                </div>
-                <div class="input flexbox">
-                  <input id="Liqpay_o" type="radio" name="system_output" value="LiqPay">
-                  <label for="Liqpay_o" class="flexbox label-img"><img src="img/liqpay.png"><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
-                </div>
+                <!--.input.flexbox
+                input#AdvCash_o(type='radio' name='system_output' value='AdvCash')
+                label.flexbox(for='AdvCash_o' class='label-img')
+                	img(src='img/nixm.png')
+                	span.red-span Без комиссии
+                	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                -->
+                <!--.input.flexbox
+                input#Liqpay_o(type='radio' name='system_output' value='LiqPay')
+                label.flexbox(for='Liqpay_o' class='label-img')
+                	img(src='img/liqpay.png')
+                	span.red-span Комиссия 1%
+                	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                -->
               </div>
               <div class="confirm flexbox">
                 <input type="text" name="amount" value="Сумма, USD">
@@ -113,9 +123,9 @@
         <div id="right-bar">
           <button data-toggle="modal" data-target="#links"><i class="fa fa-link" aria-hidden="true"></i></button><a href="#">
              
-            <i class="fa fa-user" aria-hidden="true"></i></a><a href="#"> <i aria-hidden="true" class="fa fa-bell"></i>
-            <div class="notifications flexbox"><span>5</span></div></a><a href="#"> <i aria-hidden="true" class="fa fa-comments"></i>
-            <div class="notifications flexbox"><span>24</span></div></a><a href="#" class="no-bg">
+            <i class="fa fa-user" aria-hidden="true"></i></a><a href="#" class="disabled"> <i aria-hidden="true" class="fa fa-bell"></i>
+            <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="disabled"><i aria-hidden="true" class="fa fa-comments"></i>
+            <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="no-bg">
              
             <i class="fa fa-sign-out" aria-hidden="true"></i></a>
         </div>
@@ -124,10 +134,10 @@
     </nav>
     <div id="main" class="flexbox">
       <nav id="sidebar">
-        <div id="flex-sidebar" class="flexbox minimized"><a href="/" class="menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="profile.html" class="active menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="#" class="menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a><a class="menu-item disabled"><i class="fa fa-money"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Быстрые деньги</span></a><a class="menu-item disabled"><i class="fa fa-bank"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Бизнес</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инвестиции</span></a><a class="menu-item disabled"><i class="fa fa-edit"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инструменты</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Серфинг сайтов</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Финансы</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Лоторея</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Мероприятия</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Новости</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Благотворительность</span></a><a class="menu-item disabled"><i class="fa fa-book"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">FAQ</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Вакансии</span></a></div>
+        <div id="flex-sidebar" class="flexbox minimized"><a href="../" class="menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="profile.html" class="active menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="#" class="menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a><a class="menu-item disabled"><i class="fa fa-money"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Быстрые деньги</span></a><a class="menu-item disabled"><i class="fa fa-bank"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Бизнес</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инвестиции</span></a><a class="menu-item disabled"><i class="fa fa-edit"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инструменты</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Серфинг сайтов</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Финансы</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Лоторея</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Мероприятия</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Новости</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Благотворительность</span></a><a class="menu-item disabled"><i class="fa fa-book"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">FAQ</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Вакансии</span></a></div>
       </nav>
       <div id="content" class="flexbox full">
-        <div id="profile-links" class="flexbox"><a href="#" class="active">Настройки профиля</a><a href="#">Безопасность</a><a href="#">Статусы</a><a href="#">Повышение дохода</a></div>
+        <div id="profile-links" class="flexbox"><a href="#" class="active">Настройки профиля</a><a href="#" class="disabled">Безопасность</a><a href="#" class="disabled">Статусы</a><a href="#" class="disabled">Повышение дохода</a></div>
         <div id="info-with-photo" class="flexbox">
           <form id="profile-info" method="post" name="user-full-information" class="flexbox">
             <div id="profile-info-names" class="flexbox">
@@ -143,8 +153,10 @@
               </div>
               <div class="flexbox input-icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
                 <div id="for-map" class="flexbox">
-                  <input type="text" name="hor" value="34.123452" placeholder="Geo A">
-                  <input type="text" name="ver" value="56.234123" placeholder="Geo B">
+                  <select name="country" placeholder="Страна">
+                    <option value="UA" selected>Ukraine</option>
+                  </select>
+                  <input type="text" name="city" value="Cherkassy" placeholder="Город">
                 </div>
               </div>
             </div>
