@@ -49,12 +49,12 @@ html(lang="ru")
 									label.flexbox(for='NixMoney' class='label-img')
 										img(src='img/advcash.png')
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
-								.input.flexbox
+								//.input.flexbox
 									input#AdvCash(type='radio' name='system_input' value='AdvCash')
 									label.flexbox(for='AdvCash' class='label-img')
 										img(src='img/nixm.png')
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
-								.input.flexbox
+								//.input.flexbox
 									input#Liqpay(type='radio' name='system_input' value='LiqPay')
 									label.flexbox(for='Liqpay' class='label-img')
 										img(src='img/liqpay.png')
@@ -80,15 +80,15 @@ html(lang="ru")
 									input#NixMoney_o(type='radio' name='system_output' value='NixMoney')
 									label.flexbox(for='NixMoney_o' class='label-img')
 										img(src='img/advcash.png')
-										span.red-span Без комиссии
+										span.red-span Комиссия 1%
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
-								.input.flexbox
+								//.input.flexbox
 									input#AdvCash_o(type='radio' name='system_output' value='AdvCash')
 									label.flexbox(for='AdvCash_o' class='label-img')
 										img(src='img/nixm.png')
-										span.red-span Комиссия 1%
+										span.red-span Без комиссии
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
-								.input.flexbox
+								//.input.flexbox
 									input#Liqpay_o(type='radio' name='system_output' value='LiqPay')
 									label.flexbox(for='Liqpay_o' class='label-img')
 										img(src='img/liqpay.png')
@@ -104,21 +104,21 @@ html(lang="ru")
 					button(data-toggle="modal" data-target="#links") <i class="fa fa-link" aria-hidden="true"></i>
 					a(href='#') 
 						<i class="fa fa-user" aria-hidden="true"></i>
-					a(href='#') 
+					a.disabled(href='#') 
 						i.fa.fa-bell(aria-hidden="true")
-						.notifications.flexbox
-							span 5
-					a(href='#') 
+						.notifications.flexbox.disabled
+							span 0
+					a.disabled(href='#')
 						i.fa.fa-comments(aria-hidden="true")
-						.notifications.flexbox
-							span 24
+						.notifications.flexbox.disabled
+							span 0
 					a.no-bg(href='#') 
 						<i class="fa fa-sign-out" aria-hidden="true"></i>
 				button#menu-btn <i class="fa fa-bars" aria-hidden="true"></i>
 		#main.flexbox
 			nav#sidebar
 				.flexbox.minimized#flex-sidebar
-					a.menu-item(href='/')
+					a.menu-item(href='../')
 						<i class="fa fa-th-large"></i>
 						span.full-menu Главная
 					a.active.menu-item(href='profile.html')
@@ -182,9 +182,9 @@ html(lang="ru")
 			#content.flexbox.full
 				#profile-links.flexbox
 					a.active(href='#') Настройки профиля
-					a(href='#') Безопасность
-					a(href='#') Статусы
-					a(href='#') Повышение дохода
+					a.disabled(href='#') Безопасность
+					a.disabled(href='#') Статусы
+					a.disabled(href='#') Повышение дохода
 				#info-with-photo.flexbox
 					form#profile-info.flexbox(method='post' name='user-full-information')
 						#profile-info-names.flexbox
@@ -200,8 +200,9 @@ html(lang="ru")
 							.flexbox.input-icon
 								<i class="fa fa-map-marker" aria-hidden="true"></i>
 								#for-map.flexbox
-									input(type='text' name='hor' value='34.123452' placeholder='Geo A')
-									input(type='text' name='ver' value='56.234123' placeholder='Geo B')
+									select(name='country' placeholder='Страна')
+										option(value='UA' selected) Ukraine
+									input(type='text' name='city' value='Cherkassy' placeholder='Город')
 						hr
 						#soc-icons.flexbox
 							.soc-icon-input.flexbox

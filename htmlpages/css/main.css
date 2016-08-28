@@ -29,6 +29,18 @@ hr {
   margin: 0;
 }
 
+.disabled {
+  background: #76a49b !important;
+  cursor: not-allowed !important;
+  color: white !important;
+}
+
+.disabled:hover {
+  background: #76a49b !important;
+  cursor: not-allowed !important;
+  color: white !important;
+}
+
 .flexbox {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -879,7 +891,7 @@ hr {
   width: 100%;
 }
 
-#main #content #info-with-photo #profile-info input {
+#main #content #info-with-photo #profile-info input, #main #content #info-with-photo #profile-info select {
   background: #def2ee;
   border: none;
   padding: 10px;
