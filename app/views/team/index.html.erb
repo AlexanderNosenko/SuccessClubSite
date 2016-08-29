@@ -11,21 +11,23 @@
         <% end %>
       </div>
       <div id="member-list" class="flexbox">
-        <div id="member-tabs" class="flexbox"><a href="#partners" data-toggle="tab" class="active tabsbtns">Партнеры</a><a href="#mailing" data-toggle="tab" class="tabsbtns">Рассылка</a><a href="#senpais" data-toggle="tab" class="tabsbtns">Наставники</a></div>
+        <div id="member-tabs" class="flexbox">
+          <a href="#partners" data-toggle="tab" class="active tabsbtns">Партнеры</a>
+          <a href="#mailing" data-toggle="tab" class="tabsbtns disabled">Рассылка</a>
+          <a href="#senpais" data-toggle="tab" class="tabsbtns">Спонсоры</a></div>
         <div class="tab-content flexbox">
           <div id="partners" class="tab-pane active flexbox">
-              <%= render(partial: 'user', collection: @team) || '<div><br>В вашей команде пока никого нет..</div>' %>
+              <%= render(partial: 'user', collection: @team) || 'В вашей команде пока никого нет..' %>
               <%= will_paginate @team unless @team.nil? %>
           </div>
           <div id="mailing" class="tab-pane flexbox">
-            <div class="partner flexbox">
+            <!-- <div class="partner flexbox">
               <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
-            </div>
+            </div> -->
           </div>
           <div id="senpais" class="tab-pane flexbox">
-            <div class="partner flexbox">
-              <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
-            </div>
+            <%= (render(partial: 'user', collection: @ancestors) unless @ancestors.nil?) || 'У вас нет спонсора..' %>
+            <%= will_paginate @ancestors unless @ancestors.nil? %>
           </div>
         </div>
       </div>
