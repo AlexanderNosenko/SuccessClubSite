@@ -13,6 +13,7 @@
     <link rel="stylesheet" media="all" href="css/animate.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
@@ -53,12 +54,20 @@
                 </div>
                 <div class="input flexbox">
                   <input id="NixMoney" type="radio" name="system_input" value="NixMoney">
-                  <label for="NixMoney" class="flexbox label-img"><img src="img/advcash.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+                  <label for="NixMoney" class="flexbox label-img"><img src="img/nixm.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
                 </div>
-                <div class="input flexbox">
-                  <input id="AdvCash" type="radio" name="system_input" value="AdvCash">
-                  <label for="AdvCash" class="flexbox label-img"><img src="img/nixm.png"><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
-                </div>
+                <!--.input.flexbox
+                input#AdvCash(type='radio' name='system_input' value='AdvCash')
+                label.flexbox(for='AdvCash' class='label-img')
+                	img(src='img/advcash.png')
+                	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                -->
+                <!--.input.flexbox
+                input#Liqpay(type='radio' name='system_input' value='LiqPay')
+                label.flexbox(for='Liqpay' class='label-img')
+                	img(src='img/liqpay.png')
+                	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                -->
               </div>
               <div class="confirm flexbox">
                 <input type="text" name="amount" value="Сумма, USD">
@@ -83,12 +92,22 @@
                 </div>
                 <div class="input flexbox">
                   <input id="NixMoney_o" type="radio" name="system_output" value="NixMoney">
-                  <label for="NixMoney_o" class="flexbox label-img"><img src="img/advcash.png"><span class="red-span">Без комиссии</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+                  <label for="NixMoney_o" class="flexbox label-img"><img src="img/nixm.png"><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
                 </div>
-                <div class="input flexbox">
-                  <input id="AdvCash_o" type="radio" name="system_output" value="AdvCash">
-                  <label for="AdvCash_o" class="flexbox label-img"><img src="img/nixm.png"><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
-                </div>
+                <!--.input.flexbox
+                input#AdvCash_o(type='radio' name='system_output' value='AdvCash')
+                label.flexbox(for='AdvCash_o' class='label-img')
+                	img(src='img/advcash.png')
+                	span.red-span Без комиссии
+                	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                -->
+                <!--.input.flexbox
+                input#Liqpay_o(type='radio' name='system_output' value='LiqPay')
+                label.flexbox(for='Liqpay_o' class='label-img')
+                	img(src='img/liqpay.png')
+                	span.red-span .
+                	<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                -->
               </div>
               <div class="confirm flexbox">
                 <input type="text" name="amount" value="Сумма, USD">
@@ -103,14 +122,17 @@
     <nav id="top">
       <div id="flex-top" class="flexbox">
         <div id="right-bar">
-          <button data-toggle="modal" data-target="#links"><i class="fa fa-link" aria-hidden="true"></i></button><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a><a href="#"><i class="fa fa-comments" aria-hidden="true"></i></a><a href="#" class="no-bg"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+          <button data-toggle="modal" data-target="#links"><i class="fa fa-link" aria-hidden="true"></i></button>
+          <!--a(href='#') <i class="fa fa-user" aria-hidden="true"></i>--><a href="#" class="disabled"> <i aria-hidden="true" class="fa fa-bell"></i>
+            <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="disabled"> <i aria-hidden="true" class="fa fa-comments"></i>
+            <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="no-bg"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
         </div>
         <button id="menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
       </div>
     </nav>
     <div id="main" class="flexbox">
       <nav id="sidebar">
-        <div id="flex-sidebar" class="flexbox minimized"><a href="#" class="active menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="#" class="menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="#" class="menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a href="#" class="menu-item"><i class="fa fa-envelope"></i><span class="full-menu">Сообщения</span></a><a href="#" class="menu-item"><i class="fa fa-money"></i><span class="full-menu">Быстрые деньги</span></a><a href="#" class="menu-item"><i class="fa fa-bank"></i><span class="full-menu">Бизнес</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Инвестиции</span></a><a href="#" class="menu-item"><i class="fa fa-edit"></i><span class="full-menu">Инструменты</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Серфинг сайтов</span></a><a href="#" class="menu-item"><i class="fa fa-line-chart"></i><span class="full-menu">Финансы</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Лоторея</span></a><a href="#" class="menu-item"><i class="fa fa-line-chart"></i><span class="full-menu">Мероприятия</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Новости</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Благотворительность</span></a><a href="#" class="menu-item"><i class="fa fa-book"></i><span class="full-menu">FAQ</span></a><a href="#" class="menu-item"><i class="fa fa-adjust" aria-hidden="true"></i><span class="full-menu">Вакансии</span></a></div>
+        <div id="flex-sidebar" class="flexbox minimized"><a href="#" class="active menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="profile.html" class="menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="team.html" class="menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a><a class="menu-item disabled"><i class="fa fa-money"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Быстрые деньги</span></a><a class="menu-item disabled"><i class="fa fa-bank"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Бизнес</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инвестиции</span></a><a class="menu-item disabled"><i class="fa fa-edit"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инструменты</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Серфинг сайтов</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Финансы</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Лоторея</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Мероприятия</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Новости</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Благотворительность</span></a><a class="menu-item disabled"><i class="fa fa-book"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">FAQ</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Вакансии</span></a></div>
       </nav>
       <div id="content" class="flexbox full">
         <div id="user-info" class="flexbox">
@@ -120,7 +142,7 @@
           <div id="bal-block" class="flexbox">
             <div id="main-bl" class="flexbox info-block1"><span class="balance">Доступный баланс</span>
               <div class="circle flexbox">
-                <div class="btwn flexbox"><i class="fa fa-money flexbox" aria-hidden="true"></i><span class="undercover">1000$</span></div>
+                <div class="btwn flexbox"><i class="fa fa-money flexbox" aria-hidden="true"></i><span class="undercover">34632$</span></div>
               </div>
               <div class="bl-btn">
                 <button data-toggle="modal" data-target="#input">Пополнить</button>
@@ -129,11 +151,11 @@
             </div>
             <div id="bonus-bl" class="flexbox info-block1"><span class="balance">Бонусный баланс</span>
               <div class="circle flexbox">
-                <div class="btwn flexbox"><i class="fa fa-credit-card flexbox" aria-hidden="true"></i><span class="undercover">1000$</span></div>
+                <div class="btwn flexbox"><i class="fa fa-credit-card flexbox" aria-hidden="true"></i><span class="undercover">57344$</span></div>
               </div>
               <div class="bl-btn">
-                <button>Заработать</button>
-                <button>Перевести	</button>
+                <button class="disabled">Заработать</button>
+                <button class="disabled">Перевести	</button>
               </div>
             </div>
           </div>
@@ -143,24 +165,24 @@
           <div id="pers-svod" class="flexbox">
             <h2>Персональная сводка:</h2>
             <div class="blockset flexbox">
-              <div class="info-block2"></div>
-              <div class="info-block2"></div>
+              <div class="info-block2 flexbox"><span class="alwvis">356</span><span class="undercover">Проектов в работе</span></div>
+              <div class="info-block2 flexbox"><span class="alwvis">23</span><span class="undercover">Бизнес направлений открыто</span></div>
             </div>
             <div class="blockset flexbox">
-              <div class="info-block2"></div>
-              <div class="info-block2"></div>
+              <div class="info-block2 flexbox"><span class="alwvis">1345$</span><span class="undercover">Заработок в сутки</span></div>
+              <div class="info-block2 flexbox"><span class="alwvis">12</span><span class="undercover">Новых партнеров за сегодня</span></div>
             </div>
           </div>
         </div>
         <div id="all-stat" class="flexbox">
           <h2>Статистика</h2>
           <div id="mini-stat-circ" class="flexbox">
-            <div class="info-block3 flexbox"><span class="alwvis">Инвестиционных проектов</span><span class="undercover">100</span></div>
-            <div class="info-block3 flexbox"><span class="alwvis">Бизнес направлений</span><span class="undercover">100</span></div>
-            <div class="info-block3 flexbox"><span class="alwvis">Учасников за сегодня</span><span class="undercover">100</span></div>
-            <div class="info-block3 flexbox"><span class="alwvis">Учасников всего</span><span class="undercover">100</span></div>
-            <div class="info-block3 flexbox"><span class="alwvis">Заявок на выплаты</span><span class="undercover">100</span></div>
-            <div class="info-block3 flexbox"><span class="alwvis">Выплачено средств</span><span class="undercover">100</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">3246</span><span class="undercover">Инвестиционных проектов</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">7876</span><span class="undercover">Бизнес направлений</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">98767</span><span class="undercover">Учасников за сегодня</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">8446</span><span class="undercover">Учасников всего</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">6853</span><span class="undercover">Заявок на выплаты</span></div>
+            <div class="info-block3 flexbox"><span class="alwvis">57434</span><span class="undercover">Выплачено средств</span></div>
           </div>
         </div>
       </div>

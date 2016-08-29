@@ -14,6 +14,18 @@ body
 ul
 	padding: 0
 	margin: 0
+hr 
+	border: 1px solid #ccebe5
+	width: 100%
+	margin: 0
+.disabled
+	background: #76a49b!important
+	cursor: not-allowed!important
+	color: white!important
+.disabled:hover
+	background: #76a49b!important
+	cursor: not-allowed!important
+	color: white!important
 .flexbox
 	display: flex
 .modal-body>button
@@ -75,6 +87,7 @@ ul
 	.inputs
 		flex-direction: row
 		flex-wrap: wrap
+		align-items: center
 		justify-content: center
 		.input
 			flex-direction: column
@@ -88,33 +101,30 @@ ul
 				justify-content: space-between
 				i
 					color: #6d928b
-					font-size: 40px
+					font-size: 30px
 				img
-					height: 50px
+					height: 30px
 				.red-span
 					color: red
 			input[type='radio']:checked + label
 				i
 					color: #056a02
 	.confirm
-		flex-direction: column
+		flex-direction: row
 		align-items: center
+		justify-content: center
 		input[type='text']
 			background: #81c7b9
 			border: none
-			border-radius: 5px
 			color: black
 			padding: 5px
 			font-family: "RobotoLight"
-			margin-bottom: 10px
 		input[type='submit']
 			background: #167562
 			border: none
-			border-radius: 5px
 			color: #d4f0ea
-			font-size: 20px
 			font-weight: bold
-			padding: 10px
+			padding: 5px
 			font-family: "RobotoLight"
 #top
 	background: #23a48a
@@ -131,6 +141,7 @@ ul
 			color: #d4f0ea
 			display: inline-flex
 			align-items: center
+			position: relative
 			justify-content: center
 			border: none
 			border-radius: 50%
@@ -141,10 +152,23 @@ ul
 			transition: all 500ms
 			i
 				font-size: 20px
+			.notifications
+				position: absolute
+				background: #2e4c75
+				color: white
+				border-radius: 50%
+				width: 20px
+				height: 20px
+				top: -5px
+				right: -5px
+				justify-content: center
+				align-items: center
+				span
+					font-size: 10px
 		a:hover, a:focus, button:hover
 			text-decoration: none
 			outline: none
-			transform: scale(1.1)
+			transform: scale(1.05)
 		button:focus
 			outline: none
 		.no-bg
@@ -157,11 +181,11 @@ ul
 		z-index: 10
 		overflow-y: scroll
 		overflow-x: hidden
+		background: #167562
 		#flex-sidebar
 			flex-direction: column
-			background: #167562
 			transition: all 500ms
-			padding-top: 50px
+			padding: 50px 0 10px
 			a
 				color: white
 				text-align: left
@@ -172,6 +196,26 @@ ul
 				overflow: hidden
 				display: flex
 				align-items: center
+			.disabled
+				background: #76a49b
+				border: none
+				cursor: not-allowed
+				position: relative
+				.dis-popup
+					background: transparent
+					color: transparent
+					position: absolute
+					width: 100%
+					height: 100%
+					opacity: 0.9
+					padding-top: 12px
+					transition: 500ms
+			.disabled:hover
+				background: #76a49b
+				border: none
+				.dis-popup
+					background: #76a49b
+					color: white
 			.active
 				background: #167562
 				border: 1px solid #1bb394
@@ -191,6 +235,9 @@ ul
 				margin: 10px auto 0
 				padding: 10px
 				justify-content: center
+			.disabled
+				.dis-popup
+					display: none
 			.full-menu
 				display: none
 		.full
@@ -203,13 +250,13 @@ ul
 					margin: 0 5px 0 0
 	#content.full
 		margin: 50px auto 0 53px
-		@media screen and (max-width: 767px)
+		@media screen and (max-width: 768px)
 			margin: 0 auto
 			padding-top: 50px
 			padding-left: 53px
 	#content.minimized
 		margin: 50px auto 0 200px
-		@media screen and (max-width: 767px)
+		@media screen and (max-width: 768px)
 			margin: 0 auto
 			padding-top: 50px
 			padding-left: 53px
@@ -219,147 +266,3 @@ ul
 		flex-direction: column
 		width: 100%
 		transition: all 500ms
-		#user-info
-			width: 80%
-			flex-direction: row
-			flex-wrap: wrap
-			justify-content: space-around
-			padding: 20px 
-			@media screen and (max-width: 767px)
-				width: 100%
-				margin: 0 auto
-			background: #ccebe5
-			#user-pic
-				flex-direction: column
-				padding: 12px 0 0
-				@media screen and (max-width: 767px)
-					height: auto
-				text-align: center
-				justify-content: space-around
-				#about-user
-					flex-direction: column
-				img
-					width: 200px
-					max-height: 200px
-					@media screen and (max-width: 767px)
-						margin: 0 auto
-						max-height: 100%
-				.status
-					color: #859a96
-			#bal-block
-				flex-direction: row
-				justify-content: center
-				flex-wrap: wrap
-				.info-block1
-					flex-direction: column
-					align-items: center
-					justify-content: space-around
-					margin: 0 20px
-					@media screen and (max-width)
-						margin: 10px
-					.balance
-						font-size: 20px
-						color: #61716e
-					button
-						background: #167461
-						border: none
-						color: #c2eae2
-						width: 100px
-						padding: 10px 0
-						margin: 1px 0
-						border-radius: 5px
-					.circle
-						overflow: hidden
-						margin: 2px 0
-						justify-content: center
-						align-items: center
-						width: 100%
-						height: 120px
-						@media screen and (max-width: 767px)
-							width: auto
-							padding: 10px
-						.btwn
-							background: #167562
-							border-radius: 50%
-							width: 200px
-							height: 200px
-							justify-content: center
-							align-items: center
-							position: relative
-							i
-								font-size: 120px
-								color: #c2eae2
-								transition: all 500ms
-							.undercover
-								font-size: 50px
-								color: transparent
-								font-weight: bold
-								position: absolute
-								transition: all 500ms
-						.btwn:hover
-							i
-								color: transparent
-							.undercover
-								color: #c2eae2
-	#user-stat
-		width: 80%
-		justify-content: space-between
-		align-items: stretch
-		margin: 20px auto
-		@media screen and (max-width: 767px)
-			flex-wrap: wrap
-			width: 100%
-		#video
-			width: 100%
-			min-height: 200px
-			background: #eee
-			justify-content: center
-			align-items: center
-			span
-				font-size: 100px
-				color: white
-				font-weight: bold
-		#pers-svod
-			flex-direction: column
-			justify-content: flex-start
-			width: 100%
-			h2
-				margin: 0
-				font-size: 20px
-			.info-block2
-				background: #eee
-				height: 100px
-				width: 100%
-				margin: 20px 0 0 10px
-	#all-stat
-		width: 80%
-		flex-direction: column
-		align-items: flex-start
-		#mini-stat-circ
-			width: 100%
-			justify-content: center
-			flex-wrap: wrap
-			.info-block3
-				width: 135px
-				height: 135px
-				background: #23a48a
-				border-radius: 50%
-				position: relative
-				justify-content: center
-				align-items: center
-				cursor: pointer
-				margin: 5px
-				.undercover
-					position: absolute
-					color: transparent
-					transition: all 500ms
-					font-size: 30px
-					font-weight: bold
-				.alwvis
-					color: #fff
-					transition: all 500ms
-			.info-block3:hover
-				.undercover
-					color: #fff
-				.alwvis
-					color: transparent
