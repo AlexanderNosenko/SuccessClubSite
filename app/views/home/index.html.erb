@@ -87,3 +87,10 @@
     </div>
   </div>
 </div>
+<script>
+  $('.confirm>input[type="submit"]').click(function (e) {
+    var form = $('#'+$('#money_input').find('input[type="radio"]:checked').data('service_type'));
+    form.find('#PAYMENT_AMOUNT').val(parseInt($('input[name="amount"]').val()));
+    form.submit();
+  }) 
+</script>
