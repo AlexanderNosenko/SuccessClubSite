@@ -1,7 +1,3 @@
-<!-- <% @services.each do |service| %>
-  <%= get_trasfer_money_form(service) %>
-<% end %> -->
-
 <div id="content" class="flexbox full">
   <div id="user-info" class="flexbox">
     <div id="user-pic" class="flexbox"><%= get_avatar(current_user)%>
@@ -91,3 +87,10 @@
     </div>
   </div>
 </div>
+<script>
+  $('.confirm>input[type="submit"]').click(function (e) {
+    var form = $('#'+$('#money_input').find('input[type="radio"]:checked').data('service_type'));
+    form.find('#PAYMENT_AMOUNT').val(parseInt($('input[name="amount"]').val()));
+    form.submit();
+  }) 
+</script>

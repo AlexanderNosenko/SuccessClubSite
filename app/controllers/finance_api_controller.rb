@@ -3,7 +3,7 @@ class FinanceApiController < ApplicationController
   
   def responce_status
 	
-  	raise ActiveRecord::RecordNotFound if params['V2_HASH'] != check_hash(params_for_check)
+    render :status => 403 if params['V2_HASH'] != check_hash(params_for_check)
   	begin 
   		payer = User.find(params['user_id'])
   	rescue
@@ -21,7 +21,7 @@ class FinanceApiController < ApplicationController
   end
 
   def success
-	redirect_to_user_profile_after_payment(true)
+	 redirect_to_user_profile_after_payment(true)
   end
 
   def error
@@ -34,7 +34,6 @@ class FinanceApiController < ApplicationController
   end
   def check_hash values
   	a = (Digest::MD5.new).digest values.join(":") 
-  	adc
   end
   def params_for_check
   	#Important to preserve the order.
@@ -51,6 +50,8 @@ class FinanceApiController < ApplicationController
 	  	status_params.push((Digest::MD5.new).digest "password" )
 	  	status_params.push(params['TIMESTAMPGMT'])
 	  	status_params
-	  end
+	  else
+      []
+    end
   end
 end
