@@ -13,7 +13,7 @@ html(lang="ru")
 		link(rel='stylesheet' media='all' href='css/animate.css')/
 		link(rel='stylesheet' href='css/fonts.css')/
 		link(rel='stylesheet' href='css/main.css')/
-		script(type='text/javascript' src='js/jquery-3.1.0.min.js')
+		link(rel='stylesheet' href='css/team.css')/
 		script(type='text/javascript' src='js/jquery-1.12.3.min.js')
 		script(src='js/bootstrap/bootstrap.min.js')
 		script(src='js/wow.min.js')
@@ -102,7 +102,7 @@ html(lang="ru")
 			.flexbox#flex-top
 				#right-bar
 					button(data-toggle="modal" data-target="#links") <i class="fa fa-link" aria-hidden="true"></i>
-					//a(href='#') <i class="fa fa-user" aria-hidden="true"></i>
+					a.disabled(href='#') <i class="fa fa-user" aria-hidden="true"></i>
 					a.disabled(href='#') 
 						i.fa.fa-bell(aria-hidden="true")
 						.notifications.flexbox.disabled
@@ -116,13 +116,13 @@ html(lang="ru")
 		#main.flexbox
 			nav#sidebar
 				.flexbox.minimized#flex-sidebar
-					a.active.menu-item(href='#')
+					a.menu-item(href='../')
 						<i class="fa fa-th-large"></i>
 						span.full-menu Главная
 					a.menu-item(href='profile.html')
 						<i class="fa fa-diamond"></i>
 						span.full-menu Профиль
-					a.menu-item(href='#')
+					a.active.menu-item(href='team.html')
 						<i class="fa fa-users"></i>
 						span.full-menu Команда
 					a.menu-item.disabled
@@ -178,7 +178,137 @@ html(lang="ru")
 						span.dis-popup Временно недоступно
 						span.full-menu Вакансии
 			#content.flexbox.full
-				
+				#team-search-detailedinfo.flexbox
+					#team-with-search
+						#member-search.flexbox
+							h1 Команда
+							form(method='post' action='')
+								input(type='text' name='member-search' placeholder='Имя/Фамилия')
+								input(type='submit' value='Поиск' name='search')
+						#member-list.flexbox
+							#member-tabs.flexbox
+								a.active.tabsbtns(href='#partners' data-toggle="tab") Партнеры
+								a.tabsbtns(href='#mailing' data-toggle="tab") Рассылка
+								a.tabsbtns(href='#senpais' data-toggle="tab") Наставники
+							.tab-content.flexbox
+								#partners.tab-pane.active.flexbox
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
+										span.time 23:35
+										span.date 03/06/1994
+										span.onlstatus Online
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
+										span.time 23:35
+										span.date 03/06/1994
+										span.onlstatus Online
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
+										span.time 23:35
+										span.date 03/06/1994
+										span.onlstatus Online
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
+										span.time 23:35
+										span.date 03/06/1994
+										span.onlstatus Online
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
+										span.time 23:35
+										span.date 03/06/1994
+										span.onlstatus Online
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+								#mailing.tab-pane.flexbox
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
+										span.time 23:35
+										span.date 03/06/1994
+										span.onlstatus Online
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
+										span.time 23:35
+										span.date 03/06/1994
+										span.onlstatus Online
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+								#senpais.tab-pane.flexbox
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
+										span.time 23:35
+										span.date 03/06/1994
+										span.onlstatus Online
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
+										span.time 23:35
+										span.date 03/06/1994
+										span.onlstatus Online
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
+										span.time 23:35
+										span.date 03/06/1994
+										span.onlstatus Online
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+					#detailed-member-info.flexbox
+						//#d-m-i-header.flexbox
+							#imgblock-2.flexbox
+								img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+							#some-info
 		script.
 			$('#menu-btn').click(function(){
 			  if ($( "#flex-sidebar" ).hasClass( "full" )){
@@ -189,4 +319,8 @@ html(lang="ru")
 			  		$( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
 			  		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
 			  }
+			});
+			$('.tabsbtns').click(function(){
+				$( ".tabsbtns" ).removeClass( "active" );
+				$(this).addClass( "active" );
 			});

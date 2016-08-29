@@ -1,13 +1,19 @@
 #main #content #profile-links {
   margin: 10px auto;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   width: 80%;
 }
 
 @media screen and (max-width: 795px) {
   #main #content #profile-links {
-    justify-content: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -42,17 +48,31 @@
 }
 
 #main #content #info-with-photo {
-  flex-direction: row;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 80%;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 
 #main #content #info-with-photo #profile-info {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 49%;
 }
 
@@ -63,8 +83,12 @@
 }
 
 #main #content #info-with-photo #profile-info .flexbox {
-  align-items: center;
-  justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
 }
 
@@ -77,11 +101,15 @@
 }
 
 #main #content #info-with-photo #profile-info #profile-info-names {
-  flex-direction: row;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 #main #content #info-with-photo #profile-info #profile-info-contacts {
-  flex-direction: column;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon {
@@ -100,7 +128,9 @@
 }
 
 #main #content #info-with-photo #profile-info #soc-icons {
-  flex-direction: column;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #main #content #info-with-photo #profile-info #soc-icons .soc-icon-input img {
@@ -124,8 +154,12 @@
 #main #content #info-with-photo #photo-block {
   background: #def2ee;
   margin: 10px auto;
-  flex-direction: column;
-  justify-content: flex-start;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding: 20px 0;
   width: 49%;
 }
@@ -137,8 +171,12 @@
 }
 
 #main #content #info-with-photo #photo-block #user-profile-photo {
-  justify-content: center;
-  align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #main #content #info-with-photo #photo-block #user-profile-photo img {
@@ -146,7 +184,9 @@
 }
 
 #main #content #info-with-photo #photo-block #photo-btns {
-  justify-content: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 20px auto 0;
 }
 
