@@ -12,9 +12,16 @@
 //= require pace/pace.min.js
 //= require peity/jquery.peity.min.js
 //= require slimscroll/jquery.slimscroll.min.js
-//= require inspinia.js
-//= require jade/runtime
 
 $(document).ready(function(){
-
+  $('#menu-btn').click(function(){
+    if ($( "#flex-sidebar" ).hasClass( "full" )){
+        $( "#flex-sidebar" ).removeClass( "full" ).addClass( "minimized" );
+        $( "#content" ).removeClass( "minimized" ).addClass( "full" );
+      }
+    else{
+        $( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
+        $( "#content" ).removeClass( "full" ).addClass( "minimized" );
+    }
+  });
 });

@@ -11,7 +11,7 @@ end
 module Cp
   class Application < Rails::Application
     config.i18n.default_locale = :ru
-    
+
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'local_env.yml')
       YAML.load(File.open(env_file)).each do |key, value|
@@ -35,6 +35,6 @@ module Cp
 
     config.assets.precompile += [ 'home.css', 'profile.css', 'team.css', 'appviews.css', 'cssanimations.css', 'dashboards.css', 'forms.css', 'gallery.css', 'graphs.css', 'mailbox.css', 'miscellaneous.css', 'pages.css', 'tables.css', 'uielements.css', 'widgets.css' ]
     config.assets.precompile += [ 'home.js', 'profile.js', 'team.js', 'appviews.js', 'cssanimations.js', 'dashboards.js', 'forms.js', 'gallery.js', 'graphs.js', 'mailbox.js', 'miscellaneous.js', 'pages.js', 'tables.js', 'uielements.js', 'widgets.js', ]
-
+    config.assets.paths << Rails.root.join('vendor', 'assets')
   end
 end

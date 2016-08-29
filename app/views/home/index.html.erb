@@ -1,125 +1,93 @@
-<% @services.each do |service| %>
+<!-- <% @services.each do |service| %>
   <%= get_trasfer_money_form(service) %>
-<% end %>
-<!-- Target
-<textarea type="hidden" id="bar">http://improf.club/?p=<%= current_user.id %></textarea>
+<% end %> -->
 
-<!-- Trigger
-<button class="btn" data-clipboard-action="cut" data-clipboard-target="#bar">
-  Cut to clipboard
-</button>-->
-
-<div id="main_content" class="row">
-  <div class="col-sm-12">
-    <div class="row">
-      <!-- <div class="col-sm-6">
-        <div class="row">
-          <div class="col-sm-6">
-            <div id="balances" class="info_block">
-              <h4>Доступный баланс:</h4>
-              <hr><span id="main_balance" class="balance">$100500</span><br>
-              <button id="main_balance_input" class="mybtn">Пополнить</button><br>
-              <button id="main_balance_output" class="mybtn">Вывести</button>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div id="balances" class="info_block">
-              <h4>Бонусный баланс:</h4>
-              <hr><span id="bonus_balance" class="balance">$100500</span><br>
-              <button id="bonus_balance_transfer" class="mybtn">Перевести</button><br>
-              <button id="bonus_balance_earn" class="mybtn">Заработать</button>
-            </div>
+<div id="content" class="flexbox full">
+  <div id="user-info" class="flexbox">
+    <div id="user-pic" class="flexbox"><%= get_avatar(current_user)%>
+      <div id="about-user" class="flexbox">
+        <span class="name"><%= "#{current_user.name} #{current_user.last_name}"%></span>
+        <span class="status"><%= current_user.role.description %></span></div>
+    </div>
+    <div id="bal-block" class="flexbox">
+      <div id="main-bl" class="flexbox info-block1"><span class="balance">Доступный баланс</span>
+        <div class="circle flexbox">
+          <div class="btwn flexbox">
+            <i class="fa fa-money flexbox" aria-hidden="true"></i>
+            <span class="undercover">0</span><!-- TODO: user real balance -->
           </div>
         </div>
-      </div> -->
-      <div class="col-sm-6">
-        <div id="partnership" class="info_block">
-          <h3>Партнерские ссылки:</h3>
-          <hr>
-          <div id="first_partner_link" class="partner_link">
-            <input id="first-partner-link-input" type="text" value="<%= partner_link_url(current_user)%>" disabled name="first_partner_link">
-            <button id="copy_first_link" class="mybtn">Копировать</button>
-            <!-- <span>Просмотры: </span><span id="first_views">... </span> -->
-            <span> Партнеров: </span><span id="first_partners"><%= current_user.descendants.count %> </span>
-            <!-- <span>Конверсия: </span><span id="first_conversion">...% </span> -->
+        <div class="bl-btn">
+          <button data-toggle="modal" data-target="#input">Пополнить</button>
+          <button data-toggle="modal" data-target="#output">Вывести</button>
+        </div>
+      </div>
+      <div id="bonus-bl" class="flexbox info-block1"><span class="balance">Бонусный баланс</span>
+        <div class="circle flexbox">
+          <div class="btwn flexbox">
+            <i class="fa fa-credit-card flexbox" aria-hidden="true"></i>
+            <span class="undercover">0</span><!-- TODO: user bonus balance -->
           </div>
+        </div>
+        <div class="bl-btn">
+          <button class="disabled">Заработать</button>
+          <button class="disabled">Перевести	</button>
         </div>
       </div>
     </div>
-    <!-- <div class="row">
-      <div class="col-sm-6">
-        <div id="video" class="info_block"></div>
-      </div>
-      <div class="col-sm-6">
-        <div id="higher" class="row infographics">
-          <h3>Персональная сводка:</h3>
-          <div class="col-sm-6">
-            <div class="info_block infographic">
-              <h4>Новых участников за сегодня:</h4>
-              <hr><span id="new_users_today">100500</span>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="info_block infographic">
-              <h4>Работающих бизнесов:</h4>
-              <hr><span id="working_businesses">100500</span>
-            </div>
-          </div>
+  </div>
+  <div id="user-stat" class="flexbox">
+    <div id="video" class="flexbox"><span>Video</span></div>
+    <div id="pers-svod" class="flexbox">
+      <h2>Персональная сводка:</h2>
+      <div class="blockset flexbox">
+        <div class="info-block2 flexbox">
+          <span class="alwvis">0</span>
+          <span class="undercover">Проектов в работе</span>
         </div>
-        <div class="row infographics">
-          <div class="col-sm-6">
-            <div class="info_block infographic">
-              <h4>Инвестиционных проектов в работе:</h4>
-              <hr><span id="projects_in_work">100500</span>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="info_block infographic">
-              <h4>Активированных инструментов:</h4>
-              <hr><span id="active_instruments">100500</span>
-            </div>
-          </div>
+        <div class="info-block2 flexbox">
+          <span class="alwvis">0</span>
+          <span class="undercover">Бизнес направлений открыто</span>
         </div>
       </div>
-    </div> -->
-    <!-- <div class="row infographics">
-      <h3>Статистика Клуба:</h3>
-      <div class="col-sm-2">
-        <div class="info_block infographic">
-          <h4>Инвестиционных проектов:</h4>
-          <hr><span id="inv_projects">100500</span>
+      <div class="blockset flexbox">
+        <div class="info-block2 flexbox">
+          <span class="alwvis">0</span>
+          <span class="undercover">Заработок в сутки</span>
+        </div>
+        <div class="info-block2 flexbox">
+          <span class="alwvis">0</span>
+          <span class="undercover">Новых партнеров за сегодня</span>
         </div>
       </div>
-      <div class="col-sm-2">
-        <div class="info_block infographic">
-          <h4>Бизнес направлений:</h4>
-          <hr><span id="business_directions">100500</span>
-        </div>
+    </div>
+  </div>
+  <div id="all-stat" class="flexbox">
+    <h2>Статистика</h2>
+    <div id="mini-stat-circ" class="flexbox">
+      <div class="info-block3 flexbox">
+        <span class="alwvis">0</span><span class="undercover">Инвестиционных проектов</span>
       </div>
-      <div class="col-sm-2">
-        <div class="info_block infographic">
-          <h4>Участников за сегодня:</h4>
-          <hr><span id="todays_users">100500</span>
-        </div>
+      <div class="info-block3 flexbox">
+        <span class="alwvis">0</span>
+        <span class="undercover">Бизнес направлений</span>
       </div>
-      <div class="col-sm-2">
-        <div class="info_block infographic">
-          <h4>Участников всего:</h4>
-          <hr><span id="all_users">100500</span>
-        </div>
+      <div class="info-block3 flexbox">
+        <span class="alwvis"><%= @descendants_today %></span>
+        <span class="undercover">Учасников за сегодня</span>
       </div>
-      <div class="col-sm-2">
-        <div class="info_block infographic">
-          <h4>Заявок на выплаты:</h4>
-          <hr><span id="bills">100500</span>
-        </div>
+      <div class="info-block3 flexbox">
+        <span class="alwvis"><%= @descendants.count %></span>
+        <span class="undercover">Учасников всего</span>
       </div>
-      <div class="col-sm-2">
-        <div class="info_block infographic">
-          <h4>Выплачено средств:</h4>
-          <hr><span id="payed_money">100500</span>
-        </div>
+      <div class="info-block3 flexbox">
+        <span class="alwvis">0</span>
+        <span class="undercover">Заявок на выплаты</span>
       </div>
-    </div> -->
+      <div class="info-block3 flexbox">
+        <span class="alwvis">0</span>
+        <span class="undercover">Выплачено средств</span>
+      </div>
+    </div>
   </div>
 </div>
