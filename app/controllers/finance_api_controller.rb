@@ -21,7 +21,7 @@ class FinanceApiController < ApplicationController
   end
 
   def success
-	redirect_to_user_profile_after_payment(true)
+	 redirect_to_user_profile_after_payment(true)
   end
 
   def error

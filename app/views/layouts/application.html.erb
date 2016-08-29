@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Клуб Професcионалов</title>
     <%= render partial: 'layouts/favicons' %>
     <!-- Include style per-controller - vendor plugins -->
@@ -16,28 +16,19 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
+    <%= render partial: 'layouts/modals'%>
+    <%= render 'layouts/topnavbar' %>
 
-<!-- Skin configuration box -->
-
-    <!-- Wrapper-->
-    <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
+    <div id="main" class="flexbox">
 
         <!-- Navigation -->
         <%= render 'layouts/navigation' %>
 
-        <!-- Page wraper -->
-        <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
+        <!-- Main view  -->
+        <%= yield %>
+        <%#= render 'layouts/footer' %>
 
-            <!-- Page wrapper -->
-            <%= render 'layouts/topnavbar' %>
-
-            <!-- Main view  -->
-            <%= yield %>
-
-            <!-- Footer -->
-            <%= render 'layouts/footer' %>
-
-        </div>
+    </div>
         <!-- End page wrapper-->
 
         <!-- Right sidebar -->
