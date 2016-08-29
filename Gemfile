@@ -44,7 +44,7 @@ gem 'country_select'
 gem "better_errors"
 gem 'countries'
 gem 'savon', '~> 2.7.2'
-gem "rails-rspec"
+
 gem "binding_of_caller"
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.1.1'
@@ -69,6 +69,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '9.0.5'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
