@@ -8,10 +8,16 @@
 //= require jquery/jquery-2.1.1.js
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
-//= require peity/jquery.peity.min.js
-//= require slimscroll/jquery.slimscroll.min.js
+
+function copyToClipboard(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    console.log(element);
+    $temp.val(element.val()).select();
+    document.execCommand("copy");
+    $temp.remove();
+}
 
 $(document).ready(function(){
   $('#menu-btn').click(function(){
@@ -23,5 +29,8 @@ $(document).ready(function(){
         $( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
         $( "#content" ).removeClass( "full" ).addClass( "minimized" );
     }
+  });
+  $("#copy").click(function(){
+    copyToClipboard($("#link-1"));
   });
 });

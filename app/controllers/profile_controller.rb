@@ -25,7 +25,7 @@ class ProfileController < ApplicationController
     if request.patch? && params[:user]
 
       if @user.update(user_params)
-        redirect_to users_path, notice: 'Your profile was successfully updated.'
+        redirect_to users_path, notice: 'Профиль обновлен.'
       else
         @show_errors = true
         render "edit"
