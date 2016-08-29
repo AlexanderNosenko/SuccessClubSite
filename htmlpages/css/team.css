@@ -1,0 +1,223 @@
+#main #content #team-search-detailedinfo {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 80%;
+}
+
+#main #content #team-search-detailedinfo #team-with-search {
+  width: 70%;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-search {
+  background: #ddf0ec;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px 40px 60px;
+  margin: 20px auto 10px;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-search h1 {
+  margin: 30px 0;
+  text-align: left;
+  color: #23a48a;
+  font-family: "RobotoLight";
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-search input[type='text'] {
+  background: white;
+  border: none;
+  padding: 5px;
+  width: 80%;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-search input[type='submit'] {
+  background: #23a48a;
+  color: white;
+  border: none;
+  padding: 5px;
+  width: 15%;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs {
+  margin: 0 auto 10px;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  width: 80%;
+}
+
+@media screen and (max-width: 795px) {
+  #main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs {
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs a {
+  color: black;
+  margin: 0 5px;
+  border-bottom: 2px solid #23a48a;
+  padding: 10px;
+  transition: all 500ms;
+}
+
+@media screen and (max-width: 795px) {
+  #main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs a {
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs .active {
+  background: #23a48a;
+  color: white;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs a:hover {
+  text-decoration: none;
+  background: #23a48a;
+  color: white;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs a:focus {
+  text-decoration: none;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content {
+  width: 100%;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais {
+  width: 100%;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner {
+  width: 100%;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px auto 0;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .imgblock, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .imgblock, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .imgblock {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: -10px;
+  z-index: 10;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .imgblock img, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .imgblock img, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .imgblock img {
+  height: 100%;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner span, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner span, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner span {
+  height: 45px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner span a, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner span a, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner span a {
+  color: white;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .nasu, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .nasu, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .nasu {
+  background: #e0f0ed;
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  padding: 0 10px 0 20px;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .id, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .id, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .id {
+  background: #bce8df;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .status, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .status, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .status {
+  background: #a3dcd0;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .time, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .time, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .time {
+  background: #88cfc1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .date, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .date, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .date {
+  background: #65bcaa;
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .onlstatus, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .onlstatus, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .onlstatus {
+  background: #429d8a;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .moreinfo, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .moreinfo, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .moreinfo {
+  background: #167562;
+  -webkit-flex-grow: 0.5;
+      -ms-flex-positive: 0.5;
+          flex-grow: 0.5;
+  color: white;
+  font-size: 25px;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .message, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .message, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .message {
+  background: #0c5c4c;
+  -webkit-flex-grow: 0.5;
+      -ms-flex-positive: 0.5;
+          flex-grow: 0.5;
+  color: white;
+  font-size: 25px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info {
+  width: 30%;
+}
