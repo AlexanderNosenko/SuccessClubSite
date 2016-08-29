@@ -1,5 +1,6 @@
 class TeamController < ApplicationController
   before_action :authenticate_user!
+  before_action :make_payment_services, only:[:index]
   require 'will_paginate/array'
 
   def index
@@ -16,5 +17,5 @@ class TeamController < ApplicationController
       end
     end
   end
-  
+
 end
