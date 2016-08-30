@@ -1,6 +1,6 @@
 # spec/string_calculator_spec.rb
 require "finance_api/adv_cash.rb"
-require 'rspec'
+require 'rspec' 
 describe FinanceApi::AdvCash do
 	describe "#get_balances" do
       it "should return balance status" do
