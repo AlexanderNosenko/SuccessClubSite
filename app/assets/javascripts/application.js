@@ -9,7 +9,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require pace/pace.min.js
-
+//= require clipboard
 function copyToClipboard(element) {
     var $temp = $("<input>");
     $("body").append($temp);
@@ -30,7 +30,8 @@ $(document).ready(function(){
         $( "#content" ).removeClass( "full" ).addClass( "minimized" );
     }
   });
-  $("#copy").click(function(){
-    copyToClipboard($("#link-1"));
-  });
+  new Clipboard('#copy');
+  // $("#copy").click(function(){
+  //   copyToClipboard($("#link-1"));
+  // });
 });
