@@ -3,30 +3,43 @@
 		#team-search-detailedinfo
 			justify-content: center
 			align-items: flex-start
+			flex-direction: reverse-row
 			width: 80%
+			@media screen and (max-width: 570px)
+				width: 100%
+				flex-wrap: wrap
+			@media screen and (max-width: 1100px)
+				flex-wrap: wrap
 			#team-with-search
 				width: 70%
+				margin: 20px auto 0
+				flex-direction: column
+				@media screen and (max-width: 570px)
+					width: 100%
 				#member-search
 					background: #ddf0ec
 					flex-direction: column
 					padding: 10px 40px 60px
-					margin: 20px auto 10px
+					margin: 0 0 10px
+					width: 100%
 					h1
 						margin: 30px 0
 						text-align: left
 						color: #23a48a
 						font-family: "RobotoLight"
-					input[type='text']
-						background: white
-						border: none
-						padding: 5px
-						width: 80%
-					input[type='submit']
-						background: #23a48a
-						color: white
-						border: none
-						padding: 5px
-						width: 15%
+					form
+						flex-wrap: wrap
+						input[type='text']
+							background: white
+							border: none
+							padding: 5px
+							flex-grow: 4
+						input[type='submit']
+							background: #23a48a
+							color: white
+							border: none
+							padding: 5px
+							flex-grow: 1
 				#member-list
 					flex-direction: column
 					#member-tabs
@@ -36,6 +49,8 @@
 							justify-content: center
 						flex-wrap: wrap
 						width: 80%
+						@media screen and (max-width: 570px)
+							width: 100%
 						a
 							color: black
 							margin: 0 5px
@@ -65,6 +80,7 @@
 								justify-content: space-between
 								align-items: center
 								margin: 10px auto 0
+								flex-wrap: wrap
 								.imgblock
 									width: 70px
 									height: 70px
@@ -82,6 +98,7 @@
 									justify-content: center
 									align-items: center
 									padding: 0 10px
+									flex-wrap: wrap
 									a 
 										color: white
 								.nasu
@@ -115,3 +132,109 @@
 									font-size: 25px
 			#detailed-member-info
 				width: 30%
+				@media screen and (max-width: 430px)
+					width: 100%
+				@media screen and (max-width: 1100px)
+					width: 70%
+				padding: 0 0 10px
+				margin: 20px 10px 10px
+				overflow: hidden
+				flex-direction: column
+				background: #f0f9f7
+				.hrtop
+					margin: 0 0 10px
+				.hrbott
+					margin: 20px 0 0
+				.hrmidd
+					margin: 10px auto
+				#d-m-i-header
+					width: 100%
+					overflow: hidden
+					align-items: flex-start
+					margin: 0 auto 10px
+					padding: 0 0 10px
+					#imgblock-2
+						width: 150px
+						height: 150px
+						margin: -20px 0 0 -20px
+						border-radius: 50%
+						z-index: 1
+						justify-content: center
+						align-items: center
+						overflow: hidden
+						img
+							height: 100%
+					#some-info
+						width: 100%
+						margin-left: -130px
+						flex-direction: column 
+						position: relative
+						#status-bar
+							background: #167562
+							color: white
+							font-size: 20px
+							font-weight: bold
+							width: 100%
+							justify-content: center
+							padding-left: 130px
+						#right-bar-name
+							padding-left: 135px
+							color: #167562
+							font-size: 17px
+						#right-bar-about
+							padding-left: 135px
+							color: #bdd4cf
+							font-size: 15px
+						i
+							width: 50px
+							height: 50px
+							justify-content: center
+							align-items: center
+							font-size: 30px
+							border-radius: 50%
+							position: absolute
+							top: 85px
+							left: 80px
+							background: #167562
+							z-index: 2
+							color: white
+				#d-m-i-contact-info
+					width: 100%
+					font-size: 20px
+					padding: 0 20px
+					hr 
+						border-color: #b7d0cb
+					.contact-element
+						margin: 0 0 10px
+						i
+							color: #23a48a
+							font-size: 28px
+							margin: 0 10px 0 10px
+						span
+							color: #a5cbc3
+				#d-m-i-soc-net
+					width: 100%
+					justify-content: space-around
+					align-items: center
+					margin: 20px auto
+					img
+						width: 50px
+						height: 50px
+						border-radius: 50%
+				#d-m-i-ref-in, #d-m-i-ref-out
+					align-items: center
+					padding: 0 20px
+					.ref-big
+						color: #23a48a
+						font-size: 20px
+						margin-right: 5px
+					.ref-mid
+						color: #86d2c3
+						font-size: 20px
+						margin-right: 5px
+					.ref-small
+						color: #cbe1dc
+						font-size: 18px
+				#d-m-i-ref-out
+					flex-direction: column
+					align-items: flex-start
