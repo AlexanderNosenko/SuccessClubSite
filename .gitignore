@@ -9,6 +9,7 @@
 /public/assets/*
 /public/uploads/*
 /app/controllers/examples
+/app/controllers/spec
 .*
 !/.gitignore
 !.keep
