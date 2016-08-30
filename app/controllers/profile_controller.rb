@@ -2,6 +2,7 @@ class ProfileController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_signup_complete, only: [:index, :new, :create, :update, :destroy]
   before_action :set_user, only:[:index, :show, :edit, :update, :finish_signup]
+  before_action :make_payment_services, only: [:index, :finish_signup]
 
   def index
   end
