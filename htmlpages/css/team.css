@@ -47,13 +47,13 @@
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 10px 40px 60px;
+  padding: 10px 40px 30px;
   margin: 0 0 10px;
   width: 100%;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-search h1 {
-  margin: 30px 0;
+  margin: 10px 0 20px;
   text-align: left;
   color: #23a48a;
   font-family: "RobotoLight";
@@ -92,21 +92,13 @@
 
 #main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs {
   margin: 0 auto 10px;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   width: 80%;
-}
-
-@media screen and (max-width: 795px) {
-  #main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs {
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
 }
 
 @media screen and (max-width: 570px) {
