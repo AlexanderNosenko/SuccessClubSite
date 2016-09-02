@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   before_create :set_default_role
   TEMP_EMAIL_PREFIX = 'change@me'
-  TEMP_EMAIL_REGEX = /\Achange@me/
+  @TEMP_EMAIL_REGEX = /\Achange@me/
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -19,12 +19,12 @@ class User < ActiveRecord::Base
   # User Avatar Validation
   #validates_integrity_of  :avatar
   #validates_processing_of :avatar
-  validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+  validates_format_of :email, :without => @TEMP_EMAIL_REGEX, on: :update
 
   def is_online?
     !current_sign_in_at.nil?
   end
-  
+
   def self.find_for_oauth(auth, signed_in_resource = nil, session)
 
     # Get the identity and user if they exist
@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
   end
 
   def email_verified?
-    self.email && self.email !~ TEMP_EMAIL_REGEX
+    self.email && self.email !~ @TEMP_EMAIL_REGEX
   end
   def self.search(search)
     if search
@@ -88,7 +88,6 @@ class User < ActiveRecord::Base
     User.new(
       name: first,
       last_name: last,
-      remote_avatar_url: auth.info.image,
       #username: auth.info.nickname || auth.uid,
       email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
       password: Devise.friendly_token[0,20]
@@ -104,7 +103,7 @@ class User < ActiveRecord::Base
       birthday: auth.extra.raw_info.bdate,
       country: auth.extra.raw_info.country.title,
       city: auth.extra.raw_info.city.title,
-      remote_avatar_url: auth.extra.raw_info.photo_50,
+      remote_avatar_url: auth.extra.raw_info.photo_200,
       sex: auth.extra.raw_info.sex,
       #username: auth.info.nickname || auth.uid,
       email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",

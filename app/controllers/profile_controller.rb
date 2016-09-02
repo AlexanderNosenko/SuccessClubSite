@@ -36,6 +36,10 @@ class ProfileController < ApplicationController
   def finish_signup
     # authorize! :update, @user
     if request.patch? && params[:user] #&& params[:user][:email]
+      unless @user.email.match @user.TEMP_EMAIL_REGEX then
+        redirect_to "/404.html"
+        return
+      end
       if @user.update(user_params)
         @user.skip_reconfirmation!
         sign_in(@user, :bypass => true)
@@ -49,7 +53,7 @@ class ProfileController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:email, :name, :last_name, :phone, :skype, :birthday, :sex, :country, :city, :about, :avatar)
+    params.require(:user).permit(:email, :name, :last_name, :phone, :skype, :birthday, :sex, :country, :city, :about, :avatar, :vk, :fb, :ok, :youtube)
   end
 
   def set_user
