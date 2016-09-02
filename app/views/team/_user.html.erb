@@ -16,8 +16,8 @@
 </tr> -->
 <div class="partner flexbox">
 	<div class="imgblock flexbox"><%= get_avatar user%></div>
-	<span class="nasu"><%= "#{user.name} #{user.last_name}"%></span>
-	<span class="id"><%= user.id %></span>
+	<span class="nasu" data-link='<%= user_url user%>'><%= "#{user.name} #{user.last_name}"%></span>
+	<span class="id">id<%= user.id %></span>
 	<span class="status"><%= user.role.description %></span>
 	<span class="time"><%= distance_of_time_in_words_to_now user.created_at %> назад</span>
 	<span class="date"><%= user.created_at.strftime("%m/%d/%Y") %></span>
