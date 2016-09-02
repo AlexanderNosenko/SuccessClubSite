@@ -33,7 +33,9 @@
     </div>
   </div>
   <div id="user-stat" class="flexbox">
-    <div id="video" class="flexbox"><span>Video</span></div>
+    <div id="video" class="flexbox">
+      <iframe style="min-height:262px; width:100%;" src="https://www.youtube.com/embed/avabU42rSEU" frameborder="0" allowfullscreen></iframe>
+    </div>
     <div id="pers-svod" class="flexbox">
       <h2>Персональная сводка:</h2>
       <div class="blockset flexbox">
@@ -92,5 +94,5 @@
     var form = $('#'+$('#money_input').find('input[type="radio"]:checked').data('service_type'));
     form.find('#PAYMENT_AMOUNT').val(parseInt($('input[name="amount"]').val()));
     form.submit();
-  }) 
+  })
 </script>
