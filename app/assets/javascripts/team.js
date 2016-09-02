@@ -15,5 +15,8 @@ $(document).ready(function (e) {
     console.log(elem);
     return false;
   });
-
+  $('.tabsbtns').click(function(){
+    $( ".tabsbtns" ).removeClass( "active" );
+    $(this).addClass( "active" );
+  });
 })

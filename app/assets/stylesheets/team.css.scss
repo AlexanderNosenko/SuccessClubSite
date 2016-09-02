@@ -1,8 +1,3 @@
-//= require iCheck/custom.css
-//= require fullcalendar/fullcalendar.css
-
-
-
 #main #content #team-search-detailedinfo {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -10,11 +5,41 @@
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -webkit-flex-direction: reverse-row;
+      -ms-flex-direction: reverse-row;
+          flex-direction: reverse-row;
   width: 80%;
+}
+
+@media screen and (max-width: 570px) {
+  #main #content #team-search-detailedinfo {
+    width: 100%;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #main #content #team-search-detailedinfo {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
 }
 
 #main #content #team-search-detailedinfo #team-with-search {
   width: 70%;
+  margin: 20px auto 0;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 570px) {
+  #main #content #team-search-detailedinfo #team-with-search {
+    width: 100%;
+  }
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-search {
@@ -22,30 +47,41 @@
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 10px 40px 60px;
-  margin: 20px auto 10px;
+  padding: 10px 40px 30px;
+  margin: 0 0 10px;
+  width: 100%;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-search h1 {
-  margin: 30px 0;
+  margin: 10px 0 20px;
   text-align: left;
   color: #23a48a;
   font-family: "RobotoLight";
 }
 
-#main #content #team-search-detailedinfo #team-with-search #member-search input[type='text'] {
+#main #content #team-search-detailedinfo #team-with-search #member-search form {
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-search form input[type='text'] {
   background: white;
   border: none;
   padding: 5px;
-  width: 80%;
+  -webkit-flex-grow: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
 }
 
-#main #content #team-search-detailedinfo #team-with-search #member-search input[type='submit'] {
+#main #content #team-search-detailedinfo #team-with-search #member-search form input[type='submit'] {
   background: #23a48a;
   color: white;
   border: none;
   padding: 5px;
-  width: 15%;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list {
@@ -56,20 +92,18 @@
 
 #main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs {
   margin: 0 auto 10px;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   width: 80%;
 }
 
-@media screen and (max-width: 795px) {
+@media screen and (max-width: 570px) {
   #main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs {
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    width: 100%;
   }
 }
 
@@ -123,6 +157,9 @@
       -ms-flex-align: center;
           align-items: center;
   margin: 10px auto 0;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .imgblock, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .imgblock, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .imgblock {
@@ -156,6 +193,9 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 0 10px;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner span a, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner span a, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner span a {
@@ -225,4 +265,190 @@
 
 #main #content #team-search-detailedinfo #detailed-member-info {
   width: 30%;
+  padding: 0 0 10px;
+  margin: 20px 10px 10px;
+  overflow: hidden;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #f0f9f7;
+}
+
+@media screen and (max-width: 430px) {
+  #main #content #team-search-detailedinfo #detailed-member-info {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #main #content #team-search-detailedinfo #detailed-member-info {
+    width: 70%;
+  }
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info .hrtop {
+  margin: 0 0 10px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info .hrbott {
+  margin: 20px 0 0;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info .hrmidd {
+  margin: 10px auto;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header {
+  width: 100%;
+  overflow: hidden;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 0 auto 10px;
+  padding: 0 0 10px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header #imgblock-2 {
+  width: 150px;
+  height: 150px;
+  margin: -20px 0 0 -20px;
+  border-radius: 50%;
+  z-index: 1;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header #imgblock-2 img {
+  height: 100%;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header #some-info {
+  width: 100%;
+  margin-left: -130px;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header #some-info #status-bar {
+  background: #167562;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-left: 130px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header #some-info #right-bar-name {
+  padding-left: 135px;
+  color: #167562;
+  font-size: 17px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header #some-info #right-bar-about {
+  padding-left: 135px;
+  color: #bdd4cf;
+  font-size: 15px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header #some-info i {
+  width: 50px;
+  height: 50px;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: 85px;
+  left: 80px;
+  background: #167562;
+  z-index: 2;
+  color: white;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-contact-info {
+  width: 100%;
+  font-size: 20px;
+  padding: 0 20px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-contact-info hr {
+  border-color: #b7d0cb;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-contact-info .contact-element {
+  margin: 0 0 10px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-contact-info .contact-element i {
+  color: #23a48a;
+  font-size: 28px;
+  margin: 0 10px 0 10px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-contact-info .contact-element span {
+  color: #a5cbc3;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-soc-net {
+  width: 100%;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px auto;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-soc-net img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-ref-in, #main #content #team-search-detailedinfo #detailed-member-info #d-m-i-ref-out {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 20px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-ref-in .ref-big, #main #content #team-search-detailedinfo #detailed-member-info #d-m-i-ref-out .ref-big {
+  color: #23a48a;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-ref-in .ref-mid, #main #content #team-search-detailedinfo #detailed-member-info #d-m-i-ref-out .ref-mid {
+  color: #86d2c3;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-ref-in .ref-small, #main #content #team-search-detailedinfo #detailed-member-info #d-m-i-ref-out .ref-small {
+  color: #cbe1dc;
+  font-size: 18px;
+}
+
+#main #content #team-search-detailedinfo #detailed-member-info #d-m-i-ref-out {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
