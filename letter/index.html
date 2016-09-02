@@ -1,162 +1,136 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title></title>
+    <title>Letter</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <style type="text/css">
+    <style>
+      body {
+        padding: 0;
+        font-size: 16px;
+        width: 600px;
+        margin: 0 auto;
+        font-family: "CodePro";
+      }
+
       @font-face {
         font-family: "GoodVibes";
         src: url("9151.ttf");
         font-style: normal;
         font-weight: normal;
       }
+
       @font-face {
         font-family: "CodePro";
         src: url("CodeProLight.otf");
         font-style: normal;
         font-weight: normal;
       }
-      body {
-        margin: 0;
-        padding: 0;
-        font-size: 16px;
-        font-family: sans-serif;
-        text-align: center;
+
+      .top {
         width: 100%;
-        min-width: 600px;
-      }
-
-      ul {
-        padding: 0;
-        margin: 0;
-      }
-
-      #greetings {
-        text-align: left;
-      }
-
-      #greetings h1 {
-        text-transform: uppercase;
-        margin: 5px 0;
-        font-size: 20px;
-      }
-
-      #header {
         background: #6e2866;
-      }
-
-      #header header {
-        color: white;
+        margin: 15px 0;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
       }
 
-      #header header .social i {
+      .top .soc-icons i {
+        font-size: 30px;
         color: white;
-        font-size: 40px;
         margin: 0 5px;
       }
 
-      #header header .name a {
-        font-size: 30px;
+      .top .center a {
         color: white;
-      }
-
-      #header header .name a:hover {
         text-decoration: none;
       }
 
-      #header header .cnt_img {
-        width: 250px;
-        height: 70px;
-        margin: -9px -140px -9px 0;
+      .top .img-block {
+        width: 200px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
       }
 
-      #header header .cnt_text {
-        margin-right: 30px;
+      .top .img-block img {
+        width: 100%;
+        height: 75px;
+        margin: -9px 0 -10px 0;
       }
 
-      #maintext h1 {
-        margin: 0;
+      .top .img-block span {
+        color: white;
+        margin-left: -115px;
       }
 
-      #maintext .club {
+      .main {
+        text-align: center;
+        margin: 30px 0 0;
+      }
+
+      .main .club {
         font-family: "GoodVibes";
-        font-size: 110px;
-        margin-top: 40px;
+        font-size: 100px;
       }
 
-      #maintext .prof {
+      .main .prof {
         font-family: "CodePro";
-        font-size: 35px;
-        margin-bottom: 20px
+        font-size: 30px;
       }
 
-      #foruser img {
+      .main p {
+        text-align: justify;
+      }
+
+      .main img {
         width: 100%;
       }
 
-      #btncontainer {
-        display: flex;
-        flex-direction: row-reverse;
+      .activate {
+        margin: 0 auto;
+        display: block;
+        width: 400px;
       }
 
-      #btncontainer #btn_btn button {
-        width: 60%;
-        background: transparent;
+      .activate button {
+        width: 100%;
         border: none;
+        padding: 0;
+        cursor: pointer;
       }
 
-      #btncontainer #btn_btn button img {
+      .activate button img {
         width: 100%;
       }
     </style>
   </head>
   <body>
-    <div class="container-fluid">
-      <div id="greetings" class="row">
-        <div class="col-sm-offset-1 col-sm-11">
-          <h1>Добро пожаловать в Клуб проффесионалов</h1>
-        </div>
-      </div>
-      <div id="header" class="row">
-        <div class="col-sm-12">
-          <header>
-            <div class="social"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></div><span class="name"><a href="#">improf.club</a></span>
-            <div class="cnt"><img src="cnt-bg.png" class="cnt_img"><span class="cnt_text">support@e.mail</span></div>
-          </header>
-        </div>
-      </div>
-      <div id="maintext" class="row">
-        <div class="col-sm-12">
-          <h1 class="club">Клуб</h1>
-          <h1 class="prof">Проффесионалов</h1>
-        </div>
-      </div>
-      <div id="foruser" class="row">
-        <div class="col-sm-offset-2 col-sm-8"><img src="line.png">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p><img src="line.png">
-        </div>
-      </div>
-      <div id="btncontainer" class="row">
-        <div class="col-sm-offset-2 col-sm-8">
-          <div id="btn_btn">
-            <button><img src="button-bg.png"></button>
-          </div>
-        </div>
-      </div>
+    <div class="top">
+      <div class="soc-icons"><a href="#"><i class="fa fa-vk"></i></a><a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-facebook-square"></i></a></div>
+      <div class="center"><a href="http://www.improf.club">improf.club</a></div>
+      <div class="img-block"><img src="cnt-bg.png"><span>support@e.mail</span></div>
     </div>
+    <div class="main"><span class="club">Клуб</span><br><span class="prof">Профессионалов</span><img src="line.png">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p><img src="line.png">
+    </div><a href="#" class="activate">
+      <button><img src="button-bg.png"></button></a>
   </body>
 </html>
