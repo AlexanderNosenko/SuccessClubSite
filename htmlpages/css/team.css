@@ -8,9 +8,6 @@
   -webkit-flex-direction: reverse-row;
       -ms-flex-direction: reverse-row;
           flex-direction: reverse-row;
-<<<<<<< HEAD
-  width: 80%;
-=======
   width: 90%;
 }
 
@@ -29,7 +26,6 @@
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
   }
->>>>>>> 9408c94e8a7ed7085e64ca3bad92d1da94cbeecc
 }
 
 @media screen and (max-width: 570px) {
@@ -61,15 +57,12 @@
   #main #content #team-search-detailedinfo #team-with-search {
     width: 100%;
   }
-<<<<<<< HEAD
-=======
 }
 
 @media screen and (max-width: 1070px) {
   #main #content #team-search-detailedinfo #team-with-search {
     width: 90%;
   }
->>>>>>> 9408c94e8a7ed7085e64ca3bad92d1da94cbeecc
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-search {
@@ -291,17 +284,6 @@
   background: #f0f9f7;
 }
 
-<<<<<<< HEAD
-@media screen and (max-width: 430px) {
-  #main #content #team-search-detailedinfo #detailed-member-info {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  #main #content #team-search-detailedinfo #detailed-member-info {
-    width: 70%;
-=======
 @media screen and (max-width: 650px) {
   #main #content #team-search-detailedinfo #detailed-member-info {
     width: 90%;
@@ -311,7 +293,6 @@
 @media screen and (min-width: 650px) and (max-width: 1070px) {
   #main #content #team-search-detailedinfo #detailed-member-info {
     width: 50%;
->>>>>>> 9408c94e8a7ed7085e64ca3bad92d1da94cbeecc
   }
 }
 
@@ -340,14 +321,9 @@
 #main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header #imgblock-2 {
   width: 150px;
   height: 150px;
-<<<<<<< HEAD
-  margin: -20px 0 0 -20px;
-  border-radius: 50%;
-=======
   margin: -22px 0 0 -22px;
   border-radius: 50%;
   background: white;
->>>>>>> 9408c94e8a7ed7085e64ca3bad92d1da94cbeecc
   z-index: 1;
   -webkit-justify-content: center;
       -ms-flex-pack: center;

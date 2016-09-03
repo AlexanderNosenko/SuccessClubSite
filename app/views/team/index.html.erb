@@ -13,8 +13,9 @@
       <div id="member-list" class="flexbox">
         <div id="member-tabs" class="flexbox">
           <a href="#partners" data-toggle="tab" class="active tabsbtns">Партнеры</a>
-          <a href="#mailing" data-toggle="tab" class="tabsbtns disabled">Рассылка</a>
-          <a href="#senpais" data-toggle="tab" class="tabsbtns">Спонсоры</a></div>
+          <a href="#senpais" data-toggle="tab" class="tabsbtns">Наставники</a>
+          <a href="#mailing" data-toggle="tab" class="tabsbtns">Рассылка</a>
+        </div>
         <div class="tab-content flexbox">
           <div id="partners" class="tab-pane active flexbox">
               <%= render(partial: 'user', collection: @team) || 'В вашей команде пока никого нет..' %>
