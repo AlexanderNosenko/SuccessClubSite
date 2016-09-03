@@ -44,8 +44,7 @@
 }
 
 #main #content #user-info #user-pic img {
-  width: 200px;
-  max-height: 200px;
+  height: 150px;
 }
 
 @media screen and (max-width: 767px) {
