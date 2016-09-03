@@ -311,8 +311,9 @@
 #main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header #imgblock-2 {
   width: 150px;
   height: 150px;
-  margin: -20px 0 0 -20px;
+  margin: -22px 0 0 -22px;
   border-radius: 50%;
+  background: white;
   z-index: 1;
   -webkit-justify-content: center;
       -ms-flex-pack: center;

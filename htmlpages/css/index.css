@@ -218,7 +218,7 @@
   background: #eee;
   height: 100px;
   width: 100%;
-  margin: 20px 0 0 10px;
+  margin: 20px 5px 0;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
