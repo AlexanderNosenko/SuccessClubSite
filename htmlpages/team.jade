@@ -111,7 +111,7 @@ html(lang="ru")
 						i.fa.fa-comments(aria-hidden="true")
 						.notifications.flexbox.disabled
 							span 0
-					a.no-bg(href='#') <i class="fa fa-sign-out" aria-hidden="true"></i>
+					a.no-bg(href='#') <i class="fa fa-power-off" aria-hidden="true"></i>
 				button#menu-btn <i class="fa fa-bars" aria-hidden="true"></i>
 		#main.flexbox
 			nav#sidebar
@@ -130,6 +130,10 @@ html(lang="ru")
 						span.dis-popup Временно недоступно
 						span.full-menu Сообщения
 					a.menu-item.disabled
+						<i class="fa fa-graduation-cap"></i>
+						span.dis-popup Временно недоступно
+						span.full-menu Обучение
+					a.menu-item.disabled
 						<i class="fa fa-money"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Быстрые деньги
@@ -138,15 +142,15 @@ html(lang="ru")
 						span.dis-popup Временно недоступно
 						span.full-menu Бизнес
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-usd" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Инвестиции
 					a.menu-item.disabled
-						<i class="fa fa-edit"></i>
+						<i class="fa fa-cogs"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Инструменты
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-cubes" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Серфинг сайтов
 					a.menu-item.disabled
@@ -154,19 +158,19 @@ html(lang="ru")
 						span.dis-popup Временно недоступно
 						span.full-menu Финансы
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-trophy" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Лоторея
 					a.menu-item.disabled
-						<i class="fa fa-line-chart"></i>
+						<i class="fa fa-calendar"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Мероприятия
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-newspaper-o" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Новости
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-heart-o" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Благотворительность
 					a.menu-item.disabled
@@ -174,7 +178,7 @@ html(lang="ru")
 						span.dis-popup Временно недоступно
 						span.full-menu FAQ
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-black-tie" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Вакансии
 			#content.flexbox.full
@@ -184,12 +188,12 @@ html(lang="ru")
 							h1 Команда
 							form.flexbox(method='post' action='')
 								input(type='text' name='member-search' placeholder='Имя/Фамилия')
-								input(type='submit' value='Поиск' name='search')
+								input(type='submit' value='Искать' name='search')
 						#member-list.flexbox
 							#member-tabs.flexbox
 								a.active.tabsbtns(href='#partners' data-toggle="tab") Партнеры
-								a.tabsbtns(href='#mailing' data-toggle="tab") Рассылка
 								a.tabsbtns(href='#senpais' data-toggle="tab") Наставники
+								a.tabsbtns(href='#mailing' data-toggle="tab") Рассылка
 							.tab-content.flexbox
 								#partners.tab-pane.active.flexbox
 									.partner.flexbox
@@ -198,9 +202,27 @@ html(lang="ru")
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
+										span.date 23:42 03/06/1994
+										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
+										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
+										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
+									.partner.flexbox
+										.imgblock.flexbox
+											img(src='img/mC1NkcwYsAM.jpg')
+<<<<<<< HEAD
+										span.nasu Oleg Kovalenko
+										span.id 1234
+										span.status VIP
 										span.time 23:35
 										span.date 03/06/1994
 										span.onlstatus Online
+=======
+										span.nasu Abdulahman Kadirov
+										span.id 123456789
+										span.status User
+										span.date 23:42 03/06/1994
+										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
+>>>>>>> 9408c94e8a7ed7085e64ca3bad92d1da94cbeecc
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
@@ -209,9 +231,8 @@ html(lang="ru")
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
-										span.time 23:35
-										span.date 03/06/1994
-										span.onlstatus Online
+										span.date 23:42 03/06/1994
+										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
@@ -220,9 +241,8 @@ html(lang="ru")
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
-										span.time 23:35
-										span.date 03/06/1994
-										span.onlstatus Online
+										span.date 23:42 03/06/1994
+										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
@@ -231,20 +251,8 @@ html(lang="ru")
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
-										span.time 23:35
-										span.date 03/06/1994
-										span.onlstatus Online
-										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
-										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
-									.partner.flexbox
-										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
-										span.nasu Oleg Kovalenko
-										span.id 1234
-										span.status VIP
-										span.time 23:35
-										span.date 03/06/1994
-										span.onlstatus Online
+										span.date 23:42 03/06/1994
+										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 								#mailing.tab-pane.flexbox
@@ -254,9 +262,8 @@ html(lang="ru")
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
-										span.time 23:35
-										span.date 03/06/1994
-										span.onlstatus Online
+										span.date 23:42 03/06/1994
+										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
@@ -265,9 +272,8 @@ html(lang="ru")
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
-										span.time 23:35
-										span.date 03/06/1994
-										span.onlstatus Online
+										span.date 23:42 03/06/1994
+										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 								#senpais.tab-pane.flexbox
@@ -277,9 +283,8 @@ html(lang="ru")
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
-										span.time 23:35
-										span.date 03/06/1994
-										span.onlstatus Online
+										span.date 23:42 03/06/1994
+										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
@@ -288,9 +293,8 @@ html(lang="ru")
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
-										span.time 23:35
-										span.date 03/06/1994
-										span.onlstatus Online
+										span.date 23:42 03/06/1994
+										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
@@ -299,9 +303,8 @@ html(lang="ru")
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
-										span.time 23:35
-										span.date 03/06/1994
-										span.onlstatus Online
+										span.date 23:42 03/06/1994
+										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 					#detailed-member-info.flexbox
