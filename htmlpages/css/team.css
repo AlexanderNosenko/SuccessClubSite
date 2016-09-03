@@ -8,7 +8,28 @@
   -webkit-flex-direction: reverse-row;
       -ms-flex-direction: reverse-row;
           flex-direction: reverse-row;
+<<<<<<< HEAD
   width: 80%;
+=======
+  width: 90%;
+}
+
+@media screen and (max-width: 570px) {
+  #main #content #team-search-detailedinfo {
+    width: 100%;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  #main #content #team-search-detailedinfo {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+>>>>>>> 9408c94e8a7ed7085e64ca3bad92d1da94cbeecc
 }
 
 @media screen and (max-width: 570px) {
@@ -40,6 +61,15 @@
   #main #content #team-search-detailedinfo #team-with-search {
     width: 100%;
   }
+<<<<<<< HEAD
+=======
+}
+
+@media screen and (max-width: 1070px) {
+  #main #content #team-search-detailedinfo #team-with-search {
+    width: 90%;
+  }
+>>>>>>> 9408c94e8a7ed7085e64ca3bad92d1da94cbeecc
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-search {
@@ -119,6 +149,7 @@
   #main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs a {
     width: 100%;
     display: inline-block;
+    margin: 2px 0;
   }
 }
 
@@ -150,9 +181,9 @@
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner {
   width: 100%;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -174,7 +205,7 @@
       -ms-flex-align: center;
           align-items: center;
   margin-right: -10px;
-  z-index: 10;
+  z-index: 1;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .imgblock img, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .imgblock img, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .imgblock img {
@@ -204,63 +235,49 @@
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .nasu, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .nasu, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .nasu {
   background: #e0f0ed;
-  -webkit-flex-grow: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
+  width: 200px;
   padding: 0 10px 0 20px;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .id, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .id, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .id {
   background: #bce8df;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  width: 100px;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .status, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .status, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .status {
   background: #a3dcd0;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-
-#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .time, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .time, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .time {
-  background: #88cfc1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  width: 100px;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .date, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .date, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .date {
-  background: #65bcaa;
-  -webkit-flex-grow: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
+  background: #88cfc1;
+  width: 150px;
 }
 
-#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .onlstatus, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .onlstatus, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .onlstatus {
-  background: #429d8a;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+#main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .partteam, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .partteam, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .partteam {
+  color: white;
+  background: #5fbaa8;
+  -webkit-flex-grow: 6;
+      -ms-flex-positive: 6;
+          flex-grow: 6;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .moreinfo, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .moreinfo, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .moreinfo {
-  background: #167562;
-  -webkit-flex-grow: 0.5;
-      -ms-flex-positive: 0.5;
-          flex-grow: 0.5;
+  background: #429d8a;
   color: white;
   font-size: 25px;
+  -webkit-flex-grow: 6;
+      -ms-flex-positive: 6;
+          flex-grow: 6;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .message, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .message, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .message {
-  background: #0c5c4c;
-  -webkit-flex-grow: 0.5;
-      -ms-flex-positive: 0.5;
-          flex-grow: 0.5;
+  background: #167562;
   color: white;
   font-size: 25px;
+  -webkit-flex-grow: 6;
+      -ms-flex-positive: 6;
+          flex-grow: 6;
 }
 
 #main #content #team-search-detailedinfo #detailed-member-info {
@@ -274,6 +291,7 @@
   background: #f0f9f7;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 430px) {
   #main #content #team-search-detailedinfo #detailed-member-info {
     width: 100%;
@@ -283,6 +301,17 @@
 @media screen and (max-width: 1100px) {
   #main #content #team-search-detailedinfo #detailed-member-info {
     width: 70%;
+=======
+@media screen and (max-width: 650px) {
+  #main #content #team-search-detailedinfo #detailed-member-info {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 1070px) {
+  #main #content #team-search-detailedinfo #detailed-member-info {
+    width: 50%;
+>>>>>>> 9408c94e8a7ed7085e64ca3bad92d1da94cbeecc
   }
 }
 
@@ -311,8 +340,14 @@
 #main #content #team-search-detailedinfo #detailed-member-info #d-m-i-header #imgblock-2 {
   width: 150px;
   height: 150px;
+<<<<<<< HEAD
   margin: -20px 0 0 -20px;
   border-radius: 50%;
+=======
+  margin: -22px 0 0 -22px;
+  border-radius: 50%;
+  background: white;
+>>>>>>> 9408c94e8a7ed7085e64ca3bad92d1da94cbeecc
   z-index: 1;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
