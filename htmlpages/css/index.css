@@ -224,12 +224,9 @@
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-#main #content #user-stat #pers-svod .info-block2 .undercover {
-  position: absolute;
-  color: transparent;
-  transition: all 500ms;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #main #content #user-stat #pers-svod .info-block2 .alwvis {
@@ -237,14 +234,6 @@
   transition: all 500ms;
   font-size: 30px;
   font-weight: bold;
-}
-
-#main #content #user-stat #pers-svod .info-block2:hover .undercover {
-  color: black;
-}
-
-#main #content #user-stat #pers-svod .info-block2:hover .alwvis {
-  color: transparent;
 }
 
 #main #content #all-stat {
