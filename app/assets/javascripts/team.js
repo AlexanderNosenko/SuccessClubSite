@@ -13,7 +13,15 @@ $(document).ready(function (e) {
     //var elem = (e.target.nodeName != "A")? $(e.target.parentNode) : $(e.target);
     var text = $(e.target).attr('data-link');
     detailedContainer.load(text + ".partial");
-    console.log(elem);
+    //console.log(elem);
+    return false;
+  });
+  $('#partners').find(".moreinfo").find('a').click(function (e) {
+    e.preventDefault();
+    var elem = (e.target.nodeName != "A")? $(e.target.parentNode) : $(e.target);
+    var text = elem.attr('href');
+    detailedContainer.load(text + ".partial");
+    console.log(e.target);
     return false;
   });
   $('.tabsbtns').click(function(){
