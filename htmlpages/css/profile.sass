@@ -9,7 +9,7 @@
 			width: 80%
 			a
 				color: black
-				margin: 0 5px
+				margin: 5px
 				border:
 					bottom: 2px solid #23a48a
 				padding: 10px 
@@ -51,6 +51,11 @@
 					padding: 10px
 					margin: 10px
 					width: 80%
+				#for-map
+					@media screen and (max-width: 450px)
+						flex-wrap: wrap
+						select
+							width: 100%
 				#profile-info-names
 					flex-direction: row
 					@media screen and (max-width: 450px)
@@ -63,7 +68,7 @@
 						width: 80%
 						@media screen and (max-width: 450px)
 							width: 100%
-						input
+						input, select
 							width: 90%
 							@media screen and (max-width: 450px)
 								width: 100%

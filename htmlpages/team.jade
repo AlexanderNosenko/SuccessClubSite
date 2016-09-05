@@ -185,10 +185,15 @@ html(lang="ru")
 				#team-search-detailedinfo.flexbox
 					#team-with-search.flexbox
 						#member-search.flexbox
-							h1 Команда
-							form.flexbox(method='post' action='')
-								input(type='text' name='member-search' placeholder='Имя/Фамилия')
-								input(type='submit' value='Искать' name='search')
+							#exact-search.flexbox
+								h1 Команда
+								form.flexbox(method='post' action='')
+									input(type='text' name='member-search' placeholder='Имя/Фамилия')
+									input(type='submit' value='Искать' name='search')
+							#history-part.flexbox 
+								a(href='#') Oleg Kovalenko
+								span >
+								a(href='#') Igor Onishenko
 						#member-list.flexbox
 							#member-tabs.flexbox
 								a.active.tabsbtns(href='#partners' data-toggle="tab") Партнеры
@@ -198,7 +203,7 @@ html(lang="ru")
 								#partners.tab-pane.active.flexbox
 									.partner.flexbox
 										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
+											img(src='https://images.vivino.com/avatars/default_user.png')
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
@@ -208,26 +213,17 @@ html(lang="ru")
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
 										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
-<<<<<<< HEAD
-										span.nasu Oleg Kovalenko
-										span.id 1234
-										span.status VIP
-										span.time 23:35
-										span.date 03/06/1994
-										span.onlstatus Online
-=======
+											img(src='https://images.vivino.com/avatars/default_user.png')
 										span.nasu Abdulahman Kadirov
 										span.id 123456789
 										span.status User
 										span.date 23:42 03/06/1994
 										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
->>>>>>> 9408c94e8a7ed7085e64ca3bad92d1da94cbeecc
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
 										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
+											img(src='https://images.vivino.com/avatars/default_user.png')
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
@@ -237,7 +233,7 @@ html(lang="ru")
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
 										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
+											img(src='https://images.vivino.com/avatars/default_user.png')
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
@@ -247,7 +243,7 @@ html(lang="ru")
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
 										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
+											img(src='https://images.vivino.com/avatars/default_user.png')
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
@@ -258,7 +254,7 @@ html(lang="ru")
 								#mailing.tab-pane.flexbox
 									.partner.flexbox
 										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
+											img(src='https://images.vivino.com/avatars/default_user.png')
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
@@ -268,7 +264,7 @@ html(lang="ru")
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
 										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
+											img(src='https://images.vivino.com/avatars/default_user.png')
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
@@ -279,7 +275,7 @@ html(lang="ru")
 								#senpais.tab-pane.flexbox
 									.partner.flexbox
 										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
+											img(src='https://images.vivino.com/avatars/default_user.png')
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
@@ -289,7 +285,7 @@ html(lang="ru")
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
 										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
+											img(src='https://images.vivino.com/avatars/default_user.png')
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
@@ -299,7 +295,7 @@ html(lang="ru")
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
 									.partner.flexbox
 										.imgblock.flexbox
-											img(src='img/mC1NkcwYsAM.jpg')
+											img(src='https://images.vivino.com/avatars/default_user.png')
 										span.nasu Oleg Kovalenko
 										span.id 1234
 										span.status VIP
@@ -310,7 +306,7 @@ html(lang="ru")
 					#detailed-member-info.flexbox
 						#d-m-i-header.flexbox
 							#imgblock-2.flexbox
-								img(src='img/mC1NkcwYsAM.jpg')
+								img(src='https://images.vivino.com/avatars/default_user.png')
 							#some-info.flexbox
 								span#status-bar.flexbox VIP
 								span#right-bar-name.flexbox Oleg Kovalenko
