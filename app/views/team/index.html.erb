@@ -2,13 +2,16 @@
   <div id="team-search-detailedinfo" class="flexbox">
     <div id="team-with-search">
       <div id="member-search" class="flexbox">
-        <h1>Команда</h1>
-        <!-- <form method="post" action=""> -->
-        <%= form_tag team_path, :method => 'get', :id => "team_search", :remote => true do %>
-          <%= text_field_tag 'search', nil, placeholder: "Имя/Фамилия" %>
-          <!-- <input type="text" name="member-search" placeholder="Имя/Фамилия"> -->
-          <input type="submit" value="Поиск" name="submit">
-        <% end %>
+        <div id="exact-search" class="flexbox">
+          <h1>Команда</h1>
+          <%= form_tag team_path, :method => 'get', :id => "team_search", class:'flexbox', :remote => true do %>
+            <%= text_field_tag 'search', nil, placeholder: "Имя/Фамилия" %>
+            <input type="submit" value="Поиск" name="submit">
+          <% end %>
+        </div>
+        <div id="history-part" class="flexbox">
+           <!-- <a href="#">Oleg Kovalenko</a><span>></span><a href="#">Igor Onishenko</a> -->
+         </div>
       </div>
       <div id="member-list" class="flexbox">
         <div id="member-tabs" class="flexbox">

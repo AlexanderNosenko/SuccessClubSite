@@ -28,23 +28,6 @@
   }
 }
 
-@media screen and (max-width: 570px) {
-  #main #content #team-search-detailedinfo {
-    width: 100%;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  #main #content #team-search-detailedinfo {
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-  }
-}
-
 #main #content #team-search-detailedinfo #team-with-search {
   width: 70%;
   margin: 20px auto 0;
@@ -71,40 +54,62 @@
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 10px 40px 30px;
+  -webkit-align-content: flex-start;
+      -ms-flex-line-pack: start;
+          align-content: flex-start;
   margin: 0 0 10px;
   width: 100%;
 }
 
-#main #content #team-search-detailedinfo #team-with-search #member-search h1 {
-  margin: 10px 0 20px;
+#main #content #team-search-detailedinfo #team-with-search #member-search #exact-search {
+  width: 100%;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-search #exact-search h1 {
   text-align: left;
   color: #23a48a;
   font-family: "RobotoLight";
 }
 
-#main #content #team-search-detailedinfo #team-with-search #member-search form {
+#main #content #team-search-detailedinfo #team-with-search #member-search #exact-search form {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 17px;
 }
 
-#main #content #team-search-detailedinfo #team-with-search #member-search form input[type='text'] {
+#main #content #team-search-detailedinfo #team-with-search #member-search #exact-search form input[type='text'] {
   background: white;
   border: none;
   padding: 5px;
-  -webkit-flex-grow: 4;
-      -ms-flex-positive: 4;
-          flex-grow: 4;
+  -webkit-flex-grow: 5;
+      -ms-flex-positive: 5;
+          flex-grow: 5;
 }
 
-#main #content #team-search-detailedinfo #team-with-search #member-search form input[type='submit'] {
+#main #content #team-search-detailedinfo #team-with-search #member-search #exact-search form input[type='submit'] {
   background: #23a48a;
   color: white;
   border: none;
   padding: 5px;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -webkit-flex-grow: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+
+#main #content #team-search-detailedinfo #team-with-search #member-search #history-part {
+  margin-top: 10px;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list {
@@ -199,6 +204,7 @@
           align-items: center;
   margin-right: -10px;
   z-index: 1;
+  background: #eee;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .imgblock img, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .imgblock img, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .imgblock img {
