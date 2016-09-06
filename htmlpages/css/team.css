@@ -204,6 +204,7 @@
           align-items: center;
   margin-right: -10px;
   z-index: 1;
+  background: #eee;
 }
 
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #partners .partner .imgblock img, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #mailing .partner .imgblock img, #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content #senpais .partner .imgblock img {
