@@ -4,8 +4,7 @@
 	<span class="id">id<%= user.id %></span>
 	<span class="status"><%= user.role.description %></span>
 	<span class="date"><%= user.created_at.strftime("%m/%d/%Y") %></span>
-	<!-- <span class="onlstatus"><%#= (user.is_online?) ? "Online" : "Offline" %></span> -->
-	<!-- <span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span> -->
-	<span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+	<span class="partteam disabled"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span>
+	<span class="moreinfo"><a href="<%= user_url user%>"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
 	<span class="message disabled"><a href="#" class='disabled'><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
 </div>

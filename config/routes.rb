@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'team' => 'team#index'
   get '/p/:id' => 'partner_link#partner', as: "partner_link"
   delete '/p' => 'partner_link#delete', as: "delete_partner_session"
-
   match '/profile/:id/finish_signup' => 'profile#finish_signup', via: [:get, :patch], :as => :finish_signup
   devise_for :users, controllers:
     {
@@ -29,7 +28,7 @@ Rails.application.routes.draw do
       password: 'passwords'
     }
 
-
+  get 'admin', to: 'admin/home#index'
   # All routes
   #get "dashboards/dashboard_1"
   #get "dashboards/dashboard_2"

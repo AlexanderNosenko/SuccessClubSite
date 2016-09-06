@@ -19,7 +19,7 @@
 
 #main #content #profile-links a {
   color: black;
-  margin: 0 5px;
+  margin: 5px;
   border-bottom: 2px solid #23a48a;
   padding: 10px;
   transition: all 500ms;
@@ -79,7 +79,7 @@
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 49%;
+  width: 69%;
 }
 
 @media screen and (max-width: 910px) {
@@ -104,6 +104,17 @@
   padding: 10px;
   margin: 10px;
   width: 80%;
+}
+
+@media screen and (max-width: 450px) {
+  #main #content #info-with-photo #profile-info #for-map {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  #main #content #info-with-photo #profile-info #for-map select {
+    width: 100%;
+  }
 }
 
 #main #content #info-with-photo #profile-info #profile-info-names {
@@ -139,12 +150,12 @@
   }
 }
 
-#main #content #info-with-photo #profile-info #profile-info-contacts .input-icon input {
+#main #content #info-with-photo #profile-info #profile-info-contacts .input-icon input, #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon select {
   width: 90%;
 }
 
 @media screen and (max-width: 450px) {
-  #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon input {
+  #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon input, #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon select {
     width: 100%;
   }
 }
@@ -196,7 +207,7 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   padding: 20px 0;
-  width: 49%;
+  width: 29%;
 }
 
 @media screen and (max-width: 910px) {
