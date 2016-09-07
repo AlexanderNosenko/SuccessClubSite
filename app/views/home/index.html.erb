@@ -55,7 +55,7 @@
         </div>
         <div class="info-block2 flexbox">
           <span class="undercover">Новых партнеров за сегодня</span>
-          <span class="alwvis">0</span>
+          <span class="alwvis"><%= @descendants_today%></span>
         </div>
       </div>
     </div>
@@ -71,11 +71,11 @@
         <span class="undercover">Бизнес направлений</span>
       </div>
       <div class="info-block3 flexbox">
-        <span class="alwvis"><%= @descendants_today %></span>
+        <span class="alwvis"><%= @users_today %></span>
         <span class="undercover">Учасников за сегодня</span>
       </div>
       <div class="info-block3 flexbox">
-        <span class="alwvis"><%= @descendants.count %></span>
+        <span class="alwvis"><%= @users %></span>
         <span class="undercover">Учасников всего</span>
       </div>
       <div class="info-block3 flexbox">
