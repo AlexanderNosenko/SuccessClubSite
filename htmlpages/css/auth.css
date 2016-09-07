@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-family: "RobotoLight";
+  text-align: center;
+  background: url("../img/auth-bg.jpg");
+  background-size: cover;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23a48a;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #23a48a;
+}
+
+.flexbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-block {
+  background: #ece6f2;
+  padding: 10px 100px;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-block .bigger {
+  font-size: 35px;
+}
+
+.main-block .input-container {
+  width: 100%;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 10px auto;
+}
+
+.main-block .input-container input {
+  background: #ece6f2;
+  border: 1px solid black;
+  padding: 10px;
+  -webkit-flex-grow: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
+}
+
+.main-block .input-container input[type='checkbox'] {
+  display: none;
+}
+
+.main-block .input-container input[type='checkbox'] + label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-block .input-container input[type='checkbox'] + label #checkbox-container {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px 0 0;
+  transition: all 500ms;
+}
+
+.main-block .input-container input[type='checkbox'] + label #checkbox-container #custom-checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  transition: all 500ms;
+}
+
+.main-block .input-container input[type='checkbox']:checked + label #checkbox-container {
+  margin: -15px 10px 0 0;
+  transition: all 500ms;
+}
+
+.main-block .input-container input[type='checkbox']:checked + label #checkbox-container #custom-checkbox {
+  border: none;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  -webkit-transform: rotate(-60deg);
+      -ms-transform: rotate(-60deg);
+          transform: rotate(-60deg);
+  width: 20px;
+  height: 10px;
+  transition: all 500ms;
+}
+
+.main-block .input-container i {
+  font-size: 30px;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.main-block input[type='submit'] {
+  padding: 10px 40px;
+  background: linear-gradient(90deg, #a4661d, transparent);
+  border-radius: 30px;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 10px black;
+  cursor: pointer;
+}
