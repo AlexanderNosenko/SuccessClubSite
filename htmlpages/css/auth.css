@@ -64,7 +64,7 @@ body {
 }
 
 .main-block .top-block img {
-  height: 250px;
+  height: 200px;
 }
 
 .main-block .top-block .bigger {
@@ -73,6 +73,7 @@ body {
 
 .main-block .top-block form {
   width: 70%;
+  margin-top: 5px;
 }
 
 .main-block .top-block form .input-container {
@@ -147,6 +148,7 @@ body {
 
 .main-block .top-block form input[type='submit'] {
   padding: 10px 40px;
+  margin: 5px 0 10px;
   background: linear-gradient(90deg, #a4661d, transparent);
   border-radius: 30px;
   border: 1px solid black;
@@ -157,8 +159,10 @@ body {
   cursor: pointer;
 }
 
-.main-block .top-block .soc-icons {
+.main-block .top-block .soc-icons a {
   font-size: 30px;
+  margin: 5px 5px 0;
+  color: black;
 }
 
 .main-block .sup-btns {
