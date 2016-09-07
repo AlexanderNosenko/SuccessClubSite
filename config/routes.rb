@@ -28,7 +28,11 @@ Rails.application.routes.draw do
       password: 'passwords'
     }
 
-  get 'admin', to: 'admin/home#index'
+  # Admin Pages
+  namespace :admin do
+    get 'users', to: 'users#index'
+    get '/', to: 'home#index'
+  end
   # All routes
   #get "dashboards/dashboard_1"
   #get "dashboards/dashboard_2"
