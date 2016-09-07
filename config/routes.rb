@@ -30,8 +30,9 @@ Rails.application.routes.draw do
 
   # Admin Pages
   namespace :admin do
-    get 'users', to: 'users#index'
     get '/', to: 'home#index'
+    get 'users', to: 'users#index'
+    get 'user/:id', to: 'users#show', as: :user
   end
   # All routes
   #get "dashboards/dashboard_1"

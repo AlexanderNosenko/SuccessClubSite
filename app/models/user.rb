@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
     !current_sign_in_at.nil?
   end
 
+  def last_online
+    (is_online?) ? 'Online' : (last_sign_in_at.nil?) ? 'never' : last_sign_in_at.strftime("%d/%m/%y, %H:%M")
+  end
+
   def self.find_for_oauth(auth, signed_in_resource = nil, session)
 
     # Get the identity and user if they exist
