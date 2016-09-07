@@ -2,35 +2,8 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="list-group">
-      <% @users.each do |u| %>
-        <%= link_to admin_user_path(u), class:"row list-group-item" do %>
-          <div class="col-md-1">
-            <%= get_avatar u, class: "avatar-small" %>
-          </div>
-          <div class="col-md-1">
-            <%= u.name %>
-          </div>
-          <div class="col-md-1">
-            <%= u.last_name %>
-          </div>
-          <div class="col-md-1">
-            <%= u.last_name %>
-          </div>
-          <div class="col-md-2">
-            <%= u.role.description %>
-          </div>
-          <div class="col-md-2">
-            <%= u.email %>
-          </div>
-          <div class="col-md-1">
-            <%= u.created_at.strftime("%d/%m/%y") %>
-          </div>
-          <div class="col-md-2">
-            <%= u.last_online %>
-          </div>
-        <% end %>
-      <% end %>
+      <%= render partial: "user", collection: @users %>
     </div>
-    <%= will_paginate @users%>
+    <%= will_paginate @users %>
   </div>
 </div>
