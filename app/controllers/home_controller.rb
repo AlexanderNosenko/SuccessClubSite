@@ -4,9 +4,8 @@ class HomeController < ApplicationController
   before_action :make_payment_services, only: [:index]
 
   def index
-    @descendants = current_user.descendants
-    @descendants_today = @descendants.map { |u|
-      u if u.created_at.today?
-    }.compact.count
+    @users = User.count + 999
+    @users_today = User.where('created_at > ?', 1.day.ago).count
+    @descendants_today = current_user.descendants.where('created_at > ?', 1.day.ago).count
   end
 end

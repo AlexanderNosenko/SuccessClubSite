@@ -7,7 +7,42 @@
     <%= stylesheet_link_tag    'admin/admin', media: 'all', 'data-turbolinks-track' => true %>
   </head>
   <body>
-    <%= yield %>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <%= link_to admin_path do%>
+                        Admin Page
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to 'Users', admin_users_path%>
+                </li>
+                <li>
+                    <a class="disabled" href="#">Payments</a>
+                </li>
+                <li>
+                    <a href="#">Bonuses</a>
+                </li>
+                <li>
+                    <a href="#">Instruments</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>
+          <div class="container-fluid">
+              <%= yield %>
+          </div>
+        </div>
+    <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
     <%= javascript_include_tag 'admin/admin', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag params[:controller] if (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset("#{params[:controller]}.js").to_s %>
     <%= yield :javascript %>
