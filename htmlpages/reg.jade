@@ -19,7 +19,10 @@ html(lang="ru")
 				span.smaller Заполните необходимые данные:
 				form(action='' method="post")
 					.input-container.flexbox
-						input(type='text' name='email' placeholder='Ваш Email')
+						input(type='password' name='name' placeholder='Ваше имя')
+						input(type='text' name='surname' placeholder='Ваша фамилия')					
+					.input-container.flexbox
+						input(type='text' name='Email' placeholder='Ваш Email')
 						i.fa.fa-envelope(aria-hidden="true")
 					.input-container.flexbox
 						input(type='password' name='password' placeholder='Ваш пароль')
@@ -29,7 +32,7 @@ html(lang="ru")
 						label(for='checkbox')
 							#checkbox-container
 								#custom-checkbox
-							span Запомнить меня
+							span Согласен с условиями договора
 					input(type='submit' value='Войти')
 				.soc-icons
 					<i class="fa fa-vk" aria-hidden="true"></i>
