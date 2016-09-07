@@ -13,24 +13,33 @@
     <link rel="stylesheet" href="css/auth.css">
   </head>
   <body>
-    <div class="main-block flexbox"><img src="#"><span class="bigger">АВТОРИЗАЦИЯ</span><span class="smaller">Заполните необходимые данные:</span>
-      <form action="" method="post">
-        <div class="input-container flexbox">
-          <input type="text" placeholder="Ваш Email"><i aria-hidden="true" class="fa fa-envelope"></i>
+    <div class="main-block flexbox">
+      <div class="top-block flexbox"><img src="img/kp-logo.png"><span class="bigger">АВТОРИЗАЦИЯ</span><span class="smaller">Заполните необходимые данные:</span>
+        <form action="" method="post">
+          <div class="input-container flexbox">
+            <input type="text" placeholder="Ваш Email"><i aria-hidden="true" class="fa fa-envelope"></i>
+          </div>
+          <div class="input-container flexbox">
+            <input type="password" placeholder="Ваш пароль"><i aria-hidden="true" class="fa fa-key"></i>
+          </div>
+          <div class="input-container">
+            <input id="checkbox" type="checkbox" value="accept">
+            <label for="checkbox">
+              <div id="checkbox-container">
+                <div id="custom-checkbox"></div>
+              </div><span>Запомнить меня</span>
+            </label>
+          </div>
+          <input type="submit" value="Войти">
+        </form>
+        <div class="soc-icons">
+          <i class="fa fa-vk" aria-hidden="true"></i>
+          <i class="fa fa-facebook-official" aria-hidden="true"></i>
+          <i class="fa fa-twitter-square" aria-hidden="true"></i>
+          <i class="fa fa-youtube-play" aria-hidden="true"></i>
         </div>
-        <div class="input-container flexbox">
-          <input type="password" placeholder="Ваш пароль"><i aria-hidden="true" class="fa fa-key"></i>
-        </div>
-        <div class="input-container">
-          <input id="checkbox" type="checkbox" value="accept">
-          <label for="checkbox">
-            <div id="checkbox-container">
-              <div id="custom-checkbox"></div>
-            </div><span>Запомнить меня</span>
-          </label>
-        </div>
-        <input type="submit" value="Войти">
-      </form>
+      </div>
+      <div class="sup-btns flexbox"><a href="#">Забыли пароль?</a><a href="#">Регистрация</a></div>
     </div>
   </body>
 </html>
