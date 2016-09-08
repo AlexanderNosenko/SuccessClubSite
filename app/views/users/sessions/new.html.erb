@@ -1,41 +1,42 @@
-<div class="middle-box text-center loginscreen  animated fadeInDown">
-  <div>
-    <div>
-      <h1 class="logo-name">КП</h1>
+<div class="top-block flexbox"><%= image_tag "kp-logo.png" %>
+  <span class="bigger">АВТОРИЗАЦИЯ</span><span class="smaller">Заполните необходимые данные:</span>
+  <% if flash[:recaptcha_error] %>
+    <span class="smaller">  <%= flash[:recaptcha_error] %> </span>
+  <% end %>
+  <span class="smaller"><%= alert %></span>
+  <span class="smaller"><%= notice %></span>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="input-container flexbox">
+      <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+      <i aria-hidden="true" class="fa fa-envelope"></i>
     </div>
-    <% if flash[:recaptcha_error] %>
-      <div class="alert alert-warning" role="alert">  <%= flash[:recaptcha_error] %> </div>
+    <div class="input-container flexbox">
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Пароль" %>
+      <i aria-hidden="true" class="fa fa-key"></i>
+    </div>
+    <div class="input-container">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me do %>
+        <div id="checkbox-container">
+          <div id="custom-checkbox"></div>
+        </div>
+        <span><%= t('.remember_me', :default => "Запомнить меня") %></span>
+      <% end %>
+    </div>
+    <%= recaptcha_tags %>
+    <%= f.submit  t('.sign_in', :default => "Вход") %>
+  <% end %>
+  <div class="soc-icons">
+    <%= link_to user_vkontakte_omniauth_authorize_path do %>
+      <i class="fa fa-vk" aria-hidden="true"></i>
     <% end %>
-    <h3>Вход в личный кабинет (ЛК)</h3>
-     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
-          <div class="form-group">
-            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
-          </div>
-          <div class="form-group">
-            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Пароль" %>
-          </div>
-          <% if devise_mapping.rememberable? %>
-              <div class="checkbox">
-                <%= f.label :remember_me do %>
-                    <%= f.check_box :remember_me %> <%= t('.remember_me', :default => "Запомнить меня") %>
-                <% end %>
-              </div>
-          <% end %>
-          <%= recaptcha_tags %>
-          <%= f.submit  t('.sign_in', :default => "Вход"), class: "btn btn-primary block full-width m-b" %>
-      <% end %>
-      Войти через:
-      <%= link_to user_facebook_omniauth_authorize_path do %>
-        <img src="http://icons.iconarchive.com/icons/martz90/circle/256/fb-icon.png" width=25 height="25">
-      <% end %>
-      <%= link_to user_vkontakte_omniauth_authorize_path do %>
-        <img src="https://cdn4.iconfinder.com/data/icons/social-circle/512/vk-128.png" width=25 height="25">
-      <% end %>
-      <br>
-      <a href="<%= url_for :controller => 'users/passwords', :action => 'new' %>"><small>Забыли пароль?</small></a>
-      <p class="text-muted text-center"><small>У вас нет аккаунта?</small></p>
-      <a class="btn btn-sm btn-white btn-block" href="<%= url_for :controller => 'users/registrations', :action => 'new' %>">Зарегистрироваться</a>
-      <p><%= link_to "Не получили инструкции по подтверждению почты?", new_confirmation_path(resource_name) %></p>
-    <p class="m-t"> <small>Все права защищены &copy; 2016</small> </p>
+    <%= link_to user_facebook_omniauth_authorize_path do %>
+      <i class="fa fa-facebook-official" aria-hidden="true"></i>
+    <% end %>
   </div>
+</div>
+<div class="sup-btns flexbox">
+  <a href="<%= url_for :controller => 'users/passwords', :action => 'new' %>">Забыли пароль?</a>
+  <a href="<%= url_for :controller => 'users/registrations', :action => 'new' %>">Регистрация</a>
+  <!-- <p><%= link_to "Не получили инструкции по подтверждению почты?", new_confirmation_path(resource_name) %></p> -->
 </div>
