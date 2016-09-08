@@ -1,86 +1,48 @@
-<div class="middle-box text-center loginscreen animated fadeInDown">
-  <div>
-    <div>
-      <% if devise_has_errors? %>
-        <div class="alert alert-warning" role="alert">  <%= devise_error_messages! %> </div>
-      <% end %>
-      <% if flash[:recaptcha_error] %>
-        <div class="alert alert-warning" role="alert">  <%= flash[:recaptcha_error] %> </div>
-      <% end %>
-      <% if @parent %>
-        <div class="alert alert-info" role="alert" id="partner_alert">
-          Вы регистрируетесь как партнер пользователя <%= "#{@parent.name} #{@parent.last_name}" %>
-          <%= link_to 'Отменить', delete_partner_session_path, id: "delete_partner_session", remote: true, method: :delete %>
-        </div>
-      <% end %>
-      <h1 class="logo-name">КП</h1>
+<div class="top-block flexbox"><%= image_tag "kp-logo.png" %>
+  <span class="bigger">РЕГИСТРАЦИЯ</span><span class="smaller">Заполните необходимые данные:</span>
+  <% if flash[:recaptcha_error] %>
+    <span class="smaller">  <%= flash[:recaptcha_error] %> </span>
+  <% end %>
+  <span class="smaller"><%= devise_error_messages! %></span>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <div class="input-container flexbox">
+      <%= f.text_field :name, autofocus: true, placeholder: "Ваше имя" %>
+      <%= f.text_field :last_name, placeholder: "Ваша фамилия" %>
     </div>
-    <h3>Регистрация</h3>
-    <p>Для получения доступа к сервисам - необходимо зарегистрироваться.</p>
-
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
-        <div class="form-group">
-          <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Имя" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Фамилия" %>
-        </div>
-        <!--<div class="form-group">
-          <%= f.text_field :phone, autofocus: true, class: "form-control", placeholder: "Телефон" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :skype, autofocus: true, class: "form-control", placeholder: "Skype" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :birthday, autofocus: true, class: "form-control", placeholder: "Дата рождения" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :sex, autofocus: true, class: "form-control", placeholder: "Пол" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :country, autofocus: true, class: "form-control", placeholder: "Страна" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :city, autofocus: true, class: "form-control", placeholder: "Город" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :about, autofocus: true, class: "form-control", placeholder: "О себе" %>
-        </div>
-        <div class="form-group">
-            <%= f.label :avatar do %>
-                <%= f.file_field :avatar %>
-                <%= f.hidden_field :avatar_cache %>
-            <% end %>
-        </div>
-        -->
-        <div class="form-group">
-          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
-        </div>
-        <div class="form-group">
-          <%= f.password_field :password, class: "form-control", placeholder: "Пароль" %>
-        </div>
-        <div class="form-group">
-          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Подтвердите праоль" %>
-        </div>
-        <div class="form-group">
-        <%= f.hidden_field :referral_code, value: session[:p] %>
-        </div>
-        <div class="form-group">
-            <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> С правилами сервиса согласен</label></div>
-          </div>
-        <%= recaptcha_tags %>
-        <%= f.submit t('.sign_up', :default => "Регистрация"), class: "btn btn-primary block full-width m-b" %>
+    <div class="input-container flexbox">
+      <%= f.email_field :email, placeholder: "Ваш Email" %>
+      <i aria-hidden="true" class="fa fa-envelope"></i>
+    </div>
+    <div class="input-container flexbox">
+      <%= f.password_field :password, placeholder: "Ваш пароль" %>
+      <i aria-hidden="true" class="fa fa-key"></i>
+    </div>
+    <div class="input-container flexbox">
+      <%= f.password_field :password_confirmation, placeholder: "Повторите пароль" %>
+      <i aria-hidden="true" class="fa fa-key"></i>
+    </div>
+    <% if @parent %>
+      <div class="input-container flexbox">
+        <input type="text" name="inviter" value="Вас пригласил <%= "#{@parent.name} #{@parent.last_name}" %>" disabled>
+      </div>
     <% end %>
-      Войти через:
-      <%= link_to user_facebook_omniauth_authorize_path do %>
-        <img src="http://icons.iconarchive.com/icons/martz90/circle/256/fb-icon.png" width=25 height="25">
-      <% end %>
-      <%= link_to user_vkontakte_omniauth_authorize_path do %>
-        <img src="https://cdn4.iconfinder.com/data/icons/social-circle/512/vk-128.png" width=25 height="25">
-      <% end %>
-      <p class="text-muted text-center"><small>У Вас уже есть аккаунт?</small></p>
-      <a class="btn btn-sm btn-white btn-block" href="<%= url_for :controller => 'users/sessions', :action => 'new' %>">Вход</a>
-
-    <p class="m-t"> <small>Все права защищены &copy; 2016</small> </p>
+    <div class="input-container">
+      <input id="checkbox" type="checkbox" name="check" value="accept">
+      <label for="checkbox">
+        <div id="checkbox-container">
+          <div id="custom-checkbox"></div>
+        </div><span>Согласен с условиями договора</span>
+      </label>
+    </div>
+    <%= recaptcha_tags %>
+    <%= f.submit t('.sign_up', :default => "Регистрация") %>
+  <% end %>
+  <div class="soc-icons">
+    <%= link_to user_vkontakte_omniauth_authorize_path do %>
+      <i class="fa fa-vk" aria-hidden="true"></i>
+    <% end %>
+    <%= link_to user_facebook_omniauth_authorize_path do %>
+      <i class="fa fa-facebook-official" aria-hidden="true"></i>
+    <% end %>
   </div>
 </div>
