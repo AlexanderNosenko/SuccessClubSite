@@ -7,7 +7,7 @@ class TeamController < ApplicationController
     respond_to do |format|
       format.html do
         @user = current_user
-      	@team = current_user.descendants.paginate(:per_page => 15, :page => params[:page])
+      	@team = current_user.descendants.order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
         @ancestors = current_user.ancestors.reverse.paginate(:per_page => 15, :page => params[:page])
       	render :index
       end
