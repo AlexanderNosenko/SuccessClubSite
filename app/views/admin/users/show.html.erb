@@ -5,20 +5,37 @@
   </div>
   <div class="col-md-3">
     <p>
-        <%= @user.role.description %>
+      Invited by <%= @parent ? link_to("#{@parent.name} #{@parent.last_name}", admin_user_path(@parent)): "no one" %>
     </p>
     <p>
-        <%= @user.email %>
+      Last seen IP: <%= @user.last_sign_in_ip %>
     </p>
     <p>
-        Phone: <%= @user.phone %>
+      Email <%= "not" unless @user.confirmed? %> confirmed
     </p>
-    <p>
-        Skype: <%= @user.skype %>
-    </p>
-    <p>
-        VK: <%= @user.vk %>
-    </p>
+  </div>
+  <div class="col-md-3 socnet">
+    <h4>Social networks:</h4>
+    <% unless @user.vk.nil? %>
+      <%= link_to @user.vk do %>
+        <%= image_tag "vk-icon" %>
+      <% end %>
+    <% end %>
+    <% unless @user.ok.nil? %>
+      <%= link_to @user.ok do %>
+        <%= image_tag "ok-icon" %>
+      <% end %>
+    <% end %>
+    <% unless @user.fb.nil? %>
+      <%= link_to @user.fb do %>
+        <%= image_tag "facebook-icon" %>
+      <% end %>
+    <% end %>
+    <% unless @user.youtube.nil? %>
+      <%= link_to @user.youtube do %>
+        <%= image_tag "youtube-icon" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 <br>
