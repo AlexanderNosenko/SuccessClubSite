@@ -24,8 +24,18 @@ $(document).ready(function (e) {
     console.log(e.target);
     return false;
   });
+  $('#senpais').find(".moreinfo").find('a').click(function (e) {
+    e.preventDefault();
+    var elem = (e.target.nodeName != "A")? $(e.target.parentNode) : $(e.target);
+    var text = elem.attr('href');
+    detailedContainer.load(text + ".partial");
+    console.log(e.target);
+    return false;
+  });
   $('.tabsbtns').click(function(){
-    $( ".tabsbtns" ).removeClass( "active" );
-    $(this).addClass( "active" );
+    if (!$(this).hasClass( "disabled" )) {
+      $( ".tabsbtns" ).removeClass( "active" );
+      $(this).addClass( "active" );
+    }
   });
 })
