@@ -16,7 +16,7 @@ namespace :db do
 
   desc "Adding needed partnership_depth values"
   task create_part_depth: :environment do
-    percents = [20, 10, 5, 3, 2, 1, 1, 1, 1, 1]
+    percents = [15, 10, 5, 3, 2, 1, 1, 1, 1, 1]
 
     ActiveRecord::Base.connection.execute("TRUNCATE partnership_depths")
     # PartnershipDepth.delete_all
