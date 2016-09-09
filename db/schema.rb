@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825125144) do
+ActiveRecord::Schema.define(version: 20160903132354) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20160825125144) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
+
+  create_table "landings", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "logo",       limit: 255
+    t.integer  "price",      limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "landings", ["name"], name: "index_landings_on_name", unique: true, using: :btree
 
   create_table "partner_links", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -40,11 +50,11 @@ ActiveRecord::Schema.define(version: 20160825125144) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.string   "user_id",    limit: 255
     t.float    "amount",     limit: 24
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "users_id",   limit: 4
+    t.integer  "user_id",    limit: 4
   end
 
   add_index "payments", ["users_id"], name: "index_payments_on_users_id", using: :btree
@@ -66,6 +76,21 @@ ActiveRecord::Schema.define(version: 20160825125144) do
     t.boolean  "can_start_auction",                 default: false
     t.boolean  "know_partners_backref",             default: false
     t.boolean  "have_investment_belay",             default: false
+  end
+
+  create_table "user_landings", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4
+    t.integer  "landing_id",    limit: 4
+    t.datetime "activated_at"
+    t.datetime "reactivate_at"
+    t.string   "video_link",    limit: 255
+    t.boolean  "has_photo",                 default: false
+    t.boolean  "has_vk",                    default: false
+    t.boolean  "has_fb",                    default: false
+    t.boolean  "has_ok",                    default: false
+    t.boolean  "has_youtube",               default: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "users", force: :cascade do |t|

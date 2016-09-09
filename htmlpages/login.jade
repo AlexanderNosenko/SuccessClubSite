@@ -1,0 +1,41 @@
+doctype html
+html(lang="ru")
+	head
+		title КП - Вход
+		meta(charset='utf-8')/
+		meta(name='keywords')/
+		meta(name='description')/
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')/
+		meta(name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no')/
+		link(rel='shortcut icon' href='favicon.ico')/
+		link(rel='stylesheet' href='css/font-awesome-4.6.3/css/font-awesome.css')/
+		link(rel='stylesheet' href='css/fonts.css')/
+		link(rel='stylesheet' href='css/auth.css')/
+	body
+		.main-block.flexbox
+			.top-block.flexbox
+				img(src='img/kp-logo.png')
+				span.bigger АВТОРИЗАЦИЯ
+				span.smaller Заполните необходимые данные:
+				form(action='' method="post")
+					.input-container.flexbox
+						input(type='text' name='email' placeholder='Ваш Email')
+						i.fa.fa-envelope(aria-hidden="true")
+					.input-container.flexbox
+						input(type='password' name='password' placeholder='Ваш пароль')
+						i.fa.fa-key(aria-hidden="true")
+					.input-container
+						input#checkbox(type='checkbox' name='check' value='accept')
+						label(for='checkbox')
+							#checkbox-container
+								#custom-checkbox
+							span Запомнить меня
+					input(type='submit' value='Войти')
+				.soc-icons
+					a(href='#') <i class="fa fa-vk" aria-hidden="true"></i>
+					a(href='#') <i class="fa fa-facebook-official" aria-hidden="true"></i>
+					a(href='#') <i class="fa fa-twitter-square" aria-hidden="true"></i>
+					a(href='#') <i class="fa fa-youtube-play" aria-hidden="true"></i>
+			.sup-btns.flexbox
+				a(href='#') Забыли пароль?
+				a(href='#') Регистрация

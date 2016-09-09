@@ -1,8 +1,8 @@
 #main #content #profile-links {
   margin: 10px auto;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
@@ -19,7 +19,7 @@
 
 #main #content #profile-links a {
   color: black;
-  margin: 0 5px;
+  margin: 5px;
   border-bottom: 2px solid #23a48a;
   padding: 10px;
   transition: all 500ms;
@@ -63,6 +63,12 @@
           flex-wrap: wrap;
 }
 
+@media screen and (max-width: 450px) {
+  #main #content #info-with-photo {
+    width: 100%;
+  }
+}
+
 #main #content #info-with-photo #profile-info {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
@@ -73,7 +79,7 @@
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 49%;
+  width: 69%;
 }
 
 @media screen and (max-width: 910px) {
@@ -100,10 +106,32 @@
   width: 80%;
 }
 
+@media screen and (max-width: 450px) {
+  #main #content #info-with-photo #profile-info #for-map {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  #main #content #info-with-photo #profile-info #for-map select {
+    width: 100%;
+  }
+}
+
 #main #content #info-with-photo #profile-info #profile-info-names {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+@media screen and (max-width: 450px) {
+  #main #content #info-with-photo #profile-info #profile-info-names {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  #main #content #info-with-photo #profile-info #profile-info-names input {
+    width: 100%;
+  }
 }
 
 #main #content #info-with-photo #profile-info #profile-info-contacts {
@@ -116,15 +144,33 @@
   width: 80%;
 }
 
-#main #content #info-with-photo #profile-info #profile-info-contacts .input-icon input {
+@media screen and (max-width: 450px) {
+  #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon {
+    width: 100%;
+  }
+}
+
+#main #content #info-with-photo #profile-info #profile-info-contacts .input-icon input, #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon select {
   width: 90%;
+}
+
+@media screen and (max-width: 450px) {
+  #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon input, #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon select {
+    width: 100%;
+  }
 }
 
 #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon i {
   font-size: 25px;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   color: #23a48a;
+}
+
+@media screen and (max-width: 450px) {
+  #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon i {
+    display: none;
+  }
 }
 
 #main #content #info-with-photo #profile-info #soc-icons {
@@ -161,7 +207,7 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   padding: 20px 0;
-  width: 49%;
+  width: 29%;
 }
 
 @media screen and (max-width: 910px) {
@@ -192,7 +238,7 @@
 
 #main #content #info-with-photo #photo-block #photo-btns button {
   background: #fff;
-  color: #81c7b9;
+  color: black;
   border: none;
   padding: 10px;
   margin: 0 5px;

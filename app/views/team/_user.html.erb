@@ -1,27 +1,10 @@
-<!-- <tr>
-	<td class="client-avatar">
-		<%= link_to user_path(user) do%>
-			<%= get_avatar(user) %>
-		<% end %>
-	</td>
-	<td>
-		<%= link_to user_path(user) do%>
-			<%= user.name %>&nbsp;<%= user.last_name %>
-		<% end %>
-	</td>
-	<td><%= user.role.description%></td>
-	<td><%= distance_of_time_in_words_to_now user.created_at %> назад</td>
-	<td class="client-status"><span class="label label-primary"><%= (user.is_online?) ? "Online" : "Offline" %></td>
-	<td class="contact-type"><i class="fa fa-envelope" style="font-size: 20px"></i></td>
-</tr> -->
 <div class="partner flexbox">
 	<div class="imgblock flexbox"><%= get_avatar user%></div>
-	<span class="nasu"><%= "#{user.name} #{user.last_name}"%></span>
-	<span class="id"><%= user.id %></span>
+	<span class="nasu" data-link='<%= user_url user%>'><%= "#{user.name} #{user.last_name}"%></span>
+	<span class="id">id<%= user.id %></span>
 	<span class="status"><%= user.role.description %></span>
-	<span class="time"><%= distance_of_time_in_words_to_now user.created_at %> назад</span>
 	<span class="date"><%= user.created_at.strftime("%m/%d/%Y") %></span>
-	<span class="onlstatus"><%= (user.is_online?) ? "Online" : "Offline" %></span>
-	<span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+	<span class="partteam disabled"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span>
+	<span class="moreinfo"><a href="<%= user_url user%>"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
 	<span class="message disabled"><a href="#" class='disabled'><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
 </div>

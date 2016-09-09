@@ -12,7 +12,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
     <!-- Main javascript files -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 </head>
 <body>
@@ -26,9 +25,9 @@
 
         <!-- Main view  -->
         <%= yield %>
-        <%#= render 'layouts/footer' %>
 
     </div>
+    <%= render 'layouts/footer' %>
         <!-- End page wrapper-->
 
         <!-- Right sidebar -->
@@ -49,6 +48,7 @@
           </div>
         <% end %>
     </div>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <!-- End wrapper-->
     <%= javascript_include_tag :defaults %>
     <!-- Include javascript per-controller - vendor plugins -->

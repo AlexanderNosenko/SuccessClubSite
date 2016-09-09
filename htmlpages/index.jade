@@ -112,7 +112,7 @@ html(lang="ru")
 						i.fa.fa-comments(aria-hidden="true")
 						.notifications.flexbox.disabled
 							span 0
-					a.no-bg(href='#') <i class="fa fa-sign-out" aria-hidden="true"></i>
+					a.no-bg(href='#') <i class="fa fa-power-off" aria-hidden="true"></i>
 				button#menu-btn <i class="fa fa-bars" aria-hidden="true"></i>
 		#main.flexbox
 			nav#sidebar
@@ -131,6 +131,10 @@ html(lang="ru")
 						span.dis-popup Временно недоступно
 						span.full-menu Сообщения
 					a.menu-item.disabled
+						<i class="fa fa-graduation-cap"></i>
+						span.dis-popup Временно недоступно
+						span.full-menu Обучение
+					a.menu-item.disabled
 						<i class="fa fa-money"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Быстрые деньги
@@ -139,15 +143,15 @@ html(lang="ru")
 						span.dis-popup Временно недоступно
 						span.full-menu Бизнес
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-usd" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Инвестиции
 					a.menu-item.disabled
-						<i class="fa fa-edit"></i>
+						<i class="fa fa-cogs"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Инструменты
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-cubes" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Серфинг сайтов
 					a.menu-item.disabled
@@ -155,19 +159,19 @@ html(lang="ru")
 						span.dis-popup Временно недоступно
 						span.full-menu Финансы
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-trophy" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Лоторея
 					a.menu-item.disabled
-						<i class="fa fa-line-chart"></i>
+						<i class="fa fa-calendar"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Мероприятия
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-newspaper-o" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Новости
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-heart-o" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Благотворительность
 					a.menu-item.disabled
@@ -175,13 +179,13 @@ html(lang="ru")
 						span.dis-popup Временно недоступно
 						span.full-menu FAQ
 					a.menu-item.disabled
-						<i class="fa fa-adjust" aria-hidden="true"></i>
+						<i class="fa fa-black-tie" aria-hidden="true"></i>
 						span.dis-popup Временно недоступно
 						span.full-menu Вакансии
 			#content.flexbox.full
 				#user-info.flexbox
 					#user-pic.flexbox
-						img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
+						img(src='https://images.vivino.com/avatars/default_user.png')
 						#about-user.flexbox
 							span.name Олег Коваленко
 							span.status VIP
@@ -190,7 +194,7 @@ html(lang="ru")
 							span.balance Доступный баланс
 							.circle.flexbox
 								.btwn.flexbox
-									<i class="fa fa-money flexbox" aria-hidden="true"></i>
+									<i class="fa fa-usd flexbox" aria-hidden="true"></i>
 									span.undercover 34632$
 							.bl-btn
 								button(data-toggle="modal" data-target="#input") Пополнить
@@ -199,7 +203,7 @@ html(lang="ru")
 							span.balance Бонусный баланс
 							.circle.flexbox
 								.btwn.flexbox
-									<i class="fa fa-credit-card flexbox" aria-hidden="true"></i>
+									<i class="fa fa-gift flexbox" aria-hidden="true"></i>
 									span.undercover 57344$
 							.bl-btn
 								button.disabled Заработать
@@ -211,18 +215,18 @@ html(lang="ru")
 						h2 Персональная сводка:
 						.blockset.flexbox
 							.info-block2.flexbox
+								span.undercover Проектов в работе:
 								span.alwvis 356
-								span.undercover Проектов в работе
 							.info-block2.flexbox
+								span.undercover Бизнес направлений открыто:
 								span.alwvis 23
-								span.undercover Бизнес направлений открыто
 						.blockset.flexbox
 							.info-block2.flexbox
+								span.undercover Заработок в сутки:
 								span.alwvis 1345$
-								span.undercover Заработок в сутки
 							.info-block2.flexbox
+								span.undercover Новых партнеров за сегодня:
 								span.alwvis 12
-								span.undercover Новых партнеров за сегодня
 				#all-stat.flexbox
 					h2 Статистика
 					#mini-stat-circ.flexbox
@@ -244,6 +248,9 @@ html(lang="ru")
 						.info-block3.flexbox
 							span.alwvis 57434
 							span.undercover Выплачено средств
+		footer
+			span Клуб проффесионалов &copy2016 Все права защищены.
+			a(href='#') Правила сервиса
 		script.
 			$('#menu-btn').click(function(){
 			  if ($( "#flex-sidebar" ).hasClass( "full" )){

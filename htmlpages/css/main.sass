@@ -114,23 +114,23 @@ hr
 		align-items: center
 		justify-content: center
 		input[type='text']
-			background: #81c7b9
-			border: none
+			background: white
+			border: 1px solid #81c7b9
 			color: black
 			padding: 5px
 			font-family: "RobotoLight"
 		input[type='submit']
 			background: #167562
-			border: none
+			border: 1px solid transparent
 			color: #d4f0ea
 			font-weight: bold
-			padding: 5px
+			padding: 5px 10px
 			font-family: "RobotoLight"
 #top
 	background: #23a48a
 	width: 100%
 	position: fixed
-	z-index: 15
+	z-index: 3
 	#flex-top
 		flex-direction: row-reverse
 		align-items: center
@@ -178,7 +178,7 @@ hr
 		position: fixed
 		height: 100vh
 		top: 0
-		z-index: 10
+		z-index: 2
 		overflow-y: scroll
 		overflow-x: hidden
 		background: #167562
@@ -249,20 +249,31 @@ hr
 				i
 					margin: 0 5px 0 0
 	#content.full
-		margin: 50px auto 0 53px
+		margin: 50px auto 0 55px
 		@media screen and (max-width: 768px)
 			margin: 0 auto
 			padding-top: 50px
-			padding-left: 53px
+			padding-left: 59px
+			padding-right: 2px
 	#content.minimized
 		margin: 50px auto 0 200px
 		@media screen and (max-width: 768px)
 			margin: 0 auto
 			padding-top: 50px
-			padding-left: 53px
+			padding-left: 59px
+			padding-right: 2px
 	#content
 		justify-content: flex-start
 		align-items: center
 		flex-direction: column
 		width: 100%
 		transition: all 500ms
+footer
+	width: 100%
+	background: #eee
+	margin: 20px auto 0
+	padding: 20px 0
+	@media screen and (max-width: 767px)
+		padding: 20px 0 20px 59px 
+	a 
+		margin: 0 0 0 5px

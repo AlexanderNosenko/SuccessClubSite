@@ -2,14 +2,14 @@
 	#content
 		#profile-links
 			margin: 10px auto
-			justify-content: flex-start
+			justify-content: center
 			@media screen and (max-width: 795px)
 				justify-content: center
 			flex-wrap: wrap
 			width: 80%
 			a
 				color: black
-				margin: 0 5px
+				margin: 5px
 				border:
 					bottom: 2px solid #23a48a
 				padding: 10px 
@@ -29,6 +29,8 @@
 		#info-with-photo
 			flex-direction: row
 			width: 80%
+			@media screen and (max-width: 450px)
+				width: 100%
 			justify-content: space-between
 			align-items: flex-start
 			flex-wrap: wrap
@@ -36,7 +38,7 @@
 				flex-direction: column
 				justify-content: center
 				align-items: center
-				width: 49%
+				width: 69%
 				@media screen and (max-width: 910px)
 					width: 100%
 				.flexbox
@@ -49,19 +51,34 @@
 					padding: 10px
 					margin: 10px
 					width: 80%
+				#for-map
+					@media screen and (max-width: 450px)
+						flex-wrap: wrap
+						select
+							width: 100%
 				#profile-info-names
 					flex-direction: row
+					@media screen and (max-width: 450px)
+						flex-wrap: wrap
+						input
+							width: 100%
 				#profile-info-contacts
 					flex-direction: column
 					.input-icon
 						width: 80%
-						input
+						@media screen and (max-width: 450px)
+							width: 100%
+						input, select
 							width: 90%
+							@media screen and (max-width: 450px)
+								width: 100%
 						i
 							font-size: 25px
-							width: 25px
-							height: 25px
+							width: 30px
+							height: 30px
 							color: #23a48a
+							@media screen and (max-width: 450px)
+								display: none
 				#soc-icons
 					flex-direction: column
 					.soc-icon-input
@@ -83,7 +100,7 @@
 				flex-direction: column
 				justify-content: flex-start
 				padding: 20px 0
-				width: 49%
+				width: 29%
 				@media screen and (max-width: 910px)
 					width: 100%
 				#user-profile-photo
@@ -96,7 +113,7 @@
 					margin: 20px auto 0
 					button
 						background: #fff
-						color: #81c7b9
+						color: black
 						border: none
 						padding: 10px
 						margin: 0 5px

@@ -1,4 +1,4 @@
-<div class="middle-box text-center loginscreen  animated fadeInDown">
+<!-- <div class="middle-box text-center loginscreen  animated fadeInDown">
   <div>
     <div>
       <h1 class="logo-name">КП</h1>
@@ -15,4 +15,17 @@
     </div>
     <p class="m-t"> <small>Все права защищены &copy; 2016</small> </p>
   </div>
+</div> -->
+<div class="top-block flexbox">
+  <%= image_tag "kp-logo.png" %>
+  <span class="bigger">АВТОРИЗАЦИЯ</span><span class="smaller">Заполните необходимые данные:</span>
+  <span class="smaller"><%= alert %></span>
+  <span class="smaller"><%= notice %></span>
+  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post}) do |f| %>
+    <div class="input-container flexbox">
+      <%= f.email_field :email, autofocus: true, placeholder: "Ваш Email" %>
+      <i aria-hidden="true" class="fa fa-envelope"></i>
+    </div>
+    <%= f.submit t('.send_me_reset_password_instructions', :default => "Востановить") %>
+  <% end %>
 </div>

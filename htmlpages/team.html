@@ -123,77 +123,97 @@
         <div id="right-bar">
           <button data-toggle="modal" data-target="#links"><i class="fa fa-link" aria-hidden="true"></i></button><a href="#" class="disabled"><i class="fa fa-user" aria-hidden="true"></i></a><a href="#" class="disabled"> <i aria-hidden="true" class="fa fa-bell"></i>
             <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="disabled"> <i aria-hidden="true" class="fa fa-comments"></i>
-            <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="no-bg"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+            <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="no-bg"><i class="fa fa-power-off" aria-hidden="true"></i></a>
         </div>
         <button id="menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
       </div>
     </nav>
     <div id="main" class="flexbox">
       <nav id="sidebar">
-        <div id="flex-sidebar" class="flexbox minimized"><a href="../" class="menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="profile.html" class="menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="team.html" class="active menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a><a class="menu-item disabled"><i class="fa fa-money"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Быстрые деньги</span></a><a class="menu-item disabled"><i class="fa fa-bank"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Бизнес</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инвестиции</span></a><a class="menu-item disabled"><i class="fa fa-edit"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инструменты</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Серфинг сайтов</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Финансы</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Лоторея</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Мероприятия</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Новости</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Благотворительность</span></a><a class="menu-item disabled"><i class="fa fa-book"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">FAQ</span></a><a class="menu-item disabled"><i class="fa fa-adjust" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Вакансии</span></a></div>
+        <div id="flex-sidebar" class="flexbox minimized"><a href="../" class="menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="profile.html" class="menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="team.html" class="active menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a><a class="menu-item disabled"><i class="fa fa-graduation-cap"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Обучение</span></a><a class="menu-item disabled"><i class="fa fa-money"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Быстрые деньги</span></a><a class="menu-item disabled"><i class="fa fa-bank"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Бизнес</span></a><a class="menu-item disabled"><i class="fa fa-usd" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инвестиции</span></a><a class="menu-item disabled"><i class="fa fa-cogs"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инструменты</span></a><a class="menu-item disabled"><i class="fa fa-cubes" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Серфинг сайтов</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Финансы</span></a><a class="menu-item disabled"><i class="fa fa-trophy" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Лоторея</span></a><a class="menu-item disabled"><i class="fa fa-calendar"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Мероприятия</span></a><a class="menu-item disabled"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Новости</span></a><a class="menu-item disabled"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Благотворительность</span></a><a class="menu-item disabled"><i class="fa fa-book"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">FAQ</span></a><a class="menu-item disabled"><i class="fa fa-black-tie" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Вакансии</span></a></div>
       </nav>
       <div id="content" class="flexbox full">
         <div id="team-search-detailedinfo" class="flexbox">
-          <div id="team-with-search">
+          <div id="team-with-search" class="flexbox">
             <div id="member-search" class="flexbox">
-              <h1>Команда</h1>
-              <form method="post" action="">
-                <input type="text" name="member-search" placeholder="Имя/Фамилия">
-                <input type="submit" value="Поиск" name="search">
-              </form>
+              <div id="exact-search" class="flexbox">
+                <h1>Команда</h1>
+                <form method="post" action="" class="flexbox">
+                  <input type="text" name="member-search" placeholder="Имя/Фамилия">
+                  <input type="submit" value="Искать" name="search">
+                </form>
+              </div>
+              <div id="history-part" class="flexbox"> <a href="#">Oleg Kovalenko</a><span>></span><a href="#">Igor Onishenko</a></div>
             </div>
             <div id="member-list" class="flexbox">
-              <div id="member-tabs" class="flexbox"><a href="#partners" data-toggle="tab" class="active tabsbtns">Партнеры</a><a href="#mailing" data-toggle="tab" class="tabsbtns">Рассылка</a><a href="#senpais" data-toggle="tab" class="tabsbtns">Наставники</a></div>
+              <div id="member-tabs" class="flexbox"><a href="#partners" data-toggle="tab" class="active tabsbtns">Партнеры</a><a href="#senpais" data-toggle="tab" class="tabsbtns">Наставники</a><a href="#mailing" data-toggle="tab" class="tabsbtns">Рассылка</a></div>
               <div class="tab-content flexbox">
                 <div id="partners" class="tab-pane active flexbox">
                   <div class="partner flexbox">
-                    <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                    <div class="imgblock flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="date">23:42 03/06/1994</span><span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
                   </div>
                   <div class="partner flexbox">
-                    <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                    <div class="imgblock flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div><span class="nasu">Abdulahman Kadirov</span><span class="id">123456789</span><span class="status">User</span><span class="date">23:42 03/06/1994</span><span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
                   </div>
                   <div class="partner flexbox">
-                    <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                    <div class="imgblock flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="date">23:42 03/06/1994</span><span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
                   </div>
                   <div class="partner flexbox">
-                    <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                    <div class="imgblock flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="date">23:42 03/06/1994</span><span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
                   </div>
                   <div class="partner flexbox">
-                    <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                    <div class="imgblock flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="date">23:42 03/06/1994</span><span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
                   </div>
                 </div>
                 <div id="mailing" class="tab-pane flexbox">
                   <div class="partner flexbox">
-                    <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                    <div class="imgblock flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="date">23:42 03/06/1994</span><span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
                   </div>
                   <div class="partner flexbox">
-                    <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                    <div class="imgblock flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="date">23:42 03/06/1994</span><span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
                   </div>
                 </div>
                 <div id="senpais" class="tab-pane flexbox">
                   <div class="partner flexbox">
-                    <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                    <div class="imgblock flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="date">23:42 03/06/1994</span><span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
                   </div>
                   <div class="partner flexbox">
-                    <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                    <div class="imgblock flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="date">23:42 03/06/1994</span><span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
                   </div>
                   <div class="partner flexbox">
-                    <div class="imgblock flexbox"><img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                    <div class="imgblock flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div><span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="date">23:42 03/06/1994</span><span class="partteam"><a href="#"><i class="fa fa-users" aria-hidden="true"></i></a></span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div id="detailed-member-info" class="flexbox">
-            <!--#d-m-i-header.flexbox
-            #imgblock-2.flexbox
-            	img(src='https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg')
-            #some-info
-            -->
+            <div id="d-m-i-header" class="flexbox">
+              <div id="imgblock-2" class="flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div>
+              <div id="some-info" class="flexbox"><span id="status-bar" class="flexbox">VIP</span><span id="right-bar-name" class="flexbox">Oleg Kovalenko</span><span id="right-bar-about" class="flexbox">O себе</span><a href="#"><i class="fa fa-envelope-o flexbox" aria-hidden="true"></i></a></div>
+            </div>
+            <div id="d-m-i-contact-info">
+              <hr class="hrtop">
+              <div class="contact-element flexbox"><i class="fa fa-envelope" aria-hidden="true"></i><span>smth@e.mail</span></div>
+              <div class="contact-element flexbox"><i class="fa fa-phone" aria-hidden="true"></i><span>+380123456789</span></div>
+              <div class="contact-element flexbox"><i class="fa fa-skype" aria-hidden="true"></i><span>someone</span></div>
+              <div class="contact-element flexbox"><i class="fa fa-whatsapp" aria-hidden="true"></i><span>+380123456789</span></div>
+              <hr class="hrbott">
+            </div>
+            <div id="d-m-i-soc-net" class="flexbox"><a href="#"><img src="img/vk-icon.png"></a><a href="#"><img src="img/ok-icon.png"></a><a href="#"><img src="img/facebook-icon.png"></a><a href="#"><img src="img/youtube-icon.png"></a></div>
+            <hr class="hrmidd">
+            <div id="d-m-i-ref-in" class="flexbox"><span class="ref-big">Перход с: </span><span class="ref-small">example.com</span></div>
+            <hr class="hrmidd">
+            <div id="d-m-i-ref-out" class="flexbox"><span class="ref-big">Партнеры:</span>
+              <div class="underpath"><span class="ref-mid">Всего:</span><span class="ref-small">1000</span></div>
+              <div class="underpath"><span class="ref-mid">Первая линия:</span><span class="ref-small">1000</span></div>
+            </div>
+            <hr class="hrbott">
           </div>
         </div>
       </div>
     </div>
+    <footer><span>Клуб проффесионалов &copy2016 Все права защищены.</span><a href="#">Правила сервиса</a></footer>
     <script>
       $('#menu-btn').click(function(){
         if ($( "#flex-sidebar" ).hasClass( "full" )){

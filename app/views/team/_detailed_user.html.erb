@@ -1,68 +1,51 @@
-<% unless @user.nil? %>
-  <div id="all_info">
-    <div class="row">
-      <div class="col-sm-4">
-        <h3 id="detailed-user-name">
-          <%= link_to user_path(user) do %>
-		        <%= user.name %>&nbsp;<%= user.last_name %>
-	        <% end %>
-		    </h3>
-        <div class="row">
-          <div class="col-sm-3">
-    		    <%= link_to user_path(user) do %>
-    		      <%= get_avatar(user, {id: "detailed-user-avatar"}) %>
-    		    <% end %>
-          </div>
-          <div class="col-sm-9">
-            <h4 id="detailed-user-role"><span class="label label-primary"><%= user.role.description %></span></h4>
-          </div>
-        </div>
-	   </div>
-
-      <div class="col-sm-8">
-        <!-- <h4 id="detailed-user-role"><span class="label label-primary"><%= user.role.description %></span></h4> -->
-        <!-- <span class="label label-primary"><% if user.is_online? %> online <% else %> offline <% end %> -->
-        <p id='detailed-user-about'><%= user.about %></p>
-        <!-- Add mailing function -->
-        <!-- <button class="btn btn btn-primary">Написать</button> -->
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <div id="contact_info">
-          <h3>Контакты</h3><span><%= user.email %></span>
-          <% unless user.phone.nil? %>
-            <hr><span><%= user.phone %></span>
-          <% end %>
-          <% unless user.country.nil? %>
-            <hr><span>Живет: <%= "#{user.country}," %> <%= user.city %></span>
-          <% end %>
-          <% unless user.skype.nil? %>
-            <hr><span>Skype: <%= user.skype %></span>
-          <% end %>
-          <% unless user.youtube.nil? %>
-            <hr><span>Youtube: <%= user.youtube %></span>
-          <% end %>
-          <% unless user.fb.nil? %>
-            <hr><span>FB: <%= user.fb %></span>
-          <% end %>
-          <% unless user.ok.nil? %>
-            <hr><span>OK: <%= user.ok %></span>
-          <% end %>
-          <% unless user.vk.nil? %>
-            <hr><span>VK: <%= user.vk %></span>
-          <% end %>
-          <!-- <h3>Пришел с:</h3>
-          <hr><span>example.ru</span> -->
-          <h3>Партнеры</h3>
-          <hr><span>Всего: <%= user.descendants.size %></span>
-          <hr><span>Первая линия: <%= user.children.size %></span>
-          <!-- <h3>Получено бонусов:</h3>
-          <hr><span>Напрямую: 100$</span>
-          <hr><span>Через команду: 500$</span>
-          <button class="btn btn btn-primary"> Команда</button> -->
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+<div id="d-m-i-header" class="flexbox">
+  <div id="imgblock-2" class="flexbox"><%= get_avatar(user) %></div>
+  <div id="some-info" class="flexbox">
+    <span id="status-bar" class="flexbox"><%= user.role.description %></span>
+    <span id="right-bar-name" class="flexbox"><%= user.name %>&nbsp;<%= user.last_name %></span>
+    <span id="right-bar-about" class="flexbox"><%= user.about %>></span>
+    <a href="#" class="disabled"><i class="fa fa-envelope-o flexbox" aria-hidden="true"></i></a></div>
+</div>
+<div id="d-m-i-contact-info">
+  <hr class="hrtop">
+  <div class="contact-element flexbox"><i class="fa fa-envelope" aria-hidden="true"></i><span><%= user.email %></span></div>
+  <% unless user.phone.nil? %>
+    <div class="contact-element flexbox"><i class="fa fa-phone" aria-hidden="true"></i><span><%= user.phone %></span></div>
+  <% end %>
+  <% unless user.skype.nil? %>
+    <div class="contact-element flexbox"><i class="fa fa-skype" aria-hidden="true"></i><span><%= user.skype %></span></div>
+  <% end %>
+  <hr class="hrbott">
+</div>
+<div id="d-m-i-soc-net" class="flexbox">
+  <% unless user.vk.nil? %>
+    <%= link_to user.vk do %>
+      <%= image_tag "vk-icon" %>
+    <% end %>
+  <% end %>
+  <% unless user.ok.nil? %>
+    <%= link_to user.ok do %>
+      <%= image_tag "ok-icon" %>
+    <% end %>
+  <% end %>
+  <% unless user.fb.nil? %>
+    <%= link_to user.fb do %>
+      <%= image_tag "facebook-icon" %>
+    <% end %>
+  <% end %>
+  <% unless user.youtube.nil? %>
+    <%= link_to user.youtube do %>
+      <%= image_tag "youtube-icon" %>
+    <% end %>
+  <% end %>
+</div>
+<hr class="hrmidd">
+<!-- <div id="d-m-i-ref-in" class="flexbox">
+  <span class="ref-big">Перход с: </span>
+  <span class="ref-small">example.com</span></div>
+<hr class="hrmidd"> -->
+<div id="d-m-i-ref-out" class="flexbox"><span class="ref-big">Партнеры:</span>
+  <div class="underpath"><span class="ref-mid">Всего:</span><span class="ref-small"><%= user.descendants.count %></span></div>
+  <div class="underpath"><span class="ref-mid">Первая линия:</span><span class="ref-small"><%= user.children.size %></span></div>
+</div>
+<hr class="hrbott">

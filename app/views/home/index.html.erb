@@ -9,7 +9,7 @@
       <div id="main-bl" class="flexbox info-block1"><span class="balance">Доступный баланс</span>
         <div class="circle flexbox">
           <div class="btwn flexbox">
-            <i class="fa fa-money flexbox" aria-hidden="true"></i>
+            <i class="fa fa-usd flexbox" aria-hidden="true"></i>
             <span class="undercover">0</span><!-- TODO: user real balance -->
           </div>
         </div>
@@ -21,7 +21,7 @@
       <div id="bonus-bl" class="flexbox info-block1"><span class="balance">Бонусный баланс</span>
         <div class="circle flexbox">
           <div class="btwn flexbox">
-            <i class="fa fa-credit-card flexbox" aria-hidden="true"></i>
+            <i class="fa fa-gift flexbox" aria-hidden="true"></i>
             <span class="undercover">0</span><!-- TODO: user bonus balance -->
           </div>
         </div>
@@ -33,27 +33,29 @@
     </div>
   </div>
   <div id="user-stat" class="flexbox">
-    <div id="video" class="flexbox"><span>Video</span></div>
+    <div id="video" class="flexbox">
+      <iframe style="min-height:262px; width:100%;" src="https://www.youtube.com/embed/avabU42rSEU" frameborder="0" allowfullscreen></iframe>
+    </div>
     <div id="pers-svod" class="flexbox">
       <h2>Персональная сводка:</h2>
       <div class="blockset flexbox">
         <div class="info-block2 flexbox">
-          <span class="alwvis">0</span>
           <span class="undercover">Проектов в работе</span>
+          <span class="alwvis">0</span>
         </div>
         <div class="info-block2 flexbox">
-          <span class="alwvis">0</span>
           <span class="undercover">Бизнес направлений открыто</span>
+          <span class="alwvis">0</span>
         </div>
       </div>
       <div class="blockset flexbox">
         <div class="info-block2 flexbox">
-          <span class="alwvis">0</span>
           <span class="undercover">Заработок в сутки</span>
+          <span class="alwvis">0</span>
         </div>
         <div class="info-block2 flexbox">
-          <span class="alwvis">0</span>
           <span class="undercover">Новых партнеров за сегодня</span>
+          <span class="alwvis"><%= @descendants_today%></span>
         </div>
       </div>
     </div>
@@ -69,11 +71,11 @@
         <span class="undercover">Бизнес направлений</span>
       </div>
       <div class="info-block3 flexbox">
-        <span class="alwvis"><%= @descendants_today %></span>
+        <span class="alwvis"><%= @users_today %></span>
         <span class="undercover">Учасников за сегодня</span>
       </div>
       <div class="info-block3 flexbox">
-        <span class="alwvis"><%= @descendants.count %></span>
+        <span class="alwvis"><%= @users %></span>
         <span class="undercover">Учасников всего</span>
       </div>
       <div class="info-block3 flexbox">
@@ -92,5 +94,5 @@
     var form = $('#'+$('#money_input').find('input[type="radio"]:checked').data('service_type'));
     form.find('#PAYMENT_AMOUNT').val(parseInt($('input[name="amount"]').val()));
     form.submit();
-  }) 
+  })
 </script>

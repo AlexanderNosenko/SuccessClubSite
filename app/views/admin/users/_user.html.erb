@@ -1,0 +1,23 @@
+<%= link_to admin_user_path(user), class:"row list-group-item" do %>
+  <div class="col-md-1">
+    <%= get_avatar user, class: "avatar-small" %>
+  </div>
+  <div class="col-md-1">
+    <%= user.name %>
+  </div>
+  <div class="col-md-1">
+    <%= user.last_name %>
+  </div>
+  <div class="col-md-2">
+    <%= user.role.description %>
+  </div>
+  <div class="col-md-2">
+    <%= user.email %>
+  </div>
+  <div class="col-md-1">
+    <%= user.created_at.strftime("%d/%m/%y") %>
+  </div>
+  <div class="col-md-2">
+    <%= user.last_online %>
+  </div>
+<% end %>

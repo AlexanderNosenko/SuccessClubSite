@@ -1,0 +1,61 @@
+<h1><%= "#{@user.name} #{@user.last_name}" %></h1>
+<div class="row">
+  <div class="col-md-3">
+    <%= get_avatar @user, style: "max-width:100%"%>
+  </div>
+  <div class="col-md-3">
+    <p>
+      Invited by <%= @parent ? link_to("#{@parent.name} #{@parent.last_name}", admin_user_path(@parent)): "no one" %>
+    </p>
+    <p>
+      Last seen IP: <%= @user.last_sign_in_ip %>
+    </p>
+    <p>
+      Email <%= "not" unless @user.confirmed? %> confirmed
+    </p>
+  </div>
+  <div class="col-md-3 socnet">
+    <h4>Social networks:</h4>
+    <% unless @user.vk.nil? %>
+      <%= link_to @user.vk do %>
+        <%= image_tag "vk-icon" %>
+      <% end %>
+    <% end %>
+    <% unless @user.ok.nil? %>
+      <%= link_to @user.ok do %>
+        <%= image_tag "ok-icon" %>
+      <% end %>
+    <% end %>
+    <% unless @user.fb.nil? %>
+      <%= link_to @user.fb do %>
+        <%= image_tag "facebook-icon" %>
+      <% end %>
+    <% end %>
+    <% unless @user.youtube.nil? %>
+      <%= link_to @user.youtube do %>
+        <%= image_tag "youtube-icon" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <p>
+      Parnters count: <%= @descendants.count %>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <p>
+      First line partners: <%= @user.children.size %>
+    </p>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="list-group">
+      <%= render partial: "user", collection: @descendants %>
+    </div>
+  </div>
+</div>
