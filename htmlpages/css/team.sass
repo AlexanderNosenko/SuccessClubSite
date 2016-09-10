@@ -22,6 +22,8 @@
 					background: #ddf0ec
 					flex-direction: column
 					padding: 10px 40px 30px
+					@media screen and (max-width: 400px)
+						padding: 10px 10px 30px
 					align-content: flex-start
 					margin: 0 0 10px
 					width: 100%
@@ -29,6 +31,7 @@
 						width: 100%
 						align-content: center
 						justify-content: space-between
+						flex-wrap: wrap
 						h1
 							text-align: left
 							color: #23a48a
@@ -37,13 +40,12 @@
 							flex-wrap: wrap
 							align-items: center
 							width: 100%
-							padding: 0 10px
 							margin-top: 17px
 							input[type='text']
 								background: white
 								border: none
 								padding: 5px
-								flex-grow: 5
+								flex-grow: 4
 							input[type='submit']
 								background: #23a48a
 								color: white
@@ -52,6 +54,9 @@
 								flex-grow: 2
 					#history-part
 						margin-top: 10px
+						a
+							color: #23a48a
+							margin: 0 5px
 				#member-list
 					flex-direction: column
 					#member-tabs
@@ -115,31 +120,45 @@
 										color: white
 								.nasu
 									background: #e0f0ed
-									width: 200px
+									width: 20%
 									padding: 0 10px 0 20px
+									@media screen and (max-width: 795px)
+										width: 100%
 								.id
 									background: #bce8df
-									width: 100px
+									width: 15%
+									@media screen and (max-width: 795px)
+										width: 50%
 								.status
 									background: #a3dcd0
-									width: 100px
+									width: 15%
+									@media screen and (max-width: 795px)
+										width: 50%
 								.date
 									background: #88cfc1
-									width: 150px
+									width: 20%
+									@media screen and (max-width: 795px)
+										width: 100%
 								.partteam
 									color: white
 									background: #5fbaa8
-									flex-grow: 6
+									width: 6%
+									@media screen and (max-width: 795px)
+										width: 33%
 								.moreinfo
 									background: #429d8a
 									color: white
 									font-size: 25px
-									flex-grow: 6
+									width: 6%
+									@media screen and (max-width: 795px)
+										width: 33%
 								.message
 									background: #167562
 									color: white
 									font-size: 25px
-									flex-grow: 6
+									width: 6%
+									@media screen and (max-width: 795px)
+										width: 33%
 			#detailed-member-info
 				width: 30%
 				@media screen and (max-width: 650px)

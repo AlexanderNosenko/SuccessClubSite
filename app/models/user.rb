@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :user_landings, dependent: :destroy
   has_many :landings, through: :user_landings
   has_one :wallet, dependent: :destroy
+  after_create :create_wallet
 
   before_create :set_default_role
   TEMP_EMAIL_PREFIX = 'change@me'
