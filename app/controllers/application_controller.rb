@@ -35,6 +35,7 @@ class ApplicationController < ActionController::Base
             'PAYEE_ACCOUNT' => '***REMOVED***',
             'PAYEE_NAME' => 'Test',
             'PAYMENT_AMOUNT' => 2,
+            'PAYMENT_UNITS' => 'USD',
             'STATUS_URL' => "http://improf.club/finance_api/responce-status/nixmoney",
             'PAYMENT_URL' => 'http://improf.club/finance_api/success/nixmoney',
             'NOPAYMENT_URL' => 'http://improf.club/finance_api/error/nixmoney',
@@ -63,6 +64,37 @@ class ApplicationController < ActionController::Base
             "PAYMENT_METHOD" => "Pay Now!"
         }
         }
-       )
+    )
+    @services.push(
+     {
+          'action' => "https://wallet.advcash.com/sci/",
+          'name' => "advcash",
+          'fields' => {
+            'ac_account_email' => "club.mlm30@gmail.com",
+            'ac_sci_name' => "Professionals Club",
+            'ac_amount' => 2,
+            'ac_currency' => 'USD',
+            'ac_status_url' => "http://improf.club/finance_api/responce-status/adv_cash",
+            'ac_status_url_method' => 'GET',
+            'ac_success_url' => 'http://improf.club/finance_api/success/adv_cash',
+            'ac_success_url_method' => "GET",
+            'ac_fail_url' => 'http://improf.club/finance_api/error/adv_cash',
+            'ac_fail_url_method' => 'GET',
+            "ac_sign" => "76aabec088769a018785e0134002438392054327363a952565b94da6d305a61e",
+            "ac_order_id" => current_user.id,
+            "ac_comments" => "Adcanced Cash payment."
+          }
+      }
+    )
+    @services.push(
+     {
+          'action' => "https://www.liqpay.com/api/3/checkout",
+          'name' => "liqpay",
+          'fields' => {
+            'data' => "",
+            'signature' => ""
+          }
+      }
+    ) 
   end
 end
