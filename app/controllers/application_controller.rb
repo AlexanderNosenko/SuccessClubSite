@@ -53,10 +53,10 @@ class ApplicationController < ActionController::Base
             'PAYEE_NAME' => "improf.club",
             'PAYMENT_AMOUNT' => 2,
             'PAYMENT_UNITS' => 'USD',
-            'STATUS_URL' => "http://improf.club/finance_api/responce-status/perfect_money",
-            'PAYMENT_URL' => 'http://improf.club/finance_api/success/perfect_money',
+            'STATUS_URL' => "http://improf.club/finance_api/responce-status/perfectmoney",
+            'PAYMENT_URL' => 'http://improf.club/finance_api/success/perfectmoney',
             "PAYMENT_URL_METHOD" => "LINK",
-            'NOPAYMENT_URL' => 'http://improf.club/finance_api/error/perfect_money',
+            'NOPAYMENT_URL' => 'http://improf.club/finance_api/error/perfectmoney',
             "NOPAYMENT_URL_METHOD" => "LINK",
             'SUGGESTED_MEMO' => "",
             'BAGGAGE_FIELDS' => 'user_id',
@@ -74,15 +74,16 @@ class ApplicationController < ActionController::Base
             'ac_sci_name' => "Professionals Club",
             'ac_amount' => 2,
             'ac_currency' => 'USD',
-            'ac_status_url' => "http://improf.club/finance_api/responce-status/adv_cash",
+            'ac_status_url' => "http://improf.club/finance_api/responce-status/advcash",
             'ac_status_url_method' => 'GET',
-            'ac_success_url' => 'http://improf.club/finance_api/success/adv_cash',
+            'ac_success_url' => 'http://improf.club/finance_api/success/advcash',
             'ac_success_url_method' => "GET",
-            'ac_fail_url' => 'http://improf.club/finance_api/error/adv_cash',
+            'ac_fail_url' => 'http://improf.club/finance_api/error/advcash',
             'ac_fail_url_method' => 'GET',
-            "ac_sign" => "76aabec088769a018785e0134002438392054327363a952565b94da6d305a61e",
+            "ac_sign" => ENV['ADV_CASH_SIGN'],
             "ac_order_id" => current_user.id,
-            "ac_comments" => "Adcanced Cash payment."
+            "ac_comments" => "Adcanced Cash payment.",
+            "user_id" => current_user.id
           }
       }
     )
