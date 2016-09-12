@@ -19,6 +19,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem 'recaptcha', require: 'recaptcha/rails'
+
+#Liqpay plagin
+gem 'liqpay', github: 'liqpay/sdk-ruby'
+#Jade rails
 gem 'jade-rails'
 # Bootstrap-sass
 gem 'bootstrap-sass', '3.3.0.0'

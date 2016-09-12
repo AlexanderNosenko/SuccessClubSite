@@ -35,3 +35,31 @@ $(document).ready(function(){
   //   copyToClipboard($("#link-1"));
   // });
 });
+$('.confirm>input[type="submit"]').click(function (e) {
+  var form = $('#'+$('#money_input').find('input[type="radio"]:checked').data('service_type'));
+  var form_id = form.attr('id');
+  var form_amount_field;
+  if (form_id == 'liqpay') {
+    console.log('ss');
+    $.ajax({
+      url: "/finance_api/payment_form?service_name=liqpay&amount="+parseInt($('input[name="amount"]').val()),
+    }).done(function(responce) {
+      var anchor_form = $('#liqpay');
+      responce = $(responce).css('display','none');
+      responce.attr('id', form_id);
+      anchor_form.after(responce);
+      anchor_form.remove();
+      responce.submit();
+    });
+
+    // form_amount_field = $('#ac_amount');
+  }else if(form_id == 'advcash'){
+    form_amount_field = form.find('#ac_amount');
+  }else{
+    form_amount_field = form.find('#PAYMENT_AMOUNT');
+  }
+  if(form_id != 'liqpay'){
+    form_amount_field.val(parseInt($('input[name="amount"]').val()));
+    form.submit();
+  }
+})

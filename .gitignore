@@ -9,6 +9,7 @@
 /public/assets/*
 /public/uploads/*
 /app/controllers/examples
+/app/config/initializers/liqpay.rb
 /app/spec
 .*
 !/.gitignore

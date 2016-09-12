@@ -1,0 +1,17 @@
+<form method="post" action="https://wallet.advcash.com/sci/">
+         <input type="hidden" name="ac_account_email" value="club.mlm30@gmail.com" />
+         <input type="hidden" name="ac_sci_name" value="Professionals Club" />
+         <input type="text" name="ac_amount" value="1.00" />
+         <input type="text" name="ac_currency" value="USD" />
+         <input type="text" name="ac_order_id" value="123456789" />
+         <input type="text" name="ac_sign" value="76aabec088769a018785e0134002438392054327363a952565b94da6d305a61e" />
+         <!-- Optional Fields -->
+         <input type="hidden" name="ac_success_url" value="http://improf.club/finance_api/success/adv_cash" />
+         <input type="hidden" name="ac_success_url_method" value="GET" />
+         <input type="hidden" name="ac_fail_url" value="http://improf.club/finance_api/error/adv_cash" />
+         <input type="hidden" name="ac_fail_url_method" value="GET" />
+         <input type="hidden" name="ac_status_url" value="http://improf.club/finance_api/responce-status/adv_cash" />
+         <input type="hidden" name="ac_status_url_method" value="GET" />
+         <input type="text" name="ac_comments" value="Comment" />
+         <input type="submit" />
+</form>
