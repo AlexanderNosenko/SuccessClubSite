@@ -58,7 +58,7 @@
       <div id="user-profile-photo" class="flexbox"><%= get_avatar current_user %></div>
       <div id="photo-btns" class="flexbox">
         <label id="upload">
-            <%= t('.upload', :default => "Загрузить") %> <%= f.file_field :avatar, style: "display: none;" %>
+            <%= t('.upload', :default => "Выбрать файл") %> <%= f.file_field :avatar, style: "display: none;" %>
         </label>
         <!--??????????????-->
         <%= f.button t('.save', :default => "Сохранить"), id:"save-userpic" %>
