@@ -84,14 +84,20 @@ body {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 10px auto;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 
 .main-block .top-block form .input-container input {
   background: #ece6f2;
   border: 1px solid black;
   padding: 10px;
-  margin-right: 3px;
+  margin: 10px 3px 0 0;
   -webkit-flex-grow: 4;
       -ms-flex-positive: 4;
           flex-grow: 4;
