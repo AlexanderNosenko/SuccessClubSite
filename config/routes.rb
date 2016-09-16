@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get 'finance_api/responce_status/:id' => 'finance_api#responce_status'
 
   get 'finance_api/success/:id' => 'finance_api#success'
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     get '/', to: 'home#index'
     get 'users', to: 'users#index'
     get 'user/:id', to: 'users#show', as: :user
+    get 'payments', to: 'payments#index'
   end
   # All routes
   #get "dashboards/dashboard_1"
