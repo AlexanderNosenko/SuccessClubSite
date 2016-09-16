@@ -10,7 +10,7 @@
         <div class="circle flexbox">
           <div class="btwn flexbox">
             <i class="fa fa-usd flexbox" aria-hidden="true"></i>
-            <span class="undercover">0</span><!-- TODO: user real balance -->
+            <span class="undercover"><%= current_user.wallet.main_balance %></span><!-- TODO: user real balance -->
           </div>
         </div>
         <div class="bl-btn">
@@ -22,7 +22,7 @@
         <div class="circle flexbox">
           <div class="btwn flexbox">
             <i class="fa fa-gift flexbox" aria-hidden="true"></i>
-            <span class="undercover">0</span><!-- TODO: user bonus balance -->
+            <span class="undercover"><%= current_user.wallet.bonus_balance %></span><!-- TODO: user bonus balance -->
           </div>
         </div>
         <div class="bl-btn">

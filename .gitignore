@@ -14,5 +14,5 @@
 !/.gitignore
 !.keep
 !/.bowerrc
-/config/local_env.yml.save
-/public/user-agreement.pdf
+*.pdf
+*.save
