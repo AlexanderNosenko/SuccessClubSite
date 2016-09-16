@@ -120,11 +120,11 @@ class FinanceApiController < ApplicationController
 
   def redirect_to_user_profile_after_payment(status)
     logger.error "got to redirect"
-  	redirect_to user_path(current_user)#, payment_status: status, payment_amount: @responce_data['amount']
+  	redirect_to user_path(current_user), payment_status: status, payment_amount: @responce_data['amount']
   end
 
   def make_hash_for_ckeck_from values
-  	a = (Digest::MD5.new).digest values.join(":")
+  	(Digest::MD5.new).hexdigest(values.join(":")).upcase
   end
 
   def params_for_check(password)
@@ -138,7 +138,7 @@ class FinanceApiController < ApplicationController
 	  	status_params.push(params['PAYMENT_UNITS'])
 	  	status_params.push(params['PAYMENT_BATCH_NUM'])
 	  	status_params.push(params['PAYER_ACCOUNT'])
-	  	status_params.push((Digest::MD5.new).digest(password))
+	  	status_params.push((Digest::MD5.new).hexdigest(password).upcase)
 	  	status_params.push(params['TIMESTAMPGMT'])
 	  	status_params
 	  else
