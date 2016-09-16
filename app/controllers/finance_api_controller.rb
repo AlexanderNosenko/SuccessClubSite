@@ -44,8 +44,8 @@ class FinanceApiController < ApplicationController
   end
 
   def adapte_liqpay_data
-
-    render :status => 422 if params['data'].blank? || params['signature'].blank? && Rails.env.production?
+    
+    render :status => 400 if params['data'].blank? || params['signature'].blank? && Rails.env.production?
 
     liqpay = Liqpay::Liqpay.new
     sign = liqpay.str_to_sign(
@@ -74,8 +74,9 @@ class FinanceApiController < ApplicationController
   end
 
   def adapte_advcash_data
-    render :status => 422 if params['ac_hash'].blank? && Rails.env.production?
 
+    render :status => 400 if params['ac_hash'].blank? && Rails.env.production?
+    
     status_params = [params['ac_transfer']]
     status_params.push(params['ac_start_date'])
     status_params.push(params['ac_sci_name'])
@@ -110,7 +111,7 @@ class FinanceApiController < ApplicationController
       :amount       => service['amount'],
       :currency     => "UAH",
       :description  => 'No desc yet',
-      :customer     => current_user.id,
+      :customer     => current_user.id.to_s,
       :server_url   => "http://improf.club/finance_api/responce-status/liqpay",
       :result_url   => "http://improf.club/finance_api/success/liqpay",
       :language     => "ru"
