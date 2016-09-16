@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903145436) do
+ActiveRecord::Schema.define(version: 20160916152411) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -51,13 +51,11 @@ ActiveRecord::Schema.define(version: 20160903145436) do
 
   create_table "payments", force: :cascade do |t|
     t.float    "amount",     limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "users_id",   limit: 4
+    t.datetime "created_at",             null: false
     t.integer  "user_id",    limit: 4
+    t.string   "from",       limit: 255
+    t.string   "to",         limit: 255
   end
-
-  add_index "payments", ["users_id"], name: "index_payments_on_users_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",                  limit: 255
