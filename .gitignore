@@ -16,5 +16,3 @@
 !/.bowerrc
 *.pdf
 *.save
-/config/local_env.yml.save
-/public/user_agreement.pdf

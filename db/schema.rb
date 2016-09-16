@@ -50,11 +50,13 @@ ActiveRecord::Schema.define(version: 20160916152411) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.float    "amount",     limit: 24
-    t.datetime "created_at",             null: false
-    t.integer  "user_id",    limit: 4
-    t.string   "from",       limit: 255
-    t.string   "to",         limit: 255
+    t.float    "amount",       limit: 24
+    t.datetime "created_at",              null: false
+    t.integer  "from_user_id", limit: 4
+    t.integer  "to_user_id",   limit: 4
+    t.string   "from",         limit: 10
+    t.string   "to",           limit: 10
+    t.string   "method",       limit: 20
   end
 
   create_table "roles", force: :cascade do |t|
