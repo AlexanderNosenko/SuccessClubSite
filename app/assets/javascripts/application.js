@@ -59,7 +59,7 @@ $('.confirm>input[type="submit"]').click(function (e) {
     form_amount_field = form.find('#PAYMENT_AMOUNT');
   }
   if(form_id != 'liqpay'){
-    form_amount_field.val(parseInt($('input[name="amount"]').val()));
+    form_amount_field.val(parseFloat($('input[name="amount"]').val()));
     form.submit();
   }
 })

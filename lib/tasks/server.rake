@@ -15,4 +15,12 @@ namespace :server do
     File.delete pid_file
   end
 
+  desc "restart unicorn daemon"
+  task urestart: :environment do
+  	pid_file = '/var/pids/unicorn.pid'
+    pid = File.read(pid_file).to_i
+    Process.kill 9, pid
+    File.delete pid_file
+    sh "rvmsudo unicorn -c config/unicorn.rb -D"
+  end
 end
