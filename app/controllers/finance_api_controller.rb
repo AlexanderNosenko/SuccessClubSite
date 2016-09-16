@@ -20,7 +20,7 @@ class FinanceApiController < ApplicationController
   def success
     flash[:notice] = "Счет успешно пополнен"
     payment = Payment.create(
-      amount: params['PAYMENT_AMOUNT'],
+      amount: params['PAYMENT_AMOUNT'].to_f,
       to_user_id: params['user_id'],
       from: params['id'][0, 7],
       to: 'user',
@@ -28,7 +28,7 @@ class FinanceApiController < ApplicationController
     )
     wallet = Wallet.where(user_id: params['user_id'])[0]
     wallet.update_attributes!(
-      main_balance: wallet.main_balance + params['PAYMENT_AMOUNT']
+      main_balance: wallet.main_balance + params['PAYMENT_AMOUNT'].to_f
     )
 
 	  redirect_to_home_after_payment(true)
