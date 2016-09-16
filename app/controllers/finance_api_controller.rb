@@ -45,7 +45,7 @@ class FinanceApiController < ApplicationController
 
   def adapte_liqpay_data
     
-    render :status => 422 if params['data'].blank? || params['signature'].blank? && Rails.env.production?
+    render :status => 400 if params['data'].blank? || params['signature'].blank? && Rails.env.production?
   
     liqpay = Liqpay::Liqpay.new
     sign = liqpay.str_to_sign(
@@ -72,7 +72,7 @@ class FinanceApiController < ApplicationController
   end
   
   def adapte_advcash_data
-    render :status => 422 if params['ac_hash'].blank? && Rails.env.production?
+    render :status => 400 if params['ac_hash'].blank? && Rails.env.production?
     
     status_params = [params['ac_transfer']]
     status_params.push(params['ac_start_date'])
