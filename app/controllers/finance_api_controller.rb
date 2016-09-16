@@ -122,7 +122,7 @@ class FinanceApiController < ApplicationController
   end
 
   def redirect_to_home_after_payment(status)
-  	redirect_to home_path(current_user), payment_status: status, payment_amount: @responce_data['amount']
+  	redirect_to home_path, payment_status: status, payment_amount: @responce_data['amount']
   end
 
   def make_hash_for_ckeck_from values
