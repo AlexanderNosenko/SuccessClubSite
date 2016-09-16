@@ -18,11 +18,13 @@ class FinanceApiController < ApplicationController
   end
 
   def success
-	 redirect_to_user_profile_after_payment(true)
+    flash[:notice] = "Счет успешно пополнен"
+	  redirect_to_home_after_payment(true)
   end
 
   def error
-  	redirect_to_user_profile_after_payment(false)
+    flash[:error] = "Счет не пополнен"
+  	redirect_to_home_after_payment(false)
   end
 
   def payment_form
@@ -44,7 +46,7 @@ class FinanceApiController < ApplicationController
   end
 
   def adapte_liqpay_data
-    
+
     render :status => 400 if params['data'].blank? || params['signature'].blank? && Rails.env.production?
 
     liqpay = Liqpay::Liqpay.new
@@ -76,7 +78,7 @@ class FinanceApiController < ApplicationController
   def adapte_advcash_data
 
     render :status => 400 if params['ac_hash'].blank? && Rails.env.production?
-    
+
     status_params = [params['ac_transfer']]
     status_params.push(params['ac_start_date'])
     status_params.push(params['ac_sci_name'])
@@ -119,9 +121,8 @@ class FinanceApiController < ApplicationController
     end
   end
 
-  def redirect_to_user_profile_after_payment(status)
-    logger.error "got to redirect"
-  	redirect_to user_path(current_user), payment_status: status, payment_amount: @responce_data['amount']
+  def redirect_to_home_after_payment(status)
+  	redirect_to home_path(current_user), payment_status: status, payment_amount: @responce_data['amount']
   end
 
   def make_hash_for_ckeck_from values
