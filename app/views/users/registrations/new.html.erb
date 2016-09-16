@@ -1,4 +1,5 @@
-<div class="top-block flexbox"><%= image_tag "kp-logo.png" %>
+<div class="top-block flexbox">
+  <%= link_to image_tag("kp-logo.png"), root_path %>
   <span class="bigger">РЕГИСТРАЦИЯ</span><span class="smaller">Заполните необходимые данные:</span>
   <% if flash[:recaptcha_error] %>
     <span class="smaller">  <%= flash[:recaptcha_error] %> </span>
@@ -31,7 +32,7 @@
       <label for="checkbox">
         <div id="checkbox-container">
           <div id="custom-checkbox"></div>
-        </div><span>Согласен с условиями договора</span>
+        </div><span>Согласен с <a href="/user-agreement" target="_blank">условиями договора</a></span>
       </label>
     </div>
     <%= recaptcha_tags %>
