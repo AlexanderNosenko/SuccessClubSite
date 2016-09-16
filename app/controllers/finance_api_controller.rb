@@ -18,7 +18,7 @@ class FinanceApiController < ApplicationController
   end
 
   def success
-    flash[:notice] = "Счет успешно пополнен"
+    flash[:notice] = "Поздравляем! Ваш баланс пополнен на #{params['PAYMENT_AMOUNT']}$"
     payment = Payment.create(
       amount: params['PAYMENT_AMOUNT'].to_f,
       to_user_id: params['user_id'],
