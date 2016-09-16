@@ -20,7 +20,7 @@ class FinanceApiController < ApplicationController
   def success
     flash[:notice] = "Счет успешно пополнен"
     payment = Payment.create(
-      amount: params['PAYMENT_AMOUNT']
+      amount: params['PAYMENT_AMOUNT'],
       to_user_id: params['user_id'],
       from: params['id'][0, 7],
       to: 'user',
