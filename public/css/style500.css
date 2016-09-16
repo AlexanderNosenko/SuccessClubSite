@@ -1,0 +1,59 @@
+*{
+	margin: 0 auto;
+}
+
+body, html{
+	height: 100%;
+	overflow:hidden;
+	width: 100%;
+
+	font-size: 2rem;
+	font-family: Denistina;
+}
+
+@font-face{
+	font-family: Denistina;
+	src:url(/fonts/denistina.ttf);
+
+}
+.container{
+	height: 100%;
+	/*width: 100%;*/
+	background-image: url(/images/500.png);
+	background-size: cover;
+
+	display: flex;
+	flex-direction: column;
+	/*justify-content: center;*/
+	/*flex-direction: column;*/
+}
+
+.vertline{
+	margin-left: 20px;
+}
+
+.back{
+	height: 85px;
+	transform: translateY(-45%);
+}
+
+@media all and (max-width: 1000px){
+	.container{
+		background-image: url(/images/500-sm.png);
+		background-size: cover;
+	}
+}
+
+@media all and (max-width: 600px){
+	.container{
+		background-image: url(/images/500-xs.png);
+		background-size: cover;
+	}
+	.vertline{
+		display: block;
+	}
+	.err500{
+		text-align: center;
+		margin-top: -50px;
+	}
+}
