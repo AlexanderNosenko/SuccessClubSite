@@ -7,30 +7,17 @@ class FinanceApiController < ApplicationController
   require 'json'
 
   def responce_status
-
-    payment = Payment.new
-    payment.user_id = @responce_data[:user_id]
-    payment.amount = @responce_data[:amount]
-
-    raise actiontiveRecord::RecordInvalid unless payment.save()
-    @responce_data[:status] = 'success';
-    render json: @responce_data.to_json
+    unless @responce_data[:success] 
+      head 422
+    end
+    update_user_balance
+    
+    puts "balance after function" + Wallet.find_by(user_id: @responce_data[:user_id]).main_balance.to_s
+    head 200
   end
 
   def success
-    flash[:notice] = "Поздравляем! Ваш баланс пополнен на #{params['PAYMENT_AMOUNT']}$"
-    payment = Payment.create(
-      amount: params['PAYMENT_AMOUNT'].to_f,
-      to_user_id: params['user_id'],
-      from: params['id'][0, 7],
-      to: 'user',
-      method: params['id']
-    )
-    wallet = Wallet.where(user_id: params['user_id'])[0]
-    wallet.update_attributes!(
-      main_balance: wallet.main_balance + params['PAYMENT_AMOUNT'].to_f
-    )
-
+    flash[:notice] = "Поздравляем! Ваш баланс пополнен на #{@responce_data[:amount]}$"
 	  redirect_to_home_after_payment(true)
   end
 
@@ -51,6 +38,22 @@ class FinanceApiController < ApplicationController
 
   private
 
+  def update_user_balance
+
+    Payment.create(
+      amount: @responce_data[:amount].to_f,
+      to_user_id: @responce_data[:user_id],
+      from: params['id'][0, 7],
+      to: 'user',
+      method: params['id']
+    )
+    wallet = Wallet.find_by(user_id: @responce_data[:user_id])
+    
+    wallet.update_attributes!(
+      main_balance: wallet.main_balance + @responce_data[:amount].to_f
+    )
+  end
+
   def prepare_input_data
 
     send("adapte_#{params[:id]}_data")
@@ -69,22 +72,22 @@ class FinanceApiController < ApplicationController
     )
     liqpay_data = JSON.parse(Base64.decode64(params['data']))
 
-    render :status => 422 unless Rails.env.development? || params['signature'] == sign && liqpay_data['status'] == "wait_accept"
-
-    make_responce_data(liqpay_data['customer'], liqpay_data['amount'], liqpay_data['currency'])
+    render :status => 422 unless Rails.env.development? || params['signature'] == sign
+    status_of_payment = liqpay_data['status'] == "wait_accept" ? true : false
+    make_responce_data(liqpay_data['customer'], liqpay_data['amount'], liqpay_data['currency'], status_of_payment)
 
   end
 
   def adapte_nixmoney_data
     render :status => 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['NIX_MONEY_PASS']))
-    make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'])
+    make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'], true)
   end
 
   def adapte_perfectmoney_data
     Rails.logger.debug "params.to_json:"
     Rails.logger.debug params.to_json
     render :status => 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['PERFECT_MONEY_PASS']))
-    make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'])
+    make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'], true)
   end
 
   def adapte_advcash_data
@@ -101,19 +104,23 @@ class FinanceApiController < ApplicationController
     status_params.push(params['ac_merchant_currency'])
     status_params.push(ENV['ADV_CASH_PASS'])
 
-    sign = make_hash_for_ckeck_from(status_params)
+    sign = make_hash_for_ckeck_from(status_params, 'SHA256')
+    puts "Params\n" +  params.to_json + "\n"
+    # puts "Sign\n" +  sign + "\n"
 
     render :status => 422 unless params['ac_hash'] == sign
-
-    make_responce_data(params['user_id'], params['ac_amount'], params['ac_buyer_currency'])
+    status_of_payment = params['ac_transaction_status'] == "COMPLETED" ? true : false
+    make_responce_data(params['user_id'], params['ac_amount'], params['ac_merchant_currency'], status_of_payment)
   end
 
-  def make_responce_data(customer, amount ,currency)
+  def make_responce_data(customer, amount ,currency, status)
     @responce_data = {
         :user_id => customer,
         :amount => amount,
-        :currency => currency
+        :currency => currency,
+        :success => status
     }
+    puts "responce values : " + @responce_data.to_json + "\n"
   end
 
   def get_payment_form( service )
@@ -137,8 +144,15 @@ class FinanceApiController < ApplicationController
   	redirect_to home_path, payment_status: status, payment_amount: @responce_data['amount']
   end
 
-  def make_hash_for_ckeck_from values
-  	(Digest::MD5.new).hexdigest(values.join(":")).upcase
+  def make_hash_for_ckeck_from values, mode
+    puts "String yo encode " + values.join(":")
+    # puts '(Digest::' + mode + ".new).digest('" + values.join(":") + "')"
+    # exec('(Digest::' + mode + ".new).digest('" + values.join(":") + "')")#.upcase
+    
+    (Digest::MD5.new).hexdigest(values.join(":")) if mode == 'MD5'
+    
+    (Digest::SHA256.new).hexdigest(values.join(":")) if mode == 'SHA256'
+
   end
 
   def params_for_check(password)
