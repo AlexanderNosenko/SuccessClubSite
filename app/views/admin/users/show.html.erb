@@ -8,10 +8,16 @@
       Invited by <%= @parent ? link_to("#{@parent.name} #{@parent.last_name}", admin_user_path(@parent)): "no one" %>
     </p>
     <p>
+      User ID: <span id="user-id"><%= @user.id %></span>
+    </p>
+    <p>
       Last seen IP: <%= @user.last_sign_in_ip %>
     </p>
     <p>
       Email <%= "not" unless @user.confirmed? %> confirmed
+    </p>
+    <p class="form-group">
+       Status: <%= select_tag :role, options_from_collection_for_select(Role.all, "id", "description", @user.role_id), class:"form-control",id:"role-select" %>
     </p>
   </div>
   <div class="col-md-3 socnet">

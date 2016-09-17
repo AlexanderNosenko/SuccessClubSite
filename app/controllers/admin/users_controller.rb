@@ -1,10 +1,22 @@
 class Admin::UsersController < Admin::AdminController
+
   def index
     @users = User.order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
   end
+
   def show
     @user = User.find(params[:id])
     @descendants = @user.descendants
     @parent = @user.parent
+  end
+
+  def changerole
+    @user = User.find(params[:id])
+    @user.role = Role.find(params[:role_id])
+    if @user.save
+      render plain: "User role changed"
+    else
+      render plain: "Error while changing user role"
+    end
   end
 end

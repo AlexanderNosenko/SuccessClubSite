@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     get '/', to: 'home#index'
     get 'users', to: 'users#index'
     get 'user/:id', to: 'users#show', as: :user
+    post 'user/:id/changerole', to: 'users#changerole'
     get 'payments', to: 'payments#index'
   end
   # All routes
