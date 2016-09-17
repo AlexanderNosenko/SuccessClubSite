@@ -12,3 +12,9 @@ $(document).ready () ->
         CSRF: csrf
       }, (data)->
       alert(data)
+  $(".delete-user").on "ajax:complete",  (e, data, status, xhr) ->
+    alert(data.responseText)
+    if(status == "success")
+      $(e.target).parents("a.row").remove()
+    true
+  true

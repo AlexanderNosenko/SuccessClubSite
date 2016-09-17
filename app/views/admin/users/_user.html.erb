@@ -20,9 +20,9 @@
   <div class="col-md-2">
     <%= user.last_online %>
   </div>
-  <div class="col-md-1">
+  <div class="col-md-offset-1 col-md-1">
     <object>
-    <%= link_to admin_delete_user_path(user), method: :delete, remote:true, data: { confirm: "are you sure?"} do%>
+    <%= link_to admin_delete_user_path(user), class:"delete-user", method: :delete, remote:true, data: { confirm: "are you sure?"} do%>
       <i class="fa fa-times" aria-hidden="true"></i>
     <% end %>
   </object>

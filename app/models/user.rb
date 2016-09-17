@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :parent, class_name: 'User'
   has_many :children, class_name: 'User'
-  has_many :payments, dependent: :destroy
   has_many :partner_links, dependent: :destroy
   has_many :user_landings, dependent: :destroy
   has_many :landings, through: :user_landings

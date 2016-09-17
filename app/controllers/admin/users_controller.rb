@@ -20,10 +20,12 @@ class Admin::UsersController < Admin::AdminController
     end
   end
 
-  def delete
+  def destroy
     @user = User.find(params[:id])
     if @user.destroy
       render plain:'User destroyed'
+    else
+      render plain:'User not deleted', status: 406
     end
   end
 end
