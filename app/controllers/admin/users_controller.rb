@@ -19,4 +19,11 @@ class Admin::UsersController < Admin::AdminController
       render plain: "Error while changing user role"
     end
   end
+
+  def delete
+    @user = User.find(params[:id])
+    if @user.destroy
+      render plain:'User destroyed'
+    end
+  end
 end
