@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Клуб Профессионалов</title>
+    <meta charset="utf-8">
+    <meta name="keywords">
+    <meta name="description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/font-awesome-4.6.3/css/font-awesome.css">
+    <link rel="stylesheet" media="all" href="css/animate.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/wow.min.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <div class="menu flexbox"><a href="#" class="link">О клубе</a><a href="#" class="link">Действия</a><a href="#" class="link">Доход</a><img src="img/kp-logo.png"><a href="#" class="link">Гарантии</a><a href="#" class="link">Кабинет</a><a href="#" class="link">Отзывы</a></div>
+      <div class="secblock flexbox"><span class="h1">НЕТ КОМПЬЮТЕРА?</span><span class="h2">Не беда! Работать можно даже с телефона</span><span class="min">В будущем будет разработано приложение для телефонов!</span><a href="#">Начать зарабатывать!</a></div>
+      <div class="thirdblock"><img src="img/third-block.png"></div>
+      <div class="fourthblock"><img src="img/fourth-block.png"></div>
+      <div class="fifthblock"><img src="img/fif-block.png"><a id="first" href="#"></a><a id="second" href="#"></a><a id="third" href="#"></a><a id="fourth" href="#"></a><a id="fifth" href="#"></a></div>
+      <div class="sixthblock"><img src="img/sixth-block.png"></div>
+      <div class="seventhblock"><img src="img/seventh-block.png"></div>
+      <div class="eighthblock"><img src="img/eighth-block.png"></div>
+      <div class="ninthblock"><img src="img/ninth-block.png"><a href="#"></a></div>
+      <div class="tenthblock"><img src="img/tenth-block.png"></div>
+      <!--div#topbutt.topa(href='body').scroll: img(src='img/up.png')/
+      -->
+      <script type="text/javascript">
+        $(document).ready(function(){
+        	$(".top").on("click","a.scroll", function (event) {
+        		event.preventDefault();
+        		var id  = $(this).attr('href'),
+        		top = $(id).offset().top - 50;
+        		$('body,html').animate({scrollTop: top}, 1000);
+        	});
+        });
+      </script>
+      <script>new WOW().init();</script>
+      <script type="text/javascript">
+        jQuery( document ).ready(function() {
+        	jQuery('#topbutt img').mouseover( function(){
+        		jQuery( this ).animate({opacity: 1},100);
+        	}).mouseout( function(){
+        		jQuery( this ).animate({opacity: 0.65},100);
+        	});
+        
+        	jQuery(window).scroll(function(){
+        		if ( jQuery(document).scrollTop() > 0 ) {
+        			jQuery('#topbutt').fadeIn('fast');
+        		} else {
+        			jQuery('#topbutt').fadeOut('fast');
+        		}
+        	});
+        });
+      </script>
+    </div>
+  </body>
+</html>
