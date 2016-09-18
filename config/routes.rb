@@ -39,9 +39,7 @@ Rails.application.routes.draw do
     delete 'user/:id', to: 'users#destroy', as: :delete_user
     post 'user/:id/changerole', to: 'users#changerole'
     get 'payments', to: 'payments#index'
-    namespace :instruments do
-      get '/', to: 'landings#index'
-    end
+    resources :landings, olny: [:index, :show], path: 'landings', controller:'instruments/landings'
   end
   # All routes
   # The priority is based upon order of creation: first created -> highest priority.
