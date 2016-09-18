@@ -8,7 +8,7 @@ RSpec.describe FinanceApiController, type: :controller do
       expect { 
       	post :responce_status, :id => "advcash", 
       	"user_id" => 6, 
-      	"ac_hash":"43c4088c325632b62250f2b060361881a61d7be1cadd7d46ed6f1e6dcc0b7606",
+      	"ac_hash":"a2f1e212364f1f4b65dddd362d8a9bb260b32581ce72cdfd4107d7ee6925d3b5",
       	"ac_transfer":"235f9d0b-b48f-462c-9949-621c4930490c",
       	"ac_start_date":"2012-06-23 12:30:00",
       	"ac_sci_name":"My Shop",

@@ -11,7 +11,7 @@ class FinanceApiController < ApplicationController
       head 422
     end
     update_user_balance
-    puts "balance after function :" + Wallet.find_by(user_id: @responce_data[:user_id]).main_balance.to_s + "\n"
+    puts "#{params[:id]} balance after function :" + Wallet.find_by(user_id: @responce_data[:user_id]).main_balance.to_s + "\n"
     head 200
   end
 
@@ -106,8 +106,8 @@ class FinanceApiController < ApplicationController
     status_params.push(ENV['ADV_CASH_PASS'])
 
     sign = make_hash_for_ckeck_from(status_params, 'SHA256')
-    puts "Params\n" +  params.to_json + "\n"
-    puts "Sign\n" +  sign + "\n"
+    # puts "Params\n" +  params.to_json + "\n"
+    # puts "Sign\n" +  sign + "\n"
 
     render :status => 422 unless params['ac_hash'] == sign
     status_of_payment = params['ac_transaction_status'] == "COMPLETED" ? true : false
@@ -123,7 +123,7 @@ class FinanceApiController < ApplicationController
         :currency => currency,
         :success => status
     }
-    puts "responce values : " + @responce_data.to_json + "\n"
+    puts "#{params[:id]} responce values : " + @responce_data.to_json + "\n"
   end
 
   def get_payment_form( service )
@@ -160,15 +160,24 @@ class FinanceApiController < ApplicationController
   	redirect_to home_path, payment_status: status, payment_amount: @responce_data['amount']
   end
 
-  def make_hash_for_ckeck_from values, mode
+  def make_hash_for_ckeck_from( values, mode )
     
     # puts '(Digest::' + mode + ".new).digest('" + values.join(":") + "')"
     # exec('(Digest::' + mode + ".new).digest('" + values.join(":") + "')")#.upcase
-    puts "\n String to encode " + values.join(":")
+    begin
+      puts "\n #{params[:id]} String to encode " + values.join(":")
+    rescue
+      puts "\n #{params[:id]} Password to encode " + values
+      values = [values]
+    end
+
+    
     case mode
     when 'MD5'
-      (Digest::MD5.new).hexdigest(values.join(":"))
+      puts "\n #{params[:id]} Encoded " + (Digest::MD5.new).hexdigest(values.join(":")).upcase + "\n"
+      (Digest::MD5.new).hexdigest(values.join(":")).upcase
     when 'SHA256'
+      puts "\n #{params[:id]} Encoded " + (Digest::SHA256.new).hexdigest(values.join(":")) + "\n"
       (Digest::SHA256.new).hexdigest(values.join(":"))
     else
       "error in hash generation"
@@ -186,7 +195,7 @@ class FinanceApiController < ApplicationController
 	  	status_params.push(params['PAYMENT_UNITS'])
 	  	status_params.push(params['PAYMENT_BATCH_NUM'])
 	  	status_params.push(params['PAYER_ACCOUNT'])
-	  	status_params.push((Digest::MD5.new).hexdigest(password).upcase)
+	  	status_params.push(make_hash_for_ckeck_from(password, 'MD5'))
 	  	status_params.push(params['TIMESTAMPGMT'])
 	  	status_params
 	  else

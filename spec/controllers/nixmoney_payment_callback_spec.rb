@@ -14,7 +14,7 @@ RSpec.describe FinanceApiController, type: :controller do
 	  	'PAYMENT_UNITS' => 'USD',
 	  	'PAYMENT_BATCH_NUM' => '789012',
 	  	'PAYER_ACCOUNT' => 'U456789',
-	  	'V2_HASH' => '2a47c2c67e7939a30c06dab6ee4fab01',
+	  	'V2_HASH' => 'D67A733A17AC50B589E177CFCC162B3D',
 	  	'TIMESTAMPGMT' => '876543210'
 		}.to  change { Payment.count }
       # expect(wallet.main_balance).to   eq(balance_prev + mock_params['ac_amount'].to_f)
