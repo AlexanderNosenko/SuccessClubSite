@@ -1,164 +1,87 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html lang="ru">
   <head>
     <title>Letter</title>
     <meta charset="utf-8">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <style>
-      body {
+      *{
+        margin: 0;
         padding: 0;
-        font-size: 16px;
-        width: 600px;
-        margin: 0 auto;
-        font-family: "CodePro";
-      }
-
-      @font-face {
-        font-family: "GoodVibes";
-        src: url("<%= font_path "9151.ttf" %>");
-        font-style: normal;
-        font-weight: normal;
-      }
-
-      @font-face {
-        font-family: "CodePro";
-        src: url(<%= font_path "CodeProLight.otf" %>);
-        font-style: normal;
-        font-weight: normal;
-      }
-
-      .top {
-        width: 600px;
-        background: #6e2866;
-        margin: 15px 0;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-justify-content: space-between;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                align-items: center;
-      }
-
-      .top .soc-icons i {
-        font-size: 30px;
-        color: white;
-        margin: 0 5px;
-      }
-
-      .top .center a {
-        color: white;
-        text-decoration: none;
-      }
-
-      .top .img-block {
-        width: 200px;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                align-items: center;
-      }
-
-      .top .img-block img {
-        width: 200px;
-        height: 75px;
-        margin: -9px 0 -10px 0;
-      }
-
-      .top .img-block span {
-        color: white;
-        margin-left: -115px;
-      }
-
-      .main {
-        text-align: center;
-        margin: 30px 0 0;
-      }
-
-      .main .club {
-        font-family: "GoodVibes";
-        font-size: 100px;
-      }
-
-      .main .prof {
-        font-family: "CodePro";
-        font-size: 30px;
-      }
-
-      .main p {
-        text-align: justify;
-      }
-
-      .main img {
-        width: 600px;
-      }
-
-      .activate {
-        margin: 0 auto;
-        display: block;
-        width: 400px;
-      }
-
-      .activate button {
-        width: 400px;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-      }
-
-      .activate button img {
-        width: 400px;
       }
     </style>
   </head>
   <body>
-    <div class="top">
-      <div class="soc-icons">
-        <a href="https://vk.com/improfclub">
-          <i class="fa fa-vk"></i>
-        </a>
-        <a href="https://www.facebook.com/groups/1607694376208959/">
-          <i class="fa fa-facebook-square" aria-hidden="true"></i>
-        </a>
-      </div>
-      <div class="center"><a href="http://www.improf.club">improf.club</a></div>
-      <div class="img-block"><%= image_tag "mail/cnt-bg.png", class:"cnt_img" %><span><%= ENV["DEVISE_MAIL_SENDER"] %></span></div>
-    </div>
-    <div class="main"><span class="club">Клуб</span><br><span class="prof">Профессионалов</span><%= image_tag "mail/line.png" %>
-      <p>Приветствуем, <%= @resource.name %>!</p>
-      <p class="text-center">Это платформа, объединяющая людей, с целью заработка через интернет.<p>
-      <p>
-        <p class="text-left">
-           Благодаря Клубу Профессионалов, абсолютно у каждого человека, вне зависимости от материального благосостояния,
-          опыта или страны проживания, открывается возможность стать предпринимателем и иметь доход через интернет.<br><br>
-          <b> Бизнес:</b> на площадке Клуб Профессионалов будет размещено десятки бизнес направлений, сетевые компании, интрнет бизнесы и т.д.
-          Вы с легкостью сможете легально, с защитой начать свой бизнес в интернете. Мы поможем Вам определиться и начать! <br><br>
-          <b> Инвестиции:</b> в сфере интернет инвестиций развелось множество мошеннических проектов, компаний, которые только и ждут,
-          чтобы Вы внесли им денег! Именно поэтому разработана платформа Клуб Профессионалов, мы будем мониторить мир интернет инвестиций,
-          отбирать только лучшие, достойные направления, чтобы Вы всегда были в Профите! <br><br>
-          <b> Инструменты:</b> одной из проблем развития интернет бизнеса является отсутствие инструментов продвижения.
-          Команда Клуба Профессионалов разработала десятки страниц захвата (Landing Page), для разных проектов, компаний, теперь продвигать,
-          приглашать партнеров станет гораздо проще! Помимо красочный, привлекательных страниц, мы разработали десятки интернет магазинов,
-          даже если Вы продаете вещи или овощи, можете продвигать их через сервисы и инструменты Клуба Профессионалов! И это не все,
-          в будущем, мы планируем запуск сервиса блогов, с готовыми дизайнами под десятки проектов и компаний в интернет пространстве!<br><br>
-          <b> Обучение:</b> в проекте представлено множество уроков, по развитию команд, продвижению интернет бизнеса, финансовой грамотности,
-          а также, самое главное, множество уроков из серии "ПК для часников" и "С чего начать интернет бизнес?" <br><br>
-          <b> Маркетинг:</b> конечно же мы не могли упустить момент разработки собственного маркетинга. Он совершенного простой.
-          Мы придумали статусы участников, которые дают возможность использовать функционал клуба, за небольшую, помесячную оплату,
-          все это подвязали на 10 уровневую партнерскую программу. Каждый статус участника имеет свой уровень дохода.
-          Помимо партнерской программы внедрены ежемесячные бонусы, внутренние задания, а также десятки конкурсов, акций и т.д.<br><br>
-          <b>Клуб Профессионалов</b> - это действительно достойная платформа, как для заработка, так и для продвижения.
-          В данном проекте, Вы научитесь зарабатывать, продвигать и строить огромные команды. Все что Вам нужно сделать сейчас -
-          нажать кнопку "Активировать", она перенаправит Вас на все вышеперечисленные возможности. <br><br></p>
-          <p class="text-center"><b>Желаем больших чеков, успешных, дружественных партнеров и достойных наставников! <br>
-          С уважением команда Клуб Профессионалов!</b>
-      </p><%= image_tag "mail/line.png" %>
-    </div><%= link_to confirmation_url(@resource, confirmation_token: @token), class: 'activate' do %>
-      <button><%= image_tag "mail/button-bg.png" %></button>
-      <% end %>
+    <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto; padding:0; "width="600px">
+      <tr style="margin:10px 0; " bgcolor="#6e2866" height="46">
+        <td width="145">
+          <a href="https://vk.com/improfclub">VK</a>
+          <a href="https://www.facebook.com/groups/1607694376208959/">FB</a>
+        </td>
+        <td align="center"><a href="http://www.improf.club" style="color: white;text-decoration: none;">Подтверждение E-mail</a></td>
+        <td style="float:right;">
+          <%= image_tag "mail/cnt-bg.png", alt:"". width:"200", height:"65", style: "display: block; float:left; margin: -9px 0 -10px 0;" %>
+          <a href="mailto:<%= ENV["DEVISE_MAIL_SENDER"] %>" style="display:block; float:left; margin-left:-125px;color: white; text-decoration:none;font-size:16px;line-height:40px"><span><%= ENV["DEVISE_MAIL_SENDER"] %></span></a>
+        </td>
+      </tr>
+      </table>
+      <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto; padding:0; "width="600px">
+      <tr align="center" style="width:100%;">
+        <td align="center">
+        <center style="display:block; margin: 30px 0 0;">
+           <span style="font-size:100px; font-style: italic; font-family:Trebuchet MS', Helvetica, sans-serif;">Клуб</span>
+           </br>
+           <span style="font-size: 30px;">Профессионалов</span>
+          </center>
+        <br/></td>
+      </tr>
+      <tr>
+      <td>
+        <%= image_tag "mail/line.png", style:"max-width: 600px;", alt:"" %>
+      </td>
+      </tr>
+      <tr>
+        <td >
+          <p style="display:block; text-align: justify; float:left;">
+            Приветствуем, <%= @resource.name %>!
+            Благодаря Клубу Профессионалов, абсолютно у каждого человека, вне зависимости от материального благосостояния,
+            опыта или страны проживания, открывается возможность стать предпринимателем и иметь доход через интернет.<br><br>
+            <b> Бизнес:</b> на площадке Клуб Профессионалов будет размещено десятки бизнес направлений, сетевые компании, интрнет бизнесы и т.д.
+            Вы с легкостью сможете легально, с защитой начать свой бизнес в интернете. Мы поможем Вам определиться и начать! <br><br>
+            <b> Инвестиции:</b> в сфере интернет инвестиций развелось множество мошеннических проектов, компаний, которые только и ждут,
+            чтобы Вы внесли им денег! Именно поэтому разработана платформа Клуб Профессионалов, мы будем мониторить мир интернет инвестиций,
+            отбирать только лучшие, достойные направления, чтобы Вы всегда были в Профите! <br><br>
+            <b> Инструменты:</b> одной из проблем развития интернет бизнеса является отсутствие инструментов продвижения.
+            Команда Клуба Профессионалов разработала десятки страниц захвата (Landing Page), для разных проектов, компаний, теперь продвигать,
+            приглашать партнеров станет гораздо проще! Помимо красочный, привлекательных страниц, мы разработали десятки интернет магазинов,
+            даже если Вы продаете вещи или овощи, можете продвигать их через сервисы и инструменты Клуба Профессионалов! И это не все,
+            в будущем, мы планируем запуск сервиса блогов, с готовыми дизайнами под десятки проектов и компаний в интернет пространстве!<br><br>
+            <b> Обучение:</b> в проекте представлено множество уроков, по развитию команд, продвижению интернет бизнеса, финансовой грамотности,
+            а также, самое главное, множество уроков из серии "ПК для часников" и "С чего начать интернет бизнес?" <br><br>
+            <b> Маркетинг:</b> конечно же мы не могли упустить момент разработки собственного маркетинга. Он совершенного простой.
+            Мы придумали статусы участников, которые дают возможность использовать функционал клуба, за небольшую, помесячную оплату,
+            все это подвязали на 10 уровневую партнерскую программу. Каждый статус участника имеет свой уровень дохода.
+            Помимо партнерской программы внедрены ежемесячные бонусы, внутренние задания, а также десятки конкурсов, акций и т.д.<br><br>
+            <b>Клуб Профессионалов</b> - это действительно достойная платформа, как для заработка, так и для продвижения.
+            В данном проекте, Вы научитесь зарабатывать, продвигать и строить огромные команды. Все что Вам нужно сделать сейчас -
+            нажать кнопку "Активировать", она перенаправит Вас на все вышеперечисленные возможности. <br><br>
+            <b>Желаем больших чеков, успешных, дружественных партнеров и достойных наставников! <br>
+            С уважением команда Клуб Профессионалов!</b>
+          </p>
+        </td>
+      </tr>
+        <tr>
+      <td>
+        <%= image_tag "mail/line.png", style:"max-width: 600px;", alt:"" %>
+      </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <%= link_to confirmation_url(@resource, confirmation_token: @token), class: 'activate' do %>
+            <%= image_tag "mail/button-bg.png", style:"max-width:400px" %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+
   </body>
 </html>
