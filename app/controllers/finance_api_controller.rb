@@ -8,11 +8,13 @@ class FinanceApiController < ApplicationController
   require 'json'
 
   def responce_status
-    unless @responce_data[:success] 
-      head 422
-      return
+    if !skip_validation
+      unless @responce_data[:success] 
+        head 422
+        return
+      end
+      update_user_balance 
     end
-    update_user_balance
     puts "#{params[:id]} balance after function :" + Wallet.find_by(user_id: @responce_data[:user_id]).main_balance.to_s + "\n"
     head 200
   end
@@ -39,6 +41,9 @@ class FinanceApiController < ApplicationController
 
   private
 
+  def skip_validation
+    ["success", "error"].include?(params['action'])
+  end
   def update_user_balance
 
     Payment.create(
@@ -63,7 +68,7 @@ class FinanceApiController < ApplicationController
 
   def adapte_liqpay_data
 
-    head 400 if params['data'].blank? || params['signature'].blank? && Rails.env.production?#render :status => 400 
+    head 400 if params['data'].blank? || params['signature'].blank? && Rails.env.production? #render :status => 400 
 
     liqpay = Liqpay::Liqpay.new
     sign = liqpay.str_to_sign(
@@ -82,14 +87,14 @@ class FinanceApiController < ApplicationController
   end
 
   def adapte_nixmoney_data
-    head 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['NIX_MONEY_PASS']), 'MD5') #render :status => 422
+    head 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['NIX_MONEY_PASS']), 'MD5') && !skip_validation#render :status => 422
     make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'], true)
   end
 
   def adapte_perfectmoney_data
     Rails.logger.debug "params.to_json:"
     Rails.logger.debug params.to_json
-    head 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['PERFECT_MONEY_PASS']), 'MD5')#render :status => 422 
+    head 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['PERFECT_MONEY_PASS']), 'MD5')&& !skip_validation#render :status => 422 
     make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'], true)
   end
 
