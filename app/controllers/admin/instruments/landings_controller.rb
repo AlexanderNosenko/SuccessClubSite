@@ -5,7 +5,7 @@ class Admin::Instruments::LandingsController < Admin::AdminController
   end
 
   def show
-    render json: @landing
+    #render json: @landing
   end
 
   private
