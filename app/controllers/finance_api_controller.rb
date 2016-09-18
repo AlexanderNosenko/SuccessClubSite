@@ -2,7 +2,7 @@ class FinanceApiController < ApplicationController
 
   before_action :prepare_input_data, except: [:payment_form]
   skip_before_filter :verify_authenticity_token
-  
+
   require 'digest'
   require "base64"
   require 'json'
@@ -63,7 +63,7 @@ class FinanceApiController < ApplicationController
 
   def adapte_liqpay_data
 
-    head 400 #render :status => 400 if params['data'].blank? || params['signature'].blank? && Rails.env.production?
+    head 400 if params['data'].blank? || params['signature'].blank? && Rails.env.production?#render :status => 400 
 
     liqpay = Liqpay::Liqpay.new
     sign = liqpay.str_to_sign(
@@ -73,7 +73,7 @@ class FinanceApiController < ApplicationController
     )
     liqpay_data = JSON.parse(Base64.decode64(params['data']))
 
-    head 422 #render :status => 422 unless Rails.env.development? || params['signature'] == sign
+    head 422 unless Rails.env.development? || params['signature'] == sign#render :status => 422 
    
     status_of_payment = liqpay_data['status'] == "success" ? true : false
 
@@ -82,20 +82,20 @@ class FinanceApiController < ApplicationController
   end
 
   def adapte_nixmoney_data
-    head 422 #render :status => 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['NIX_MONEY_PASS']), 'MD5')
+    head 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['NIX_MONEY_PASS']), 'MD5') #render :status => 422
     make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'], true)
   end
 
   def adapte_perfectmoney_data
     Rails.logger.debug "params.to_json:"
     Rails.logger.debug params.to_json
-    head 422 #render :status => 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['PERFECT_MONEY_PASS']), 'MD5')
+    head 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['PERFECT_MONEY_PASS']), 'MD5')#render :status => 422 
     make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'], true)
   end
 
   def adapte_advcash_data
 
-    head 400 #render :status => 400 if params['ac_hash'].blank? && Rails.env.production?
+    head 400 if params['ac_hash'].blank? && Rails.env.production?#render :status => 400 
 
     status_params = [params['ac_transfer']]
     status_params.push(params['ac_start_date'])
@@ -111,14 +111,14 @@ class FinanceApiController < ApplicationController
     # puts "Params\n" +  params.to_json + "\n"
     # puts "Sign\n" +  sign + "\n"
 
-    head 422 #render :status => 422 unless params['ac_hash'] == sign
+    head 422  unless params['ac_hash'] == sign#render :status => 422
     status_of_payment = params['ac_transaction_status'] == "COMPLETED" ? true : false
     make_responce_data(params['user_id'], params['ac_amount'], params['ac_merchant_currency'], status_of_payment)
   end
 
   def make_responce_data(customer, amount ,currency, status)
     
-    head 400 #render :status => 400 if customer.blank? || amount.blank? || currency.blank? || status.blank? && Rails.env.production?
+    head 400 if customer.blank? || amount.blank? || currency.blank? || status.blank? && Rails.env.production?#render :status => 400 
     @responce_data = {
         :user_id => customer,
         :amount => amount,
