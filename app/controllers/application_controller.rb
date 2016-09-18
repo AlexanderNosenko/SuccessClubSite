@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
           'action' => 'https://www.nixmoney.com/merchant.jsp',
           'name' => "nixmoney",
           'fields' => {
-            'PAYMENT_ID' => 1,
+            'PAYMENT_ID' => (0...8).map { (65 + rand(26)).chr }.join,
             'PAYEE_ACCOUNT' => '***REMOVED***',
             'PAYEE_NAME' => 'Test',
             'PAYMENT_AMOUNT' => 2,
@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
           'action' => "https://perfectmoney.is/api/step1.asp",
           'name' => "perfectmoney",
           'fields' => {
-            'PAYMENT_ID' => 1,
+            'PAYMENT_ID' => (0...8).map { (65 + rand(26)).chr }.join,
             'PAYEE_ACCOUNT' => "***REMOVED***",
             'PAYEE_NAME' => "improf.club",
             'PAYMENT_AMOUNT' => 2,
