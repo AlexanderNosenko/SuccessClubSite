@@ -7,15 +7,15 @@ RSpec.describe FinanceApiController, type: :controller do
     
       expect { 
       	post :responce_status, :id => "nixmoney", 
-      	"user_id" => 6, 
-      	'PAYMENT_ID' => 'AB-123',
-	  	'PAYEE_ACCOUNT' => 'U123456',
-	  	'PAYMENT_AMOUNT' => 1,
-	  	'PAYMENT_UNITS' => 'USD',
-	  	'PAYMENT_BATCH_NUM' => '789012',
-	  	'PAYER_ACCOUNT' => 'U456789',
-	  	'V2_HASH' => 'D67A733A17AC50B589E177CFCC162B3D',
-	  	'TIMESTAMPGMT' => '876543210'
+      	"user_id" => 2, 
+      	'PAYMENT_ID' => 'NULL',
+  	  	'PAYEE_ACCOUNT' => '***REMOVED***',
+  	  	'PAYMENT_AMOUNT' => '1.00',
+  	  	'PAYMENT_UNITS' => 'USD',
+  	  	'PAYMENT_BATCH_NUM' => '607859',
+  	  	'PAYER_ACCOUNT' => '***REMOVED***',
+  	  	'V2_HASH' => 'F56D5CB00BA5F3CE1A6DCC89C0394A88',
+  	  	'TIMESTAMPGMT' => '1474210833'
 		}.to  change { Payment.count }
       # expect(wallet.main_balance).to   eq(balance_prev + mock_params['ac_amount'].to_f)
       # expect(response).to have_http_status(200)

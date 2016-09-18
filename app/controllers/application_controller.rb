@@ -33,13 +33,16 @@ class ApplicationController < ActionController::Base
           'action' => 'https://www.nixmoney.com/merchant.jsp',
           'name' => "nixmoney",
           'fields' => {
+            'PAYMENT_ID' => 1,
             'PAYEE_ACCOUNT' => '***REMOVED***',
             'PAYEE_NAME' => 'Test',
             'PAYMENT_AMOUNT' => 2,
             'PAYMENT_UNITS' => 'USD',
             'STATUS_URL' => "http://improf.club/finance_api/responce_status/nixmoney",
             'PAYMENT_URL' => 'http://improf.club/finance_api/success/nixmoney',
+            "PAYMENT_URL_METHOD" => "GET",
             'NOPAYMENT_URL' => 'http://improf.club/finance_api/error/nixmoney',
+            "NOPAYMENT_URL_METHOD" => "GET",
             'BAGGAGE_FIELDS' => 'user_id',
             'user_id' => current_user.id,
           }
@@ -50,6 +53,7 @@ class ApplicationController < ActionController::Base
           'action' => "https://perfectmoney.is/api/step1.asp",
           'name' => "perfectmoney",
           'fields' => {
+            'PAYMENT_ID' => 1,
             'PAYEE_ACCOUNT' => "***REMOVED***",
             'PAYEE_NAME' => "improf.club",
             'PAYMENT_AMOUNT' => 2,

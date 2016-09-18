@@ -1,7 +1,8 @@
 class FinanceApiController < ApplicationController
 
   before_action :prepare_input_data, except: [:payment_form]
-
+  skip_before_filter :verify_authenticity_token
+  
   require 'digest'
   require "base64"
   require 'json'
@@ -9,6 +10,7 @@ class FinanceApiController < ApplicationController
   def responce_status
     unless @responce_data[:success] 
       head 422
+      return
     end
     update_user_balance
     puts "#{params[:id]} balance after function :" + Wallet.find_by(user_id: @responce_data[:user_id]).main_balance.to_s + "\n"
