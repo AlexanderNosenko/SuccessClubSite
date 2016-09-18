@@ -82,7 +82,7 @@ class ApplicationController < ActionController::Base
             'ac_fail_url' => 'http://improf.club/finance_api/error/advcash',
             'ac_fail_url_method' => 'GET',
             "ac_sign" => ENV['ADV_CASH_SIGN'],
-            "ac_order_id" => current_user.id,
+            "ac_order_id" => 1,
             "ac_comments" => "Adcanced Cash payment.",
             "user_id" => current_user.id
           }

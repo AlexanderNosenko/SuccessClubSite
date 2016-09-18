@@ -11,8 +11,7 @@ class FinanceApiController < ApplicationController
       head 422
     end
     update_user_balance
-    
-    puts "balance after function" + Wallet.find_by(user_id: @responce_data[:user_id]).main_balance.to_s
+    puts "balance after function :" + Wallet.find_by(user_id: @responce_data[:user_id]).main_balance.to_s + "\n"
     head 200
   end
 
@@ -73,20 +72,22 @@ class FinanceApiController < ApplicationController
     liqpay_data = JSON.parse(Base64.decode64(params['data']))
 
     render :status => 422 unless Rails.env.development? || params['signature'] == sign
-    status_of_payment = liqpay_data['status'] == "wait_accept" ? true : false
+   
+    status_of_payment = liqpay_data['status'] == "success" ? true : false
+
     make_responce_data(liqpay_data['customer'], liqpay_data['amount'], liqpay_data['currency'], status_of_payment)
 
   end
 
   def adapte_nixmoney_data
-    render :status => 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['NIX_MONEY_PASS']))
+    render :status => 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['NIX_MONEY_PASS']), 'MD5')
     make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'], true)
   end
 
   def adapte_perfectmoney_data
     Rails.logger.debug "params.to_json:"
     Rails.logger.debug params.to_json
-    render :status => 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['PERFECT_MONEY_PASS']))
+    render :status => 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['PERFECT_MONEY_PASS']), 'MD5')
     make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'], true)
   end
 
@@ -106,7 +107,7 @@ class FinanceApiController < ApplicationController
 
     sign = make_hash_for_ckeck_from(status_params, 'SHA256')
     puts "Params\n" +  params.to_json + "\n"
-    # puts "Sign\n" +  sign + "\n"
+    puts "Sign\n" +  sign + "\n"
 
     render :status => 422 unless params['ac_hash'] == sign
     status_of_payment = params['ac_transaction_status'] == "COMPLETED" ? true : false
@@ -114,6 +115,8 @@ class FinanceApiController < ApplicationController
   end
 
   def make_responce_data(customer, amount ,currency, status)
+    
+    render :status => 400 if customer.blank? || amount.blank? || currency.blank? || status.blank? && Rails.env.production?
     @responce_data = {
         :user_id => customer,
         :amount => amount,
@@ -137,7 +140,20 @@ class FinanceApiController < ApplicationController
       :result_url   => "http://improf.club/finance_api/success/liqpay",
       :language     => "ru"
       }).html_safe
+    else 
+      if service['name'] == 'advcash'
+
+      string_to_sign = ["club.mlm30@gmail.com"]
+      string_to_sign.push("Professionals Club")
+      string_to_sign.push(service['amount'])
+      string_to_sign.push('USD')
+      string_to_sign.push(ENV['ADV_CASH_SIGN'])
+      string_to_sign.push(params['ac_order_id'])
+
+      make_hash_for_ckeck_from(string_to_sign,'SHA256')
+      
     end
+  end
   end
 
   def redirect_to_home_after_payment(status)
@@ -145,19 +161,23 @@ class FinanceApiController < ApplicationController
   end
 
   def make_hash_for_ckeck_from values, mode
-    puts "String yo encode " + values.join(":")
+    
     # puts '(Digest::' + mode + ".new).digest('" + values.join(":") + "')"
     # exec('(Digest::' + mode + ".new).digest('" + values.join(":") + "')")#.upcase
-    
-    (Digest::MD5.new).hexdigest(values.join(":")) if mode == 'MD5'
-    
-    (Digest::SHA256.new).hexdigest(values.join(":")) if mode == 'SHA256'
+    puts "\n String to encode " + values.join(":")
+    case mode
+    when 'MD5'
+      (Digest::MD5.new).hexdigest(values.join(":"))
+    when 'SHA256'
+      (Digest::SHA256.new).hexdigest(values.join(":"))
+    else
+      "error in hash generation"
+    end
 
   end
 
   def params_for_check(password)
   	#Important to preserve the order.
-
     params_available = !params['PAYER_ACCOUNT'].nil?
   	if params_available
 	  	status_params = [params['PAYMENT_ID']]

@@ -40,7 +40,6 @@ $('.confirm>input[type="submit"]').click(function (e) {
   var form_id = form.attr('id');
   var form_amount_field;
   if (form_id == 'liqpay') {
-    console.log('ss');
     $.ajax({
       url: "/finance_api/payment_form?service_name=liqpay&amount="+parseInt($('input[name="amount"]').val()),
     }).done(function(responce) {
@@ -54,11 +53,17 @@ $('.confirm>input[type="submit"]').click(function (e) {
 
     // form_amount_field = $('#ac_amount');
   }else if(form_id == 'advcash'){
-    form_amount_field = form.find('#ac_amount');
+    $.ajax({
+      url: "/finance_api/payment_form?service_name=advcash&amount="+parseInt($('input[name="amount"]').val())+"&ac_order_id=1",
+    }).done(function(responce) {
+      form.find('#ac_sign').val(responce);
+      form.find('#ac_amount').val(parseFloat($('input[name="amount"]').val()));
+      form.submit();
+    });
   }else{
     form_amount_field = form.find('#PAYMENT_AMOUNT');
   }
-  if(form_id != 'liqpay'){
+  if(form_id != 'liqpay' && form_id != 'advcash'){
     form_amount_field.val(parseFloat($('input[name="amount"]').val()));
     form.submit();
   }
