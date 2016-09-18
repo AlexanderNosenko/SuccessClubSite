@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   post 'finance_api/responce_status/:id' => 'finance_api#responce_status'
 
   get 'finance_api/success/:id' => 'finance_api#success'
+  post 'finance_api/success/:id' => 'finance_api#success'
 
   get 'finance_api/error/:id' => 'finance_api#error'
+  post 'finance_api/error/:id' => 'finance_api#error'
   get '/finance_api/payment_form' => 'finance_api#payment_form'
   resources :businesses
   resources :users, controller: 'profile', path: 'profile'
