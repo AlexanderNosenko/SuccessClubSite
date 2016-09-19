@@ -15,4 +15,5 @@ Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts
 end
 #Rails.application.config.assets.precompile += ['*.js', '*.css']
 Rails.application.config.assets.precompile += %w( defaults.js empty.css)
+Rails.application.config.assets.precompile += %w( instruments/landings.css )
 Rails.application.config.assets.precompile << /\.(?:svg|eot|otf|woff|ttf)\z/
