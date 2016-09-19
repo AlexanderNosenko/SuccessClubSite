@@ -1,3 +1,88 @@
+<% content_for :modals do %>
+<div id="input" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <% @services.each do |service| %>
+          <%= get_trasfer_money_form(service) %>
+        <% end %>
+        <div id="money_input" class="flexbox">
+          <h2>Пополнение баланса:</h2>
+          <div class="inputs flexbox">
+            <div class="input flexbox">
+              <input id="PerfectMoney" data-service_type="perfectmoney" type="radio" name="system_input" value="PerfectMoney" checked>
+              <label for="PerfectMoney" class="flexbox label-img"><%= image_tag "perfectmoney.png" %><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+            </div>
+            <div class="input flexbox">
+              <input id="NixMoney" data-service_type="nixmoney" type="radio" name="system_input" value="NixMoney">
+              <label for="NixMoney" class="flexbox label-img"><%= image_tag "nixm.png" %><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+            </div>
+            <div class="input flexbox">
+              <input id="AdvCash" data-service_type="advcash" type="radio" name="system_input" value="AdvCash">
+              <label for="AdvCash" class="flexbox label-img">
+                <%= image_tag "advcash.png" %>
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+              </label>
+            </div>
+            <div class="input flexbox">
+              <input id="Liqpay" data-service_type="liqpay" type="radio" name="system_input" value="Liqpay">
+              <label for="Liqpay" class="flexbox label-img">
+                <%= image_tag "liqpay.png" %>
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+              </label>
+            </div>
+          </div>
+          <div class="confirm flexbox">
+            <input type="text" name="amount" placeholder="Сумма, USD">
+            <input type="submit" value="Пополнить">
+          </div>
+        </div>
+        <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="output" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form id="money_output" action="" method="post" class="flexbox">
+          <h2>Пополнение баланса:</h2>
+          <div class="inputs flexbox">
+            <div class="input flexbox">
+              <input id="PerfectMoney_o" type="radio" name="system_output" value="PerfectMoney" checked>
+              <label for="PerfectMoney_o" class="flexbox label-img"><%= image_tag "perfectmoney.png" %><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+            </div>
+            <div class="input flexbox">
+              <input id="NixMoney_o" type="radio" name="system_output" value="NixMoney">
+              <label for="NixMoney_o" class="flexbox label-img"><%= image_tag "nixm.png" %><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
+            </div>
+            <!--.input.flexbox
+            input#AdvCash_o(type='radio' name='system_output' value='AdvCash')
+            label.flexbox(for='AdvCash_o' class='label-img')
+              img(src='img/advcash.png')
+              span.red-span Без комиссии
+              <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+            -->
+            <!--.input.flexbox
+            input#Liqpay_o(type='radio' name='system_output' value='LiqPay')
+            label.flexbox(for='Liqpay_o' class='label-img')
+              img(src='img/liqpay.png')
+              span.red-span .
+              <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+            -->
+          </div>
+          <div class="confirm flexbox">
+            <input type="text" name="amount" placeholder="Сумма, USD">
+            <input type="submit" value="Вывести">
+          </div>
+        </form>
+        <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
 <div id="content" class="flexbox full">
   <div id="user-info" class="flexbox">
     <div id="user-pic" class="flexbox"><%= get_avatar(current_user)%>
