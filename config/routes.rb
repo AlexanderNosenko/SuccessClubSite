@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :instruments do
+  get 'landings/index'
+  end
+
   post 'finance_api/responce_status/:id' => 'finance_api#responce_status'
 
   get 'finance_api/success/:id' => 'finance_api#success'
