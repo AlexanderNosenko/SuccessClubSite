@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
     if search
       where('name LIKE ?', "%#{search}%")
     else
-     all()
+      all()
     end
   end
 
@@ -138,4 +138,16 @@ class User < ActiveRecord::Base
   def set_default_role
     self.role ||= Role.find_by_name('user')
   end
+
+  @contacts = [:phone, :skype, :vk, :fb, :ok, :youtube]
+
+  @main_data = [:id, :role_id, :parent_id, :ancestry, :email, :name, :last_name, :avatar]
+
+  @info = [:birthday, :sex, :country, :city, :about]
+
+  def self.basic_select()
+    fields = @main_data + @info
+    select(*fields)
+  end
+
 end
