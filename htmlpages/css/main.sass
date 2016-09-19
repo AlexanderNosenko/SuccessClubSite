@@ -5,12 +5,24 @@ body
 	font-family: "RobotoRegular", sans-serif
 	transition:all 400ms
 	text-align: center
+::-moz-scrollbar
+  width: 4px
+::-moz-scrollbar-thumb
+  background: #23a48a
+::-moz-scrollbar-thumb:window-inactive
+  background: #23a48a
+::-ms-scrollbar
+  width: 4px
+::-ms-scrollbar-thumb
+  background: #23a48a
+::-ms-scrollbar-thumb:window-inactive
+  background: #23a48a
 ::-webkit-scrollbar
-    width: 4px
+  width: 4px
 ::-webkit-scrollbar-thumb
-    background: #23a48a 
+  background: #23a48a
 ::-webkit-scrollbar-thumb:window-inactive
-	background: #23a48a
+  background: #23a48a
 ul
 	padding: 0
 	margin: 0
@@ -22,10 +34,16 @@ hr
 	background: #76a49b!important
 	cursor: not-allowed!important
 	color: white!important
+	a 
+		pointer-events: none!important
 .disabled:hover
 	background: #76a49b!important
 	cursor: not-allowed!important
 	color: white!important
+a
+	text-decoration: none
+a:hover
+	text-decoration: none
 .flexbox
 	display: flex
 .modal-body>button

@@ -6,6 +6,30 @@ body {
   text-align: center;
 }
 
+::-moz-scrollbar {
+  width: 4px;
+}
+
+::-moz-scrollbar-thumb {
+  background: #23a48a;
+}
+
+::-moz-scrollbar-thumb:window-inactive {
+  background: #23a48a;
+}
+
+::-ms-scrollbar {
+  width: 4px;
+}
+
+::-ms-scrollbar-thumb {
+  background: #23a48a;
+}
+
+::-ms-scrollbar-thumb:window-inactive {
+  background: #23a48a;
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -35,10 +59,22 @@ hr {
   color: white !important;
 }
 
+.disabled a {
+  pointer-events: none !important;
+}
+
 .disabled:hover {
   background: #76a49b !important;
   cursor: not-allowed !important;
   color: white !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .flexbox {
