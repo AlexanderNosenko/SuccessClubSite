@@ -25,45 +25,24 @@ class Admin::Instruments::LandingsController < Admin::AdminController
       link = UserLanding.new
       keys = [:video_link, :has_vk, :has_ok, :has_fb, :has_youtube]
       parameters = params.slice(*keys)
-        user_id: @user.id, landing_id: @landing.id, **params
-      )
       
+      link.user_id = @user.id
+      link.landing_id = @landing.id
+      link.activated_at = Time.now
+      link.reactivate_at = link.activated_at + 30.days
+      # Need to generate form for this one
+      link.update_attributes(**parameters)
+
+      if link.save and @wallet.save
+        render plain: 'Landing is linked successfully'
+      else
+        render plain: 'Something went wrong'
+      end
+    end
   end
 
   private
   def define_landing
     @landing = Landing.find(params[:id])
-  end
-end
-
-
-__END__
-  def index
-    @users = User.order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
-  end
-
-  def show
-    @user = User.find(params[:id])
-    @descendants = @user.descendants
-    @parent = @user.parent
-  end
-
-  def changerole
-    @user = User.find(params[:id])
-    @user.role = Role.find(params[:role_id])
-    if @user.save
-      render plain: "User role changed"
-    else
-      render plain: "Error while changing user role"
-    end
-  end
-
-  def destroy
-    @user = User.find(params[:id])
-    if @user.destroy
-      render plain:'User destroyed'
-    else
-      render plain:'User not deleted', status: 406
-    end
   end
 end
