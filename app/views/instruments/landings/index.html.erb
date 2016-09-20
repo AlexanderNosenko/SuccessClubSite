@@ -1,9 +1,9 @@
 <div class='full' id="content">
   <div class="flex-container">
-    <% 6.times do %>
+    <% @landings.each do |landing| %>
     <div class='item'>
       <div class='card'>
-        <div class='name'>text</div>
+        <div class='name'><%= landing.name %></div>
         <div class='desc'>text</div>
         <div class='image-wrapper'>
           <%= image_tag "gallery/1.jpg", class: "company-logo" %>
@@ -11,12 +11,12 @@
       </div>
       <div class='price-wrapper'>
         <div class='price'>
-          <span>10$</span>
+          <span><%= landing.price %>$</span>
         </div>
       </div>
       <div class='btn-wrapper'>
         <%#= link_to "Открыть", "#" %>
-        <%= link_to "Активировать", "#" %>
+        <%= link_to "Активировать", activate_landing_path(landing), method: :post %>
       </div>
     </div>
     <% end %>

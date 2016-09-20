@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :instruments do
-  get 'landings/index'
-  end
 
   post 'finance_api/responce_status/:id' => 'finance_api#responce_status'
 
@@ -12,13 +9,15 @@ Rails.application.routes.draw do
   get 'finance_api/error/:id' => 'finance_api#error'
   post 'finance_api/error/:id' => 'finance_api#error'
   get '/finance_api/payment_form' => 'finance_api#payment_form'
-  resources :businesses
   resources :users, controller: 'profile', path: 'profile'
   root 'landing#index'
   get 'home' => 'home#index'
   get 'team' => 'team#index'
   get '/p/:id' => 'partner_link#partner', as: "partner_link"
   delete '/p' => 'partner_link#delete', as: "delete_partner_session"
+  get '/landings', to: 'instruments/landings#index', as: 'landings'
+  post '/landings/:id', to: 'instruments/landings#activate', as: 'activate_landing'
+  #resources :landings, only: [:index, :activate], path: 'landings', controller:'instruments/landings'
   match '/profile/:id/finish_signup' => 'profile#finish_signup', via: [:get, :patch], :as => :finish_signup
   devise_for :users, controllers:
     {
@@ -43,7 +42,7 @@ Rails.application.routes.draw do
     delete 'user/:id', to: 'users#destroy', as: :delete_user
     post 'user/:id/changerole', to: 'users#changerole'
     get 'payments', to: 'payments#index'
-    resources :landings, olny: [:index, :show], path: 'landings', controller:'instruments/landings'
+    resources :landings, only: [:index, :show], path: 'landings', controller:'instruments/landings'
   end
   # All routes
   # The priority is based upon order of creation: first created -> highest priority.
