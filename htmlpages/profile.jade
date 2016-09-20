@@ -184,7 +184,7 @@ html(lang="ru")
 					span.full-menu Вакансии
 		#main.flexbox
 			#content.flexbox.full
-				#profile-links.flexbox
+				#tab-links.flexbox
 					a.active(href='#iwp' data-toggle="tab") Настройки профиля
 					a(href='#secure' data-toggle="tab") Безопасность
 					a.disabled(href='#') Статусы
@@ -263,7 +263,7 @@ html(lang="ru")
 			  		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
 			  }
 			});
-			$('#profile-links a').click(function(){
-				$( "#profile-links a" ).removeClass( "active" );
+			$('#tab-links a').click(function(){
+				$( "#tab-links a" ).removeClass( "active" );
 				$(this).addClass( "active" );
 			});

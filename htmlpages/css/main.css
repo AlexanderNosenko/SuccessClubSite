@@ -549,6 +549,55 @@ a:hover {
   transition: all 500ms;
 }
 
+#main #content #tab-links {
+  margin: 10px auto;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  width: 80%;
+}
+
+@media screen and (max-width: 795px) {
+  #main #content #tab-links {
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+#main #content #tab-links a {
+  color: black;
+  margin: 5px;
+  border-bottom: 2px solid #23a48a;
+  padding: 10px;
+  transition: all 500ms;
+}
+
+@media screen and (max-width: 795px) {
+  #main #content #tab-links a {
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+#main #content #tab-links .active {
+  background: #23a48a;
+  color: white;
+}
+
+#main #content #tab-links a:hover {
+  text-decoration: none;
+  background: #23a48a;
+  color: white;
+}
+
+#main #content #tab-links a:focus {
+  text-decoration: none;
+}
+
 footer {
   width: 100%;
   background: #eee;
