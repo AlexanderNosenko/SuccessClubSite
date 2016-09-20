@@ -1,6 +1,6 @@
 class FinanceApiController < ApplicationController
 
-  before_action :prepare_input_data, except: [:payment_form]
+  before_action :prepare_input_data, except: [:payment_form, :output]
   skip_before_filter :verify_authenticity_token
 
   require 'digest'
@@ -38,7 +38,19 @@ class FinanceApiController < ApplicationController
     render inline: get_payment_form(service)
 
   end
-
+  def output
+    if(Withdrawal.create(
+      user_id: current_user.id,
+      amount: params['amount'],
+      method: params['system_output']
+      )) 
+    asvdva
+    flash[:notice] = "Поздравляем! Ваш зарос на вывод средств принят."
+    else
+      flash[:notice] = "Приносим свои извининия, произошла ошибка, обратитесь в техподдержку."
+    end
+    redirect_to home_path
+  end
   private
 
   def skip_validation

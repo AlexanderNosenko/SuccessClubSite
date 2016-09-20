@@ -46,15 +46,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <form id="money_output" action="" method="post" class="flexbox">
-          <h2>Пополнение баланса:</h2>
+        <form id="money_output" action="/finance_api/output" method="post" class="flexbox">
+          <h2>Вывод средств:</h2>
           <div class="inputs flexbox">
             <div class="input flexbox">
-              <input id="PerfectMoney_o" type="radio" name="system_output" value="PerfectMoney" checked>
+              <input id="PerfectMoney_o" data-service_type="perfectmoney" type="radio" name="system_output" value="PerfectMoney" checked>
               <label for="PerfectMoney_o" class="flexbox label-img"><%= image_tag "perfectmoney.png" %><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
             </div>
             <div class="input flexbox">
-              <input id="NixMoney_o" type="radio" name="system_output" value="NixMoney">
+              <input id="NixMoney_o" data-service_type="nixmoney" type="radio" name="system_output" value="NixMoney">
               <label for="NixMoney_o" class="flexbox label-img"><%= image_tag "nixm.png" %><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
             </div>
             <!--.input.flexbox

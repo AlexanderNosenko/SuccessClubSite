@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   post 'finance_api/responce_status/:id' => 'finance_api#responce_status'
-
+  post 'finance_api/output' => 'finance_api#output'
   get 'finance_api/success/:id' => 'finance_api#success'
   post 'finance_api/success/:id' => 'finance_api#success'
 
