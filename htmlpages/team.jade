@@ -29,7 +29,9 @@ html(lang="ru")
 								<i class="fa fa-bar-chart" aria-hidden="true">: 100%</i>
 							.btns4link
 								input(type='text' id='link-1' value='something.com/?asd=123' disabled)
-								button#copy <i class="fa fa-clipboard" aria-hidden="true"></i>
+								button#copy 
+									i.fa.fa-clipboard(aria-hidden="true")
+									span.copy Копировать
 							h2 Партнерская ссылка:
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		div.modal.fade#input(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
