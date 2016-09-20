@@ -1,16 +1,72 @@
 // Place all the styles related to the instruments/landings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#content.flex-container{
+.flex-container{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 .flex-container .item{
   width: 20%;
-  height: 300px;
+  height: 400px;
+  margin: 20px 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.flex-container .item .card{
+  background-color: #efefef;
+  display: flex;
+  flex-direction: column;
 }
 .flex-container .item img.company-logo{
   width: 100%;
-
+}
+.flex-container .item .image-wrapper{
+  overflow: hidden;
+  // height: 300px;
+  margin: 0 20px;
+}
+.flex-container .item .name{
+  background-color: #0c4a3f;
+  color: white;
+  font-size: 2em;
+}
+.flex-container .item .desc{
+  font-size: 1.5em;
+  color: #888;
+}
+.flex-container .item .price-wrapper{
+  position: relative;
+}
+.flex-container .item .price{
+  position: absolute;
+  background-color: #0c4a3f;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  align-self: flex-end;
+  right:-20px;
+  bottom:-10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flex-container .item .price span{
+  color: white;
+  font-size: 1.6em;
+}
+.flex-container .item .btn-wrapper {
+  margin-top: 20px;
+}
+.flex-container .item .btn-wrapper a{
+  color: white;
+  text-decoration: none;
+  background-color: #0c4a3f;
+  font-size: 1.2em;
+  padding: 0.2em;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
 }

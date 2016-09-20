@@ -1,9 +1,24 @@
-<div class='flex-container full' id="content">
-  <% 3.times do %>
-  <div class='item'>
-    <div class='name'>text</div>
-    <div class='desc'>text</div>
-    <%= image_tag "gallery/1.jpg", class: "company-logo" %>
+<div class='full' id="content">
+  <div class="flex-container">
+    <% 6.times do %>
+    <div class='item'>
+      <div class='card'>
+        <div class='name'>text</div>
+        <div class='desc'>text</div>
+        <div class='image-wrapper'>
+          <%= image_tag "gallery/1.jpg", class: "company-logo" %>
+        </div>
+      </div>
+      <div class='price-wrapper'>
+        <div class='price'>
+          <span>10$</span>
+        </div>
+      </div>
+      <div class='btn-wrapper'>
+        <%#= link_to "Открыть", "#" %>
+        <%= link_to "Активировать", "#" %>
+      </div>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
