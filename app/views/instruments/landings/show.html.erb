@@ -1,0 +1,55 @@
+<div class="wrapper wrapper-content">
+  <div class="row animated fadeInRight">
+    <div class="col-md-4">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Лэндинг</h5>
+        </div>
+
+        <div>
+          <div class="ibox-content profile-content">
+            <h4><strong><%= @landing.name %>&nbsp;<%= @landing.price %>$ </strong></h4>
+            <% if @landing.description %>
+              <h5>О компании</h5>
+              <p><%= @landing.description %></p>
+            <% end %>
+            <ul class="list-group clear-list">
+
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+    </div>
+  </div>
+</div>
+
+
+<% content_for :javascript do %>
+
+    <script type="text/javascript">
+
+
+      $(function() {
+
+        $("span.pie").peity("pie", {
+          fill: ['#1ab394', '#d7d7d7', '#ffffff']
+        })
+
+        $(".line").peity("line", {
+          fill: '#1ab394',
+          stroke: '#169c81',
+        })
+
+        $(".bar").peity("bar", {
+          fill: ["#1ab394", "#d7d7d7"]
+        })
+
+
+      });
+
+    </script>
+
+<% end %>

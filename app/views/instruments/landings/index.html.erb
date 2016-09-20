@@ -1,5 +1,5 @@
 <div class='full' id="content">
-  <div class="flex-container">
+  <div id="landings" class="flex-container">
     <% @landings.each do |landing| %>
     <div class='item'>
       <div class='card'>
@@ -16,9 +16,12 @@
       </div>
       <div class='btn-wrapper'>
         <%#= link_to "Открыть", "#" %>
-        <%= link_to "Активировать", activate_landing_path(landing), method: :post %>
+    <!--     <span class="moreinfo"><a href="<%= landing_path landing %>"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+     -->    <%= link_to "Активировать", activate_landing_path(landing), method: :post %>
       </div>
     </div>
     <% end %>
+  </div>
+  <div id="detailed-landing-info" class="flexbox">
   </div>
 </div>
