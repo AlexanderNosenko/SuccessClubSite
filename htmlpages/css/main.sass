@@ -5,6 +5,9 @@ body
 	font-family: "RobotoRegular", sans-serif
 	transition:all 400ms
 	text-align: center
+	flex-direction: column
+	justify-content: space-between
+	min-height: 100vh
 ::-moz-scrollbar
   width: 4px
 ::-moz-scrollbar-thumb
@@ -191,100 +194,106 @@ a:hover
 			outline: none
 		.no-bg
 			background: transparent
-#main
-	#sidebar
-		position: fixed
-		height: 100vh
-		top: 0
-		z-index: 2
-		overflow-y: scroll
-		overflow-x: hidden
-		background: #167562
-		#flex-sidebar
-			flex-direction: column
+#sidebar
+	position: fixed
+	height: 100vh
+	top: 0
+	z-index: 2
+	overflow-y: scroll
+	overflow-x: hidden
+	background: #167562
+	#flex-sidebar
+		flex-direction: column
+		transition: all 500ms
+		padding: 50px 0 10px
+		a
+			color: white
+			text-align: left
+			height: 45px
+			background: #1bb394
+			border: 1px solid transparent
 			transition: all 500ms
-			padding: 50px 0 10px
-			a
+			overflow: hidden
+			display: flex
+			align-items: center
+		.disabled
+			background: #76a49b
+			border: none
+			cursor: not-allowed
+			position: relative
+			.dis-popup
+				background: transparent
+				color: transparent
+				position: absolute
+				width: 100%
+				height: 100%
+				opacity: 0.9
+				padding-top: 12px
+				transition: 500ms
+		.disabled:hover
+			background: #76a49b
+			border: none
+			.dis-popup
+				background: #76a49b
 				color: white
-				text-align: left
-				height: 45px
-				background: #1bb394
-				border: 1px solid transparent
-				transition: all 500ms
-				overflow: hidden
-				display: flex
-				align-items: center
-			.disabled
-				background: #76a49b
-				border: none
-				cursor: not-allowed
-				position: relative
-				.dis-popup
-					background: transparent
-					color: transparent
-					position: absolute
-					width: 100%
-					height: 100%
-					opacity: 0.9
-					padding-top: 12px
-					transition: 500ms
-			.disabled:hover
-				background: #76a49b
-				border: none
-				.dis-popup
-					background: #76a49b
-					color: white
-			.active
-				background: #167562
-				border: 1px solid #1bb394
-					left: 5px solid #1bb394
-			.active:hover
-				background: #167562
-				border: 1px solid #1bb394
-					left: 5px solid #1bb394
-			a:hover
-				background: #167562
-				border: 1px solid #1bb394
-				text-decoration: none
-		.minimized
-			width: 53px
-			a
-				width: 90%
-				margin: 10px auto 0
-				padding: 10px
-				justify-content: center
-			.disabled
-				.dis-popup
-					display: none
-			.full-menu
+		.active
+			background: #167562
+			border: 1px solid #1bb394
+				left: 5px solid #1bb394
+		.active:hover
+			background: #167562
+			border: 1px solid #1bb394
+				left: 5px solid #1bb394
+		a:hover
+			background: #167562
+			border: 1px solid #1bb394
+			text-decoration: none
+	.minimized
+		width: 53px
+		a
+			width: 90%
+			margin: 10px auto 0
+			padding: 10px
+			justify-content: center
+		.disabled
+			.dis-popup
 				display: none
-		.full
-			width: 225px
-			a
-				width: 90%
-				padding: 10px 0 10px 10px
-				margin: 10px 0 0 10px
-				i
-					margin: 0 5px 0 0
+		.full-menu
+			display: none
+	.full
+		width: 225px
+		a
+			width: 90%
+			padding: 10px 0 10px 10px
+			margin: 10px 0 0 10px
+			i
+				margin: 0 5px 0 0
+#main
+	width: 100%
 	#content.full
-		margin: 50px auto 0 55px
+		margin: 60px auto 0 55px
 		@media screen and (max-width: 768px)
 			margin: 0 auto
 			padding-top: 50px
 			padding-left: 59px
 			padding-right: 2px
+		@media screen and (min-width: 1300px)
+			margin: 60px auto
 	#content.minimized
-		margin: 50px auto 0 200px
+		margin: 60px auto 0 200px
 		@media screen and (max-width: 768px)
 			margin: 0 auto
 			padding-top: 50px
 			padding-left: 59px
 			padding-right: 2px
+		@media screen and (min-width: 1300px)
+			margin: 60px auto
 	#content
-		justify-content: flex-start
+		justify-content: center
 		align-items: center
 		flex-direction: column
 		width: 100%
+		max-width: 1200px
 		transition: all 500ms
 footer
 	width: 100%

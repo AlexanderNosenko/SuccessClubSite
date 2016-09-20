@@ -351,6 +351,15 @@
   }
 }
 
+@media screen and (min-width: 1600px) {
+  #main #content #team-search-detailedinfo #detailed-member-info {
+    position: fixed;
+    width: 400px;
+    top: 50px;
+    right: 10%;
+  }
+}
+
 #main #content #team-search-detailedinfo #detailed-member-info .hrtop {
   margin: 0 0 10px;
 }
