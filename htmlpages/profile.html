@@ -19,7 +19,7 @@
     <script src="js/bootstrap/bootstrap.min.js"></script>
     <script src="js/wow.min.js"></script>
   </head>
-  <body>
+  <body class="flexbox">
     <div id="links" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -32,7 +32,7 @@
               </div>
               <div class="btns4link">
                 <input type="text" id="link-1" value="something.com/?asd=123" disabled>
-                <button id="copy"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+                <button id="copy"> <i aria-hidden="true" class="fa fa-clipboard"></i><span class="copy">Копировать</span></button>
               </div>
               <h2>Партнерская ссылка:</h2>
             </div>
@@ -133,68 +133,82 @@
         <button id="menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
       </div>
     </nav>
+    <nav id="sidebar">
+      <div id="flex-sidebar" class="flexbox minimized"><a href="../" class="menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="profile.html" class="active menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="team.html" class="menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a><a class="menu-item disabled"><i class="fa fa-graduation-cap"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Обучение</span></a><a class="menu-item disabled"><i class="fa fa-money"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Быстрые деньги</span></a><a class="menu-item disabled"><i class="fa fa-bank"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Бизнес</span></a><a class="menu-item disabled"><i class="fa fa-usd" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инвестиции</span></a><a href="tools.html" class="menu-item"><i class="fa fa-cogs"></i><span class="full-menu">Инструменты</span></a><a class="menu-item disabled"><i class="fa fa-cubes" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Серфинг сайтов</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Финансы</span></a><a class="menu-item disabled"><i class="fa fa-trophy" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Лоторея</span></a><a class="menu-item disabled"><i class="fa fa-calendar"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Мероприятия</span></a><a class="menu-item disabled"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Новости</span></a><a class="menu-item disabled"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Благотворительность</span></a><a class="menu-item disabled"><i class="fa fa-book"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">FAQ</span></a><a class="menu-item disabled"><i class="fa fa-black-tie" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Вакансии</span></a></div>
+    </nav>
     <div id="main" class="flexbox">
-      <nav id="sidebar">
-        <div id="flex-sidebar" class="flexbox minimized"><a href="../" class="menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="profile.html" class="active menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="team.html" class="menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a><a class="menu-item disabled"><i class="fa fa-graduation-cap"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Обучение</span></a><a class="menu-item disabled"><i class="fa fa-money"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Быстрые деньги</span></a><a class="menu-item disabled"><i class="fa fa-bank"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Бизнес</span></a><a class="menu-item disabled"><i class="fa fa-usd" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инвестиции</span></a><a class="menu-item disabled"><i class="fa fa-cogs"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инструменты</span></a><a class="menu-item disabled"><i class="fa fa-cubes" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Серфинг сайтов</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Финансы</span></a><a class="menu-item disabled"><i class="fa fa-trophy" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Лоторея</span></a><a class="menu-item disabled"><i class="fa fa-calendar"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Мероприятия</span></a><a class="menu-item disabled"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Новости</span></a><a class="menu-item disabled"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Благотворительность</span></a><a class="menu-item disabled"><i class="fa fa-book"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">FAQ</span></a><a class="menu-item disabled"><i class="fa fa-black-tie" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Вакансии</span></a></div>
-      </nav>
       <div id="content" class="flexbox full">
-        <div id="profile-links" class="flexbox"><a href="#" class="active">Настройки профиля</a><a href="#" class="disabled">Безопасность</a><a href="#" class="disabled">Статусы</a><a href="#" class="disabled">Повышение дохода</a></div>
-        <div id="info-with-photo" class="flexbox">
-          <form id="profile-info" method="post" name="user-full-information" class="flexbox">
-            <div id="profile-info-names" class="flexbox">
-              <input type="text" name="name" value="Oleg" placeholder="Ваше имя">
-              <input type="text" name="surname" value="Kovalenko" placeholder="Ваша фамилия">
-            </div>
-            <div id="profile-info-contacts" class="flexbox">
-              <div class="flexbox input-icon"><i class="fa fa-envelope" aria-hidden="true"></i>
-                <input type="email" name="email" value="example@e.mail" placeholder="Email">
-              </div>
-              <div class="flexbox input-icon"><i class="fa fa-phone" aria-hidden="true"></i>
-                <input type="text" name="number" value="+380123456789" placeholder="Ваш номер телефона">
-              </div>
-              <div class="flexbox input-icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                <div id="for-map" class="flexbox">
-                  <select name="country" placeholder="Страна">
-                    <option value="UA" selected>Ukraine</option>
-                  </select>
-                  <input type="text" name="city" value="Cherkassy" placeholder="Город">
+        <div id="tab-links" class="flexbox"><a href="#iwp" data-toggle="tab" class="active">Настройки профиля</a><a href="#secure" data-toggle="tab">Безопасность</a><a href="#" class="disabled">Статусы</a><a href="#" class="disabled">Повышение дохода</a></div>
+        <div class="tab-content flexbox">
+          <div id="iwp" class="tab-pane active">
+            <div id="info-with-photo" class="flexbox">
+              <form id="profile-info" method="post" name="user-full-information" class="flexbox">
+                <div id="profile-info-names" class="flexbox">
+                  <input type="text" name="name" value="Oleg" placeholder="Ваше имя">
+                  <input type="text" name="surname" value="Kovalenko" placeholder="Ваша фамилия">
+                </div>
+                <div id="profile-info-contacts" class="flexbox">
+                  <div class="flexbox input-icon"><i class="fa fa-envelope" aria-hidden="true"></i>
+                    <input type="email" name="email" value="example@e.mail" placeholder="Email">
+                  </div>
+                  <div class="flexbox input-icon"><i class="fa fa-phone" aria-hidden="true"></i>
+                    <input type="text" name="number" value="+380123456789" placeholder="Ваш номер телефона">
+                  </div>
+                  <div class="flexbox input-icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <div id="for-map" class="flexbox">
+                      <select name="country" placeholder="Страна">
+                        <option value="UA" selected>Ukraine</option>
+                      </select>
+                      <input type="text" name="city" value="Cherkassy" placeholder="Город">
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div id="soc-icons" class="flexbox">
+                  <div class="soc-icon-input flexbox">
+                    <input type="text" name="skypename" value="Someone" placeholder="Ник в скайпе"><img src="img/skype-icon.png">
+                  </div>
+                  <div class="soc-icon-input flexbox">
+                    <input type="text" name="vk" value="vk.com/blablabla" placeholder="Ссылка на профиль в ВК"><img src="img/vk-icon.png">
+                  </div>
+                  <div class="soc-icon-input flexbox">
+                    <input type="text" name="viber" value="Oleg" placeholder="Ник в Viber"><img src="img/viber-icon.ico">
+                  </div>
+                  <div class="soc-icon-input flexbox">
+                    <input type="text" name="odnoklasniki" value="ok.ru/asdsad" placeholder="Ссылка на профиль в Одноклассниках"><img src="img/ok-icon.png">
+                  </div>
+                  <div class="soc-icon-input flexbox">
+                    <input type="text" name="facebook" value="fb.com/thezombie2111" placeholder="Ссылка на профиль в Facebook"><img src="img/facebook-icon.png">
+                  </div>
+                  <div class="soc-icon-input flexbox">
+                    <input type="text" name="youtube" value="youtube.com/user/u/thezombie2111" placeholder="Ссылка на канал на YouTube"><img src="img/youtube-icon.png">
+                  </div>
+                </div>
+                <hr class="green">
+                <div id="edit-buttons" class="flexbox">
+                  <button id="hide-user-contacts">Скрыть контакты</button>
+                  <button id="save-edits">Сохранить</button>
+                </div>
+              </form>
+              <div id="photo-block" class="flexbox">
+                <div id="user-profile-photo" class="flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div>
+                <div id="photo-btns" class="flexbox">
+                  <button id="upload">Выбрать файл</button>
+                  <!--??????????????-->
+                  <button id="save-userpic">Сохранить</button>
+                  <!--??????????????-->
                 </div>
               </div>
             </div>
-            <hr>
-            <div id="soc-icons" class="flexbox">
-              <div class="soc-icon-input flexbox">
-                <input type="text" name="skypename" value="Someone" placeholder="Ник в скайпе"><img src="img/skype-icon.png">
+          </div>
+          <div id="secure" class="tab-pane">
+            <div id="securepane" class="flexbox"><i aria-hidden="true" class="fa fa-key"></i>
+              <div id="recovery-inputs" class="flexbox">
+                <input type="password" name="old" placeholder="Старый пароль">
+                <input type="password" name="new" placeholder="Новый пароль">
+                <input type="password" name="renew" placeholder="Повторите пароль">
+                <input type="submit" value="Сохранить">
               </div>
-              <div class="soc-icon-input flexbox">
-                <input type="text" name="vk" value="vk.com/blablabla" placeholder="Ссылка на профиль в ВК"><img src="img/vk-icon.png">
-              </div>
-              <div class="soc-icon-input flexbox">
-                <input type="text" name="viber" value="Oleg" placeholder="Ник в Viber"><img src="img/viber-icon.ico">
-              </div>
-              <div class="soc-icon-input flexbox">
-                <input type="text" name="odnoklasniki" value="ok.ru/asdsad" placeholder="Ссылка на профиль в Одноклассниках"><img src="img/ok-icon.png">
-              </div>
-              <div class="soc-icon-input flexbox">
-                <input type="text" name="facebook" value="fb.com/thezombie2111" placeholder="Ссылка на профиль в Facebook"><img src="img/facebook-icon.png">
-              </div>
-              <div class="soc-icon-input flexbox">
-                <input type="text" name="youtube" value="youtube.com/user/u/thezombie2111" placeholder="Ссылка на канал на YouTube"><img src="img/youtube-icon.png">
-              </div>
-            </div>
-            <hr class="green">
-            <div id="edit-buttons" class="flexbox">
-              <button id="hide-user-contacts">Скрыть контакты</button>
-              <button id="save-edits">Сохранить</button>
-            </div>
-          </form>
-          <div id="photo-block" class="flexbox">
-            <div id="user-profile-photo" class="flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div>
-            <div id="photo-btns" class="flexbox">
-              <button id="upload">Выбрать файл</button>
-              <!--??????????????-->
-              <button id="save-userpic">Сохранить</button>
-              <!--??????????????-->
             </div>
           </div>
         </div>
@@ -211,6 +225,10 @@
         		$( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
         		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
         }
+      });
+      $('#tab-links a').click(function(){
+      	$( "#tab-links a" ).removeClass( "active" );
+      	$(this).addClass( "active" );
       });
     </script>
   </body>

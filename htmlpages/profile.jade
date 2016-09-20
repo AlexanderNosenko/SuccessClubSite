@@ -18,7 +18,7 @@ html(lang="ru")
 		script(type='text/javascript' src='js/jquery-1.12.3.min.js')
 		script(src='js/bootstrap/bootstrap.min.js')
 		script(src='js/wow.min.js')
-	body
+	body.flexbox
 		div.modal.fade#links(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
 			div.modal-dialog
 				div.modal-content
@@ -30,7 +30,9 @@ html(lang="ru")
 								<i class="fa fa-bar-chart" aria-hidden="true">: 100%</i>
 							.btns4link
 								input(type='text' id='link-1' value='something.com/?asd=123' disabled)
-								button#copy <i class="fa fa-clipboard" aria-hidden="true"></i>
+								button#copy 
+									i.fa.fa-clipboard(aria-hidden="true")
+									span.copy Копировать
 							h2 Партнерская ссылка:
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		div.modal.fade#input(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
@@ -116,130 +118,139 @@ html(lang="ru")
 					a.no-bg(href='#') 
 						<i class="fa fa-power-off" aria-hidden="true"></i>
 				button#menu-btn <i class="fa fa-bars" aria-hidden="true"></i>
+		nav#sidebar
+			.flexbox.minimized#flex-sidebar
+				a.menu-item(href='../')
+					<i class="fa fa-th-large"></i>
+					span.full-menu Главная
+				a.active.menu-item(href='profile.html')
+					<i class="fa fa-diamond"></i>
+					span.full-menu Профиль
+				a.menu-item(href='team.html')
+					<i class="fa fa-users"></i>
+					span.full-menu Команда
+				a.menu-item.disabled
+					<i class="fa fa-envelope"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Сообщения
+				a.menu-item.disabled
+					<i class="fa fa-graduation-cap"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Обучение
+				a.menu-item.disabled
+					<i class="fa fa-money"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Быстрые деньги
+				a.menu-item.disabled
+					<i class="fa fa-bank"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Бизнес
+				a.menu-item.disabled
+					<i class="fa fa-usd" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Инвестиции
+				a.menu-item(href='tools.html')
+					<i class="fa fa-cogs"></i>
+					span.full-menu Инструменты
+				a.menu-item.disabled
+					<i class="fa fa-cubes" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Серфинг сайтов
+				a.menu-item.disabled
+					<i class="fa fa-line-chart"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Финансы
+				a.menu-item.disabled
+					<i class="fa fa-trophy" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Лоторея
+				a.menu-item.disabled
+					<i class="fa fa-calendar"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Мероприятия
+				a.menu-item.disabled
+					<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Новости
+				a.menu-item.disabled
+					<i class="fa fa-heart-o" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Благотворительность
+				a.menu-item.disabled
+					<i class="fa fa-book"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu FAQ
+				a.menu-item.disabled
+					<i class="fa fa-black-tie" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Вакансии
 		#main.flexbox
-			nav#sidebar
-				.flexbox.minimized#flex-sidebar
-					a.menu-item(href='../')
-						<i class="fa fa-th-large"></i>
-						span.full-menu Главная
-					a.active.menu-item(href='profile.html')
-						<i class="fa fa-diamond"></i>
-						span.full-menu Профиль
-					a.menu-item(href='team.html')
-						<i class="fa fa-users"></i>
-						span.full-menu Команда
-					a.menu-item.disabled
-						<i class="fa fa-envelope"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Сообщения
-					a.menu-item.disabled
-						<i class="fa fa-graduation-cap"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Обучение
-					a.menu-item.disabled
-						<i class="fa fa-money"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Быстрые деньги
-					a.menu-item.disabled
-						<i class="fa fa-bank"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Бизнес
-					a.menu-item.disabled
-						<i class="fa fa-usd" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Инвестиции
-					a.menu-item.disabled
-						<i class="fa fa-cogs"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Инструменты
-					a.menu-item.disabled
-						<i class="fa fa-cubes" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Серфинг сайтов
-					a.menu-item.disabled
-						<i class="fa fa-line-chart"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Финансы
-					a.menu-item.disabled
-						<i class="fa fa-trophy" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Лоторея
-					a.menu-item.disabled
-						<i class="fa fa-calendar"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Мероприятия
-					a.menu-item.disabled
-						<i class="fa fa-newspaper-o" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Новости
-					a.menu-item.disabled
-						<i class="fa fa-heart-o" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Благотворительность
-					a.menu-item.disabled
-						<i class="fa fa-book"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu FAQ
-					a.menu-item.disabled
-						<i class="fa fa-black-tie" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Вакансии
 			#content.flexbox.full
-				#profile-links.flexbox
-					a.active(href='#') Настройки профиля
-					a.disabled(href='#') Безопасность
+				#tab-links.flexbox
+					a.active(href='#iwp' data-toggle="tab") Настройки профиля
+					a(href='#secure' data-toggle="tab") Безопасность
 					a.disabled(href='#') Статусы
 					a.disabled(href='#') Повышение дохода
-				#info-with-photo.flexbox
-					form#profile-info.flexbox(method='post' name='user-full-information')
-						#profile-info-names.flexbox
-							input(type='text' name='name' value='Oleg' placeholder='Ваше имя')
-							input(type='text' name='surname' value='Kovalenko' placeholder='Ваша фамилия')
-						#profile-info-contacts.flexbox
-							.flexbox.input-icon
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-								input(type='email' name='email' value='example@e.mail' placeholder='Email')
-							.flexbox.input-icon
-								<i class="fa fa-phone" aria-hidden="true"></i>
-								input(type='text' name='number' value='+380123456789' placeholder='Ваш номер телефона')
-							.flexbox.input-icon
-								<i class="fa fa-map-marker" aria-hidden="true"></i>
-								#for-map.flexbox
-									select(name='country' placeholder='Страна')
-										option(value='UA' selected) Ukraine
-									input(type='text' name='city' value='Cherkassy' placeholder='Город')
-						hr
-						#soc-icons.flexbox
-							.soc-icon-input.flexbox
-								input(type='text' name='skypename' value='Someone' placeholder='Ник в скайпе')
-								img(src='img/skype-icon.png')
-							.soc-icon-input.flexbox
-								input(type='text' name='vk' value='vk.com/blablabla' placeholder='Ссылка на профиль в ВК')
-								img(src='img/vk-icon.png')
-							.soc-icon-input.flexbox
-								input(type='text' name='viber' value='Oleg' placeholder='Ник в Viber')
-								img(src='img/viber-icon.ico')
-							.soc-icon-input.flexbox
-								input(type='text' name='odnoklasniki' value='ok.ru/asdsad' placeholder='Ссылка на профиль в Одноклассниках')
-								img(src='img/ok-icon.png')
-							.soc-icon-input.flexbox
-								input(type='text' name='facebook' value='fb.com/thezombie2111' placeholder='Ссылка на профиль в Facebook')
-								img(src='img/facebook-icon.png')
-							.soc-icon-input.flexbox
-								input(type='text' name='youtube' value='youtube.com/user/u/thezombie2111' placeholder='Ссылка на канал на YouTube')
-								img(src='img/youtube-icon.png')
-						hr.green
-						#edit-buttons.flexbox
-							button#hide-user-contacts Скрыть контакты
-							button#save-edits Сохранить
-					#photo-block.flexbox
-						#user-profile-photo.flexbox
-							img(src='https://images.vivino.com/avatars/default_user.png')
-						#photo-btns.flexbox
-							button#upload Выбрать файл
-							//??????????????
-							button#save-userpic Сохранить
-							//??????????????
+				.tab-content.flexbox
+					#iwp.tab-pane.active
+						#info-with-photo.flexbox
+							form#profile-info.flexbox(method='post' name='user-full-information')
+								#profile-info-names.flexbox
+									input(type='text' name='name' value='Oleg' placeholder='Ваше имя')
+									input(type='text' name='surname' value='Kovalenko' placeholder='Ваша фамилия')
+								#profile-info-contacts.flexbox
+									.flexbox.input-icon
+										<i class="fa fa-envelope" aria-hidden="true"></i>
+										input(type='email' name='email' value='example@e.mail' placeholder='Email')
+									.flexbox.input-icon
+										<i class="fa fa-phone" aria-hidden="true"></i>
+										input(type='text' name='number' value='+380123456789' placeholder='Ваш номер телефона')
+									.flexbox.input-icon
+										<i class="fa fa-map-marker" aria-hidden="true"></i>
+										#for-map.flexbox
+											select(name='country' placeholder='Страна')
+												option(value='UA' selected) Ukraine
+											input(type='text' name='city' value='Cherkassy' placeholder='Город')
+								hr
+								#soc-icons.flexbox
+									.soc-icon-input.flexbox
+										input(type='text' name='skypename' value='Someone' placeholder='Ник в скайпе')
+										img(src='img/skype-icon.png')
+									.soc-icon-input.flexbox
+										input(type='text' name='vk' value='vk.com/blablabla' placeholder='Ссылка на профиль в ВК')
+										img(src='img/vk-icon.png')
+									.soc-icon-input.flexbox
+										input(type='text' name='viber' value='Oleg' placeholder='Ник в Viber')
+										img(src='img/viber-icon.ico')
+									.soc-icon-input.flexbox
+										input(type='text' name='odnoklasniki' value='ok.ru/asdsad' placeholder='Ссылка на профиль в Одноклассниках')
+										img(src='img/ok-icon.png')
+									.soc-icon-input.flexbox
+										input(type='text' name='facebook' value='fb.com/thezombie2111' placeholder='Ссылка на профиль в Facebook')
+										img(src='img/facebook-icon.png')
+									.soc-icon-input.flexbox
+										input(type='text' name='youtube' value='youtube.com/user/u/thezombie2111' placeholder='Ссылка на канал на YouTube')
+										img(src='img/youtube-icon.png')
+								hr.green
+								#edit-buttons.flexbox
+									button#hide-user-contacts Скрыть контакты
+									button#save-edits Сохранить
+							#photo-block.flexbox
+								#user-profile-photo.flexbox
+									img(src='https://images.vivino.com/avatars/default_user.png')
+								#photo-btns.flexbox
+									button#upload Выбрать файл
+									//??????????????
+									button#save-userpic Сохранить
+									//??????????????
+					#secure.tab-pane
+						#securepane.flexbox
+							i.fa.fa-key(aria-hidden="true")
+							#recovery-inputs.flexbox
+								input(type='password' name='old' placeholder='Старый пароль')
+								input(type='password' name='new' placeholder='Новый пароль')
+								input(type='password' name='renew' placeholder='Повторите пароль')
+								input(type='submit' value='Сохранить')
 		footer
 			span Клуб проффесионалов &copy2016 Все права защищены.
 			a(href='#') Правила сервиса
@@ -253,4 +264,8 @@ html(lang="ru")
 			  		$( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
 			  		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
 			  }
+			});
+			$('#tab-links a').click(function(){
+				$( "#tab-links a" ).removeClass( "active" );
+				$(this).addClass( "active" );
 			});

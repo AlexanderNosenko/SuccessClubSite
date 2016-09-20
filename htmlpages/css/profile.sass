@@ -1,119 +1,115 @@
 #main
 	#content
-		#profile-links
-			margin: 10px auto
-			justify-content: center
-			@media screen and (max-width: 795px)
-				justify-content: center
-			flex-wrap: wrap
-			width: 80%
-			a
-				color: black
-				margin: 5px
-				border:
-					bottom: 2px solid #23a48a
-				padding: 10px 
-				transition: all 500ms
-				@media screen and (max-width: 795px)
-					width: 100%
-					display: inline-block
-			.active
-				background: #23a48a
-				color: white
-			a:hover
-				text-decoration: none
-				background: #23a48a
-				color: white
-			a:focus
-				text-decoration: none
-		#info-with-photo
-			flex-direction: row
-			width: 80%
-			@media screen and (max-width: 450px)
+		.tab-content
+			#info-with-photo
+				flex-direction: row
 				width: 100%
-			justify-content: space-between
-			align-items: flex-start
-			flex-wrap: wrap
-			#profile-info
-				flex-direction: column
+				@media screen and (max-width: 450px)
+					width: 100%
 				justify-content: center
-				align-items: center
-				width: 69%
-				@media screen and (max-width: 910px)
-					width: 100%
-				.flexbox
-					align-items: center
-					justify-content: center
-					width: 100%
-				input, select
-					background: #def2ee
-					border: none
-					padding: 10px
-					margin: 10px
-					width: 80%
-				#for-map
-					@media screen and (max-width: 450px)
-						flex-wrap: wrap
-						select
-							width: 100%
-				#profile-info-names
-					flex-direction: row
-					@media screen and (max-width: 450px)
-						flex-wrap: wrap
-						input
-							width: 100%
-				#profile-info-contacts
+				align-items: flex-start
+				flex-wrap: wrap
+				#profile-info
 					flex-direction: column
-					.input-icon
-						width: 80%
-						@media screen and (max-width: 450px)
-							width: 100%
-						input, select
-							width: 90%
-							@media screen and (max-width: 450px)
-								width: 100%
-						i
-							font-size: 25px
-							width: 30px
-							height: 30px
-							color: #23a48a
-							@media screen and (max-width: 450px)
-								display: none
-				#soc-icons
-					flex-direction: column
-					.soc-icon-input
-						img
-							width: 40px
-							height: 40px
-							border-radius: 50%
-				#edit-buttons
-					margin: 10px
-					button
-						background: #1bb394
-						color: #fff
-						border: none
-						padding: 10px 20px
-						margin: 0 10px
-			#photo-block
-				background: #def2ee
-				margin: 10px auto
-				flex-direction: column
-				justify-content: flex-start
-				padding: 20px 0
-				width: 29%
-				@media screen and (max-width: 910px)
-					width: 100%
-				#user-profile-photo
 					justify-content: center
 					align-items: center
-					img
-						width: 90%
-				#photo-btns
-					justify-content: center
-					margin: 20px auto 0
-					button
-						background: #fff
-						color: black
+					width: 69%
+					@media screen and (max-width: 910px)
+						width: 100%
+					.flexbox
+						align-items: center
+						justify-content: center
+						width: 100%
+					input, select
+						background: #def2ee
 						border: none
 						padding: 10px
-						margin: 0 5px
+						margin: 10px
+						width: 80%
+					#for-map
+						@media screen and (max-width: 450px)
+							flex-wrap: wrap
+							select
+								width: 100%
+					#profile-info-names
+						flex-direction: row
+						@media screen and (max-width: 450px)
+							flex-wrap: wrap
+							input
+								width: 100%
+					#profile-info-contacts
+						flex-direction: column
+						.input-icon
+							width: 80%
+							@media screen and (max-width: 450px)
+								width: 100%
+							input, select
+								width: 90%
+								@media screen and (max-width: 450px)
+									width: 100%
+							i
+								font-size: 25px
+								width: 30px
+								height: 30px
+								color: #23a48a
+								@media screen and (max-width: 450px)
+									display: none
+					#soc-icons
+						flex-direction: column
+						.soc-icon-input
+							img
+								width: 40px
+								height: 40px
+								border-radius: 50%
+					#edit-buttons
+						margin: 10px
+						button
+							background: #1bb394
+							color: #fff
+							border: none
+							padding: 10px 20px
+							margin: 0 10px
+				#photo-block
+					background: #def2ee
+					margin: 10px auto
+					flex-direction: column
+					justify-content: flex-start
+					padding: 20px 0
+					width: 29%
+					@media screen and (max-width: 910px)
+						width: 100%
+					#user-profile-photo
+						justify-content: center
+						align-items: center
+						img
+							width: 90%
+					#photo-btns
+						justify-content: center
+						margin: 20px auto 0
+						button
+							background: #fff
+							color: black
+							border: none
+							padding: 10px
+							margin: 0 5px
+			#secure
+				#securepane
+					justify-content: center
+					align-items: center
+					i 
+						font-size: 160px
+						color: #aecbc6
+					#recovery-inputs
+						flex-direction: column
+						justify-content: center
+						input
+							margin: 2px 0
+							border: none
+							padding: 10px
+						input:focus
+							outline: none
+						input[type='password']
+							background: #def3ee
+						input[type='submit']
+							background: #24a48b
+							color: white

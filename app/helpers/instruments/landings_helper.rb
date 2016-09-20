@@ -1,0 +1,2 @@
+module Instruments::LandingsHelper
+end

@@ -1,60 +1,11 @@
-#main #content #profile-links {
-  margin: 10px auto;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  width: 80%;
-}
-
-@media screen and (max-width: 795px) {
-  #main #content #profile-links {
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-
-#main #content #profile-links a {
-  color: black;
-  margin: 5px;
-  border-bottom: 2px solid #23a48a;
-  padding: 10px;
-  transition: all 500ms;
-}
-
-@media screen and (max-width: 795px) {
-  #main #content #profile-links a {
-    width: 100%;
-    display: inline-block;
-  }
-}
-
-#main #content #profile-links .active {
-  background: #23a48a;
-  color: white;
-}
-
-#main #content #profile-links a:hover {
-  text-decoration: none;
-  background: #23a48a;
-  color: white;
-}
-
-#main #content #profile-links a:focus {
-  text-decoration: none;
-}
-
-#main #content #info-with-photo {
+#main #content .tab-content #info-with-photo {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 80%;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  width: 100%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -64,12 +15,12 @@
 }
 
 @media screen and (max-width: 450px) {
-  #main #content #info-with-photo {
+  #main #content .tab-content #info-with-photo {
     width: 100%;
   }
 }
 
-#main #content #info-with-photo #profile-info {
+#main #content .tab-content #info-with-photo #profile-info {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
@@ -83,12 +34,12 @@
 }
 
 @media screen and (max-width: 910px) {
-  #main #content #info-with-photo #profile-info {
+  #main #content .tab-content #info-with-photo #profile-info {
     width: 100%;
   }
 }
 
-#main #content #info-with-photo #profile-info .flexbox {
+#main #content .tab-content #info-with-photo #profile-info .flexbox {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -98,7 +49,7 @@
   width: 100%;
 }
 
-#main #content #info-with-photo #profile-info input, #main #content #info-with-photo #profile-info select {
+#main #content .tab-content #info-with-photo #profile-info input, #main #content .tab-content #info-with-photo #profile-info select {
   background: #def2ee;
   border: none;
   padding: 10px;
@@ -107,60 +58,60 @@
 }
 
 @media screen and (max-width: 450px) {
-  #main #content #info-with-photo #profile-info #for-map {
+  #main #content .tab-content #info-with-photo #profile-info #for-map {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
   }
-  #main #content #info-with-photo #profile-info #for-map select {
+  #main #content .tab-content #info-with-photo #profile-info #for-map select {
     width: 100%;
   }
 }
 
-#main #content #info-with-photo #profile-info #profile-info-names {
+#main #content .tab-content #info-with-photo #profile-info #profile-info-names {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
 }
 
 @media screen and (max-width: 450px) {
-  #main #content #info-with-photo #profile-info #profile-info-names {
+  #main #content .tab-content #info-with-photo #profile-info #profile-info-names {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
   }
-  #main #content #info-with-photo #profile-info #profile-info-names input {
+  #main #content .tab-content #info-with-photo #profile-info #profile-info-names input {
     width: 100%;
   }
 }
 
-#main #content #info-with-photo #profile-info #profile-info-contacts {
+#main #content .tab-content #info-with-photo #profile-info #profile-info-contacts {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-#main #content #info-with-photo #profile-info #profile-info-contacts .input-icon {
+#main #content .tab-content #info-with-photo #profile-info #profile-info-contacts .input-icon {
   width: 80%;
 }
 
 @media screen and (max-width: 450px) {
-  #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon {
+  #main #content .tab-content #info-with-photo #profile-info #profile-info-contacts .input-icon {
     width: 100%;
   }
 }
 
-#main #content #info-with-photo #profile-info #profile-info-contacts .input-icon input, #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon select {
+#main #content .tab-content #info-with-photo #profile-info #profile-info-contacts .input-icon input, #main #content .tab-content #info-with-photo #profile-info #profile-info-contacts .input-icon select {
   width: 90%;
 }
 
 @media screen and (max-width: 450px) {
-  #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon input, #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon select {
+  #main #content .tab-content #info-with-photo #profile-info #profile-info-contacts .input-icon input, #main #content .tab-content #info-with-photo #profile-info #profile-info-contacts .input-icon select {
     width: 100%;
   }
 }
 
-#main #content #info-with-photo #profile-info #profile-info-contacts .input-icon i {
+#main #content .tab-content #info-with-photo #profile-info #profile-info-contacts .input-icon i {
   font-size: 25px;
   width: 30px;
   height: 30px;
@@ -168,28 +119,28 @@
 }
 
 @media screen and (max-width: 450px) {
-  #main #content #info-with-photo #profile-info #profile-info-contacts .input-icon i {
+  #main #content .tab-content #info-with-photo #profile-info #profile-info-contacts .input-icon i {
     display: none;
   }
 }
 
-#main #content #info-with-photo #profile-info #soc-icons {
+#main #content .tab-content #info-with-photo #profile-info #soc-icons {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-#main #content #info-with-photo #profile-info #soc-icons .soc-icon-input img {
+#main #content .tab-content #info-with-photo #profile-info #soc-icons .soc-icon-input img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-#main #content #info-with-photo #profile-info #edit-buttons {
+#main #content .tab-content #info-with-photo #profile-info #edit-buttons {
   margin: 10px;
 }
 
-#main #content #info-with-photo #profile-info #edit-buttons button {
+#main #content .tab-content #info-with-photo #profile-info #edit-buttons button {
   background: #1bb394;
   color: #fff;
   border: none;
@@ -197,7 +148,7 @@
   margin: 0 10px;
 }
 
-#main #content #info-with-photo #photo-block {
+#main #content .tab-content #info-with-photo #photo-block {
   background: #def2ee;
   margin: 10px auto;
   -webkit-flex-direction: column;
@@ -211,12 +162,12 @@
 }
 
 @media screen and (max-width: 910px) {
-  #main #content #info-with-photo #photo-block {
+  #main #content .tab-content #info-with-photo #photo-block {
     width: 100%;
   }
 }
 
-#main #content #info-with-photo #photo-block #user-profile-photo {
+#main #content .tab-content #info-with-photo #photo-block #user-profile-photo {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -225,21 +176,63 @@
           align-items: center;
 }
 
-#main #content #info-with-photo #photo-block #user-profile-photo img {
+#main #content .tab-content #info-with-photo #photo-block #user-profile-photo img {
   width: 90%;
 }
 
-#main #content #info-with-photo #photo-block #photo-btns {
+#main #content .tab-content #info-with-photo #photo-block #photo-btns {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
   margin: 20px auto 0;
 }
 
-#main #content #info-with-photo #photo-block #photo-btns button {
+#main #content .tab-content #info-with-photo #photo-block #photo-btns button {
   background: #fff;
   color: black;
   border: none;
   padding: 10px;
   margin: 0 5px;
+}
+
+#main #content .tab-content #secure #securepane {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main #content .tab-content #secure #securepane i {
+  font-size: 160px;
+  color: #aecbc6;
+}
+
+#main #content .tab-content #secure #securepane #recovery-inputs {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#main #content .tab-content #secure #securepane #recovery-inputs input {
+  margin: 2px 0;
+  border: none;
+  padding: 10px;
+}
+
+#main #content .tab-content #secure #securepane #recovery-inputs input:focus {
+  outline: none;
+}
+
+#main #content .tab-content #secure #securepane #recovery-inputs input[type='password'] {
+  background: #def3ee;
+}
+
+#main #content .tab-content #secure #securepane #recovery-inputs input[type='submit'] {
+  background: #24a48b;
+  color: white;
 }

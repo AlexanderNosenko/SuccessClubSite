@@ -1,0 +1,30 @@
+<div class="flex-container">
+  <h1>Landings</h1>
+  <%= link_to "Add", new_admin_landing_path, class: "btn btn-success disabled" %>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="list-group">
+      <% @landings.each do |landing| %>
+        <%= link_to admin_landing_path(landing), class: "row list-group-item" do %>
+          <div class="col-md-1">
+            <%= image_tag landing.logo, class:"avatar-small" %>
+          </div>
+          <div class="col-md-2">
+            <%= landing.name %>
+          </div>
+          <div class="col-md-2">
+            custimers: <%= landing.users.count %>
+          </div>
+          <div class="col-md-1">
+            <%= landing.price %>$
+          </div>
+          <div class="col-md-2">
+            <%#= landing.created_at.strftime("%d/%m/%y %H:%M:%S") %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%= will_paginate @landings %>
+  </div>
+</div>

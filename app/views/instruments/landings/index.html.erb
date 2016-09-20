@@ -1,0 +1,27 @@
+<div class='full' id="content">
+  <div id="landings" class="flex-container">
+    <% @landings.each do |landing| %>
+    <div class='item'>
+      <div class='card'>
+        <div class='name'><%= landing.name %></div>
+        <div class='desc'>text</div>
+        <div class='image-wrapper'>
+          <%= image_tag "gallery/1.jpg", class: "company-logo" %>
+        </div>
+      </div>
+      <div class='price-wrapper'>
+        <div class='price'>
+          <span><%= landing.price %>$</span>
+        </div>
+      </div>
+      <div class='btn-wrapper'>
+        <%#= link_to "Открыть", "#" %>
+    <!--     <span class="moreinfo"><a href="<%= landing_path landing %>"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+     -->    <%= link_to "Активировать", activate_landing_path(landing), method: :post %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div id="detailed-landing-info" class="flexbox">
+  </div>
+</div>

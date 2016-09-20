@@ -1,0 +1,13 @@
+<div class="flex-container flex-left">
+  <%= image_tag @landing.logo, class:"avatar-small" %>&nbsp
+  <h3><%= @landing.name %></h3>
+</div>
+<br>
+<h3>Users:</h3>
+<div class="row">
+  <div class="col-md-12">
+    <div class="list-group">
+      <%= render partial: "admin/users/user", collection: @landing.users %>
+    </div>
+  </div>
+</div>

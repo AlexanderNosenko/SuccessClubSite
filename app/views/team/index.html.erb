@@ -34,7 +34,7 @@
             </div> -->
           </div>
           <div id="senpais" class="tab-pane flexbox">
-            <%= (render(partial: 'user', collection: @ancestors) unless @ancestors.nil?) || 'У вас нет спонсора..' %>
+            <%= (render(partial: 'user', collection: @ancestors) unless @ancestors.nil?) || 'У вас нет наставников..' %>
             <%= will_paginate @ancestors unless @ancestors.nil? %>
           </div>
         </div>

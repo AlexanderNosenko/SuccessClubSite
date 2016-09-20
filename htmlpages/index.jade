@@ -18,7 +18,7 @@ html(lang="ru")
 		script(type='text/javascript' src='js/jquery-1.12.3.min.js')
 		script(src='js/bootstrap/bootstrap.min.js')
 		script(src='js/wow.min.js')
-	body
+	body.flexbox
 		div.modal.fade#links(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
 			div.modal-dialog
 				div.modal-content
@@ -30,7 +30,9 @@ html(lang="ru")
 								<i class="fa fa-bar-chart" aria-hidden="true">: 100%</i>
 							.btns4link
 								input(type='text' id='link-1' value='something.com/?asd=123' disabled)
-								button#copy <i class="fa fa-clipboard" aria-hidden="true"></i>
+								button#copy 
+									i.fa.fa-clipboard(aria-hidden="true")
+									span.copy Копировать
 							h2 Партнерская ссылка:
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		div.modal.fade#input(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
@@ -114,74 +116,73 @@ html(lang="ru")
 							span 0
 					a.no-bg(href='#') <i class="fa fa-power-off" aria-hidden="true"></i>
 				button#menu-btn <i class="fa fa-bars" aria-hidden="true"></i>
+		nav#sidebar
+			.flexbox.minimized#flex-sidebar
+				a.active.menu-item(href='#')
+					<i class="fa fa-th-large"></i>
+					span.full-menu Главная
+				a.menu-item(href='profile.html')
+					<i class="fa fa-diamond"></i>
+					span.full-menu Профиль
+				a.menu-item(href='team.html')
+					<i class="fa fa-users"></i>
+					span.full-menu Команда
+				a.menu-item.disabled
+					<i class="fa fa-envelope"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Сообщения
+				a.menu-item.disabled
+					<i class="fa fa-graduation-cap"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Обучение
+				a.menu-item.disabled
+					<i class="fa fa-money"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Быстрые деньги
+				a.menu-item.disabled
+					<i class="fa fa-bank"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Бизнес
+				a.menu-item.disabled
+					<i class="fa fa-usd" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Инвестиции
+				a.menu-item(href='tools.html')
+					<i class="fa fa-cogs"></i>
+					span.full-menu Инструменты
+				a.menu-item.disabled
+					<i class="fa fa-cubes" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Серфинг сайтов
+				a.menu-item.disabled
+					<i class="fa fa-line-chart"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Финансы
+				a.menu-item.disabled
+					<i class="fa fa-trophy" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Лоторея
+				a.menu-item.disabled
+					<i class="fa fa-calendar"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Мероприятия
+				a.menu-item.disabled
+					<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Новости
+				a.menu-item.disabled
+					<i class="fa fa-heart-o" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Благотворительность
+				a.menu-item.disabled
+					<i class="fa fa-book"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu FAQ
+				a.menu-item.disabled
+					<i class="fa fa-black-tie" aria-hidden="true"></i>
+					span.dis-popup Временно недоступно
+					span.full-menu Вакансии
 		#main.flexbox
-			nav#sidebar
-				.flexbox.minimized#flex-sidebar
-					a.active.menu-item(href='#')
-						<i class="fa fa-th-large"></i>
-						span.full-menu Главная
-					a.menu-item(href='profile.html')
-						<i class="fa fa-diamond"></i>
-						span.full-menu Профиль
-					a.menu-item(href='team.html')
-						<i class="fa fa-users"></i>
-						span.full-menu Команда
-					a.menu-item.disabled
-						<i class="fa fa-envelope"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Сообщения
-					a.menu-item.disabled
-						<i class="fa fa-graduation-cap"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Обучение
-					a.menu-item.disabled
-						<i class="fa fa-money"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Быстрые деньги
-					a.menu-item.disabled
-						<i class="fa fa-bank"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Бизнес
-					a.menu-item.disabled
-						<i class="fa fa-usd" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Инвестиции
-					a.menu-item.disabled
-						<i class="fa fa-cogs"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Инструменты
-					a.menu-item.disabled
-						<i class="fa fa-cubes" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Серфинг сайтов
-					a.menu-item.disabled
-						<i class="fa fa-line-chart"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Финансы
-					a.menu-item.disabled
-						<i class="fa fa-trophy" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Лоторея
-					a.menu-item.disabled
-						<i class="fa fa-calendar"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Мероприятия
-					a.menu-item.disabled
-						<i class="fa fa-newspaper-o" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Новости
-					a.menu-item.disabled
-						<i class="fa fa-heart-o" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Благотворительность
-					a.menu-item.disabled
-						<i class="fa fa-book"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu FAQ
-					a.menu-item.disabled
-						<i class="fa fa-black-tie" aria-hidden="true"></i>
-						span.dis-popup Временно недоступно
-						span.full-menu Вакансии
 			#content.flexbox.full
 				#user-info.flexbox
 					#user-pic.flexbox

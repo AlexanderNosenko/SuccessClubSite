@@ -70,6 +70,11 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# SINATRA gems
+gem 'sinatra'
+gem 'haml'
+gem 'sequel'
+gem 'mysql'
 
 
 group :development, :test do

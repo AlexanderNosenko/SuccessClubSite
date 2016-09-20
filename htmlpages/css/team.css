@@ -131,54 +131,6 @@
           flex-direction: column;
 }
 
-#main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs {
-  margin: 0 auto 10px;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  width: 80%;
-}
-
-@media screen and (max-width: 570px) {
-  #main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs {
-    width: 100%;
-  }
-}
-
-#main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs a {
-  color: black;
-  margin: 0 5px;
-  border-bottom: 2px solid #23a48a;
-  padding: 10px;
-  transition: all 500ms;
-}
-
-@media screen and (max-width: 795px) {
-  #main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs a {
-    width: 100%;
-    display: inline-block;
-    margin: 2px 0;
-  }
-}
-
-#main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs .active {
-  background: #23a48a;
-  color: white;
-}
-
-#main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs a:hover {
-  text-decoration: none;
-  background: #23a48a;
-  color: white;
-}
-
-#main #content #team-search-detailedinfo #team-with-search #member-list #member-tabs a:focus {
-  text-decoration: none;
-}
-
 #main #content #team-search-detailedinfo #team-with-search #member-list .tab-content {
   width: 100%;
 }
@@ -348,6 +300,15 @@
 @media screen and (min-width: 650px) and (max-width: 1070px) {
   #main #content #team-search-detailedinfo #detailed-member-info {
     width: 50%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  #main #content #team-search-detailedinfo #detailed-member-info {
+    position: fixed;
+    width: 400px;
+    top: 50px;
+    right: 10%;
   }
 }
 
