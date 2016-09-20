@@ -182,6 +182,11 @@ a:hover {
   border: none;
 }
 
+#link #copy .copy {
+  margin-left: 5px;
+  font-size: 15px;
+}
+
 #link a {
   color: #6a6f78;
 }
@@ -502,9 +507,10 @@ a:hover {
   }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1400px) {
   #main #content.full {
     margin: 60px auto;
+    padding: 0;
   }
 }
 
@@ -521,9 +527,10 @@ a:hover {
   }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1400px) {
   #main #content.minimized {
     margin: 60px auto;
+    padding: 0;
   }
 }
 
@@ -538,7 +545,7 @@ a:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1300px;
   transition: all 500ms;
 }
 
