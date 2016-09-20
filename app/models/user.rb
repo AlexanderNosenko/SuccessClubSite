@@ -117,12 +117,14 @@ class User < ActiveRecord::Base
       password: Devise.friendly_token[0,20]
     )
   end
+
   def self.new_with_session(params, session)
     pars = (session[:parent_id]) ? params.merge({parent: User.find(session[:parent_id])}) : params
     logger.debug "session: " + session.to_json.to_s
     logger.debug "pars: " + pars.to_json.to_s
     new(pars)
   end
+
   def search_descendants(search)
     search_res = []
     self.descendants.each do |user|
@@ -130,13 +132,31 @@ class User < ActiveRecord::Base
     end
     return search_res
   end
-  private
-  def avatar_size_validation
-    errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
+
+  def give_money(amount)
+    self.wallet.main_balance += amount.to_f
+    return self.wallet.save
   end
 
-  def set_default_role
-    self.role ||= Role.find_by_name('user')
+  def give__bonus_money(amount)
+    self.wallet.bonus_balance += amount.to_f
+    return self.wallet.save
+  end
+  
+  def take_money(amount)
+    if self.wallet.main_balance < amount.to_f
+      return
+    end
+    self.wallet.main_balance -= amount.to_f
+    return self.wallet.save
+  end
+
+  def take_bonus_money(amount)
+    if self.wallet.bonus_balance < amount.to_f
+      return
+    end
+    self.wallet.bonus_balance -= amount.to_f
+    return self.wallet.save
   end
 
   @contacts = [:phone, :skype, :vk, :fb, :ok, :youtube]
@@ -150,4 +170,12 @@ class User < ActiveRecord::Base
     select(*fields)
   end
 
+  private
+  def avatar_size_validation
+    errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
+  end
+
+  def set_default_role
+    self.role ||= Role.find_by_name('user')
+  end
 end
