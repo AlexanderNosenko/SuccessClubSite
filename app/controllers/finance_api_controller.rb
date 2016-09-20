@@ -44,7 +44,6 @@ class FinanceApiController < ApplicationController
       amount: params['amount'],
       method: params['system_output']
       )) 
-    asvdva
     flash[:notice] = "Поздравляем! Ваш зарос на вывод средств принят."
     else
       flash[:notice] = "Приносим свои извининия, произошла ошибка, обратитесь в техподдержку."
