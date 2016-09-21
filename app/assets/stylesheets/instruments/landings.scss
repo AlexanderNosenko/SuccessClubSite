@@ -1,15 +1,22 @@
-// Place all the styles related to the instruments/landings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-#main #content #landings {
+#main #content .tab-content {
   width: 80%;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  margin: 20px 0 0;
 }
 
-#main #content #landings .goods {
+#main #content .tab-content .offers {
+  width: 100%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin: 20px 0 0;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#main #content .tab-content .offers .goods {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
@@ -17,13 +24,14 @@
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0 20px 10px;
 }
 
-#main #content #landings .goods img {
+#main #content .tab-content .offers .goods img {
   width: 100%;
 }
 
-#main #content #landings .goods .stuff-name {
+#main #content .tab-content .offers .goods .stuff-name {
   background: #efefef;
   width: 100%;
   padding: 10px 0;
@@ -31,16 +39,16 @@
   font-weight: bold;
 }
 
-#main #content #landings .goods .img-price {
+#main #content .tab-content .offers .goods .img-price {
   position: relative;
 }
 
-#main #content #landings .goods .img-price .preview {
+#main #content .tab-content .offers .goods .img-price .preview {
   width: 200px;
   height: 200px;
 }
 
-#main #content #landings .goods .img-price .price {
+#main #content .tab-content .offers .goods .img-price .price {
   background: #0d4f43;
   color: white;
   width: 50px;
@@ -57,7 +65,7 @@
   right: -10px;
 }
 
-#main #content #landings .goods .buy-stuff {
+#main #content .tab-content .offers .goods .buy-stuff {
   padding: 5px;
   background: #0d4f43;
   margin: 10px 0;
@@ -66,7 +74,7 @@
   width: 60%;
 }
 
-#main #content #landings .goods .activation {
+#main #content .tab-content .offers .goods .activation {
   color: #839a94;
   font-size: 15px;
 }
