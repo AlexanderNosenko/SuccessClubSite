@@ -80,7 +80,7 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a:hover, a:focus {
   text-decoration: none;
 }
 
@@ -549,7 +549,7 @@ a:hover {
   transition: all 500ms;
 }
 
-#main #content #tab-links {
+#main #content .tab-links {
   margin: 10px auto;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -561,14 +561,14 @@ a:hover {
 }
 
 @media screen and (max-width: 795px) {
-  #main #content #tab-links {
+  #main #content .tab-links {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
 }
 
-#main #content #tab-links a {
+#main #content .tab-links a {
   color: black;
   margin: 5px;
   border-bottom: 2px solid #23a48a;
@@ -577,24 +577,24 @@ a:hover {
 }
 
 @media screen and (max-width: 795px) {
-  #main #content #tab-links a {
+  #main #content .tab-links a {
     width: 100%;
     display: inline-block;
   }
 }
 
-#main #content #tab-links .active {
+#main #content .tab-links .active {
   background: #23a48a;
   color: white;
 }
 
-#main #content #tab-links a:hover {
+#main #content .tab-links a:hover {
   text-decoration: none;
   background: #23a48a;
   color: white;
 }
 
-#main #content #tab-links a:focus {
+#main #content .tab-links a:focus {
   text-decoration: none;
 }
 

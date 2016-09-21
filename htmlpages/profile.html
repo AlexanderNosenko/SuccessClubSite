@@ -138,7 +138,7 @@
     </nav>
     <div id="main" class="flexbox">
       <div id="content" class="flexbox full">
-        <div id="tab-links" class="flexbox"><a href="#iwp" data-toggle="tab" class="active">Настройки профиля</a><a href="#secure" data-toggle="tab">Безопасность</a><a href="#" class="disabled">Статусы</a><a href="#" class="disabled">Повышение дохода</a></div>
+        <div class="tab-links flexbox"><a href="#iwp" data-toggle="tab" class="active">Настройки профиля</a><a href="#secure" data-toggle="tab">Безопасность</a><a href="#" class="disabled">Статусы</a><a href="#" class="disabled">Повышение дохода</a></div>
         <div class="tab-content flexbox">
           <div id="iwp" class="tab-pane active">
             <div id="info-with-photo" class="flexbox">
@@ -226,8 +226,8 @@
         		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
         }
       });
-      $('#tab-links a').click(function(){
-      	$( "#tab-links a" ).removeClass( "active" );
+      $('.tab-links a').click(function(){
+      	$( ".tab-links a" ).removeClass( "active" );
       	$(this).addClass( "active" );
       });
     </script>

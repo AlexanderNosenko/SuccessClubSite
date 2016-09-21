@@ -147,7 +147,7 @@ html(lang="ru")
 					<i class="fa fa-usd" aria-hidden="true"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Инвестиции
-				a.menu-item.active
+				a.menu-item.active#tools-menu
 					<i class="fa fa-cogs"></i>
 					span.full-menu Инструменты
 				a.menu-item.disabled
@@ -184,21 +184,64 @@ html(lang="ru")
 					span.full-menu Вакансии
 		#main.flexbox
 			#content.flexbox.full
-				#tab-links
+				.tab-links.flexbox#main-l
+					a.active(href='#landings-my' data-toggle='tab') Мои инструменты
+					a(href='#landings-buy' data-toggle='tab') Выбрать инструменты
+				//.tab-links.flexbox#notmain
 					a.active(href='#') Landing page
 					a.disabled(href='#') Блоги
 					a.disabled(href='#') Интернет магазины
-				#landings.flexbox
-					.goods.flexbox
-						img(src='img/oriflame-logo.png' alt='oriflame-logo')
-						.stuff-name 
-							span Landin page for Oriflame
-						.img-price
-							img.preview(src='' alt='landing-preview')
-							span.price.flexbox 10$
-						button.buy-stuff Открыть
-						span.activation Дата активации: 16.09.2016
-						span.activation Дата активации: 16.09.2016
+				.tab-content
+					#landings-my.tab-pane.active
+						.offers.flexbox
+							.goods.flexbox
+								img(src='img/oriflame-logo.png' alt='oriflame-logo')
+								.stuff-name 
+									span Landin page for Oriflame
+								.img-price
+									img.preview(src='' alt='landing-preview')
+									span.price.flexbox 10$
+								button.buy-stuff Открыть
+								span.activation Дата активации: 16.09.2016
+								span.activation Дата активации: 16.09.2016
+							.goods.flexbox
+								img(src='img/oriflame-logo.png' alt='oriflame-logo')
+								.stuff-name 
+									span Landin page for Oriflame
+								.img-price
+									img.preview(src='' alt='landing-preview')
+									span.price.flexbox 10$
+								button.buy-stuff Открыть
+								span.activation Дата активации: 16.09.2016
+								span.activation Дата активации: 16.09.2016
+							.goods.flexbox
+								img(src='img/oriflame-logo.png' alt='oriflame-logo')
+								.stuff-name 
+									span Landin page for Oriflame
+								.img-price
+									img.preview(src='' alt='landing-preview')
+									span.price.flexbox 10$
+								button.buy-stuff Открыть
+								span.activation Дата активации: 16.09.2016
+								span.activation Дата активации: 16.09.2016
+					#landings-buy.tab-pane
+						.offers.flexbox
+							.goods.flexbox
+								img(src='img/oriflame-logo.png' alt='oriflame-logo')
+								.stuff-name 
+									span Landin page for Oriflame
+								.img-price
+									img.preview(src='' alt='landing-preview')
+									span.price.flexbox 10$
+								button.buy-stuff Купить
+							.goods.flexbox
+								img(src='img/oriflame-logo.png' alt='oriflame-logo')
+								.stuff-name 
+									span Landin page for Oriflame
+								.img-price
+									img.preview(src='' alt='landing-preview')
+									span.price.flexbox 10$
+								button.buy-stuff Купить
 		footer
 			span Клуб проффесионалов &copy2016 Все права защищены.
 			a(href='#') Правила сервиса
@@ -212,4 +255,12 @@ html(lang="ru")
 			  		$( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
 			  		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
 			  }
+			});
+			$('#main-l a').click(function(){
+				$( "#main-l a" ).removeClass( "active" );
+				$(this).addClass( "active" );
+			});
+			$('#notmain a').click(function(){
+				$( "#notmain a" ).removeClass( "active" );
+				$(this).addClass( "active" );
 			});
