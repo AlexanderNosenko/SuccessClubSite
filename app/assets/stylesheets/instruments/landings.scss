@@ -1,72 +1,72 @@
 // Place all the styles related to the instruments/landings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.flex-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+#main #content #landings {
+  width: 80%;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 20px 0 0;
 }
-.flex-container .item{
-  width: 20%;
-  height: 400px;
-  margin: 20px 2%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+
+#main #content #landings .goods {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 200px;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.flex-container .item .card{
-  background-color: #efefef;
-  display: flex;
-  flex-direction: column;
-}
-.flex-container .item img.company-logo{
+
+#main #content #landings .goods img {
   width: 100%;
 }
-.flex-container .item .image-wrapper{
-  overflow: hidden;
-  // height: 300px;
-  margin: 0 20px;
+
+#main #content #landings .goods .stuff-name {
+  background: #efefef;
+  width: 100%;
+  padding: 10px 0;
+  color: #859a95;
+  font-weight: bold;
 }
-.flex-container .item .name{
-  background-color: #0c4a3f;
-  color: white;
-  font-size: 2em;
-}
-.flex-container .item .desc{
-  font-size: 1.5em;
-  color: #888;
-}
-.flex-container .item .price-wrapper{
+
+#main #content #landings .goods .img-price {
   position: relative;
 }
-.flex-container .item .price{
+
+#main #content #landings .goods .img-price .preview {
+  width: 200px;
+  height: 200px;
+}
+
+#main #content #landings .goods .img-price .price {
+  background: #0d4f43;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
-  background-color: #0c4a3f;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  align-self: flex-end;
-  right:-20px;
-  bottom:-10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  bottom: -10px;
+  right: -10px;
 }
-.flex-container .item .price span{
+
+#main #content #landings .goods .buy-stuff {
+  padding: 5px;
+  background: #0d4f43;
+  margin: 10px 0;
   color: white;
-  font-size: 1.6em;
+  border: none;
+  width: 60%;
 }
-.flex-container .item .btn-wrapper {
-  margin-top: 20px;
-}
-.flex-container .item .btn-wrapper a{
-  color: white;
-  text-decoration: none;
-  background-color: #0c4a3f;
-  font-size: 1.2em;
-  padding: 0.2em;
-  width: 50%;
-  display: block;
-  margin: 0 auto;
+
+#main #content #landings .goods .activation {
+  color: #839a94;
+  font-size: 15px;
 }
