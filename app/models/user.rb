@@ -31,7 +31,9 @@ class User < ActiveRecord::Base
   def last_online
     (is_online?) ? 'Online' : (last_sign_in_at.nil?) ? 'never' : last_sign_in_at.strftime("%d/%m/%y, %H:%M")
   end
-
+  def has_landing? landing
+    UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
+  end
   def self.find_for_oauth(auth, signed_in_resource = nil, session)
 
     # Get the identity and user if they exist
@@ -142,7 +144,7 @@ class User < ActiveRecord::Base
     self.wallet.bonus_balance += amount.to_f
     return self.wallet.save
   end
-  
+
   def take_money(amount)
     if self.wallet.main_balance < amount.to_f
       return
