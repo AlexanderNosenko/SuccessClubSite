@@ -1,0 +1,46 @@
+<div id="content" class="flexbox full">
+  <div id="team-search-detailedinfo" class="flexbox">
+    <div id="team-with-search">
+      <div id="member-search" class="flexbox">
+        <div id="exact-search" class="flexbox">
+          <h1>Команда</h1>
+          <%= form_tag team_path, :method => 'get', :id => "team_search", class:'flexbox', :remote => true do %>
+            <%= text_field_tag 'search', nil, placeholder: "Имя/Фамилия" %>
+            <input type="submit" value="Поиск" name="submit">
+          <% end %>
+        </div>
+        <div id="history-part" class="flexbox">
+           <!-- <a href="#">Oleg Kovalenko</a><span>></span><a href="#">Igor Onishenko</a> -->
+         </div>
+      </div>
+      <div id="member-list" class="flexbox">
+        <div id="member-tabs" class="flexbox">
+          <a href="#partners" data-toggle="tab" class="active tabsbtns">Партнеры</a>
+          <a href="#senpais" data-toggle="tab" class="tabsbtns">Наставники</a>
+          <!-- <a href="#mailing" data-toggle="tab" class="disabled tabsbtns">Рассылка</a> -->
+          <a href="#" data-toggle="tab" class="disabled tabsbtns">Рассылка</a>
+        </div>
+        <div class="tab-content flexbox">
+          <div id="partners" class="tab-pane active flexbox">
+              <%= render(partial: 'user', collection: @team) || 'В вашей команде пока никого нет..' %>
+              <%= will_paginate @team unless @team.nil? %>
+          </div>
+          <div id="mailing" class="tab-pane flexbox">
+            <!-- <div class="partner flexbox">
+              <div class="imgblock flexbox">
+                <img src="https://pp.vk.me/c629100/v629100989/4787e/JcTobh_HCR8.jpg">
+              </div>
+              <span class="nasu">Oleg Kovalenko</span><span class="id">1234</span><span class="status">VIP</span><span class="time">23:35</span><span class="date">03/06/1994</span><span class="onlstatus">Online</span><span class="moreinfo"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span><span class="message"><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+            </div> -->
+          </div>
+          <div id="senpais" class="tab-pane flexbox">
+            <%= (render(partial: 'user', collection: @ancestors) unless @ancestors.nil?) || 'У вас нет наставников..' %>
+            <%= will_paginate @ancestors unless @ancestors.nil? %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="detailed-member-info" class="flexbox">
+    </div>
+  </div>
+</div>
