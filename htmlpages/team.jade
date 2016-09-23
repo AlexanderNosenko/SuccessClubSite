@@ -100,6 +100,14 @@ html(lang="ru")
 								input(type='text' name='amount' value='Сумма, USD')
 								input(type='submit' value='Вывести')
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#tools-choose(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.toolchoise.flexbox
+							a(href='buy-tools.html'): i.fa.fa-cart-plus
+							a(href='mytools.html'): i.fa.fa-cubes
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
@@ -146,7 +154,7 @@ html(lang="ru")
 					<i class="fa fa-usd" aria-hidden="true"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Инвестиции
-				a.menu-item(href='tools.html')
+				a.menu-item(data-toggle="modal" data-target="#tools-choose")
 					<i class="fa fa-cogs"></i>
 					span.full-menu Инструменты
 				a.menu-item.disabled
