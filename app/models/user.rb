@@ -193,6 +193,18 @@ class User < ActiveRecord::Base
     select(*fields)
   end
 
+  # Roles part
+  # JUST This will be a mark for recently implemented features
+  def set_role(role_name)
+    # Available names are "user", "partner", "leader", "vip" 
+    role = Role.find_by_name(role_name)
+    if role.nil?
+      return nil
+    else
+      self.role = role
+      return self.save
+  end
+
   private
   def avatar_size_validation
     errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
