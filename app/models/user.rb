@@ -2,20 +2,23 @@ class User < ActiveRecord::Base
   require 'json'
   has_ancestry
   belongs_to :role
+  before_create :set_default_role
+
+  # OPTIMIZE We never used this tables, really 
   belongs_to :parent, class_name: 'User'
   has_many :children, class_name: 'User'
   has_many :partner_links, dependent: :destroy
+  
   has_many :user_landings, dependent: :destroy
   has_many :landings, through: :user_landings
+
   has_one :wallet, dependent: :destroy
   after_create :create_wallet
 
-  before_create :set_default_role
   TEMP_EMAIL_PREFIX = 'change@me'
   @TEMP_EMAIL_REGEX = /\Achange@me/
   mount_uploader :avatar, AvatarUploader
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook, :vkontakte]
 
@@ -27,15 +30,15 @@ class User < ActiveRecord::Base
   def is_online?
     !current_sign_in_at.nil?
   end
-
   def last_online
-    (is_online?) ? 'Online' : (last_sign_in_at.nil?) ? 'never' : last_sign_in_at.strftime("%d/%m/%y, %H:%M")
+    (is_online?) ? 'Online' : (last_sign_in_at.nil?) ? 'Never' : last_sign_in_at.strftime("%d/%m/%y, %H:%M")
   end
+
   def has_landing? landing
     UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
   end
+  
   def self.find_for_oauth(auth, signed_in_resource = nil, session)
-
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
     logger.debug auth.to_json.to_s
@@ -83,6 +86,7 @@ class User < ActiveRecord::Base
     self.email && self.email !~ @TEMP_EMAIL_REGEX
   end
   def self.search(search)
+    # TODO Grow-up search to name&surname
     if search
       where('name LIKE ?', "%#{search}%")
     else
@@ -121,30 +125,49 @@ class User < ActiveRecord::Base
   end
 
   def self.new_with_session(params, session)
+    # OPTIMIZE Why do we need this? 
     pars = (session[:parent_id]) ? params.merge({parent: User.find(session[:parent_id])}) : params
     logger.debug "session: " + session.to_json.to_s
     logger.debug "pars: " + pars.to_json.to_s
     new(pars)
   end
 
-  def search_descendants(search)
+  # Search part
+  def self.search(search)
+    if search
+      where('name LIKE ? OR last_name LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      all()
+    end
+  end
+
+  def search_users(search, collection)
     search_res = []
-    self.descendants.each do |user|
-      search_res.push(user) unless (/.*#{search}.*/i =~ user.name).nil?
+    collection.each do |user|
+      unless (/.*#{search}.*/i =~ "#{user.name} #{user.last_name}").nil?
+        search_res.push(user)
+      end
     end
     return search_res
   end
 
+  def search_descendants(search)
+    return search_users(search, self.descendants)
+  end
+
+  def search_ancestors(search)
+    return search_users(search, self.ancestors)
+  end
+
+  # Money part
   def give_money(amount)
     self.wallet.main_balance += amount.to_f
     return self.wallet.save
   end
-
-  def give__bonus_money(amount)
+  def give_bonus_money(amount)
     self.wallet.bonus_balance += amount.to_f
     return self.wallet.save
   end
-
   def take_money(amount)
     if self.wallet.main_balance < amount.to_f
       return
@@ -152,7 +175,6 @@ class User < ActiveRecord::Base
     self.wallet.main_balance -= amount.to_f
     return self.wallet.save
   end
-
   def take_bonus_money(amount)
     if self.wallet.bonus_balance < amount.to_f
       return
@@ -161,10 +183,9 @@ class User < ActiveRecord::Base
     return self.wallet.save
   end
 
+  # Select part
   @contacts = [:phone, :skype, :vk, :fb, :ok, :youtube]
-
   @main_data = [:id, :role_id, :parent_id, :ancestry, :email, :name, :last_name, :avatar]
-
   @info = [:birthday, :sex, :country, :city, :about]
 
   def self.basic_select()

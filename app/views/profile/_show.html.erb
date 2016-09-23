@@ -22,8 +22,6 @@
         </div>
         <div class="tab-content flexbox">
           <div id="partners" class="tab-pane active flexbox">
-              <%= render(partial: 'user', collection: @team) || 'В вашей команде пока никого нет..' %>
-              <%= will_paginate @team unless @team.nil? %>
           </div>
           <div id="mailing" class="tab-pane flexbox">
             <!-- <div class="partner flexbox">
@@ -34,8 +32,6 @@
             </div> -->
           </div>
           <div id="senpais" class="tab-pane flexbox">
-            <%= (render(partial: 'user', collection: @ancestors) unless @ancestors.nil?) || 'У вас нет наставников..' %>
-            <%= will_paginate @ancestors unless @ancestors.nil? %>
           </div>
         </div>
       </div>
