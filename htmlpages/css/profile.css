@@ -236,3 +236,101 @@
   background: #24a48b;
   color: white;
 }
+
+#main #content .tab-content #statuspane #status {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main #content .tab-content #statuspane #status #current-stat {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 5px;
+}
+
+#main #content .tab-content #statuspane #status #current-stat span {
+  font-size: 25px;
+}
+
+#main #content .tab-content #statuspane #status #current-stat .ys {
+  color: #bcc9c6;
+  margin-right: 5px;
+}
+
+#main #content .tab-content #statuspane #status #current-stat .as {
+  color: #23a48a;
+}
+
+#main #content .tab-content #statuspane #status .hr {
+  height: 1px;
+  background: #bcc9c6;
+  width: 20%;
+}
+
+#main #content .tab-content #statuspane #status .bigh {
+  color: #67ccb8;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+#main #content .tab-content #statuspane #status .stat-offer {
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#main #content .tab-content #statuspane #status .stat-offer .reason {
+  width: 130px;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 20px;
+  margin: 0 20px 20px;
+  background: #e1e1e1;
+}
+
+#main #content .tab-content #statuspane #status .stat-offer .reason .desc-text {
+  height: 80px;
+  color: #085e42;
+  font-size: 15px;
+  margin: 10px 5px;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+}
+
+#main #content .tab-content #statuspane #status .stat-offer .reason .i-container {
+  width: 150px;
+  height: 150px;
+  margin: 0 -10px;
+  background: linear-gradient(to bottom right, #00965f, #23a48a);
+  font-size: 100px;
+  color: #e1e1e1;
+  border-radius: 5px;
+}
+
+#main #content .tab-content #statuspane #status .stat-offer .reason .i-container img {
+  width: 80%;
+}
+
+#main #content .tab-content #statuspane #status button {
+  background: transparent;
+  border: none;
+  width: 200px;
+}
+
+#main #content .tab-content #statuspane #status button img {
+  width: 100%;
+}

@@ -78,6 +78,7 @@ hr {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover, a:focus {
@@ -290,6 +291,35 @@ a:hover, a:focus {
   font-weight: bold;
   padding: 5px 10px;
   font-family: "RobotoLight";
+}
+
+#tools-choose .toolchoise {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 150px;
+}
+
+#tools-choose .toolchoise a {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+  width: 100px;
+  background: #167562;
+  margin: 10px;
+  font-size: 50px;
+  color: white;
+  border-radius: 10px;
 }
 
 #top {

@@ -101,6 +101,14 @@ html(lang="ru")
 								input(type='text' name='amount' value='Сумма, USD')
 								input(type='submit' value='Вывести')
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#tools-choose(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.toolchoise.flexbox
+							a(href='buy-tools.html'): i.fa.fa-cart-plus
+							a(href='mytools.html'): i.fa.fa-cubes
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
@@ -149,7 +157,7 @@ html(lang="ru")
 					<i class="fa fa-usd" aria-hidden="true"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Инвестиции
-				a.menu-item(href='tools.html')
+				a.menu-item(data-toggle="modal" data-target="#tools-choose")
 					<i class="fa fa-cogs"></i>
 					span.full-menu Инструменты
 				a.menu-item.disabled
@@ -189,7 +197,7 @@ html(lang="ru")
 				.tab-links.flexbox
 					a.active(href='#iwp' data-toggle="tab") Настройки профиля
 					a(href='#secure' data-toggle="tab") Безопасность
-					a.disabled(href='#') Статусы
+					a(href='#statuspane' data-toggle="tab") Статусы
 					a.disabled(href='#') Повышение дохода
 				.tab-content.flexbox
 					#iwp.tab-pane.active
@@ -240,9 +248,7 @@ html(lang="ru")
 									img(src='https://images.vivino.com/avatars/default_user.png')
 								#photo-btns.flexbox
 									button#upload Выбрать файл
-									//??????????????
 									button#save-userpic Сохранить
-									//??????????????
 					#secure.tab-pane
 						#securepane.flexbox
 							i.fa.fa-key(aria-hidden="true")
@@ -251,6 +257,44 @@ html(lang="ru")
 								input(type='password' name='new' placeholder='Новый пароль')
 								input(type='password' name='renew' placeholder='Повторите пароль')
 								input(type='submit' value='Сохранить')
+					#statuspane.tab-pane
+						#status.flexbox
+							#current-stat.flexbox
+								span.ys Ваш статус: 
+								span.as Новичек
+							.hr
+							span.bigh Партнер
+							.stat-offer.flexbox
+								.reason.flexbox
+									span.desc-text.flexbox Информация откуда пришел партнер по вашей ссылке
+									.i-container
+										i.fa.fa-user-plus
+								.reason.flexbox
+									span.desc-text.flexbox Смена неактивного спонсора бесплатно
+									.i-container
+										i.fa.fa-exchange
+								.reason.flexbox
+									span.desc-text.flexbox Возможность настройки Рефбэка
+									.i-container
+										i.fa.fa-percent
+								.reason.flexbox
+									span.desc-text.flexbox Клубные лендинги <br> БЕСПЛАТНО
+									.i-container
+										i.fa.fa-users
+								.reason.flexbox
+									span.desc-text.flexbox 1 <br> Бесплатный лендинг
+									.i-container
+										i.fa.fa-wpforms 
+								.reason.flexbox
+									span.desc-text.flexbox Партнерская программа 2 уровня
+									.i-container
+										img(src='img/for-status.png')
+								.reason.flexbox
+									span.desc-text.flexbox Ежемесячный командный бонус 0.5%
+									.i-container
+										i.fa.fa-gift
+							button.make-order: img(src='img/order-butt.png')
+
 		footer
 			span Клуб проффесионалов &copy2016 Все права защищены.
 			a(href='#') Правила сервиса

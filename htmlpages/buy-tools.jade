@@ -101,6 +101,14 @@ html(lang="ru")
 								input(type='text' name='amount' value='Сумма, USD')
 								input(type='submit' value='Вывести')
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#tools-choose(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.toolchoise.flexbox
+							a(href='buy-tools.html'): i.fa.fa-cart-plus
+							a(href='mytools.html'): i.fa.fa-cubes
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
@@ -147,7 +155,7 @@ html(lang="ru")
 					<i class="fa fa-usd" aria-hidden="true"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Инвестиции
-				a.menu-item.active#tools-menu
+				a.menu-item.active#tools-menu(data-toggle="modal" data-target="#tools-choose")
 					<i class="fa fa-cogs"></i>
 					span.full-menu Инструменты
 				a.menu-item.disabled
@@ -185,14 +193,15 @@ html(lang="ru")
 		#main.flexbox
 			#content.flexbox.full
 				.tab-links.flexbox#main-l
-					a.active(href='#landings-my' data-toggle='tab') Мои инструменты
-					a(href='#landings-buy' data-toggle='tab') Выбрать инструменты
+					a.active(href='#landings' data-toggle='tab') Landing Pages
+					a.disabled(href='#blogs' data-toggle='tab') Блоги
+					a.disabled(href='#online-shops' data-toggle='tab') Интернет магазины
 				//.tab-links.flexbox#notmain
 					a.active(href='#') Landing page
 					a.disabled(href='#') Блоги
 					a.disabled(href='#') Интернет магазины
 				.tab-content
-					#landings-my.tab-pane.active
+					#landings.tab-pane.active
 						.offers.flexbox
 							.goods.flexbox
 								img(src='img/oriflame-logo.png' alt='oriflame-logo')
@@ -201,9 +210,8 @@ html(lang="ru")
 								.img-price
 									img.preview(src='' alt='landing-preview')
 									span.price.flexbox 10$
-								button.buy-stuff Открыть
-								span.activation Дата активации: 16.09.2016
-								span.activation Дата активации: 16.09.2016
+								button.buy-stuff Активировать  
+									i.fa.fa-plus-circle
 							.goods.flexbox
 								img(src='img/oriflame-logo.png' alt='oriflame-logo')
 								.stuff-name 
@@ -211,37 +219,8 @@ html(lang="ru")
 								.img-price
 									img.preview(src='' alt='landing-preview')
 									span.price.flexbox 10$
-								button.buy-stuff Открыть
-								span.activation Дата активации: 16.09.2016
-								span.activation Дата активации: 16.09.2016
-							.goods.flexbox
-								img(src='img/oriflame-logo.png' alt='oriflame-logo')
-								.stuff-name 
-									span Landin page for Oriflame
-								.img-price
-									img.preview(src='' alt='landing-preview')
-									span.price.flexbox 10$
-								button.buy-stuff Открыть
-								span.activation Дата активации: 16.09.2016
-								span.activation Дата активации: 16.09.2016
-					#landings-buy.tab-pane
-						.offers.flexbox
-							.goods.flexbox
-								img(src='img/oriflame-logo.png' alt='oriflame-logo')
-								.stuff-name 
-									span Landin page for Oriflame
-								.img-price
-									img.preview(src='' alt='landing-preview')
-									span.price.flexbox 10$
-								button.buy-stuff Купить
-							.goods.flexbox
-								img(src='img/oriflame-logo.png' alt='oriflame-logo')
-								.stuff-name 
-									span Landin page for Oriflame
-								.img-price
-									img.preview(src='' alt='landing-preview')
-									span.price.flexbox 10$
-								button.buy-stuff Купить
+								button.buy-stuff Активировать  
+									i.fa.fa-plus-circle
 		footer
 			span Клуб проффесионалов &copy2016 Все права защищены.
 			a(href='#') Правила сервиса
