@@ -5,7 +5,8 @@ class HomeController < ApplicationController
 
   def index
     @users = User.count + 999
-    @users_today = User.where('created_at > ?', Time.now.beginning_of_day).count
-    @descendants_today = current_user.descendants.where('created_at > ?', Time.now.beginning_of_day).count
+    @today = Time.now.beginning_of_day
+    @users_today = User.where('created_at > ?', @today).count
+    @descendants_today = current_user.descendants.where('created_at > ?', @today).count
   end
 end
