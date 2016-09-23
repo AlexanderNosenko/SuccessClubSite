@@ -148,7 +148,7 @@
     </nav>
     <div id="main" class="flexbox">
       <div id="content" class="flexbox full">
-        <div class="tab-links flexbox"><a href="#iwp" data-toggle="tab" class="active">Настройки профиля</a><a href="#secure" data-toggle="tab">Безопасность</a><a href="#" class="disabled">Статусы</a><a href="#" class="disabled">Повышение дохода</a></div>
+        <div class="tab-links flexbox"><a href="#iwp" data-toggle="tab" class="active">Настройки профиля</a><a href="#secure" data-toggle="tab">Безопасность</a><a href="#statuspane" data-toggle="tab">Статусы</a><a href="#" class="disabled">Повышение дохода</a></div>
         <div class="tab-content flexbox">
           <div id="iwp" class="tab-pane active">
             <div id="info-with-photo" class="flexbox">
@@ -204,9 +204,7 @@
                 <div id="user-profile-photo" class="flexbox"><img src="https://images.vivino.com/avatars/default_user.png"></div>
                 <div id="photo-btns" class="flexbox">
                   <button id="upload">Выбрать файл</button>
-                  <!--??????????????-->
                   <button id="save-userpic">Сохранить</button>
-                  <!--??????????????-->
                 </div>
               </div>
             </div>
@@ -219,6 +217,36 @@
                 <input type="password" name="renew" placeholder="Повторите пароль">
                 <input type="submit" value="Сохранить">
               </div>
+            </div>
+          </div>
+          <div id="statuspane" class="tab-pane">
+            <div id="status" class="flexbox">
+              <div id="current-stat" class="flexbox"><span class="ys">Ваш статус: </span><span class="as">Новичек</span></div>
+              <div class="hr"></div><span class="bigh">Партнер</span>
+              <div class="stat-offer flexbox">
+                <div class="reason flexbox"><span class="desc-text flexbox">Информация откуда пришел партнер по вашей ссылке</span>
+                  <div class="i-container"><i class="fa fa-user-plus"></i></div>
+                </div>
+                <div class="reason flexbox"><span class="desc-text flexbox">Смена неактивного спонсора бесплатно</span>
+                  <div class="i-container"><i class="fa fa-exchange"></i></div>
+                </div>
+                <div class="reason flexbox"><span class="desc-text flexbox">Возможность настройки Рефбэка</span>
+                  <div class="i-container"><i class="fa fa-percent"></i></div>
+                </div>
+                <div class="reason flexbox"><span class="desc-text flexbox">Клубные лендинги <br> БЕСПЛАТНО</span>
+                  <div class="i-container"><i class="fa fa-users"></i></div>
+                </div>
+                <div class="reason flexbox"><span class="desc-text flexbox">1 <br> Бесплатный лендинг</span>
+                  <div class="i-container"><i class="fa fa-wpforms"> </i></div>
+                </div>
+                <div class="reason flexbox"><span class="desc-text flexbox">Партнерская программа 2 уровня</span>
+                  <div class="i-container"><img src="img/for-status.png"></div>
+                </div>
+                <div class="reason flexbox"><span class="desc-text flexbox">Ежемесячный командный бонус 0.5%</span>
+                  <div class="i-container"><i class="fa fa-gift"></i></div>
+                </div>
+              </div>
+              <button class="make-order"><img src="img/order-butt.png"></button>
             </div>
           </div>
         </div>
