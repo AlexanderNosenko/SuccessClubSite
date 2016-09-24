@@ -203,6 +203,7 @@ class User < ActiveRecord::Base
     else
       self.role = role
       return self.save
+    end
   end
 
   private
