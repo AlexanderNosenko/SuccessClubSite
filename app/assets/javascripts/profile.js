@@ -4,6 +4,12 @@
 //= require fullcalendar/fullcalendar.min.js
 //= require peity/jquery.peity.min.js
 //= require bootstrap-datepicker
- $(document).ready(function(){
-    $('.datepicker').datepicker();
+$(document).ready(function (e) {
+  $('.datepicker').datepicker();
+  $('.tabsbtns').click(function(){
+    if (!$(this).hasClass( "disabled" )) {
+      $( ".tabsbtns" ).removeClass( "active" );
+      $(this).addClass( "active" );
+    }
   });
+})

@@ -1,24 +1,26 @@
 <div id="content" class="flexbox full">
   <div id="profile-tabs" class="flexbox">
-    <a href="settings" class="active">Настройки профиля</a>
-    <!-- <a href="security" class="disabled">Безопасность</a> -->
-    <a href="#" class="disabled">Безопасность</a>
-    <a href="roles" class="disabled">Статусы</a>
-    <!-- <a href="gain" class="disabled">Повышение дохода</a></div> -->
-    <a href="#" class="disabled">Повышение дохода</a></div>
-
+    <a href="#settings" data-toggle="tab" class="active tabsbtns">Настройки профиля</a>
+    <!-- <a href="#security" class="disabled">Безопасность</a> -->
+    <a href="#" data-toggle="tab" class="disabled tabsbtns">Безопасность</a>
+    <a href="#roles" data-toggle="tab" class="tabsbtns">Статусы</a>
+    <!-- <a href="#gain" class="disabled">Повышение дохода</a></div> -->
+    <a href="#" data-toggle="tab" class="disabled tabsbtns">Повышение дохода</a></div>
+  </div>
+  <div class="tab-contant flexbox">
+    <!-- # FIXME These tabs are not working -->
     <div id="settings" class="tab-pane active flexbox">
       <%= render partial: 'show', user: @user %>
     </div>
 
-    <div id="security" class="tab-pane active flexbox">
+    <div id="security" class="tab-pane flexbox">
     </div>
 
-    <div id="roles" class="tab-pane active flexbox">
+    <div id="roles" class="tab-pane flexbox">
       <%= render partial: 'status', user: @user %>
     </div>
     
-    <div id="gain" class="tab-pane active flexbox">
+    <div id="gain" class="tab-pane flexbox">
     </div>
-
+  </div>
 </div>
