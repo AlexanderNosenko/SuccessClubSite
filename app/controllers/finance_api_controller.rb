@@ -31,12 +31,8 @@ class FinanceApiController < ApplicationController
 
   def payment_form
 
-    service = {
-      'name' => params['service_name'],
-      'amount' => params['amount']
-    }
-    render inline: get_payment_form(service)
-
+    render inline: get_payment_form
+  
   end
   def output
     if(Withdrawal.create(
@@ -144,13 +140,14 @@ class FinanceApiController < ApplicationController
     puts "#{params[:id]} responce values : " + @responce_data.to_json + "\n"
   end
 
-  def get_payment_form( service )
-    if service['name'] == 'liqpay'
+  def get_payment_form
+    case params['service_name']
+    when 'liqpay'
       liqpay = Liqpay.new
       liqpay.cnb_form({
       :version      => '3',
       :action       => "pay",
-      :amount       => service['amount'],
+      :amount       => params['amount'],
       :currency     => "USD",
       :description  => 'No desc yet',
       :customer     => current_user.id.to_s,
@@ -158,20 +155,22 @@ class FinanceApiController < ApplicationController
       :result_url   => "http://improf.club/finance_api/success/liqpay",
       :language     => "ru"
       }).html_safe
-    else 
-      if service['name'] == 'advcash'
+    when 'advcash'
+      if (params['order_id'].blank? || params['amount'].blank?) 
+        'some params are missing' 
+      else
+        string_to_sign = ["club.mlm30@gmail.com"]
+        string_to_sign.push("Professionals Club")
+        string_to_sign.push(params['amount'])
+        string_to_sign.push('USD')
+        string_to_sign.push(ENV['ADV_CASH_PASS'])
+        string_to_sign.push(params['order_id'])
 
-      string_to_sign = ["club.mlm30@gmail.com"]
-      string_to_sign.push("Professionals Club")
-      string_to_sign.push(service['amount'])
-      string_to_sign.push('USD')
-      string_to_sign.push(ENV['ADV_CASH_SIGN'])
-      string_to_sign.push(params['ac_order_id'])
-
-      make_hash_for_ckeck_from(string_to_sign,'SHA256')
-      
+        make_hash_for_ckeck_from(string_to_sign,'SHA256')
+      end
+    else
+      'there is no such servise on the system'
     end
-  end
   end
 
   def redirect_to_home_after_payment(status)

@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
       redirect_to finish_signup_path(current_user)
     end
   end
+  private
+  def random_key
+    (0...8).map { (65 + rand(26)).chr }.join
+  end
   def make_payment_services
     @services = []
     @services.push(
@@ -33,7 +37,7 @@ class ApplicationController < ActionController::Base
           'action' => 'https://www.nixmoney.com/merchant.jsp',
           'name' => "nixmoney",
           'fields' => {
-            'PAYMENT_ID' => (0...8).map { (65 + rand(26)).chr }.join,
+            'PAYMENT_ID' => random_key,
             'PAYEE_ACCOUNT' => '***REMOVED***',
             'PAYEE_NAME' => 'Test',
             'PAYMENT_AMOUNT' => 2,
@@ -53,7 +57,7 @@ class ApplicationController < ActionController::Base
           'action' => "https://perfectmoney.is/api/step1.asp",
           'name' => "perfectmoney",
           'fields' => {
-            'PAYMENT_ID' => (0...8).map { (65 + rand(26)).chr }.join,
+            'PAYMENT_ID' => random_key,
             'PAYEE_ACCOUNT' => "***REMOVED***",
             'PAYEE_NAME' => "improf.club",
             'PAYMENT_AMOUNT' => 2,
@@ -86,7 +90,7 @@ class ApplicationController < ActionController::Base
             'ac_fail_url' => 'http://improf.club/finance_api/error/advcash',
             'ac_fail_url_method' => 'GET',
             "ac_sign" => ENV['ADV_CASH_SIGN'],
-            "ac_order_id" => 1,
+            "ac_order_id" => random_key,
             "ac_comments" => "Adcanced Cash payment.",
             "user_id" => current_user.id
           }

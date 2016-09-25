@@ -8,7 +8,7 @@ class Withdrawal < ActiveRecord::Base
 		self.status = false;
 		self.save()
 	end
-	def get_issuer
+	def user
 		User.find(self.user_id)
 	end
 end
