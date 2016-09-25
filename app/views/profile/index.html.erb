@@ -1,71 +1,26 @@
 <div id="content" class="flexbox full">
-  <div id="profile-links" class="flexbox">
-    <a href="#" class="active">Настройки профиля</a>
-    <a href="#" class="disabled">Безопасность</a>
-    <a href="#" class="disabled">Статусы</a>
-    <a href="#" class="disabled">Повышение дохода</a></div>
-  <div id="info-with-photo" class="flexbox">
-    <%= form_for(@user, :url => @user, html: {method: :patch, id: "profile-info", class: "flexbox"}) do |f| %>
-      <div id="profile-info-names" class="flexbox">
-        <%= f.text_field :name, placeholder: "Ваше имя" %>
-        <%= f.text_field :last_name, placeholder: "Ваша фамилия" %>
-      </div>
-      <div id="profile-info-contacts" class="flexbox">
-        <div class="flexbox input-icon"><i class="fa fa-envelope" aria-hidden="true"></i>
-          <%= f.email_field :email, placeholder:"Email" %>
-        </div>
-        <div class="flexbox input-icon"><i class="fa fa-phone" aria-hidden="true"></i>
-          <%= f.text_field :phone, placeholder: "Ваш номер телефона, например +380123456789" %>
-        </div>
-        <div class="flexbox input-icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
-          <div id="for-map" class="flexbox">
-            <%= country_select("user", "country", { priority_countries: ["UA", "RU"], selected: @user.country }, { data: { attribute: "value" } , placeholder: "Страна"})%>
-            <%= f.text_field :city, placeholder: "Город" %>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div id="soc-icons" class="flexbox">
-        <div class="soc-icon-input flexbox">
-          <%= f.text_field :skype, placeholder: "Ник в скайпе" %>
-          <%= image_tag "skype-icon.png" %>
-          </div>
-        <div class="soc-icon-input flexbox">
-          <%= f.text_field :vk, placeholder: "Ссылка на профиль в ВК" %>
-          <%= image_tag "vk-icon.png" %>
-        </div>
-        <div class="soc-icon-input flexbox">
-          <%= f.text_field :ok, placeholder: "Ссылка на профиль в Одноклассниках" %>
-          <%= image_tag "ok-icon.png" %>
-        </div>
-        <div class="soc-icon-input flexbox">
-          <%= f.text_field :fb, placeholder: "Ссылка на профиль в Facebook" %>
-          <%= image_tag "facebook-icon.png" %>
-        </div>
-        <div class="soc-icon-input flexbox">
-          <%= f.text_field :youtube, placeholder: "Ссылка на канал на YouTube" %>
-          <%= image_tag "youtube-icon.png" %>
-        </div>
-      </div>
-      <hr class="green">
-      <div id="edit-buttons" class="flexbox">
-        <!-- <button id="hide-user-contacts">Скрыть контакты</button> -->
-        <%= f.button t('.save', :default => "Сохранить"), id:"save-edits" %>
-      </div>
-    <% end %>
-    <div id="photo-block" class="flexbox">
-      <%= form_for(@user, :url => @user, html: {method: :patch, id: "profile-picture"}) do |f| %>
-      <div id="user-profile-photo" class="flexbox"><%= get_avatar current_user %></div>
-      <div id="photo-btns" class="flexbox">
-        <label id="upload">
-            <%= t('.upload', :default => "Выбрать файл") %> <%= f.file_field :avatar, style: "display: none;" %>
-        </label>
-        <!--??????????????-->
-        <%= f.button t('.save', :default => "Сохранить"), id:"save-userpic" %>
-        <!-- <button id="save-userpic">Сохранить</button> -->
-        <!--??????????????-->
-      </div>
-      <% end %>
+  <div id="profile-tabs" class="flexbox">
+    <a href="#settings" data-toggle="tab" class="active tabsbtns">Настройки профиля</a>
+    <!-- <a href="#security" class="disabled">Безопасность</a> -->
+    <a href="#" data-toggle="tab" class="disabled tabsbtns">Безопасность</a>
+    <a href="#roles" data-toggle="tab" class="tabsbtns">Статусы</a>
+    <!-- <a href="#gain" class="disabled">Повышение дохода</a></div> -->
+    <a href="#" data-toggle="tab" class="disabled tabsbtns">Повышение дохода</a></div>
+  </div>
+  <div class="tab-contant flexbox">
+    <!-- # FIXME These tabs are not working -->
+    <div id="settings" class="tab-pane active flexbox">
+      <%= render partial: 'show', user: @user %>
+    </div>
+
+    <div id="security" class="tab-pane flexbox">
+    </div>
+
+    <div id="roles" class="tab-pane flexbox">
+      <%= render partial: 'status', user: @user %>
+    </div>
+    
+    <div id="gain" class="tab-pane flexbox">
     </div>
   </div>
 </div>

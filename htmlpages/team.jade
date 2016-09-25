@@ -100,6 +100,14 @@ html(lang="ru")
 								input(type='text' name='amount' value='Сумма, USD')
 								input(type='submit' value='Вывести')
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#tools-choose(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.toolchoise.flexbox
+							a(href='buy-tools.html'): i.fa.fa-cart-plus
+							a(href='mytools.html'): i.fa.fa-cubes
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
@@ -146,7 +154,7 @@ html(lang="ru")
 					<i class="fa fa-usd" aria-hidden="true"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Инвестиции
-				a.menu-item(href='tools.html')
+				a.menu-item(data-toggle="modal" data-target="#tools-choose")
 					<i class="fa fa-cogs"></i>
 					span.full-menu Инструменты
 				a.menu-item.disabled
@@ -196,12 +204,12 @@ html(lang="ru")
 								span >
 								a(href='#') Igor Onishenko
 						#member-list.flexbox
-							#tab-links.flexbox
+							.tab-links.flexbox
 								a.active.tabsbtns(href='#partners' data-toggle="tab") Партнеры
 								a.tabsbtns(href='#senpais' data-toggle="tab") Наставники
 								a.tabsbtns(href='#mailing' data-toggle="tab") Рассылка
 							.tab-content.flexbox
-								#partners.tab-pane.active.flexbox
+								#partners.tab-pane.active
 									.partner.flexbox
 										.imgblock.flexbox
 											img(src='https://images.vivino.com/avatars/default_user.png')
@@ -252,7 +260,7 @@ html(lang="ru")
 										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
-								#mailing.tab-pane.flexbox
+								#mailing.tab-pane
 									.partner.flexbox
 										.imgblock.flexbox
 											img(src='https://images.vivino.com/avatars/default_user.png')
@@ -273,7 +281,7 @@ html(lang="ru")
 										span.partteam: a(href='#') <i class="fa fa-users" aria-hidden="true"></i>
 										span.moreinfo: a(href='#') <i class="fa fa-info-circle" aria-hidden="true"></i>
 										span.message: a(href='#') <i class="fa fa-envelope-o" aria-hidden="true"></i>
-								#senpais.tab-pane.flexbox
+								#senpais.tab-pane
 									.partner.flexbox
 										.imgblock.flexbox
 											img(src='https://images.vivino.com/avatars/default_user.png')

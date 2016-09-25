@@ -14,18 +14,14 @@
     <!-- Main javascript files -->
     <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="flexbox">
     <%= render partial: 'layouts/modals'%>
     <%= render 'layouts/topnavbar' %>
 
+    <!-- Navigation -->
+    <%= render 'layouts/navigation' %>
     <div id="main" class="flexbox">
-
-        <!-- Navigation -->
-        <%= render 'layouts/navigation' %>
-
-        <!-- Main view  -->
         <%= yield %>
-
     </div>
     <%= render 'layouts/footer' %>
         <!-- End page wrapper-->

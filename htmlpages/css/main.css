@@ -78,9 +78,10 @@ hr {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
-a:hover {
+a:hover, a:focus {
   text-decoration: none;
 }
 
@@ -290,6 +291,35 @@ a:hover {
   font-weight: bold;
   padding: 5px 10px;
   font-family: "RobotoLight";
+}
+
+#tools-choose .toolchoise {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 150px;
+}
+
+#tools-choose .toolchoise a {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+  width: 100px;
+  background: #167562;
+  margin: 10px;
+  font-size: 50px;
+  color: white;
+  border-radius: 10px;
 }
 
 #top {
@@ -549,7 +579,7 @@ a:hover {
   transition: all 500ms;
 }
 
-#main #content #tab-links {
+#main #content .tab-links {
   margin: 10px auto;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -561,14 +591,14 @@ a:hover {
 }
 
 @media screen and (max-width: 795px) {
-  #main #content #tab-links {
+  #main #content .tab-links {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
 }
 
-#main #content #tab-links a {
+#main #content .tab-links a {
   color: black;
   margin: 5px;
   border-bottom: 2px solid #23a48a;
@@ -577,24 +607,24 @@ a:hover {
 }
 
 @media screen and (max-width: 795px) {
-  #main #content #tab-links a {
+  #main #content .tab-links a {
     width: 100%;
     display: inline-block;
   }
 }
 
-#main #content #tab-links .active {
+#main #content .tab-links .active {
   background: #23a48a;
   color: white;
 }
 
-#main #content #tab-links a:hover {
+#main #content .tab-links a:hover {
   text-decoration: none;
   background: #23a48a;
   color: white;
 }
 
-#main #content #tab-links a:focus {
+#main #content .tab-links a:focus {
   text-decoration: none;
 }
 

@@ -45,7 +45,8 @@ hr
 	color: white!important
 a
 	text-decoration: none
-a:hover
+	cursor: pointer
+a:hover, a:focus
 	text-decoration: none
 .flexbox
 	display: flex
@@ -150,6 +151,22 @@ a:hover
 			font-weight: bold
 			padding: 5px 10px
 			font-family: "RobotoLight"
+#tools-choose
+	.toolchoise
+		justify-content: center
+		align-items: center
+		height: 150px
+		a 
+			display: flex
+			justify-content: center
+			align-items: center
+			height: 100px
+			width: 100px
+			background: #167562
+			margin: 10px
+			font-size: 50px
+			color: white
+			border-radius: 10px
 #top
 	background: #23a48a
 	width: 100%
@@ -294,7 +311,7 @@ a:hover
 			margin: 60px auto
 			padding: 0
 	#content
-		#tab-links
+		.tab-links
 			margin: 10px auto
 			justify-content: center
 			@media screen and (max-width: 795px)

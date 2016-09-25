@@ -9,7 +9,7 @@
     <%= link_to team_path, class: "menu-item " + is_active_controller('team').to_s do %>
       <i class="fa fa-users"></i><span class="full-menu">Команда</span>
     <% end %>
-    <%= link_to landings_path, class: "menu-item " + is_active_controller('landings/*').to_s do %>
+    <%= link_to landings_path, class: "disabled menu-item " + is_active_controller('instruments/*').to_s do %>
       <i class="fa fa-cogs"></i><span class="full-menu">Инструменты</span>
     <% end %>
     <a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a>
