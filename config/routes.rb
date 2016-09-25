@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post '/landings/:id', to: 'instruments/landings#activate', as: 'activate_landing'
   #resources :landings, only: [:index, :activate], path: 'landings', controller:'instruments/landings'
   match '/profile/:id/finish_signup' => 'profile#finish_signup', via: [:get, :patch], :as => :finish_signup
+  post '/profile/status', to: 'profile#change_status'
   devise_for :users, controllers:
     {
       sessions: 'users/sessions',

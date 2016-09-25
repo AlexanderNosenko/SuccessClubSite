@@ -1,8 +1,3 @@
-//= require iCheck/icheck.min.js
-//= require jquery-ui/jquery-ui-1.10.4.min.js
-//= require fullcalendar/moment.min.js
-//= require fullcalendar/fullcalendar.min.js
-//= require peity/jquery.peity.min.js
 //= require bootstrap-datepicker
 $(document).ready(function (e) {
   $('.datepicker').datepicker();
@@ -11,5 +6,9 @@ $(document).ready(function (e) {
       $( ".tabsbtns" ).removeClass( "active" );
       $(this).addClass( "active" );
     }
+  });
+  $('.tab-links a').click(function(){
+    $( ".tab-links a" ).removeClass( "active" );
+    $(this).addClass( "active" );
   });
 })

@@ -1,80 +1,30 @@
-<div class="wrapper wrapper-content">
-  <div class="row animated fadeInRight">
-    <div class="col-md-4">
-      <div class="ibox float-e-margins">
-        <div class="ibox-title">
-          <h5>Профиль</h5>
-        </div>
-
-        <div>
-          <div class="ibox-content no-padding border-left-right text-center">
-            <br>
-            <%= get_avatar(@user, {class:"img-circle circle-border m-b-md", style:"max-height:100px"}) %>
-          </div>
-          <div class="ibox-content profile-content">
-            <h4><strong><%= @user.name %>&nbsp;<%= @user.last_name %></strong></h4>
-            <% if @user.country && @user.city %>
-              <p><i class="fa fa-map-marker"></i><%= @user.country %>&nbsp;<%= @user.city %></p>
-            <% end %>
-            <% if @user.about %>
-              <h5>Обо мне</h5>
-              <p><%= @user.about %></p>
-            <% end %>
-            <ul class="list-group clear-list">
-              <li class="list-group-item">
-                <i class="fa fa-at"></i> <span class="nav-label"><%= @user.email %></span>
-              </li>
-              <% if @user.phone %>
-                <li class="list-group-item">
-                  <i class="fa fa-phone"></i> <span class="nav-label"><%= @user.phone %></span>
-                </li>
-              <% end %>
-              <% if @user.phone %>
-                <li class="list-group-item">
-                  <i class="fa fa-skype"></i> <span class="nav-label"><%= @user.skype %></span>
-                </li>
-              <% end %>
-            </ul>
-            <div class="user-button">
-              <div class="row">
-                <div class="col-md-12">
-                  <!-- <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-envelope"></i> Написать сообщение</button> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div id="status" class="flexbox">
+  <div id="current-stat" class="flexbox"><span class="ys">Ваш статус: </span><span class="as">Новичек</span></div>
+  <div class="hr"></div><span class="bigh">Партнер</span>
+  <div class="stat-offer flexbox">
+    <div class="reason flexbox"><span class="desc-text flexbox">Информация откуда пришел партнер по вашей ссылке</span>
+      <div class="i-container"><i class="fa fa-user-plus"></i></div>
     </div>
-    <div class="col-md-8">
+    <div class="reason flexbox"><span class="desc-text flexbox">Смена неактивного спонсора бесплатно</span>
+      <div class="i-container"><i class="fa fa-exchange"></i></div>
+    </div>
+    <div class="reason flexbox"><span class="desc-text flexbox">Возможность настройки Рефбэка</span>
+      <div class="i-container"><i class="fa fa-percent"></i></div>
+    </div>
+    <div class="reason flexbox"><span class="desc-text flexbox">Клубные лендинги <br> БЕСПЛАТНО</span>
+      <div class="i-container"><i class="fa fa-users"></i></div>
+    </div>
+    <div class="reason flexbox"><span class="desc-text flexbox">1 <br> Бесплатный лендинг</span>
+      <div class="i-container"><i class="fa fa-wpforms"> </i></div>
+    </div>
+    <div class="reason flexbox"><span class="desc-text flexbox">Партнерская программа 2 уровня</span>
+      <div class="i-container"><%= image_tag "for-status.png" %></div>
+    </div>
+    <div class="reason flexbox"><span class="desc-text flexbox">Ежемесячный командный бонус 0.5%</span>
+      <div class="i-container"><i class="fa fa-gift"></i></div>
     </div>
   </div>
+  <%= form_tag profile_status_path, method: :post do %>
+  <button class="make-order"><%= image_tag "order-butt.png" %></button>
+  <% end %>
 </div>
-
-
-<% content_for :javascript do %>
-
-    <script type="text/javascript">
-
-
-      $(function() {
-
-        $("span.pie").peity("pie", {
-          fill: ['#1ab394', '#d7d7d7', '#ffffff']
-        })
-
-        $(".line").peity("line", {
-          fill: '#1ab394',
-          stroke: '#169c81',
-        })
-
-        $(".bar").peity("bar", {
-          fill: ["#1ab394", "#d7d7d7"]
-        })
-
-
-      });
-
-    </script>
-
-<% end %>
