@@ -7,4 +7,7 @@ $(document).ready(function (e) {
       $(this).addClass( "active" );
     }
   });
+  $("#user_avatar").change(function(){
+    $('#profile-picture').submit();
+  });
 })
