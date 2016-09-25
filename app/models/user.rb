@@ -86,9 +86,9 @@ class User < ActiveRecord::Base
     self.email && self.email !~ @TEMP_EMAIL_REGEX
   end
   def self.search(search)
-    # TODO Grow-up search to name&surname
+    # OPTIMIZE Are we using this?
     if search
-      where('name LIKE ?', "%#{search}%")
+      where('name LIKE ? OR last_name LIKE ?', "%#{search}%", "%#{search}%")
     else
       all()
     end
@@ -160,6 +160,9 @@ class User < ActiveRecord::Base
   end
 
   # Money part
+  def enough?(amount)
+    return self.wallet.main_balance >= amount
+  end
   def give_money(amount)
     self.wallet.main_balance += amount.to_f
     return self.wallet.save
@@ -195,9 +198,9 @@ class User < ActiveRecord::Base
 
   # Roles part
   # JUST This will be a mark for recently implemented features
-  def set_role(role_name)
+  def set_role(role)
     # Available names are "user", "partner", "leader", "vip" 
-    role = Role.find_by_name(role_name)
+    role = Role.find_by_name(role.name)
     if role.nil?
       return nil
     else

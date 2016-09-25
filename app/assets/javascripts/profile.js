@@ -1,14 +1,10 @@
 //= require bootstrap-datepicker
 $(document).ready(function (e) {
   $('.datepicker').datepicker();
-  $('.tabsbtns').click(function(){
+  $('.tab-links').click(function(){
     if (!$(this).hasClass( "disabled" )) {
-      $( ".tabsbtns" ).removeClass( "active" );
+      $( ".tab-links" ).removeClass( "active" );
       $(this).addClass( "active" );
     }
-  });
-  $('.tab-links a').click(function(){
-    $( ".tab-links a" ).removeClass( "active" );
-    $(this).addClass( "active" );
   });
 })
