@@ -11,4 +11,8 @@ $(document).ready(function (e) {
     $( ".tab-links a" ).removeClass( "active" );
     $(this).addClass( "active" );
   });
+  $("#user_avatar").change(function(){
+    $('#profile-picture').submit();
+
+  });
 })
