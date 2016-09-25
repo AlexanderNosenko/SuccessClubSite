@@ -52,7 +52,7 @@ class ProfileController < ApplicationController
     # name = params[:role_name]
     name = 'partner'
     @role = Role.find_by(name: name)
-    
+
     # OPTIMIZE A lot of similar checks...
     if @role.nil?
       flash[:notice] = "Что-то пошло не так"
@@ -67,13 +67,13 @@ class ProfileController < ApplicationController
     end
 
     amount = @role.switch_price
-    if not @user.enough?(amount)
+    unless @user.enough?(amount)
       flash[:notice] = "Недостаточно средств для активации"
       redirect_to users_path
       return
     end
 
-    if not @user.take_money(amount)
+    unless @user.take_money(amount)
       flash[:notice] = "Что-то пошло не так"
       redirect_to users_path
       return
