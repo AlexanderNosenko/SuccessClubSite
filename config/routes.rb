@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       sign_up: 'register',
       password: 'passwords'
     }
+    patch '/admin/withdrawals/:id/' => 'admin/withdrawals#update', as: :withdrawal
 
   # Admin Pages
   namespace :admin do
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
     delete 'user/:id', to: 'users#destroy', as: :delete_user
     post 'user/:id/changerole', to: 'users#changerole'
     get 'payments', to: 'payments#index'
+    resources :withdrawals, only: [:index, :show, :update, :destroy]
     resources :landings, only: [:index, :show], path: 'landings', controller:'instruments/landings'
   end
   # All routes
