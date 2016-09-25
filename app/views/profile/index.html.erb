@@ -2,19 +2,19 @@
   <div class="tab-links flexbox">
     <a href="#iwp" data-toggle="tab" class="active tabsbtns">Настройки профиля</a>
     <a href="#statuspane" data-toggle="tab" class="tabsbtns">Статусы</a>
-    <a href="#secure" data-toggle="tab" class="disabled tabsbtns">Безопасность</a>
-    <a href="#" class="disabled tabsbtns">Повышение дохода</a>
+    <a href="#" data-toggle="tab" class="disabled tabsbtns">Безопасность</a>
+    <a href="#" data-toggle="tab" class="disabled tabsbtns">Повышение дохода</a>
   </div>
   <div class="tab-content flexbox">
     <div id="iwp" class="tab-pane active">
       <%= render partial: 'show', user: @user %>
     </div>
 
-    <div id="secure" class="tab-pane">
-    </div>
-
     <div id="statuspane" class="tab-pane flexbox">
       <%= render partial: 'status', user: @user %>
+    </div>
+
+    <div id="secure" class="tab-pane">
     </div>
   </div>
 </div>
