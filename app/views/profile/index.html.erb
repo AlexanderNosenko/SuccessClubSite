@@ -1,26 +1,21 @@
 <div id="content" class="flexbox full">
-  <div id="profile-tabs" class="flexbox">
-    <a href="#settings" data-toggle="tab" class="active tabsbtns">Настройки профиля</a>
-    <!-- <a href="#security" class="disabled">Безопасность</a> -->
-    <a href="#" data-toggle="tab" class="disabled tabsbtns">Безопасность</a>
-    <a href="#roles" data-toggle="tab" class="tabsbtns">Статусы</a>
-    <!-- <a href="#gain" class="disabled">Повышение дохода</a></div> -->
-    <a href="#" data-toggle="tab" class="disabled tabsbtns">Повышение дохода</a></div>
+  <div class="tab-links flexbox">
+    <a href="#iwp" data-toggle="tab" class="active">Настройки профиля</a>
+    <a href="#secure" data-toggle="tab">Безопасность</a>
+    <a href="#statuspane" data-toggle="tab">Статусы</a>
+    <a href="#" class="disabled">Повышение дохода</a>
   </div>
-  <div class="tab-contant flexbox">
+  <div class="tab-content flexbox">
     <!-- # FIXME These tabs are not working -->
-    <div id="settings" class="tab-pane active flexbox">
+    <div id="iwp" class="tab-pane active">
       <%= render partial: 'show', user: @user %>
     </div>
 
-    <div id="security" class="tab-pane flexbox">
+    <div id="secure" class="tab-pane">
     </div>
 
-    <div id="roles" class="tab-pane flexbox">
+    <div id="statuspane" class="tab-pane flexbox">
       <%= render partial: 'status', user: @user %>
-    </div>
-    
-    <div id="gain" class="tab-pane flexbox">
     </div>
   </div>
 </div>

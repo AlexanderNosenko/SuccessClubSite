@@ -8,7 +8,6 @@
 //= require jquery/jquery-2.1.1.js
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require pace/pace.min.js
 //= require clipboard
 function copyToClipboard(element) {
     var $temp = $("<input>");
