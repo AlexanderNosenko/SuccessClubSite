@@ -1,5 +1,6 @@
 <% content_for :modals do %>
-<div id="input" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+<!-- TODO enable input -->
+<!-- <div id="input" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
@@ -23,7 +24,8 @@
                 <%= image_tag "advcash.png" %>
                 <i class="fa fa-check-circle-o" aria-hidden="true"></i>
               </label>
-            </div>
+            </div> -->
+
            <!-- <div class="input flexbox">
               <input id="Liqpay" data-service_type="liqpay" type="radio" name="system_input" value="Liqpay">
               <label for="Liqpay" class="flexbox label-img">
@@ -31,7 +33,7 @@
                 <i class="fa fa-check-circle-o" aria-hidden="true"></i>
               </label>
             </div> -->
-          </div>
+          <!-- </div>
           <div class="confirm flexbox">
             <input type="text" name="amount" placeholder="Сумма, USD">
             <input type="submit" value="Пополнить">
@@ -41,7 +43,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div id="output" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -99,7 +101,7 @@
           </div>
         </div>
         <div class="bl-btn">
-          <button data-toggle="modal" data-target="#input">Пополнить</button>
+          <button data-toggle="modal" data-target="#input" class='disabled'>Пополнить</button>
           <button data-toggle="modal" data-target="#output">Вывести</button>
         </div>
       </div>
