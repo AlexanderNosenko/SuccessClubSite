@@ -19,9 +19,6 @@ class ProfileController < ApplicationController
     end
   end
 
-  def edit
-
-  end
   def update
     if request.patch? && params[:user]
 
@@ -50,6 +47,11 @@ class ProfileController < ApplicationController
     end
   end
 
+  def change_status
+    flash[:notice] = "Статус успешно изменен!"
+    # TODO: you know what do to here)
+    redirect_to users_path
+  end
   protected
 
   def user_params
