@@ -1,6 +1,6 @@
 <div id="content" class="flexbox full">
   <div id="team-search-detailedinfo" class="flexbox">
-    <div id="team-with-search">
+    <div id="team-with-search" class="flexbox">
       <div id="member-search" class="flexbox">
         <div id="exact-search" class="flexbox">
           <h1>Команда</h1>
@@ -11,17 +11,17 @@
         </div>
         <div id="history-part" class="flexbox">
            <!-- <a href="#">Oleg Kovalenko</a><span>></span><a href="#">Igor Onishenko</a> -->
-         </div>
+        </div>
       </div>
       <div id="member-list" class="flexbox">
-        <div id="member-tabs" class="flexbox">
+        <div id="member-tabs" class="tab-links flexbox">
           <a href="#partners" data-toggle="tab" class="active tabsbtns">Партнеры</a>
           <a href="#senpais" data-toggle="tab" class="tabsbtns">Наставники</a>
           <!-- <a href="#mailing" data-toggle="tab" class="disabled tabsbtns">Рассылка</a> -->
           <a href="#" data-toggle="tab" class="disabled tabsbtns">Рассылка</a>
         </div>
         <div class="tab-content flexbox">
-          <div id="partners" class="tab-pane active flexbox">
+          <div id="partners" class="tab-pane active">
               <%= render(partial: 'user', collection: @team) || 'В вашей команде пока никого нет..' %>
               <%= will_paginate @team unless @team.nil? %>
           </div>
