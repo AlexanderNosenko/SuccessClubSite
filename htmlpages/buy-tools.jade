@@ -109,6 +109,15 @@ html(lang="ru")
 							a(href='buy-tools.html'): i.fa.fa-cart-plus
 							a(href='mytools.html'): i.fa.fa-cubes
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade.activate#activate-website(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.flexbox
+							span.mheadline Активация лендинга
+							span.alert Подтверждаете активацию за 127001$?
+							button.superbutt Активировать
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
@@ -210,7 +219,7 @@ html(lang="ru")
 								.img-price
 									img.preview(src='' alt='landing-preview')
 									span.price.flexbox 10$
-								button.buy-stuff Активировать  
+								button.buy-stuff(data-toggle="modal" data-target="#activate-website") Активировать  
 									i.fa.fa-plus-circle
 							.goods.flexbox
 								img(src='img/oriflame-logo.png' alt='oriflame-logo')
@@ -219,7 +228,7 @@ html(lang="ru")
 								.img-price
 									img.preview(src='' alt='landing-preview')
 									span.price.flexbox 10$
-								button.buy-stuff Активировать  
+								button.buy-stuff(data-toggle="modal" data-target="#activate-website") Активировать  
 									i.fa.fa-plus-circle
 		footer
 			span Клуб проффесионалов &copy2016 Все права защищены.

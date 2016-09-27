@@ -81,7 +81,8 @@ a {
   cursor: pointer;
 }
 
-a:hover, a:focus {
+a:hover, a:focus, button:focus {
+  outline: none;
   text-decoration: none;
 }
 
@@ -320,6 +321,48 @@ a:hover, a:focus {
   font-size: 50px;
   color: white;
   border-radius: 10px;
+}
+
+.activate .flexbox {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.activate .flexbox .mheadline {
+  color: #76777c;
+  font-size: 30px;
+}
+
+.activate .flexbox .alert {
+  color: #4d0c0b;
+  font-size: 20px;
+}
+
+.activate .flexbox button {
+  background: transparent;
+  border: none;
+  width: 200px;
+}
+
+.activate .flexbox button img {
+  width: 100%;
+}
+
+.activate .flexbox .superbutt {
+  padding: 5px;
+  background: #0d4f43;
+  color: white;
+  border: none;
+  margin: 0 0 20px;
+  width: 200px;
+  font-size: 15px;
 }
 
 #top {
