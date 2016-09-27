@@ -10,7 +10,15 @@
         <% @landings.each do |landing| %>
         <div class="goods flexbox"><%= image_tag "landings/oriflame-logo.png" %>
           <div class="stuff-name"> <span>Landing page for <%= landing.name %></span></div>
-          <div class="img-price"><img src="" alt="landing-preview" class="preview"><span class="price flexbox"><%= landing.price %>$</span></div>
+          <div class="img-price"><img src="" alt="landing-preview" class="preview"><span class="price flexbox">
+          <% if @for_free %>
+            <% # Add a kind of a flash[:notice] = 'У вас есть возможность активировать лэндинг бесплатно!' %>
+            <%= '0' %>
+          <% else %>
+            <%= landing.price %>
+          <% end %>
+          $
+          </span></div>
           <!-- <button class="buy-stuff">Открыть</button> -->
           <%= link_to "Активировать", activate_landing_path(landing), class:'buy-stuff', method: :post %>
           <% if current_user.has_landing? landing %>

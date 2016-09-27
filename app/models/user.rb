@@ -34,10 +34,6 @@ class User < ActiveRecord::Base
     (is_online?) ? 'Online' : (last_sign_in_at.nil?) ? 'Never' : last_sign_in_at.strftime("%d/%m/%y, %H:%M")
   end
 
-  def has_landing? landing
-    UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
-  end
-  
   def self.find_for_oauth(auth, signed_in_resource = nil, session)
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
@@ -157,6 +153,22 @@ class User < ActiveRecord::Base
 
   def search_ancestors(search)
     return search_users(search, self.ancestors)
+  end
+
+  # Landings
+  def has_landing? landing
+    UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
+  end
+  def free_land_number
+    links = self.user_landings
+    free_number = self.role.landing_pages_number
+    links.each do |link|
+      lapse = link.reactivate_at - link.activated_at
+      if lapse > 30.days
+        free_number -= 1
+      end
+    end
+    return free_number
   end
 
   # Money part
