@@ -109,6 +109,15 @@ html(lang="ru")
 							a(href='buy-tools.html'): i.fa.fa-cart-plus
 							a(href='mytools.html'): i.fa.fa-cubes
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade.activate#activate-status(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.flexbox
+							span.mheadline Активация статуса: Партнер
+							span.alert Подтверждаете активацию за 5$?
+							button: img(src='img/order-butt.png')
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
@@ -293,7 +302,7 @@ html(lang="ru")
 									span.desc-text.flexbox Ежемесячный командный бонус 0.5%
 									.i-container
 										i.fa.fa-gift
-							button.make-order: img(src='img/order-butt.png')
+							button.make-order(data-toggle="modal" data-target="#activate-status"): img(src='img/order-butt.png')
 
 		footer
 			span Клуб проффесионалов &copy2016 Все права защищены.
