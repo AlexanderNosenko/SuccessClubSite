@@ -12,10 +12,12 @@
           <div class="stuff-name"> <span>Landing page for <%= landing.name %></span></div>
           <div class="img-price"><img src="" alt="landing-preview" class="preview"><span class="price flexbox"><%= landing.price %>$</span></div>
           <!-- <button class="buy-stuff">Открыть</button> -->
-          <%= link_to "Активировать", activate_landing_path(landing), class:'buy-stuff', method: :post %>
+
           <% if current_user.has_landing? landing %>
             <span class="activation">Дата активации: <%= current_user.user_landing.activated_at.strftime("%d/%m/%y")%></span>
-            <!-- <span class="activation">Дата активации: 16.09.2016</span> -->
+            <span class="activation">Дата активации: <%= current_user.user_landing.reactivated_at.strftime("%d/%m/%y")%></span>
+          <% else %>
+            <%= link_to "Активировать", activate_landing_path(landing), class:'buy-stuff', method: :post %>
           <% end %>
         </div>
         <% end %>
