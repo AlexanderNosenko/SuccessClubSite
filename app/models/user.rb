@@ -169,9 +169,8 @@ class User < ActiveRecord::Base
     return self.wallet.save
   end
   def take_money(amount)
-    if self.wallet.main_balance < amount.to_f
-      return
-    end
+    return if self.wallet.main_balance < amount.to_f
+
     self.wallet.main_balance -= amount.to_f
     return self.wallet.save
   end

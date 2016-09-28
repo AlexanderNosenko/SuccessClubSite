@@ -35,18 +35,32 @@ class FinanceApiController < ApplicationController
   
   end
   def output
-    if(Withdrawal.create(
-      user_id: current_user.id,
-      amount: params['amount'],
-      method: params['system_output']
-      )) 
-    flash[:notice] = "Поздравляем! Ваш зарос на вывод средств принят."
+    
+    if current_user.wallet.main_balance - params['amount'].to_f >= 0
+      make_withdrawal
+    else
+      flash[:notice] = "Приносим свои извининия, на ващем счету недостаточно средств."
+    end
+    redirect_to home_path
+    
+  end
+
+  
+  private
+  def make_withdrawal
+    
+    withdrawal_created = Withdrawal.create(
+        user_id: current_user.id,
+        amount: params['amount'],
+        method: params['system_output']
+    )
+    if(withdrawal_created) 
+      flash[:notice] = "Поздравляем! Ваш зарос на вывод средств принят."
     else
       flash[:notice] = "Приносим свои извининия, произошла ошибка, обратитесь в техподдержку."
     end
-    redirect_to home_path
+
   end
-  private
 
   def skip_validation
     ["success", "error"].include?(params['action'])

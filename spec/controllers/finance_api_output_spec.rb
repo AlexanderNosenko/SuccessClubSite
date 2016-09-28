@@ -7,7 +7,7 @@ RSpec.describe FinanceApiController, type: :controller do
   describe "GET #output" do
     # @controller.stub!(:current_user).and_return()
     
-    it "Withdrawal Increae number of Withdrawal in the system" do
+    it "Withdrawal Increae number of Withdrawal if available balance in the system" do
       allow(controller).to receive(:current_user).and_return(User.find(6))  
 
       expect { 
