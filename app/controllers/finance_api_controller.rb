@@ -98,7 +98,7 @@ class FinanceApiController < ApplicationController
     )
     liqpay_data = JSON.parse(Base64.decode64(params['data']))
 
-    head 422 unless Rails.env.development? || params['signature'] == sign#render :status => 422 
+    head 422 unless params['signature'] == sign#render :status => 422 #Rails.env.development? || 
    
     status_of_payment = liqpay_data['status'] == "success" ? true : false
 
