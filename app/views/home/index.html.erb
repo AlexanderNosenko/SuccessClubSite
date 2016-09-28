@@ -24,14 +24,16 @@
                 <%= image_tag "advcash.png" %>
                 <i class="fa fa-check-circle-o" aria-hidden="true"></i>
               </label>
-            </div>
-            <div class="input flexbox">
-              <input id="Liqpay" data-service_type="liqpay" type="radio" name="system_input" value="Liqpay">
-              <label for="Liqpay" class="flexbox label-img">
-                <%= image_tag "liqpay.png" %>
-                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
-              </label>
-            </div> -->
+            </div>-->
+            <%if current_user.id  == 2 || current_user.id  == 61%>
+              <div class="input flexbox">
+                <input id="Liqpay" data-service_type="liqpay" type="radio" name="system_input" value="Liqpay">
+                <label for="Liqpay" class="flexbox label-img">
+                  <%= image_tag "liqpay.png" %>
+                  <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                </label>
+              </div>
+            <%end%>
           </div>
           <div class="confirm flexbox">
             <input type="text" name="amount" placeholder="Сумма, USD">
