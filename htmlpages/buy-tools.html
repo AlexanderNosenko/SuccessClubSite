@@ -129,6 +129,18 @@
         </div>
       </div>
     </div>
+    <div id="activate-website" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade activate">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="flexbox"><span class="mheadline">Активация лендинга</span><span class="alert">Подтверждаете активацию за 127001$?</span>
+              <button class="superbutt">Активировать</button>
+            </div>
+            <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
     <nav id="top">
       <div id="flex-top" class="flexbox">
         <div id="right-bar">
@@ -157,12 +169,12 @@
               <div class="goods flexbox"><img src="img/oriflame-logo.png" alt="oriflame-logo">
                 <div class="stuff-name"> <span>Landin page for Oriflame</span></div>
                 <div class="img-price"><img src="" alt="landing-preview" class="preview"><span class="price flexbox">10$</span></div>
-                <button class="buy-stuff">Активировать  <i class="fa fa-plus-circle"></i></button>
+                <button data-toggle="modal" data-target="#activate-website" class="buy-stuff">Активировать  <i class="fa fa-plus-circle"></i></button>
               </div>
               <div class="goods flexbox"><img src="img/oriflame-logo.png" alt="oriflame-logo">
                 <div class="stuff-name"> <span>Landin page for Oriflame</span></div>
                 <div class="img-price"><img src="" alt="landing-preview" class="preview"><span class="price flexbox">10$</span></div>
-                <button class="buy-stuff">Активировать  <i class="fa fa-plus-circle"></i></button>
+                <button data-toggle="modal" data-target="#activate-website" class="buy-stuff">Активировать  <i class="fa fa-plus-circle"></i></button>
               </div>
             </div>
           </div>

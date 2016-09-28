@@ -1,11 +1,12 @@
 class Instruments::LandingsController < ApplicationController
   before_action :define_landing, only: [:show, :activate]
-  before_action :authenticate_user!, only: [:buy]
+  before_action :authenticate_user!, only: [:index, :activate]
   # OPTIMIZE I'm sure we haven't have to do this
   before_action :make_payment_services
   # What about this one?
   require "will_paginate/array"
   def index
+    @for_free = current_user.free_land_number > 0
     @landings = Landing.order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
   end
 
@@ -20,12 +21,13 @@ class Instruments::LandingsController < ApplicationController
     end
   end
   
-  def activate
+  def activate #  empty
     @user = current_user
     @wallet = @user.wallet
     @price = @landing.price.to_f
+    empty = current_user.free_land_number > 0 
     
-    unless @user.enough? @price
+    unless empty and @user.enough? @price
       flash[:notice] = "Недостаточно средств для активации"
       redirect_to action: :index
       return
@@ -46,11 +48,15 @@ class Instruments::LandingsController < ApplicationController
 	  link.user_id = @user.id
 	  link.landing_id = @landing.id
 	  link.activated_at = Time.now
-	  link.reactivate_at = link.activated_at + 30.days
+    if empty
+      link.reactivate_at = link.activated_at + 2.years
+    else
+	    link.reactivate_at = link.activated_at + 30.days
+    end
 	  # TODO Need to generate form for this one
 	  link.update_attributes(**parameters)
 	  
-    unless @user.take_money @price
+    unless empty and @user.take_money @price
       flash[:notice] = 'Что-то пошло не так'
       redirect_to action: :index
       return

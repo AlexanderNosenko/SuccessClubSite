@@ -129,15 +129,27 @@
         </div>
       </div>
     </div>
+    <div id="activate-status" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade activate">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="flexbox"><span class="mheadline">Активация статуса: Партнер</span><span class="alert">Подтверждаете активацию за 5$?</span>
+              <button><img src="img/order-butt.png"></button>
+            </div>
+            <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
     <nav id="top">
       <div id="flex-top" class="flexbox">
         <div id="right-bar">
           <button data-toggle="modal" data-target="#links"><i class="fa fa-link" aria-hidden="true"></i></button><a href="#" class="disabled">
-
+             
             <i class="fa fa-user" aria-hidden="true"></i></a><a href="#" class="disabled"> <i aria-hidden="true" class="fa fa-bell"></i>
             <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="disabled"><i aria-hidden="true" class="fa fa-comments"></i>
             <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="no-bg">
-
+             
             <i class="fa fa-power-off" aria-hidden="true"></i></a>
         </div>
         <button id="menu-btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
@@ -148,12 +160,7 @@
     </nav>
     <div id="main" class="flexbox">
       <div id="content" class="flexbox full">
-        <div class="tab-links flexbox">
-          <a href="#iwp" data-toggle="tab" class="active">Настройки профиля</a>
-          <a href="#secure" data-toggle="tab">Безопасность</a>
-          <a href="#statuspane" data-toggle="tab">Статусы</a>
-          <a href="#" class="disabled">Повышение дохода</a>
-        </div>
+        <div class="tab-links flexbox"><a href="#iwp" data-toggle="tab" class="active">Настройки профиля</a><a href="#secure" data-toggle="tab">Безопасность</a><a href="#statuspane" data-toggle="tab">Статусы</a><a href="#" class="disabled">Повышение дохода</a></div>
         <div class="tab-content flexbox">
           <div id="iwp" class="tab-pane active">
             <div id="info-with-photo" class="flexbox">
@@ -251,7 +258,7 @@
                   <div class="i-container"><i class="fa fa-gift"></i></div>
                 </div>
               </div>
-              <button class="make-order"><img src="img/order-butt.png"></button>
+              <button data-toggle="modal" data-target="#activate-status" class="make-order"><img src="img/order-butt.png"></button>
             </div>
           </div>
         </div>
