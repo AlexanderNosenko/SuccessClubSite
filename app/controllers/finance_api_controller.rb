@@ -10,7 +10,7 @@ class FinanceApiController < ApplicationController
   def responce_status
     if !skip_validation
       unless @responce_data[:success] 
-        head 422
+        head 444
         return
       end
       update_user_balance 
@@ -98,8 +98,8 @@ class FinanceApiController < ApplicationController
     )
     liqpay_data = JSON.parse(Base64.decode64(params['data']))
 
-    head 422 unless params['signature'] == sign#render :status => 422 #Rails.env.development? || 
-   
+    head 422 unless Rails.env.development? || params['signature'] == sign#render :status => 422 
+    puts 'liqpay_status:' + liqpay_data['status']
     status_of_payment = liqpay_data['status'] == "success" ? true : false
 
     make_responce_data(liqpay_data['customer'], liqpay_data['amount'], liqpay_data['currency'], status_of_payment)
