@@ -1,30 +1,36 @@
 <div id="status" class="flexbox">
-  <div id="current-stat" class="flexbox"><span class="ys">Ваш статус: </span><span class="as"><%= @user.role.description %></span></div>
-  <div class="hr"></div><span class="bigh">Партнер</span>
-  <div class="stat-offer flexbox">
-    <div class="reason flexbox"><span class="desc-text flexbox">Информация откуда пришел партнер по вашей ссылке</span>
-      <div class="i-container"><i class="fa fa-user-plus"></i></div>
-    </div>
-    <div class="reason flexbox"><span class="desc-text flexbox">Смена неактивного спонсора бесплатно</span>
-      <div class="i-container"><i class="fa fa-exchange"></i></div>
-    </div>
-    <div class="reason flexbox"><span class="desc-text flexbox">Возможность настройки Рефбэка</span>
-      <div class="i-container"><i class="fa fa-cog"></i></div>
-    </div>
-    <div class="reason flexbox"><span class="desc-text flexbox">Клубные лендинги <br> БЕСПЛАТНО</span>
-      <div class="i-container"><i class="fa fa-users"></i></div>
-    </div>
-    <div class="reason flexbox"><span class="desc-text flexbox">1 <br> Бесплатный лендинг</span>
-      <div class="i-container"><i class="fa fa-file-text"> </i></div>
-    </div>
-    <div class="reason flexbox"><span class="desc-text flexbox">Партнерская программа 2 уровня</span>
-      <div class="i-container"><%= image_tag "for-status.png" %></div>
-    </div>
-    <div class="reason flexbox"><span class="desc-text flexbox">Ежемесячный командный бонус 0.5%</span>
-      <div class="i-container"><i class="fa fa-gift"></i></div>
-    </div>
+  <div id="current-stat" class="flexbox">
+    <span class="ys">Ваш статус: </span>
+    <span class="as"><%= @user.role.description %></span>
   </div>
-  <%= form_tag profile_status_path, method: :post do %>
-  <button class="make-order"><%= image_tag "order-butt.png" %></button>
+  <div class="hr"></div>
+  <% if current_user.role.name != 'partner' %>
+    <span class="bigh">Партнер</span>
+    <div class="stat-offer flexbox">
+      <div class="reason flexbox"><span class="desc-text flexbox">Информация откуда пришел партнер по вашей ссылке</span>
+        <div class="i-container"><i class="fa fa-user-plus"></i></div>
+      </div>
+      <div class="reason flexbox"><span class="desc-text flexbox">Смена неактивного спонсора бесплатно</span>
+        <div class="i-container"><i class="fa fa-exchange"></i></div>
+      </div>
+      <div class="reason flexbox"><span class="desc-text flexbox">Возможность настройки Рефбэка</span>
+        <div class="i-container"><i class="fa fa-cog"></i></div>
+      </div>
+      <div class="reason flexbox"><span class="desc-text flexbox">Клубные лендинги <br> БЕСПЛАТНО</span>
+        <div class="i-container"><i class="fa fa-users"></i></div>
+      </div>
+      <div class="reason flexbox"><span class="desc-text flexbox">1 <br> Бесплатный лендинг</span>
+        <div class="i-container"><i class="fa fa-file-text"> </i></div>
+      </div>
+      <div class="reason flexbox"><span class="desc-text flexbox">Партнерская программа 2 уровня</span>
+        <div class="i-container"><%= image_tag "for-status.png" %></div>
+      </div>
+      <div class="reason flexbox"><span class="desc-text flexbox">Ежемесячный командный бонус 0.5%</span>
+        <div class="i-container"><i class="fa fa-gift"></i></div>
+      </div>
+    </div>
+    <%= form_tag profile_status_path, method: :post do %>
+    <button class="make-order"><%= image_tag "order-butt.png" %></button>
+    <% end %>
   <% end %>
 </div>
