@@ -45,7 +45,7 @@
     </div>
   </div>
 </div>
-<div id="output" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+<!-- <div id="output" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
@@ -59,7 +59,7 @@
             <div class="input flexbox">
               <input id="NixMoney_o" data-service_type="nixmoney" type="radio" name="system_output" value="NixMoney">
               <label for="NixMoney_o" class="flexbox label-img"><%= image_tag "nixm.png" %><span class="red-span">Комиссия 1%</span><i class="fa fa-check-circle-o" aria-hidden="true"></i></label>
-            </div>
+            </div> -->
             <!--.input.flexbox
             input#AdvCash_o(type='radio' name='system_output' value='AdvCash')
             label.flexbox(for='AdvCash_o' class='label-img')
@@ -74,7 +74,7 @@
               span.red-span .
               <i class="fa fa-check-circle-o" aria-hidden="true"></i>
             -->
-          </div>
+          <!-- </div>
           <div class="confirm flexbox">
             <input type="text" name="amount" placeholder="Сумма, USD">
             <input type="submit" value="Вывести">
@@ -84,7 +84,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <% end %>
 <div id="content" class="flexbox full">
   <div id="user-info" class="flexbox">
@@ -103,7 +103,7 @@
         </div>
         <div class="bl-btn">
           <button data-toggle="modal" data-target="#input">Пополнить</button>
-          <button data-toggle="modal" data-target="#output">Вывести</button>
+          <button data-toggle="modal" data-target="#output" class='disabled'>Вывести</button>
         </div>
       </div>
       <div id="bonus-bl" class="flexbox info-block1"><span class="balance">Бонусный баланс</span>
