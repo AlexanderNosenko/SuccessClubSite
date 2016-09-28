@@ -4,11 +4,11 @@ class User < ActiveRecord::Base
   belongs_to :role
   before_create :set_default_role
 
-  # OPTIMIZE We never used this tables, really 
+  # OPTIMIZE We never used this tables, really
   belongs_to :parent, class_name: 'User'
   has_many :children, class_name: 'User'
   has_many :partner_links, dependent: :destroy
-  
+
   has_many :user_landings, dependent: :destroy
   has_many :landings, through: :user_landings
 
@@ -121,7 +121,7 @@ class User < ActiveRecord::Base
   end
 
   def self.new_with_session(params, session)
-    # OPTIMIZE Why do we need this? 
+    # OPTIMIZE Why do we need this?
     pars = (session[:parent_id]) ? params.merge({parent: User.find(session[:parent_id])}) : params
     logger.debug "session: " + session.to_json.to_s
     logger.debug "pars: " + pars.to_json.to_s
@@ -157,8 +157,9 @@ class User < ActiveRecord::Base
 
   # Landings
   def has_landing? landing
-    UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
+    !UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
   end
+
   def free_land_number
     links = self.user_landings
     free_number = self.role.landing_pages_number
@@ -210,7 +211,7 @@ class User < ActiveRecord::Base
   # Roles part
   # JUST This will be a mark for recently implemented features
   def set_role(role)
-    # Available names are "user", "partner", "leader", "vip" 
+    # Available names are "user", "partner", "leader", "vip"
     role = Role.find_by_name(role.name)
     if role.nil?
       return nil
