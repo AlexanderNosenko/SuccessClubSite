@@ -16,3 +16,4 @@
 !/.bowerrc
 *.pdf
 *.save
+node_modules/*

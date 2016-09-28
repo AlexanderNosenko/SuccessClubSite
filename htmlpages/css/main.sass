@@ -46,7 +46,8 @@ hr
 a
 	text-decoration: none
 	cursor: pointer
-a:hover, a:focus
+a:hover, a:focus, button:focus
+	outline: none
 	text-decoration: none
 .flexbox
 	display: flex
@@ -167,6 +168,31 @@ a:hover, a:focus
 			font-size: 50px
 			color: white
 			border-radius: 10px
+.activate
+	.flexbox
+		justify-content: center
+		align-items: center
+		flex-direction: column
+		.mheadline
+			color: #76777c
+			font-size: 30px
+		.alert
+			color: #4d0c0b
+			font-size: 20px
+		button
+			background: transparent
+			border: none
+			width: 200px
+			img
+				width: 100%
+		.superbutt
+			padding: 5px
+			background: #0d4f43
+			color: white
+			border: none
+			margin: 0 0 20px
+			width: 200px
+			font-size: 15px
 #top
 	background: #23a48a
 	width: 100%

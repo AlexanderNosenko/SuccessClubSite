@@ -1,5 +1,5 @@
 <div id="status" class="flexbox">
-  <div id="current-stat" class="flexbox"><span class="ys">Ваш статус: </span><span class="as">Новичек</span></div>
+  <div id="current-stat" class="flexbox"><span class="ys">Ваш статус: </span><span class="as"><%= @user.role.description %></span></div>
   <div class="hr"></div><span class="bigh">Партнер</span>
   <div class="stat-offer flexbox">
     <div class="reason flexbox"><span class="desc-text flexbox">Информация откуда пришел партнер по вашей ссылке</span>
@@ -9,13 +9,13 @@
       <div class="i-container"><i class="fa fa-exchange"></i></div>
     </div>
     <div class="reason flexbox"><span class="desc-text flexbox">Возможность настройки Рефбэка</span>
-      <div class="i-container"><i class="fa fa-percent"></i></div>
+      <div class="i-container"><i class="fa fa-cog"></i></div>
     </div>
     <div class="reason flexbox"><span class="desc-text flexbox">Клубные лендинги <br> БЕСПЛАТНО</span>
       <div class="i-container"><i class="fa fa-users"></i></div>
     </div>
     <div class="reason flexbox"><span class="desc-text flexbox">1 <br> Бесплатный лендинг</span>
-      <div class="i-container"><i class="fa fa-wpforms"> </i></div>
+      <div class="i-container"><i class="fa fa-file-text"> </i></div>
     </div>
     <div class="reason flexbox"><span class="desc-text flexbox">Партнерская программа 2 уровня</span>
       <div class="i-container"><%= image_tag "for-status.png" %></div>

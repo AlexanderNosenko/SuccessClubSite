@@ -27,7 +27,7 @@ gem 'jade-rails'
 # Bootstrap-sass
 gem 'bootstrap-sass', '3.3.0.0'
 # font-awesome-rails
-gem 'font-awesome-rails', '4.3.0.0'
+gem 'font-awesome-rails', '4.6.3'
 # Use SCSS for stylesheet
 gem 'sass-rails', '~> 5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

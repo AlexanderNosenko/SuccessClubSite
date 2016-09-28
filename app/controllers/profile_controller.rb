@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_signup_complete, only: [:index, :new, :create, :update, :destroy]
-  before_action :set_user, only:[:index, :show, :edit, :update, :finish_signup]
+  before_action :set_user, only:[:index, :show, :edit, :update, :finish_signup, :change_role]
   before_action :make_payment_services, only: [:index, :finish_signup, :show]
 
   def index
@@ -19,9 +19,6 @@ class ProfileController < ApplicationController
     end
   end
 
-  def edit
-
-  end
   def update
     if request.patch? && params[:user]
 
@@ -50,8 +47,45 @@ class ProfileController < ApplicationController
     end
   end
 
-  protected
+  def change_role
+    # OPTIMIZE: It only works for partner for now
+    # name = params[:role_name]
+    name = 'partner'
+    @role = Role.find_by(name: name)
 
+    # OPTIMIZE A lot of similar checks...
+    if @role.nil?
+      flash[:notice] = "Что-то пошло не так"
+      redirect_to users_path
+      return
+    end
+
+    if @user.role.id == @role.id
+      flash[:notice] = "Этот статус уже активирован"
+      redirect_to users_path
+      return
+    end
+
+    amount = @role.switch_price
+    unless @user.enough?(amount)
+      flash[:notice] = "Недостаточно средств для активации"
+      redirect_to users_path
+      return
+    end
+
+    unless @user.take_money(amount)
+      flash[:notice] = "Что-то пошло не так"
+      redirect_to users_path
+      return
+    end
+
+    @user.set_role(@role)
+    flash[:notice] = "Статус успешно изменен!"
+
+    redirect_to users_path
+  end
+
+  protected
   def user_params
     params.require(:user).permit(:email, :name, :last_name, :phone, :skype, :birthday, :sex, :country, :city, :about, :avatar, :vk, :fb, :ok, :youtube)
   end

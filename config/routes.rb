@@ -14,13 +14,14 @@ Rails.application.routes.draw do
   get 'home' => 'home#index'
   get 'team' => 'team#index'
   get '/p/:id' => 'partner_link#partner', as: "partner_link"
+  post '/p/:id' => 'partner_link#landing', as: "landing_link"
   delete '/p' => 'partner_link#delete', as: "delete_partner_session"
   get '/landings', to: 'instruments/landings#index', as: 'landings'
   get '/landings/:id', to: 'instruments/landings#show', as: 'landing'
   post '/landings/:id', to: 'instruments/landings#activate', as: 'activate_landing'
   #resources :landings, only: [:index, :activate], path: 'landings', controller:'instruments/landings'
   match '/profile/:id/finish_signup' => 'profile#finish_signup', via: [:get, :patch], :as => :finish_signup
-  post '/profile/status', to: 'profile#change_status'
+  post '/profile/status', to: 'profile#change_role'
   devise_for :users, controllers:
     {
       sessions: 'users/sessions',
