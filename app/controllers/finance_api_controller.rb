@@ -45,7 +45,6 @@ class FinanceApiController < ApplicationController
     
   end
 
-  
   private
   def make_withdrawal
     
