@@ -20,14 +20,14 @@ class Instruments::LandingsController < ApplicationController
       end
     end
   end
-  
+
   def activate #  empty
     @user = current_user
     @wallet = @user.wallet
     @price = @landing.price.to_f
-    empty = current_user.free_land_number > 0 
-    
-    unless empty and @user.enough? @price
+    empty = current_user.free_land_number > 0
+
+    unless empty or @user.enough? @price
       flash[:notice] = "Недостаточно средств для активации"
       redirect_to action: :index
       return
@@ -44,7 +44,7 @@ class Instruments::LandingsController < ApplicationController
 	  keys = [:video_link, :has_vk, :has_ok, :has_fb, :has_youtube]
 	  # OPTIMIZE parameters = params.slice(*keys)
 	  parameters = {video_link: '', has_fb: true, has_ok: true, has_vk: true, has_youtube: true}
-	  
+
 	  link.user_id = @user.id
 	  link.landing_id = @landing.id
 	  link.activated_at = Time.now
@@ -55,11 +55,13 @@ class Instruments::LandingsController < ApplicationController
     end
 	  # TODO Need to generate form for this one
 	  link.update_attributes(**parameters)
-	  
-    unless empty and @user.take_money @price
-      flash[:notice] = 'Что-то пошло не так'
-      redirect_to action: :index
-      return
+
+    unless empty
+      unless @user.take_money @price
+        flash[:notice] = 'Что-то пошло не так'
+        redirect_to action: :index
+        return
+      end
     end
     unless link.save
       flash[:notice] = 'Что-то пошло не так'
@@ -67,7 +69,7 @@ class Instruments::LandingsController < ApplicationController
       redirect_to action: :index
       return
     end
-    
+
     flash[:notice] = 'Landing page успешно активирован!'
     redirect_to action: :index
   end
