@@ -82,7 +82,7 @@ class FinanceApiController < ApplicationController
 
   def prepare_input_data
 
-    send("adapte_#{params[:id]}_data")
+    # send("adapte_#{params[:id]}_data")
 
   end
 
