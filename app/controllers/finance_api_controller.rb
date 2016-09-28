@@ -82,13 +82,13 @@ class FinanceApiController < ApplicationController
 
   def prepare_input_data
 
-    # send("adapte_#{params[:id]}_data")
+    send("adapte_#{params[:id]}_data")
 
   end
 
   def adapte_liqpay_data
 
-    head 400 if (params['data'].blank? || params['signature'].blank?) && Rails.env.production? #render :status => 400 
+    head 490 if (params['data'].blank? || params['signature'].blank?) && Rails.env.production? #render :status => 400 
 
     liqpay = Liqpay::Liqpay.new
     sign = liqpay.str_to_sign(
