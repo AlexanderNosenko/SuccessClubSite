@@ -1,5 +1,5 @@
 class PartnerLinkController < ApplicationController
-
+  skip_before_action :verify_authenticity_token, only: [:landing]
 
   def partner
     session[:parent_id] = params[:id]
@@ -14,5 +14,10 @@ class PartnerLinkController < ApplicationController
       format.js { render json: '', status: 200 }
       # format.js { render json: params[:search] }
     end
+  end
+  def landing
+    session[:parent_id] = params[:id]
+    params[:password] = nil
+    redirect_to new_user_registration_path
   end
 end
