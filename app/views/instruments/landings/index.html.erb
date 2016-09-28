@@ -15,7 +15,7 @@
           <!-- <button class="buy-stuff">Открыть</button> -->
 
           <% if current_user.has_landing? landing %>
-            <br>
+            <a href="<%= "http://landings.improf.club/#{landing.path}/#{current_user.id}"%>" class="buy-stuff">Открыть</a>
             <span class="activation">Дата активации: <%= current_user.user_landings.find_by_landing_id(landing.id).activated_at.strftime("%d/%m/%y")%></span>
             <span class="activation">Дата активации: <%= current_user.user_landings.find_by_landing_id(landing.id).reactivate_at.strftime("%d/%m/%y")%></span>
           <% else %>
