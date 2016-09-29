@@ -1,5 +1,19 @@
 <h1>Payments</h1>
 <div class="row">
+  <%=form_tag '/admin/payments/transfer', method: :put do%>
+  <h3>Make transfer</h3>
+  <div class="col-md-4">
+    <%=text_field_tag 'from_user_id'%>
+  </div>
+  <div class="col-md-4">
+    <%=text_field_tag 'to_user_id'%>
+  </div>
+  <div class="col-md-4">
+    <%=submit_tag%>
+  </div>
+  <%end%>
+</div>
+<div class="row">
   <div class="col-lg-12">
     <div class="list-group">
       <% @payments.each do |payment| %>
