@@ -1,15 +1,30 @@
 <h1>Payments</h1>
-<div class="row">
-  <%=form_tag '/admin/payments/transfer', method: :put do%>
+<div class="row container">
+  <%=form_tag '/admin/payments/transfer', class: "form-horizontal",  method: :put do%>
   <h3>Make transfer</h3>
+
   <div class="col-md-4">
-    <%=text_field_tag 'from_user_id'%>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">From:</label>
+      <div class="col-sm-10">
+        <%=text_field_tag 'from_user_id', nil, class: 'form-control', placeholder:"Enter email"%>
+      </div>
+    </div>
   </div>
   <div class="col-md-4">
-    <%=text_field_tag 'to_user_id'%>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">From:</label>
+      <div class="col-sm-10">
+        <%=text_field_tag 'to_user_id',  nil, class: 'form-control', placeholder:"Enter email"%>
+      </div>
+    </div>
   </div>
   <div class="col-md-4">
-    <%=submit_tag%>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+         <%=submit_tag 'Submit', class: 'btn btn-default'%>
+      </div>
+    </div>
   </div>
   <%end%>
 </div>

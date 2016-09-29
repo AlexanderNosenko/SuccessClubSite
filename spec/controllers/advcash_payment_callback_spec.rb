@@ -9,13 +9,13 @@ RSpec.describe FinanceApiController, type: :controller do
       	post :responce_status, :id => "advcash", 
       	"user_id" => 6, 
       	"ac_hash":"a2f1e212364f1f4b65dddd362d8a9bb260b32581ce72cdfd4107d7ee6925d3b5",
-      	"ac_transfer":"235f9d0b-b48f-462c-9949-621c4930490c",
-      	"ac_start_date":"2012-06-23 12:30:00",
-      	"ac_sci_name":"My Shop",
-      	"ac_src_wallet":"U123456789012",
-      	"ac_dest_wallet":"U210987654321",
-      	"ac_order_id":"123456",
-      	"ac_amount":"123.45",
+      	"ac_transfer":"ca14c2d4-bdb8-4a03-967f-b454935dd4d9",
+      	"ac_start_date":"2016-09-29 14:06:24",
+      	"ac_sci_name":"Professionals Club",
+      	"ac_src_wallet":"U856491513177",
+      	"ac_dest_wallet":"U757631680131",
+      	"ac_order_id":"NFDQXBDT",
+      	"ac_amount":"0.20",
       	"ac_merchant_currency":"USD",
       	'ac_transaction_status':"COMPLETED"	
 		}.to  change { Payment.count }
@@ -23,5 +23,4 @@ RSpec.describe FinanceApiController, type: :controller do
       # expect(response).to have_http_status(200)
     end
   end
-
 end

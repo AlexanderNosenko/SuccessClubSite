@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root 'landing#index'
   get 'home' => 'home#index'
   get 'team' => 'team#index'
+  post 'team' => 'team#index'
   get '/p/:id' => 'partner_link#partner', as: "partner_link"
   post '/p/:id' => 'partner_link#landing', as: "landing_link"
   delete '/p' => 'partner_link#delete', as: "delete_partner_session"

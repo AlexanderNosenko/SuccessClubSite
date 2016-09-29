@@ -9,6 +9,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require clipboard
+
 function copyToClipboard(element) {
     var $temp = $("<input>");
     $("body").append($temp);
