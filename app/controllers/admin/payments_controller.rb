@@ -13,10 +13,16 @@ class Admin::PaymentsController < Admin::AdminController
 	render status: 422 if from_user.blank? || to_user.blank?
 
 	status = User.transaction do 
-		from_user.take_money(params['amount'])
-		to_user.give_money(params['amount'])
+		if params['mode'] == 'bonus'
+			from_user.take_bonus_money(params['amount'])	
+			to_user.give_bonus_money(params['amount'])
+		else
+			from_user.take_money(params['amount'])	
+			to_user.give_money(params['amount'])
+		end
+		
 	end
-puts "_______________________balance motherfucker" + from_user.wallet.id.to_s#main_balance.to_s
+	puts "_______________________balance motherfucker" + from_user.wallet.id.to_s#main_balance.to_s
 	if(status) 
       flash[:notice] = "Поздравляем! Средства переведены."
     else

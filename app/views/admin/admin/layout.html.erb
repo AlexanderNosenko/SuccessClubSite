@@ -8,7 +8,21 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
-
+    <% if flash[:notice] %>
+      <div class="toastr info">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:message] %>
+      <div class="toastr warning">
+        <%= flash[:message] %>
+      </div>
+    <% end %>
+    <% if flash[:error] %>
+      <div class="toastr error">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
     <div id="wrapper">
 
         <!-- Sidebar -->
