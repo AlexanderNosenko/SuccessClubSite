@@ -17,4 +17,8 @@ $(document).ready () ->
     if(status == "success")
       $(e.target).parents("a.row").remove()
     true
+  $('#give-bonus-form').on "ajax:complete",  (e, data, status, xhr) ->
+    alert(data.responseText)
+    if(status == "success")
+      $('#add-bonus').modal('hide')
   true

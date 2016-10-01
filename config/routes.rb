@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     get 'user/:id', to: 'users#show', as: :user
     delete 'user/:id', to: 'users#destroy', as: :delete_user
     post 'user/:id/changerole', to: 'users#changerole'
+    post 'user/:id/givebonus', to: 'users#givebonus', as: :give_bonus
     get 'payments', to: 'payments#index'
     resources :withdrawals, only: [:index, :show, :update, :destroy]
     resources :landings, only: [:index, :show], path: 'landings', controller:'instruments/landings'

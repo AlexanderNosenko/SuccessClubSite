@@ -46,6 +46,8 @@
         </div>
     <!-- /#page-content-wrapper -->
     </div>
+    <%= yield(:modals) %>
+
     <!-- /#wrapper -->
     <%= javascript_include_tag 'admin/admin', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag params[:controller] if (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset("#{params[:controller]}.js").to_s %>
