@@ -5,7 +5,12 @@
   </div>
   <div class="col-md-3">
     <p>
-      Invited by <%= @parent ? link_to("#{@parent.name} #{@parent.last_name}", admin_user_path(@parent)): "no one" %>
+      Invited by
+      <div class="dropdown" id="inv-container">
+        <input type='search' value='<%= @parent ? "#{@parent.name} #{@parent.last_name}" : "no one" %>' class='form-control' id='invite' data-toggle='dropdown'>
+        <ul class="dropdown-menu">
+        </ul>
+      </div>
     </p>
     <p>
       User ID: <span id="user-id"><%= @user.id %></span>

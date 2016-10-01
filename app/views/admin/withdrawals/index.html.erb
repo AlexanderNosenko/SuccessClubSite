@@ -3,7 +3,7 @@
   <div class="col-lg-12">
     <div class="list-group">
       <% @withdrawals.each do |withdrawal| %>
-        <div class="row list-group-item">
+        <div class="row list-group-item withdrawal">
           <div class="col-lg-1 <%=withdrawal.status ? 'btn-success' : 'btn-danger'%>">
             <%= withdrawal.status.nil? ? "false" : withdrawal.status.to_s %>
           </div>
@@ -21,16 +21,15 @@
             <%= withdrawal.method %>
           </div>
           <% end %>
-          <div class="col-lg-2">
-          	<div class="col-lg-6">
+          <div class="col-lg-1">
+      		    <%= form_for(withdrawal) do |f| %>
+				          <%= f.hidden_field :status, :value => true %>
+		              <%= f.submit('Allow', :class => "btn btn-success") %>
+              <% end %>
+            </div>
+          	<div class="col-lg-1">
           		<%= form_for(withdrawal) do |f| %>
-				  <%= f.hidden_field :status, :value => true %><br />
-				  <%= f.submit('Allow', :class => "btn btn-success") %>
-				<% end %>
-          	</div>
-          	<div class="col-lg-6">
-          		<%= form_for(withdrawal) do |f| %>
-				  <%= f.hidden_field :status, :value => false %><br />
+				  <%= f.hidden_field :status, :value => false %>
 				  <%= f.submit('Deny', :class => "btn btn-danger") %>
 				<% end %>
           	</div>
