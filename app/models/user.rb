@@ -206,8 +206,7 @@ class User < ActiveRecord::Base
       depth = self.calculate_depth(ancestor)
       unless depth > max_depth
         percent = PartnershipDepth.find(depth).percent
-        ancestor.wallet.bonus_balance += amount * percent / 100
-              ancestor.wallet.save
+        ancestor.give_bonus_money(amount * percent / 100.0)
       end
     end
   end
