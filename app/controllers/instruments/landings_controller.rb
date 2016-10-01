@@ -73,6 +73,9 @@ class Instruments::LandingsController < ApplicationController
       redirect_to action: :index
       return
     end
+    unless empty
+      @user.distribute_money @price
+    end
 
     flash[:notice] = 'Landing page успешно активирован!'
     redirect_to action: :index

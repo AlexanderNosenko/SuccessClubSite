@@ -200,6 +200,24 @@ class User < ActiveRecord::Base
     self.wallet.bonus_balance -= amount.to_f
     return self.wallet.save
   end
+  def distribute_money(amount)
+    self.ancestors.reverse.each do |ancestor|
+      max_depth = Role.info_select.find(ancestor.role_id).partnership_depth
+      depth = self.calculate_depth(ancestor)
+      unless depth > max_depth
+        percent = PartnershipDepth.find(depth).percent
+        ancestor.wallet.bonus_balance += amount * percent / 100
+              ancestor.wallet.save
+      end
+    end
+  end
+  def calculate_depth(ancestor)
+      if ancestor.descendant_ids.include? self.id
+      self.depth - ancestor.depth
+    else
+      nil
+    end
+  end
 
   # Select part
   @contacts = [:phone, :skype, :vk, :fb, :ok, :youtube]
