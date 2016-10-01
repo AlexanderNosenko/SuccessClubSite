@@ -45,12 +45,23 @@
     <p class="form-group">
        Status: <%= select_tag :role, options_from_collection_for_select(Role.all, "id", "description", @user.role_id), class:"form-control",id:"role-select" %>
     </p>
-    <p>
-      Main balance: <%= @user.wallet.main_balance %>$
-    </p>
-    <p>
-      Bonus balance: <%= @user.wallet.bonus_balance %>  <button data-toggle="modal" data-target="#add-bonus" class="btn"><i class="fa fa-plus" aria-hidden="true"></i></button>
-    </p>
+    <div class="row">
+      <p class="col-sm-6">
+        Main balance: <%= @user.wallet.main_balance %>$
+      </p>
+      <p class="col-sm-6">
+        User gave to system: <%= @user_paid%>$
+      </p>
+    </div>
+    <div class="row">
+      <p class="col-sm-6">
+        Bonus balance: <%= @user.wallet.bonus_balance %>  <button data-toggle="modal" data-target="#add-bonus" class="btn"><i class="fa fa-plus" aria-hidden="true"></i></button>
+      </p>
+      <p class="col-sm-6">
+        User got from system:<%= @user_got %>$
+      </p>
+    </div>
+
   </div>
   <div class="col-md-3 socnet">
     <h4>Social networks:</h4>

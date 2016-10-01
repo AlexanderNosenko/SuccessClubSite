@@ -9,6 +9,14 @@ class Admin::UsersController < Admin::AdminController
   def show
     @descendants = @user.descendants
     @parent = @user.parent
+    @user_paid = 0;
+    Payment.where(to_user_id: @user.id).each do |p|
+      @user_paid += p.amount
+    end
+    @user_got = 0;
+    Withdrawal.where(user_id: @user.id, status: true).each do |w|# I'm not sure about this one)), .amount...
+      @user_got += w.amount;
+    end
   end
 
   def changerole
