@@ -6,7 +6,10 @@ class Instruments::LandingsController < ApplicationController
   # What about this one?
   require "will_paginate/array"
   def index
-    @for_free = current_user.free_land_number > 0
+    if current_user
+      @for_free = current_user.free_land_number > 0
+      @club_links = current_user.club_links
+    end
     @landings = Landing.order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
   end
 
@@ -21,7 +24,7 @@ class Instruments::LandingsController < ApplicationController
     end
   end
 
-  def activate #  empty
+  def activate
     @user = current_user
     @wallet = @user.wallet
     @price = @landing.price.to_f
@@ -33,8 +36,7 @@ class Instruments::LandingsController < ApplicationController
       return
     end
 
-    # @wallet.main_balance -= @price
-    if UserLanding.find_by(user_id: @user.id, landing_id: @landing.id)
+    if @user.has_landing? @landing
     	flash[:notice] = 'Этот landing page уже активирован'
       redirect_to action: :index
       return
@@ -49,8 +51,10 @@ class Instruments::LandingsController < ApplicationController
 	  link.landing_id = @landing.id
 	  link.activated_at = Time.now
     if empty
-      link.reactivate_at = link.activated_at + 2.years
+      link.is_club = true
+      link.reactivate_at = link.activated_at + 5.years
     else
+      link.is_club = false
 	    link.reactivate_at = link.activated_at + 30.days
     end
 	  # TODO Need to generate form for this one
@@ -68,6 +72,9 @@ class Instruments::LandingsController < ApplicationController
       @user.give_money @price
       redirect_to action: :index
       return
+    end
+    unless empty
+      @user.distribute_money @price
     end
 
     flash[:notice] = 'Landing page успешно активирован!'

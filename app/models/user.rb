@@ -159,17 +159,20 @@ class User < ActiveRecord::Base
   def has_landing? landing
     !UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
   end
-
+  def club_links
+    self.user_landings.partition { |x| x.is_club } [0]
+  end
   def free_land_number
     links = self.user_landings
     free_number = self.role.landing_pages_number
-    links.each do |link|
-      lapse = link.reactivate_at - link.activated_at
-      if lapse > 30.days
-        free_number -= 1
-      end
-    end
-    return free_number
+    club_number = self.club_links.size
+    return free_number - club_number
+  end
+  def landing_viewed landing
+    # FIXME But we still cannot use this one..
+    link = UserLanding.find_by(user_id: id, landing_id: landing.id)
+    link.viewed += 1
+    link.save
   end
 
   # Money part
@@ -196,6 +199,23 @@ class User < ActiveRecord::Base
     end
     self.wallet.bonus_balance -= amount.to_f
     return self.wallet.save
+  end
+  def distribute_money(amount)
+    self.ancestors.reverse.each do |ancestor|
+      max_depth = Role.info_select.find(ancestor.role_id).partnership_depth
+      depth = self.calculate_depth(ancestor)
+      unless depth > max_depth
+        percent = PartnershipDepth.find(depth).percent
+        ancestor.give_bonus_money(amount * percent / 100.0)
+      end
+    end
+  end
+  def calculate_depth(ancestor)
+      if ancestor.descendant_ids.include? self.id
+      self.depth - ancestor.depth
+    else
+      nil
+    end
   end
 
   # Select part

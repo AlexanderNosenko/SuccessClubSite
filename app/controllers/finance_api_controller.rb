@@ -194,6 +194,7 @@ class FinanceApiController < ApplicationController
     
     # puts '(Digest::' + mode + ".new).digest('" + values.join(":") + "')"
     # exec('(Digest::' + mode + ".new).digest('" + values.join(":") + "')")#.upcase
+    puts "Encoded suppsosedly what's needed " + (Digest::SHA256.new).hexdigest("235f9d0b-b48f-462c-9949-621c4930490c:2012-06-23 12:30:00:My Shop:U123456789012:U210987654321:123456:123.45:USD:P@ssw0rd")
     begin
       puts "\n #{params[:id]} String to encode " + values.join(":")
     rescue

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root 'landing#index'
   get 'home' => 'home#index'
   get 'team' => 'team#index'
+  post 'team' => 'team#index'
   get '/p/:id' => 'partner_link#partner', as: "partner_link"
   post '/p/:id' => 'partner_link#landing', as: "landing_link"
   delete '/p' => 'partner_link#delete', as: "delete_partner_session"
@@ -48,6 +49,7 @@ Rails.application.routes.draw do
     post 'user/:id/changeparent', to: 'users#changeparent'
     post 'users/parse.json', to: 'users#parse'
     get 'payments', to: 'payments#index'
+    put 'payments/transfer', to: 'payments#transfer'
     resources :withdrawals, only: [:index, :show, :update, :destroy]
     resources :landings, only: [:index, :show], path: 'landings', controller:'instruments/landings'
   end

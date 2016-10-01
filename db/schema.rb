@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920144543) do
+ActiveRecord::Schema.define(version: 20160930073536) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -31,9 +31,11 @@ ActiveRecord::Schema.define(version: 20160920144543) do
     t.datetime "updated_at",              null: false
     t.string   "path",        limit: 255
     t.string   "description", limit: 255
+    t.string   "short_path",  limit: 255
   end
 
-  add_index "landings", ["name"], name: "index_landings_on_name", unique: true, using: :btree
+  add_index "landings", ["path"], name: "index_landings_on_path", unique: true, using: :btree
+  add_index "landings", ["short_path"], name: "index_landings_on_short_path", unique: true, using: :btree
 
   create_table "partner_links", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -94,6 +96,9 @@ ActiveRecord::Schema.define(version: 20160920144543) do
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.integer  "partner_link_id", limit: 4
+    t.integer  "viewed",          limit: 4
+    t.integer  "registrations",   limit: 4
+    t.boolean  "is_club"
   end
 
   create_table "users", force: :cascade do |t|

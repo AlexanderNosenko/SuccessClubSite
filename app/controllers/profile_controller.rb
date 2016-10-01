@@ -66,20 +66,22 @@ class ProfileController < ApplicationController
       return
     end
 
-    amount = @role.switch_price
-    unless @user.enough?(amount)
+    @price = @role.switch_price
+    unless @user.enough?(@price)
       flash[:notice] = "Недостаточно средств для активации"
       redirect_to users_path
       return
     end
 
-    unless @user.take_money(amount)
+    unless @user.take_money(@price)
       flash[:notice] = "Что-то пошло не так"
       redirect_to users_path
       return
     end
 
     @user.set_role(@role)
+    @user.distribute_money @price
+
     flash[:notice] = "Статус успешно изменен!"
 
     redirect_to users_path

@@ -9,6 +9,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require clipboard
+
 function copyToClipboard(element) {
     var $temp = $("<input>");
     $("body").append($temp);
@@ -52,8 +53,9 @@ $('.confirm>input[type="submit"]').click(function (e) {
 
     // form_amount_field = $('#ac_amount');
   }else if(form_id == 'advcash'){
-    $.ajax({
-      url: "/finance_api/payment_form?service_name=advcash&amount="+parseInt($('input[name="amount"]').val())+"&order_id="+$('#ac_order_id').val(),
+   
+   $.ajax({
+      url: "/finance_api/payment_form?service_name=advcash&amount="+parseFloat($('input[name="amount"]').val())+"&order_id="+$('#ac_order_id').val(),
     }).done(function(responce) {
       form.find('#ac_sign').val(responce);
       form.find('#ac_amount').val(parseFloat($('input[name="amount"]').val()));

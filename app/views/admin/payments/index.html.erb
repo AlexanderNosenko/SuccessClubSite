@@ -1,4 +1,48 @@
 <h1>Payments</h1>
+<div class="row container">
+  <%=form_tag '/admin/payments/transfer', class: "form-horizontal",  method: :put do%>
+  <h3>Make transfer</h3>
+
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">From:</label>
+      <div class="col-sm-10">
+        <%=text_field_tag 'from_user_id', nil, class: 'form-control', placeholder:"Enter email"%>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">From:</label>
+      <div class="col-sm-10">
+        <%=text_field_tag 'to_user_id',  nil, class: 'form-control', placeholder:"Enter email"%>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <div class="col-sm-10">
+        <%=text_field_tag 'amount', nil, class: 'form-control', placeholder:"Enter amount"%>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Bonus</label>
+      <div class="col-sm-10">
+        <%=check_box_tag 'mode', 'bonus', class: 'form-control'%>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+         <%=submit_tag 'Submit', class: 'btn btn-default'%>
+      </div>
+    </div>
+  </div>
+  <%end%>
+</div>
 <div class="row">
   <div class="col-lg-12">
     <div class="list-group">
