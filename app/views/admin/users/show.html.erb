@@ -19,6 +19,12 @@
     <p class="form-group">
        Status: <%= select_tag :role, options_from_collection_for_select(Role.all, "id", "description", @user.role_id), class:"form-control",id:"role-select" %>
     </p>
+    <p>
+      Main balance: <%= @user.wallet.main_balance %>
+    </p>
+    <p>
+      Bonus balance: <%= @user.wallet.bonus_balance %>
+    </p>
   </div>
   <div class="col-md-3 socnet">
     <h4>Social networks:</h4>
