@@ -160,7 +160,7 @@ class User < ActiveRecord::Base
     !UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
   end
   def club_links
-    self.user_landings.partition { |x| x.is_club } [0]
+    self.user_landings.select { |x| x.is_club }
   end
   def free_land_number
     links = self.user_landings
@@ -206,7 +206,7 @@ class User < ActiveRecord::Base
       depth = self.calculate_depth(ancestor)
       unless depth > max_depth
         percent = PartnershipDepth.find(depth).percent
-        ancestor.give_bonus_money(amount * percent / 100.0)
+        ancestor.give_money(amount * percent / 100.0)
       end
     end
   end
@@ -241,7 +241,9 @@ class User < ActiveRecord::Base
     end
   end
   def full_name
-    self.name + " " + self.last_name
+    names = [self.name, self.last_name]
+    # JUST A simple way to avoid nil to string convertation error
+    names.compact.join(' ')
   end
   private
   def avatar_size_validation
