@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     post 'user/:id/changerole', to: 'users#changerole'
     post 'user/:id/changeparent', to: 'users#changeparent'
     post 'users/parse.json', to: 'users#parse'
+    post 'user/:id/givebonus', to: 'users#givebonus', as: :give_bonus
     get 'payments', to: 'payments#index'
     put 'payments/transfer', to: 'payments#transfer'
     resources :withdrawals, only: [:index, :show, :update, :destroy]

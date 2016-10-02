@@ -26,6 +26,10 @@ $(document).ready () ->
       for elem in data
         parentList.append $("<li><a data-id=#{elem.id} class='parent-select'>#{elem.name} #{elem.last_name}</a></li>")
       0
+  $('#give-bonus-form').on "ajax:complete",  (e, data, status, xhr) ->
+    alert(data.responseText)
+    if(status == "success")
+      $('#add-bonus').modal('hide')
   true
   $(document).on 'click','.parent-select', (e) ->
     updateParent e.target.dataset.id
