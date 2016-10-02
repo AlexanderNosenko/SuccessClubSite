@@ -7,13 +7,15 @@ class TeamController < ApplicationController
     respond_to do |format|
       format.html do
         @user = current_user
-      	@team = @user.descendants.order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
-        @ancestors = @user.ancestors.reverse.paginate(:per_page => 15, :page => params[:page])
+      	@team = @user.children.order(created_at: :desc).paginate(per_page: 15, page: params[:page])
+        @ancestors = @user.ancestors.reverse.paginate(per_page: 15, page: params[:page])
+        @foreign = false
       	render :index
       end
       format.js do
         # if params[:type] == 'partners'
         # TODO Need to fix search trought parents, not partners
+        @user = (true) ? current_user : User.find(params[:id])
         if true
       	  @team = current_user.search_descendants(params[:search])
         else
@@ -24,4 +26,20 @@ class TeamController < ApplicationController
     end
   end
 
+  def user_team
+    respond_to do |format|
+      format.html do
+        @user = User.find(params[:id].to_i)
+        if @user.nil? or !current_user.subtree_ids.include?(@user.id)
+          flash[:notice] = 'Вы не моежте просматривать эту команду'
+          redirect_to team_path
+          return
+        end
+        @team = @user.children.order(created_at: :desc).paginate(per_page: 15, page: params[:page])
+        @ancestors = @user.ancestors.select { |a| a.depth >= current_user.depth }.reverse
+        @foreign = true
+        render :index
+      end
+    end
+  end
 end
