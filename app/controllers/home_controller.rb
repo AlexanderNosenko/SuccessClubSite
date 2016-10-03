@@ -7,6 +7,6 @@ class HomeController < ApplicationController
     @users = User.count + 999
     @today = Time.now.beginning_of_day
     @users_today = User.where('created_at > ?', @today).count
-    @descendants_today = current_user.descendants.where('created_at > ?', @today).count
+    @descendants_today = current_user.children.where('created_at > ?', @today).count
   end
 end
