@@ -1,6 +1,5 @@
 class TeamController < ApplicationController
   before_action :authenticate_user!
-  before_action :make_payment_services, only:[:index]
   require 'will_paginate/array'
 
   def index
@@ -29,9 +28,13 @@ class TeamController < ApplicationController
   def user_team
     respond_to do |format|
       format.html do
-        @user = User.find(params[:id].to_i)
-        if @user.nil? or !current_user.subtree_ids.include?(@user.id)
-          flash[:notice] = 'Вы не моежте просматривать эту команду'
+        @user = User.find(params[:id])
+        if @user == current_user
+          redirect_to team_path
+          return
+        end
+        if @user.nil? or !current_user.descendant_ids.include?(@user.id)
+          flash[:notice] = 'Вы не можете просматривать эту команду'
           redirect_to team_path
           return
         end

@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     (is_online?) ? 'Online' : (last_sign_in_at.nil?) ? 'Never' : last_sign_in_at.strftime("%d/%m/%y, %H:%M")
   end
 
-  def self.find_for_oauth(auth, signed_in_resource = nil, session)
+  def find_for_oauth(auth, signed_in_resource = nil, session)
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
     logger.debug auth.to_json.to_s
@@ -79,15 +79,7 @@ class User < ActiveRecord::Base
   end
 
   def email_verified?
-    self.email && self.email !~ @TEMP_EMAIL_REGEX
-  end
-  def self.search(search)
-    # OPTIMIZE Are we using this?
-    if search
-      where('name LIKE ? OR last_name LIKE ?', "%#{search}%", "%#{search}%")
-    else
-      all()
-    end
+    email && email !~ @TEMP_EMAIL_REGEX
   end
 
   def self.user_from_facebook(auth)
@@ -129,7 +121,7 @@ class User < ActiveRecord::Base
   end
 
   # Search part
-  def self.search(search)
+  def self.search search
     if search
       where('name LIKE ? OR last_name LIKE ?', "%#{search}%", "%#{search}%")
     else
@@ -137,7 +129,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def search_users(search, collection)
+  def search_users search, collection
     search_res = []
     collection.each do |user|
       unless (/.*#{search}.*/i =~ "#{user.name} #{user.last_name}").nil?
@@ -147,12 +139,12 @@ class User < ActiveRecord::Base
     return search_res
   end
 
-  def search_descendants(search)
-    return search_users(search, self.descendants)
+  def search_descendants search
+    search_users(search, descendants)
   end
 
-  def search_ancestors(search)
-    return search_users(search, self.ancestors)
+  def search_ancestors search
+    search_users(search, ancestors)
   end
 
   # Landings
@@ -160,62 +152,62 @@ class User < ActiveRecord::Base
     !UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
   end
   def club_links
-    self.user_landings.select { |x| x.is_club }
+    user_landings.select { |x| x.is_club }
   end
   def free_land_number
-    links = self.user_landings
-    free_number = self.role.landing_pages_number
-    club_number = self.club_links.size
-    return free_number - club_number
+    links = user_landings
+    free_number = role.landing_pages_number
+    club_number = club_links.size
+    free_number - club_number
   end
   def landing_viewed landing
-    # FIXME But we still cannot use this one..
+    # FIXME But we still cannot use this one..(and may be would not)
     link = UserLanding.find_by(user_id: id, landing_id: landing.id)
     link.viewed += 1
     link.save
   end
 
   # Money part
-  def enough?(amount)
-    return self.wallet.main_balance >= amount
+  def enough? amount
+    wallet.main_balance >= amount
   end
-  def give_money(amount)
-    self.wallet.main_balance += amount.to_f
-    return self.wallet.save
+  def bonus_enough? amount
+    wallet.bonus_balance >= amount
   end
-  def give_bonus_money(amount)
-    self.wallet.bonus_balance += amount.to_f
-    return self.wallet.save
+  def give_money amount
+    wallet.main_balance += amount
+    wallet.save
   end
-  def take_money(amount)
-    return if self.wallet.main_balance < amount.to_f
+  def give_bonus_money amount
+    wallet.bonus_balance += amount
+    wallet.save
+  end
+  def take_money amount
+    return if !enough? amount
 
-    self.wallet.main_balance -= amount.to_f
-    return self.wallet.save
+    wallet.main_balance -= amount
+    wallet.save
   end
-  def take_bonus_money(amount)
-    if self.wallet.bonus_balance < amount.to_f
-      return
-    end
-    self.wallet.bonus_balance -= amount.to_f
-    return self.wallet.save
+  def take_bonus_money amount
+    return if !bonus_enough? amount
+
+    wallet.bonus_balance -= amount
+    wallet.save
   end
-  def distribute_money(amount)
-    self.ancestors.reverse.each do |ancestor|
+  def distribute_money amount
+    ancestors.reverse.each do |ancestor|
       max_depth = Role.info_select.find(ancestor.role_id).partnership_depth
-      depth = self.calculate_depth(ancestor)
+      depth = calculate_depth(ancestor)
       unless depth > max_depth
+        # TODO Add refback performing
         percent = PartnershipDepth.find(depth).percent
         ancestor.give_money(amount * percent / 100.0)
       end
     end
   end
-  def calculate_depth(ancestor)
-      if ancestor.descendant_ids.include? self.id
-      self.depth - ancestor.depth
-    else
-      nil
-    end
+  def calculate_depth ancestor
+    return if !ancestor.descendant_ids.include? id
+    depth - ancestor.depth
   end
 
   # Select part
@@ -223,27 +215,23 @@ class User < ActiveRecord::Base
   @main_data = [:id, :role_id, :parent_id, :ancestry, :email, :name, :last_name, :avatar]
   @info = [:birthday, :sex, :country, :city, :about]
 
-  def self.basic_select()
+  def basic_select
     fields = @main_data + @info
     select(*fields)
   end
 
   # Roles part
   # JUST This will be a mark for recently implemented features
-  def set_role(role)
+  def set_role role
     # Available names are "user", "partner", "leader", "vip"
-    role = Role.find_by_name(role.name)
-    if role.nil?
-      return nil
-    else
-      self.role = role
-      return self.save
-    end
+    @role = Role.find_by_name(role.name)
+    return if @role.nil?
+    role = @role
+    save
   end
   def full_name
-    names = [self.name, self.last_name]
-    # JUST A simple way to avoid nil to string convertation error
-    names.compact.join(' ')
+    # JUST Even simpler way to avoid nil to string convertation error
+    "#{name} #{last_name}"
   end
   private
   def avatar_size_validation
@@ -251,6 +239,6 @@ class User < ActiveRecord::Base
   end
 
   def set_default_role
-    self.role ||= Role.find_by_name('user')
+    role ||= Role.find_by_name('user')
   end
 end
