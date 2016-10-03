@@ -46,11 +46,19 @@ class FinanceApiController < ApplicationController
   end
 
   private
+  def get_amount_with_commision(amount, service_name)
+    commitions = {
+      'advcash' => 0,
+      'perfectmoney' => 2,
+      'nixmoney' => 0.5
+    }
+    amount.to_f * commitions[service_name].to_f / 100
+  end
   def make_withdrawal
     
     withdrawal_created = Withdrawal.create(
         user_id: current_user.id,
-        amount: params['amount'],
+        amount: get_amount_with_commision(params['amount'], params['system_output']),
         method: params['system_output']
     )
     if(withdrawal_created) 

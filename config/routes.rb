@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'landing#index'
   get 'home' => 'home#index'
-
+  post '/' => 'home#set_view_mode'
   post 'finance_api/responce_status/:id' => 'finance_api#responce_status'
   post 'finance_api/output' => 'finance_api#output'
   

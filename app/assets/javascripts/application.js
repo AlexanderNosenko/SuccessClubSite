@@ -22,10 +22,13 @@ function copyToClipboard(element) {
 $(document).ready(function(){
   $('#menu-btn').click(function(){
     if ($( "#flex-sidebar" ).hasClass( "full" )){
+        $.post( "/?view_mode=full", function( data ) { console.log( data );});
+
         $( "#flex-sidebar" ).removeClass( "full" ).addClass( "minimized" );
         $( "#content" ).removeClass( "minimized" ).addClass( "full" );
       }
     else{
+        $.post( "/?view_mode=minimized", function( data ) { console.log( data );});
         $( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
         $( "#content" ).removeClass( "full" ).addClass( "minimized" );
     }

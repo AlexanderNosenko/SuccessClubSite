@@ -1,5 +1,5 @@
 <nav id="sidebar">
-  <div id="flex-sidebar" class="flexbox minimized">
+  <div id="flex-sidebar" class="flexbox <%=get_view_mode('menu')%>">
     <%= link_to home_path, class: "menu-item " + is_active_controller('home').to_s do %>
       <i class="fa fa-th-large"></i><span class="full-menu">Главная</span>
     <% end %>

@@ -9,4 +9,8 @@ class HomeController < ApplicationController
     @users_today = User.where('created_at > ?', @today).count
     @descendants_today = current_user.children.where('created_at > ?', @today).count
   end
+  def set_view_mode
+  	session[:menu_bar_view_mode] = params['view_mode'];
+  	render json: {'status' => 'ok'}.to_json
+  end
 end

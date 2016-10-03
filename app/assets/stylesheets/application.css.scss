@@ -219,6 +219,7 @@ a:hover, a:focus {
 #link #copy, #link a {
   display: inline;
   font-size: 20px;
+  border-radius:10px;
 }
 
 #money_input, #money_output {
@@ -638,4 +639,14 @@ footer {
 
 footer a {
   margin: 0 0 0 5px;
+}
+.copy-partner-link{
+  background-color:black;
+}
+.pagination > li > a, .pagination > li > span{
+  color: black!important;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+  background-color:  #23a48a!important;
+  border-color: #a3dcd0!important;
 }
