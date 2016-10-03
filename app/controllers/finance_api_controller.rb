@@ -169,7 +169,7 @@ class FinanceApiController < ApplicationController
       :version      => '3',
       :action       => "pay",
       :amount       => params['amount'],
-      :currency     => "UAH",
+      :currency     => "USD",
       :description  => 'No desc yet',
       :customer     => current_user.id.to_s,
       :server_url   => "http://improf.club/finance_api/responce_status/liqpay",
