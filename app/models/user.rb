@@ -169,29 +169,29 @@ class User < ActiveRecord::Base
 
   # Money part
   def enough? amount
-    wallet.main_balance >= amount
+    wallet.main_balance >= amount.to_f
   end
   def bonus_enough? amount
-    wallet.bonus_balance >= amount
+    wallet.bonus_balance >= amount.to_f
   end
   def give_money amount
-    wallet.main_balance += amount
+    wallet.main_balance += amount.to_f
     wallet.save
   end
   def give_bonus_money amount
-    wallet.bonus_balance += amount
+    wallet.bonus_balance += amount.to_f
     wallet.save
   end
   def take_money amount
-    return if !enough? amount
+    return if !enough? amount.to_f
 
-    wallet.main_balance -= amount
+    wallet.main_balance -= amount.to_f
     wallet.save
   end
   def take_bonus_money amount
-    return if !bonus_enough? amount
+    return if !bonus_enough? amount.to_f
 
-    wallet.bonus_balance -= amount
+    wallet.bonus_balance -= amount.to_f
     wallet.save
   end
   def distribute_money amount
