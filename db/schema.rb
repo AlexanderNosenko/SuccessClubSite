@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930073536) do
+ActiveRecord::Schema.define(version: 20161006044941) do
+
+  create_table "businesses", force: :cascade do |t|
+    t.string   "name",             limit: 255
+    t.string   "logo",             limit: 255
+    t.string   "description",      limit: 255
+    t.string   "video_link",       limit: 255
+    t.string   "instruction",      limit: 255
+    t.datetime "opened_at"
+    t.integer  "min_investitions", limit: 4
+    t.string   "status",           limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -32,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160930073536) do
     t.string   "path",        limit: 255
     t.string   "description", limit: 255
     t.string   "short_path",  limit: 255
+    t.integer  "business_id", limit: 4
   end
 
   add_index "landings", ["path"], name: "index_landings_on_path", unique: true, using: :btree
@@ -82,6 +96,14 @@ ActiveRecord::Schema.define(version: 20160930073536) do
     t.boolean  "have_investment_belay",             default: false
   end
 
+  create_table "user_businesses", force: :cascade do |t|
+    t.integer  "user_id",         limit: 4
+    t.integer  "business_id",     limit: 4
+    t.integer  "partner_link_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "user_landings", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
     t.integer  "landing_id",      limit: 4
@@ -110,7 +132,7 @@ ActiveRecord::Schema.define(version: 20160930073536) do
     t.string   "city",                   limit: 255
     t.string   "about",                  limit: 255
     t.string   "avatar",                 limit: 255
-    t.string   "ancestry",               limit: 255
+    t.text     "ancestry",               limit: 65535
     t.integer  "role_id",                limit: 8
     t.integer  "parent_id",              limit: 8
     t.integer  "status_id",              limit: 8
@@ -122,12 +144,12 @@ ActiveRecord::Schema.define(version: 20160930073536) do
     t.string   "fb",                     limit: 255
     t.string   "ok",                     limit: 255
     t.string   "youtube",                limit: 255
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "email",                  limit: 255,   default: "", null: false
+    t.string   "encrypted_password",     limit: 255,   default: "", null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
@@ -136,9 +158,10 @@ ActiveRecord::Schema.define(version: 20160930073536) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email",      limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.datetime "last_seen"
+    t.integer  "refback_percent",        limit: 4,     default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
