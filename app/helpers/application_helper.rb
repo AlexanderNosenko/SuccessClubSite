@@ -1,6 +1,5 @@
 module ApplicationHelper
     def get_view_mode(type)
-      puts '______________' + session[:menu_bar_view_mode].to_s;
       unless session[:menu_bar_view_mode].blank?
         if session[:menu_bar_view_mode] == 'minimized'
           reversed_menu_view_mode type
@@ -25,13 +24,13 @@ module ApplicationHelper
       image_tag(url, params)
     end
 
-    def get_trasfer_money_form(servise)      
+    def get_trasfer_money_form(servise)
 
      form = content_tag(:div, class: 'form-group') do
        form_tag servise['action'], method: 'POST', id: servise['name'] do |f|
           #fields = button_tag("Pay with #{servise['name']}")
           fields = ''
-          servise['fields'].each { |key, value|  fields << hidden_field_tag(key, value)} 
+          servise['fields'].each { |key, value|  fields << hidden_field_tag(key, value)}
           fields.html_safe
         end
       end
