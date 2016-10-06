@@ -202,9 +202,14 @@ class User < ActiveRecord::Base
       max_depth = Role.info_select.find(ancestor.role_id).partnership_depth
       depth = calculate_depth(ancestor)
       unless depth > max_depth
-        # TODO Add refback performing
-        percent = PartnershipDepth.find(depth).percent
-        ancestor.give_money(amount * percent / 100.0)
+        percent = PartnershipDepth.find(depth).percent / 100.0
+        refback_percent = ancestor.refback_percent / 100
+        if percent == 0.0
+          ancestor.give_money(amount * percent)
+        else  
+          ancestor.give_money(amount * percent * (1 - refback_percent))
+          self.give_money(amount * percent * refback_percent)
+        end
       end
     end
   end
