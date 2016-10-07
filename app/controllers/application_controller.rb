@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_filter :capture_referal, :user_id
+  before_filter :ensure_signup_complete
 
   private
   def capture_referal

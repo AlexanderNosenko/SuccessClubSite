@@ -1,16 +1,19 @@
 class User < ActiveRecord::Base
   require 'json'
-  has_ancestry
+  has_ancestry orphan_strategy: :adopt
   belongs_to :role
   before_create :set_default_role
 
-  # OPTIMIZE We never used this tables, really
+  # OPTIMIZE We never used this table, really
   belongs_to :parent, class_name: 'User'
-  has_many :children, class_name: 'User'
+
   has_many :partner_links, dependent: :destroy
 
   has_many :user_landings, dependent: :destroy
   has_many :landings, through: :user_landings
+
+  has_many :user_businesses, dependent: :destroy
+  has_many :businesses, through: :user_businesses
 
   has_one :wallet, dependent: :destroy
   after_create :create_wallet
