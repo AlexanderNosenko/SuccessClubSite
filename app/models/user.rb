@@ -234,7 +234,7 @@ class User < ActiveRecord::Base
     # Available names are "user", "partner", "leader", "vip"
     @role = Role.find_by_name(role.name)
     return if @role.nil?
-    role = @role
+    self.role = @role
     save
   end
   def full_name
@@ -247,6 +247,6 @@ class User < ActiveRecord::Base
   end
 
   def set_default_role
-    role ||= Role.find_by_name('user')
+    self.role ||= Role.find_by_name('user')
   end
 end
