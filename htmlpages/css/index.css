@@ -182,7 +182,7 @@
 
 #main #content #user-stat #video {
   width: 100%;
-  min-height: 200px;
+  min-height: 300px;
   background: #eee;
   -webkit-justify-content: center;
       -ms-flex-pack: center;

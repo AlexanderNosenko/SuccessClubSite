@@ -168,6 +168,22 @@ a:hover, a:focus, button:focus
 			font-size: 50px
 			color: white
 			border-radius: 10px
+			position: relative
+			transition: all 500ms
+			i 
+				transition: all 500ms
+			span 
+				font-size: 14px
+				transition: all 500ms
+				font-weight: bold
+			.hidd
+				position: absolute
+				opacity: 0
+		a:hover
+			.hidd
+				opacity: 1
+			.allvis
+				opacity: 0
 .activate
 	.flexbox
 		justify-content: center

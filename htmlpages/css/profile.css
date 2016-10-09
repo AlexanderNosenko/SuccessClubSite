@@ -205,15 +205,22 @@
 }
 
 #main #content .tab-content #secure #securepane {
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-left: 25%;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+}
+
+@media screen and (max-width: 796px) {
+  #main #content .tab-content #secure #securepane {
+    margin-left: 10%;
+  }
 }
 
 #main #content .tab-content #secure #securepane i {

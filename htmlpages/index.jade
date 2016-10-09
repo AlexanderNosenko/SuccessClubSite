@@ -106,8 +106,12 @@ html(lang="ru")
 				div.modal-content
 					div.modal-body
 						.toolchoise.flexbox
-							a(href='buy-tools.html'): i.fa.fa-cart-plus
-							a(href='mytools.html'): i.fa.fa-cubes
+							a(href='buy-tools.html')
+								i.allvis.fa.fa-cart-plus
+								span.hidd Купить
+							a(href='mytools.html')
+								i.allvis.fa.fa-cubes
+								span.hidd Посмотреть свои
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
@@ -259,7 +263,7 @@ html(lang="ru")
 							span.undercover Выплачено средств
 		footer
 			span Клуб проффесионалов &copy2016 Все права защищены.
-			a(href='#') Правила сервиса
+			a(href='#' target='_blank') Правила сервиса
 		script.
 			$('#menu-btn').click(function(){
 			  if ($( "#flex-sidebar" ).hasClass( "full" )){
