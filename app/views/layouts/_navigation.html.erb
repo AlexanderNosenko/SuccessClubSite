@@ -12,7 +12,7 @@
     <%= link_to landings_path, class: "menu-item " + is_active_controller('instruments/*').to_s do %>
       <i class="fa fa-cogs"></i><span class="full-menu">Инструменты</span>
     <% end %>
-    <%=link_to business_path, class: "menu-item" + is_active_controller('instruments/*').to_s do %>
+    <%=link_to business_index_path, class: "menu-item" + is_active_controller('instruments/*').to_s do %>
       <i class="fa fa-bank"></i><span class="full-menu">Бизнес</span>
     <%end%>
     <a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a>

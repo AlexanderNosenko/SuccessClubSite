@@ -1,0 +1,20 @@
+<div id="content" class="flexbox <%=get_view_mode('content')%>">
+  <div class="tab-content">
+    <div id="landings" class="flexbox">
+      <div class="offers flexbox">
+        <%=form_for(@business_settings) do |f| %> 
+	        <div class="field">
+			  <%= label :partner_link, 'Parent link' %><br />
+			  <%= text_field :partner_link, :link, value: @business_settings.partner_link.link %>
+			</div>
+			<div class="field">
+			  <%= label nil, 'block_reg' %><br />
+			  <%= check_box nil, :block_reg, {checked: @business_settings.block_reg} %>
+			</div>
+			<%=f.submit%>
+        <%end%>
+        <%=link_to 'disactivate_business', disactivate_business_path, method: :delete%>
+      </div>
+    </div>
+  </div>
+</div>

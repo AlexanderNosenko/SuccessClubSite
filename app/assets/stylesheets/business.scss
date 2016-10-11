@@ -1,3 +1,82 @@
 // Place all the styles related to the business controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.business-item{
+	width: 400px;
+	height: 300px;
+}
+
+.business-left{
+	width: 200px;
+	height: 300px;
+	position: absolute;
+	display: inline-block;
+}
+
+.business-right{
+	width: 170px;
+	height: 300px;
+	float: right; 
+	position: relative;
+	display: inline-block;
+	color: #747373;
+}
+
+.business-btn{
+	width: 170px;
+	height: 30px;
+	background: #256C5E;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	color: white;
+	font-family: Century Gothic;
+	line-height: 28px;
+	font-size: 0.75em;
+	cursor: pointer;
+}
+
+.business-more-btn{
+	bottom: 40px;
+}
+
+.business-image>img{
+	width: 200px;
+	height: 200px;
+}
+
+.business-rating{
+	width: 200px;
+	height: 50px;
+}
+
+.business-short-info{
+	width: 200px;
+	height: 65px;
+	font-weight: bold;
+	font-size: 0.85em;
+	text-align: bottom;
+	position: relative;
+}
+
+#text-notes{
+	position: absolute;
+	bottom: 0;
+}
+
+.i-star{
+	height: 50px;
+	width: 35px;
+	display: inline-block;
+	background-image: url("images/star-icon-1-w.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+
+
+ #text {
+    text-indent: 20px; 
+   }

@@ -1,41 +1,24 @@
 <% content_for :modals do%>
-  <div id="activate-business" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+  <div id="index-business-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
-          <h2>Активация бизнеса</h2>
-          <%= form_tag '/business/', method: :post, class: "row", id: "activate-business-form" do %>
-            <div class="col-sm-8">
-              <input type="text" name="ref_link" class="form-control" placeholder="Реферальная ссылка">
-            </div>
-            <div class="col-sm-2">
-              <button class="btn btn-success">Активировать</button>
-            </div>
-          <% end %>
-          <br>
+          <h2>Направления бизнеса</h2>
           <div class="row">
+            <div class="col-md-6">
+              <a href="/business/my" class="btn btn-pripary">Мой бизнес</a>
+            </div>
+            <div class="col-md-6">
+              <a href="/business/all" class="btn btn-pripary">Выбрать направление</a>
+            </div>
+          </div>
+          <!-- <div class="row">
             <div class="col-sm-2 col-sm-offset-5">
               <button type="button" data-dismiss="modal" class="btn"><i class="fa fa-undo" aria-hidden="true"></i></button>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
   </div>
 <% end %>
-<div class="container">
-	
-	<div class="row">
-		<div class="col-md-12">
-			<h1>Business</h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="business" data-id="redex">
-				<button id="activate-business-btn" class="btn btn-success"></button>	
-			</div>
-		</div>
-	</div>
-
-</div>
