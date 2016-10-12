@@ -4,7 +4,7 @@ module BusinessHelper
 	    raw(
 	    	'<div class="business-btn business-add-btn activate-business-btn" ' + 
 	    	(business.activated(current_user.id) ? 'disabled' : '') +'>' + 
-	    	(business.activated(current_user.id) ? 'Activated' : 'Activate') +
+	    	(business.activated(current_user.id) ? 'Активирован' : 'Активировать') +
 	    	'</div>'
 	    	)
 	end

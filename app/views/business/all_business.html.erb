@@ -37,7 +37,7 @@
     <div id="landings" class="flexbox">
       <div class="offers flexbox">
         <% @businesses.each do |business| %>
-          <div class="goods flexbox business-item" data-id="<%=business.id%>">
+          <div class="goods flexbox business" data-id="<%=business.id%>">
             <div class="col-md-7 business-left">
               <div class="business_name" style="display:none;">
                 <%=business.name%>  
@@ -68,10 +68,14 @@
               <div class="business-long-info">
                 <%=business.description%>
               </div>
+              <%if params[:id] != 'my'%>
               <div class="business-btn business-more-btn">
-                More
+                Больше
               </div>
               <%= activation_btn(business)%>
+              <%else%>
+              <%=link_to 'Настройки', business_settings_path(business.id), class: "business-btn business-more-btn", id: "business-settings-btn"%>
+              <%end%>
             </div>
           </div>
         <%end%>

@@ -1,9 +1,10 @@
 // Place all the styles related to the business controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.business-item{
+.business{
 	width: 400px;
 	height: 300px;
+	margin: 11px;
 }
 
 .business-left{
@@ -21,7 +22,9 @@
 	display: inline-block;
 	color: #747373;
 }
-
+div.business-btn[disabled] {
+    cursor: default;
+    }
 .business-btn{
 	width: 170px;
 	height: 30px;
@@ -80,3 +83,11 @@
  #text {
     text-indent: 20px; 
    }
+.offers{
+	flex-wrap: wrap;
+	width: 76%;
+    margin: auto;
+}
+.business-long-info{
+	    width: 170px;
+}

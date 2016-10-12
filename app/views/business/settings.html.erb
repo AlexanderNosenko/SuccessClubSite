@@ -1,3 +1,5 @@
+<%unless Rails.env == 'production'%>
+
 <div id="content" class="flexbox <%=get_view_mode('content')%>">
   <div class="tab-content">
     <div id="landings" class="flexbox">
@@ -18,3 +20,17 @@
     </div>
   </div>
 </div>
+
+<%else%>
+<div id="content" class="flexbox <%=get_view_mode('content')%>">
+  <div class="tab-content">
+  	<div id="landings" class="flexbox">
+      <div class="offers flexbox">
+      	<div class="row">
+      		<h3>Under maitanence...sory...</h3>
+      	</div>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>

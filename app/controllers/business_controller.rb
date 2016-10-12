@@ -9,12 +9,8 @@ class BusinessController < ApplicationController
 
 	def business
 		
-		if(params[:id] == 'my')
-			@businesses = current_user.all_business.paginate(:per_page => 4, :page => params[:page])
-			render 'my_business'
-		else
-			load_business_page(params[:id])
-		end
+		
+		load_business_page(params[:id])
 			
 	end
 
@@ -54,8 +50,13 @@ class BusinessController < ApplicationController
 	private
 
 	def load_business_page(type)
-		@businesses = eval('Business.' + type).paginate(:per_page => 4, :page => params[:page])
+		if(type == 'my')
+			@businesses = current_user.all_business.paginate(:per_page => 4, :page => params[:page])
+		else
+			@businesses = eval('Business.' + type).paginate(:per_page => 4, :page => params[:page])
+		end
 		render 'all_business'
+
 	end
 	def prepare_params
 		if params[:ref_link].blank? || params[:id].blank?
