@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_has_rights
-    return true if current_user.role.name != 'user'
+    return true if current_user.role.name != 'user' || Rails.env == 'development'
   end
   protected
   def configure_permitted_parameters
