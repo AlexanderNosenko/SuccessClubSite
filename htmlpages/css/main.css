@@ -294,7 +294,7 @@ a:hover, a:focus, button:focus {
   font-family: "RobotoLight";
 }
 
-#tools-choose .toolchoise {
+#tools-choose .toolchoise, #business-choose .toolchoise {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -304,7 +304,7 @@ a:hover, a:focus, button:focus {
   height: 150px;
 }
 
-#tools-choose .toolchoise a {
+#tools-choose .toolchoise a, #business-choose .toolchoise a {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -325,26 +325,26 @@ a:hover, a:focus, button:focus {
   transition: all 500ms;
 }
 
-#tools-choose .toolchoise a i {
+#tools-choose .toolchoise a i, #business-choose .toolchoise a i {
   transition: all 500ms;
 }
 
-#tools-choose .toolchoise a span {
+#tools-choose .toolchoise a span, #business-choose .toolchoise a span {
   font-size: 14px;
   transition: all 500ms;
   font-weight: bold;
 }
 
-#tools-choose .toolchoise a .hidd {
+#tools-choose .toolchoise a .hidd, #business-choose .toolchoise a .hidd {
   position: absolute;
   opacity: 0;
 }
 
-#tools-choose .toolchoise a:hover .hidd {
+#tools-choose .toolchoise a:hover .hidd, #business-choose .toolchoise a:hover .hidd {
   opacity: 1;
 }
 
-#tools-choose .toolchoise a:hover .allvis {
+#tools-choose .toolchoise a:hover .allvis, #business-choose .toolchoise a:hover .allvis {
   opacity: 0;
 }
 
