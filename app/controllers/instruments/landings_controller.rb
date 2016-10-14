@@ -10,7 +10,13 @@ class Instruments::LandingsController < ApplicationController
       @for_free = current_user.free_land_number > 0
       @club_links = current_user.club_links
     end
-    @landings = Landing.order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
+
+    if params[:business_id]
+      # TODO business_id should be added to landing model
+      @landings = Landing.where(business_id: params[:business_id]).order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
+    else
+      @landings = Landing.order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
+    end
   end
 
   def show
@@ -79,7 +85,12 @@ class Instruments::LandingsController < ApplicationController
     end
 
     flash[:notice] = 'Landing page успешно активирован!'
-    redirect_to action: :index
+    if params[:business_id].blank?
+      redirect_to action: :index 
+    else
+      redirect_to business_setting_path(params[:business_id]) unless params[:business_id].blank?            
+    end
+    
   end
 
   private

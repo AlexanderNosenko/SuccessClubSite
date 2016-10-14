@@ -2,36 +2,47 @@ Rails.application.routes.draw do
 
   root 'landing#index'
   get 'home' => 'home#index'
+  
   post '/view_mode' => 'home#set_view_mode'
   post 'finance_api/responce_status/:id' => 'finance_api#responce_status'
   post 'finance_api/output' => 'finance_api#output'
-
+  
   get 'finance_api/success/:id' => 'finance_api#success'
   post 'finance_api/success/:id' => 'finance_api#success'
-
+  
   get 'finance_api/error/:id' => 'finance_api#error'
   post 'finance_api/error/:id' => 'finance_api#error'
-
+  
   get '/finance_api/payment_form' => 'finance_api#payment_form'
 
+  get 'business' => 'business#index', as: 'business_index'
+  get '/business/:id/settings' => 'business#settings', as: 'user_business'
+
+  get '/business/:id/settings' => 'business#update_settings', as: 'business_setting'
+  
+  patch '/business/:id/settings' => 'business#update_settings', as: 'business_settings'
+
+  get 'business/:id' => 'business#business', as: 'business'
+  post 'business/:id' => 'business#activate', as: 'activate_business'
+  delete 'business/:id' => 'business#disactivate', as: 'disactivate_business'
 
   get 'team/:id', to: 'team#user_team', as: 'user_team'
   get 'team' => 'team#index'
   post 'team' => 'team#index'
-
+  
   get '/p/:id' => 'partner_link#partner', as: 'partner_link'
   post '/p/:id' => 'partner_link#landing', as: 'landing_link'
   delete '/p' => 'partner_link#delete', as: 'delete_partner_session'
-
+  
   get '/landings', to: 'instruments/landings#index', as: 'landings'
   get '/landings/:id', to: 'instruments/landings#show', as: 'landing'
   post '/landings/:id', to: 'instruments/landings#activate', as: 'activate_landing'
   #resources :landings, only: [:index, :activate], path: 'landings', controller:'instruments/landings'
-
+  
   resources :users, controller: 'profile', path: 'profile'
   match '/profile/:id/finish_signup' => 'profile#finish_signup', via: [:get, :patch], :as => :finish_signup
   post '/profile/status', to: 'profile#change_role'
-
+  
   devise_for :users, controllers:
     {
       sessions: 'users/sessions',

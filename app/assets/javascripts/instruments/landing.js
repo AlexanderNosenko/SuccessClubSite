@@ -16,6 +16,8 @@ $(document).ready(function (e) {
   //   //console.log(elem);
   //   return false;
   // });
+
+  
   $('#landings').find(".moreinfo").find('a').click(function (e) {
     e.preventDefault();
     var elem = (e.target.nodeName != "A")? $(e.target.parentNode) : $(e.target);

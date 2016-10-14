@@ -241,6 +241,10 @@ class User < ActiveRecord::Base
     # JUST Even simpler way to avoid nil to string convertation error
     "#{name} #{last_name}"
   end
+  def all_business
+    user_businesses = UserBusiness.includes(:business).where(user_id: self.id)
+    user_businesses.collect {|u_b| u_b.business}.compact
+  end
   private
   def avatar_size_validation
     errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
