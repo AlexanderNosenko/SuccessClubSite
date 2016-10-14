@@ -1,6 +1,7 @@
 class BusinessController < ApplicationController
 
 	before_action :authenticate_user!
+	before_action :pro_user
 	before_action :prepare_params, only: [:activate]
 	# before_action :prepare_business_list, only: [:all_business]
 	
@@ -53,6 +54,9 @@ class BusinessController < ApplicationController
 	end
 	
 	private
+	def pro_user
+		redirect_to '/' unless user_has_rights
+	end
 	def prepare_params
 		if params[:ref_link].blank? || params[:id].blank?
 			redirect_to business_path('all'), :flash => {:error => 'Введите свою реверальную ссылку, пожалуйста.'}
