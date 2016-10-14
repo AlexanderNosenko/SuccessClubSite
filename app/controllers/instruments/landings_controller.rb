@@ -25,6 +25,7 @@ class Instruments::LandingsController < ApplicationController
   end
 
   def activate
+    return
     @user = current_user
     @wallet = @user.wallet
     @price = @landing.price.to_f

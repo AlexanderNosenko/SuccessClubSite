@@ -48,6 +48,7 @@ class ProfileController < ApplicationController
   end
 
   def change_role
+    return 
     # OPTIMIZE: It only works for partner for now
     # name = params[:role_name]
     name = 'partner'
