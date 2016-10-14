@@ -84,7 +84,12 @@ class Instruments::LandingsController < ApplicationController
     end
 
     flash[:notice] = 'Landing page успешно активирован!'
-    redirect_to action: :index
+    if params[:business_id].blank?
+      redirect_to action: :index 
+    else
+      redirect_to business_setting_path(params[:business_id]) unless params[:business_id].blank?            
+    end
+    
   end
 
   private

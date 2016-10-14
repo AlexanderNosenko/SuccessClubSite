@@ -25,7 +25,10 @@
               <span class="activation">Дата активации: <%= current_user.user_landings.find_by_landing_id(landing.id).reactivate_at.strftime("%d/%m/%y")%></span>
             <% end %>
           <% else %>
-            <%= link_to "Активировать", activate_landing_path(landing), class:'buy-stuff', method: :post %>
+            <%= form_tag(activate_landing_path(landing), onSubmit: 'return activate_landing(this)', method: :post) do%>
+              <%= button_tag "Активировать", class:'buy-stuff'%>
+            <%end%>
+            
           <% end %>
         </div>
         <% end %>

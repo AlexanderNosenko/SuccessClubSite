@@ -1,5 +1,6 @@
 class BusinessController < ApplicationController
 
+	before_action :authenticate_user!
 	before_action :prepare_params, only: [:activate]
 	# before_action :prepare_business_list, only: [:all_business]
 	
@@ -8,10 +9,14 @@ class BusinessController < ApplicationController
 	end
 
 	def business
-		
-		
-		load_business_page(params[:id])
-			
+
+		if(params[:id] == 'my')
+			@businesses = current_user.all_business.paginate(:per_page => 4, :page => params[:page])
+		else
+			@businesses = eval('Business.' + params[:id]).paginate(:per_page => 4, :page => params[:page])
+		end
+		render 'all_business'
+
 	end
 
 	def activate
@@ -48,16 +53,6 @@ class BusinessController < ApplicationController
 	end
 	
 	private
-
-	def load_business_page(type)
-		if(type == 'my')
-			@businesses = current_user.all_business.paginate(:per_page => 4, :page => params[:page])
-		else
-			@businesses = eval('Business.' + type).paginate(:per_page => 4, :page => params[:page])
-		end
-		render 'all_business'
-
-	end
 	def prepare_params
 		if params[:ref_link].blank? || params[:id].blank?
 			redirect_to business_path('all'), :flash => {:error => 'Введите свою реверальную ссылку, пожалуйста.'}

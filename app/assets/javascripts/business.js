@@ -27,6 +27,6 @@ $('.activate-business-btn').on('click', function () {
 
 	}
 	
-
+	localStorage.setItem("business_id", business.data('id'));
 	$('#activate-business').modal().show();
 });
