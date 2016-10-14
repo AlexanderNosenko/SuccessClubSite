@@ -321,6 +321,31 @@ a:hover, a:focus, button:focus {
   font-size: 50px;
   color: white;
   border-radius: 10px;
+  position: relative;
+  transition: all 500ms;
+}
+
+#tools-choose .toolchoise a i {
+  transition: all 500ms;
+}
+
+#tools-choose .toolchoise a span {
+  font-size: 14px;
+  transition: all 500ms;
+  font-weight: bold;
+}
+
+#tools-choose .toolchoise a .hidd {
+  position: absolute;
+  opacity: 0;
+}
+
+#tools-choose .toolchoise a:hover .hidd {
+  opacity: 1;
+}
+
+#tools-choose .toolchoise a:hover .allvis {
+  opacity: 0;
 }
 
 .activate .flexbox {

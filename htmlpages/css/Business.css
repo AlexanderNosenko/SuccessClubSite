@@ -1,0 +1,63 @@
+#main #content .companies .company {
+  align-items: stretch;
+}
+
+#main #content .companies .company .pic_and_rate {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+}
+
+#main #content .companies .company .pic_and_rate .img-wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#main #content .companies .company .pic_and_rate .img-wrapper img {
+  width: 100%;
+}
+
+#main #content .companies .company .pic_and_rate .stars {
+  font-size: 35px;
+  color: #ebebeb;
+}
+
+#main #content .companies .company .pic_and_rate .stars .fullstar {
+  color: #ffba00;
+}
+
+#main #content .companies .company .pic_and_rate .shrt-review {
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 13px;
+  text-align: left;
+}
+
+#main #content .companies .company .about_and_btns {
+  width: 200px;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+#main #content .companies .company .about_and_btns .comp-about {
+  text-align: justify;
+}
+
+#main #content .companies .company .about_and_btns .comp-btns {
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+#main #content .companies .company .about_and_btns .comp-btns button {
+  margin: 10px 0 0;
+  background: #256c5e;
+  border: none;
+  color: white;
+  padding: 6px 0;
+}
