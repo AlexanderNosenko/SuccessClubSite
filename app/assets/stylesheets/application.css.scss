@@ -103,9 +103,11 @@ hr {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
-a:hover, a:focus {
+a:hover, a:focus, button:focus {
+  outline: none;
   text-decoration: none;
 }
 
@@ -219,7 +221,6 @@ a:hover, a:focus {
 #link #copy, #link a {
   display: inline;
   font-size: 20px;
-  border-radius:10px;
 }
 
 #money_input, #money_output {
@@ -316,6 +317,102 @@ a:hover, a:focus {
   font-weight: bold;
   padding: 5px 10px;
   font-family: "RobotoLight";
+}
+
+#tools-choose .toolchoise, #business-choose .toolchoise {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 150px;
+}
+
+#tools-choose .toolchoise a, #business-choose .toolchoise a {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+  width: 100px;
+  background: #167562;
+  margin: 10px;
+  font-size: 50px;
+  color: white;
+  border-radius: 10px;
+  position: relative;
+  transition: all 500ms;
+}
+
+#tools-choose .toolchoise a i, #business-choose .toolchoise a i {
+  transition: all 500ms;
+}
+
+#tools-choose .toolchoise a span, #business-choose .toolchoise a span {
+  font-size: 14px;
+  transition: all 500ms;
+  font-weight: bold;
+}
+
+#tools-choose .toolchoise a .hidd, #business-choose .toolchoise a .hidd {
+  position: absolute;
+  opacity: 0;
+}
+
+#tools-choose .toolchoise a:hover .hidd, #business-choose .toolchoise a:hover .hidd {
+  opacity: 1;
+}
+
+#tools-choose .toolchoise a:hover .allvis, #business-choose .toolchoise a:hover .allvis {
+  opacity: 0;
+}
+
+.activate .flexbox {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.activate .flexbox .mheadline {
+  color: #76777c;
+  font-size: 30px;
+}
+
+.activate .flexbox .alert {
+  color: #4d0c0b;
+  font-size: 20px;
+}
+
+.activate .flexbox button {
+  background: transparent;
+  border: none;
+  width: 200px;
+}
+
+.activate .flexbox button img {
+  width: 100%;
+}
+
+.activate .flexbox .superbutt {
+  padding: 5px;
+  background: #0d4f43;
+  color: white;
+  border: none;
+  margin: 0 0 20px;
+  width: 200px;
+  font-size: 15px;
 }
 
 #top {
