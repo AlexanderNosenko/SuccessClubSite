@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_filter :capture_referal, :user_id
   before_filter :ensure_signup_complete
-
+  helper_method :user_has_rights
   private
   def capture_referal
     session[:p] = params[:p] if params[:p]
@@ -12,6 +12,9 @@ class ApplicationController < ActionController::Base
     session[:id] = params[:id] if params[:id]
   end
 
+  def user_has_rights
+    return true if current_user.role.name != 'user' || Rails.env == 'development'
+  end
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :last_name, :phone, :skype, :birthday, :sex, :country, :city, :about, :role, :email, :password, :password_confirmation, :remember_me, :referral_code, :avatar, :avatar_cache) }
@@ -19,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
-    return if action_name == 'finish_signup'
+    return if action_name == 'finish_signup' || Rails.env.development?
 
     # Redirect to the 'finish_signup' page if the user
     # email hasn't been verified yet
