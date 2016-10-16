@@ -1,11 +1,11 @@
 module BusinessHelper
 
 	def activation_btn(business)
-	    activated  = business.activated(current_user.id)
+	    activated  = business.users.include? current_user
 	    raw(
 	    	'<div class="business-btn business-add-btn '+(activated ? 'disabled' : '')+' activate-business-btn" ' + 
 	    	(activated ? 'disabled' : '') +'>' + 
-	    	(business.activated(current_user.id) ? 'Активирован' : 'Активировать') +
+	    	(activated ? 'Активирован' : 'Активировать') +
 	    	'</div>'
 	    	)
 	end
