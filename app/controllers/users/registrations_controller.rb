@@ -3,7 +3,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
   layout 'empty', only: [:new, :create, :update, :destroy, :cancel]
   #prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
-
+skip_before_action :verify_authenticity_token, only: [:create]
   # GET /resource/sign_up
   def new
     @parent = User.find(session[:parent_id]) if session[:parent_id]
@@ -12,6 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    if params[:from_landing]
+      session[:parent_id] = params[:parent_id]
+    end
     super
   end
 
