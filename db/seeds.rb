@@ -22,5 +22,5 @@
 #   u4.children.create! name: 'Last', last_name: 'Children', email: 'last@mail.com', password: 'Children'
 # end
 Business.create name: "Redex", logo: "html_logo", description: "Международная компания REDEX RED LTD зарегистрирована в 2016 году, по юридическому адресу, Liberty House, 222 Regent Street, London, United Kingdom, W1B 5TR в Великобритании, Лондон", status: 4
-Business.create name: "Redex", logo: "html_logo", description: "Международная компания REDEX RED LTD зарегистрирована в 2016 году, по юридическому адресу, Liberty House, 222 Regent Street, London, United Kingdom, W1B 5TR в Великобритании, Лондон", status: 4
+# Business.create name: "Redex", logo: "html_logo", description: "Международная компания REDEX RED LTD зарегистрирована в 2016 году, по юридическому адресу, Liberty House, 222 Regent Street, London, United Kingdom, W1B 5TR в Великобритании, Лондон", status: 4
 

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   before_create :set_default_role
 
   # OPTIMIZE We never used this table, really
-  belongs_to :parent, class_name: 'User'
+  # belongs_to :parent, class_name: 'User'
 
   has_many :partner_links, dependent: :destroy
 
@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
 
   has_many :user_businesses, dependent: :destroy
   has_many :businesses, through: :user_businesses
+
+  has_many :to_payments, class_name: 'Payment', foreign_key: 'to_user_id'
+  has_many :from_payments, class_name: 'Payment', foreign_key: 'for_user_id'
 
   has_one :wallet, dependent: :destroy
   after_create :create_wallet
@@ -30,6 +33,9 @@ class User < ActiveRecord::Base
   #validates_processing_of :avatar
   validates_format_of :email, :without => @TEMP_EMAIL_REGEX, on: :update
 
+  def payments
+    to_payments << from_payments
+  end
   def is_online?
     !current_sign_in_at.nil?
   end
