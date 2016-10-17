@@ -6,14 +6,14 @@
           
           <h2>Направления бизнеса</h2>
           <div class="toolchoise flexbox">
-            <a href="/business/my">
+            <%= link_to business_scope_path 'my' do %>
               <i class="allvis fa fa-male"></i>
               <span class="hidd">Мой бизнес</span>
-            </a>
-            <a href="/business/all">
+            <% end %>
+            <%= link_to business_scope_path 'all' do %> 
               <i class="allvis fa fa-cog"></i>
               <span class="hidd">Выбрать направление</span>
-            </a>
+            <% end %>
           </div>
           <!-- <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button> -->
         </div>

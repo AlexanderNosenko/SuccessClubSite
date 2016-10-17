@@ -1,33 +1,35 @@
 <%unless Rails.env == 'production'%>
 
-<div id="content" class="flexbox <%=get_view_mode('content')%>">
+<div id="content" class="flexbox <%= get_view_mode('content') %>">
   <div class="tab-content">
     <div id="landings" class="flexbox">
       <div class="offers flexbox">
-        <%=form_for(@business_settings) do |f| %> 
+        <%= form_for( @settings, url: business_settings_path(@business.id) ) do |f| %> 
 	        <div class="field">
-			  <%= label :partner_link, 'Parent link' %><br />
-			  <%= text_field :partner_link, :link, value: @business_settings.partner_link.link %>
-			</div>
-			<div class="field">
-			  <%= label nil, 'block_reg' %><br />
-			  <%= check_box nil, :block_reg, {checked: @business_settings.block_reg} %>
-			</div>
-			<%=f.submit%>
-        <%end%>
-        <%=link_to 'disactivate_business', disactivate_business_path, method: :delete%>
+			      <%= label :partner_link, 'Партнерская ссылка' %>
+            <br/>
+			      <%= text_field :partner_link, :link %>
+			    </div>
+			    <div class="field">
+			      <%= label :settings, 'Блокировать регистрации' %>
+            <br/>
+			      <%= check_box :settings, :block_reg %>
+			    </div>
+			    <%= f.submit %>
+        <% end %>
+        <%= link_to 'Деактивировать бизнес', deactivate_business_path, method: :delete %>
       </div>
     </div>
   </div>
 </div>
 
 <%else%>
-<div id="content" class="flexbox <%=get_view_mode('content')%>">
+<div id="content" class="flexbox <%= get_view_mode('content') %>">
   <div class="tab-content">
   	<div id="landings" class="flexbox">
       <div class="offers flexbox">
       	<div class="row">
-      		<h3>Under maitanence...sory...</h3>
+      		<h3>Находится в разработке...</h3>
       	</div>
       </div>
     </div>

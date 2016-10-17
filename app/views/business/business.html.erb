@@ -6,7 +6,7 @@
           <h2>Активация {business_name} бизнеса</h2>
           <%= form_tag '/business/', method: :post, class: "row", id: "activate-business-form" do %>
             <div class="col-sm-6">
-              <input type="text" name="ref_link" class="form-control" placeholder="Реферальная ссылка">
+              <input type="text" name="link" class="form-control" placeholder="Реферальная ссылка">
             </div>
             <div class="col-md-3">
               <label for="block_reg">Блокировать регистрацию?</label>
@@ -27,61 +27,61 @@
     </div>
   </div>
 <% end %>
-<div id="content" class="flexbox <%=get_view_mode('content')%>">
+<div id="content" class="flexbox <%= get_view_mode('content') %>">
   <div class="tab-links flexbox">
-    <a href="<%=business_path('all')%>" class="<%=active_class(params[:id])%>">Популярные компании</a>
-    <a href="<%=business_path('recent')%>" class="<%=active_class(params[:id])%>">Новые компании</a>
-    <a href="<%=business_path('problem')%>" class="<%=active_class(params[:id])%>">Проблемные компании</a>
+    <a href="<%= business_scope_path('all') %>" class="<%= active_class(params[:id]) %>">Популярные компании</a>
+    <a href="<%= business_scope_path('recent') %>" class="<%= active_class(params[:id]) %>">Новые компании</a>
+    <a href="<%= business_scope_path('problem') %>" class="<%= active_class(params[:id]) %>">Проблемные компании</a>
   </div>
   <div class="tab-content">
     <div id="landings" class="flexbox">
       <div class="offers flexbox">
         <% @businesses.each do |business| %>
-          <div class="goods flexbox business" data-id="<%=business.id%>">
+          <div class="goods flexbox business" data-id="<%= business.id %>">
             <div class="col-md-7 business-left">
               <div class="business_name" style="display:none;">
-                <%=business.name%>  
+                <%= business.name %>  
               </div>
               <div class="business-image">
-                <%=image_tag 'html_logo'%>
+                <%= image_tag 'html_logo' %>
               </div>
               <div class="business-rating">
-                  <div class="i-star" id="i1-star"></div>
-                  <div class="i-star" id="i2-star"></div>
-                  <div class="i-star" id="i3-star"></div>
-                  <div class="i-star" id="i4-star"></div>
-                  <div class="i-star" id="i5-star"></div>
+                <div class="i-star" id="i1-star"></div>
+                <div class="i-star" id="i2-star"></div>
+                <div class="i-star" id="i3-star"></div>
+                <div class="i-star" id="i4-star"></div>
+                <div class="i-star" id="i5-star"></div>
               </div>
               <div class="business-short-info">
                 <div class="business-short-info-text">
-                  Срок работы: 10 лет 
+                  Срок работы: <%= distance_of_time_in_words Time.now, business.opened_at %>
                 </div>
                 <div class="business-short-info-text">
-                  Количество дней в клубе: 10
+                  Количество дней в клубе: <%= distance_of_time_in_words Time.now, business.created_at %>
                 </div>
                 <div class="business-short-info-text">
-                  Участников от клуба: 3567
+                  Участников от клуба: <%= business.users.size %>
                 </div>
               </div>
             </div>
             <div class="col-md-5 business-right">
               <div class="business-long-info">
-                <%=business.description%>
+                <%= business.description %>
               </div>
-              <%if params[:id] != 'my'%>
               <div class="business-btn business-more-btn">
                 Больше
               </div>
-              <%= activation_btn(business)%>
-              <%else%>
-              <%=link_to 'Настройки', business_settings_path(business.id), class: "business-btn business-more-btn", id: "business-settings-btn"%>
-              <%end%>
+              <% unless business.users.include?(current_user) %>
+                <%= activation_btn business %>
+              <% else %>
+                <%= link_to 'Настройки', user_business_path(business.id), 
+                class: "business-btn business-add-btn", id: "business-settings-btn" %>
+              <% end %>
             </div>
           </div>
-        <%end%>
+        <% end %>
       </div>
     </div>
-
     <%= will_paginate @businesses %>
   </div>
 </div>
