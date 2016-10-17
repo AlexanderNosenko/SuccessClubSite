@@ -1,0 +1,72 @@
+#main #content .info-bs.flexbox {
+  width: 100%;
+  justify-content: center;
+}
+
+#main #content .info-bs.flexbox .left-side {
+  align-items: flex-start;
+  text-align: left;
+  flex-direction: column;
+  margin: 0 10px;
+}
+
+#main #content .info-bs.flexbox .left-side .logo-wrapper {
+  align-self: center;
+  width: 200px;
+}
+
+#main #content .info-bs.flexbox .left-side .logo-wrapper img {
+  width: 100%;
+}
+
+#main #content .info-bs.flexbox .left-side .stars {
+  align-self: center;
+  margin: 10px 0;
+}
+
+#main #content .info-bs.flexbox .left-side .shrt-review {
+  flex-direction: column;
+}
+
+#main #content .info-bs.flexbox .left-side .comp-btns {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#main #content .info-bs.flexbox .left-side .comp-btns button {
+  margin: 10px 0 0;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+}
+
+#main #content .info-bs.flexbox .left-side .comp-btns .grbtn {
+  background: #157260;
+}
+
+#main #content .info-bs.flexbox .left-side .comp-btns .orbtn {
+  background: #ee6023;
+}
+
+#main #content .info-bs.flexbox .right-side {
+  flex-direction: column;
+}
+
+#main #content .info-bs.flexbox .right-side .video {
+  height: 277px;
+  background: #eee;
+  width: 500px;
+}
+
+#main #content .info-bs.flexbox .right-side button {
+  margin: 10px 0 0;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  background: #157260;
+}
+
+#main #content p {
+  width: 80%;
+  margin: 20px 0;
+}
