@@ -17,13 +17,14 @@ Rails.application.routes.draw do
 
   get 'business' => 'business#index', as: 'business_index'
 
-  get '/business/:id/settings' => 'business#settings', as: 'user_business'
-  post '/business/:id/settings' => 'business#update_settings', as: 'business_setting'
-  patch '/business/:id/settings' => 'business#update_settings', as: 'business_settings'
+  get 'business/scope/:type' => 'business#business', as: 'business_scope'
+  # FIXME NO HTML
+  # get 'business/:id' => 'business#show', as: 'business'
 
-  get 'business/:type' => 'business#business', as: 'business'
   post 'business/:id' => 'business#activate', as: 'activate_business'
+  patch 'business/:id' => 'business#update_settings', as: 'business_settings'
   delete 'business/:id' => 'business#deactivate', as: 'deactivate_business'
+  get 'business/:id/settings' => 'business#settings', as: 'user_business'
 
   get 'team/:id', to: 'team#user_team', as: 'user_team'
   get 'team' => 'team#index'

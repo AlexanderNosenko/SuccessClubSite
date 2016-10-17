@@ -4,16 +4,16 @@
   <div class="tab-content">
     <div id="landings" class="flexbox">
       <div class="offers flexbox">
-        <%= form_for( @settings, url: business_settings_path(@business.id)) do |f| %> 
+        <%= form_for( @settings, url: business_settings_path(@business.id) ) do |f| %> 
 	        <div class="field">
 			      <%= label :partner_link, 'Партнерская ссылка' %>
             <br/>
 			      <%= text_field :partner_link, :link %>
 			    </div>
 			    <div class="field">
-			      <%= label @settings, 'Блокировать регистрации' %>
+			      <%= label :settings, 'Блокировать регистрации' %>
             <br/>
-			      <%= check_box @settings, :block_reg %>
+			      <%= check_box :settings, :block_reg %>
 			    </div>
 			    <%= f.submit %>
         <% end %>

@@ -8,22 +8,17 @@ class BusinessController < ApplicationController
   end
   
   def business
-  	unless params[:type]
-  	  params[:type] == 'all'
-  	end
-  	
-  	if(params[:type] == 'my')
+    if(params[:type] == 'my')
   	  @businesses = current_user.businesses.paginate(:per_page => 4, :page => params[:page])
-  	# elsif ['all', 'problem', 'recent'].include? params[:type]
-	else
+  	elsif ['all', 'problem', 'recent'].include? params[:type]
 	  @businesses = eval('Business.' + params[:type]).paginate(:per_page => 4, :page => params[:page])  
-  	# elsif params[:type].class == Fixnum 
-  	#   @business = Business.find(
-  	#   redirect_to 
-  	end
-  	render 'all_business'
+    end
   end
   
+  def show
+  	@business = Business.find(params[:id])
+  end
+
   def activate
   	# begin
   	  @business = Business.find(params[:id])
@@ -41,7 +36,7 @@ class BusinessController < ApplicationController
   	  redirect_to "/landings/?business_id=#{@business.id}"
   	# rescue
   	#   flash[:error] = 'Что то пошло не так, обратитесь в тех поддержку'
-  	#   redirect_to business_path 'all'
+  	#   redirect_to business_scope_path 'all'
   	# end
   end
   
@@ -49,16 +44,16 @@ class BusinessController < ApplicationController
   	settings = UserBusiness.find_by(user_id: current_user.id, business_id: params[:id])
   	unless settings
   	  flash[:error] = 'Не удалось найти..'
-  	  redirect_to business_path 'all'
+  	  redirect_to business_scope_path 'all'
   	  return
   	end
   	unless settings.destroy
   	  flash[:error] = 'Что то пошло не так, обратитесь в тех поддержку'
-      redirect_to business_path 'all'
+      redirect_to business_scope_path 'all'
   	  return
   	end
   	flash[:notice] = 'Вы успешно деактивировали бизнес'
-  	redirect_to business_path 'my'
+  	redirect_to business_scope_path 'my'
   end
 
   def settings
@@ -71,7 +66,7 @@ class BusinessController < ApplicationController
   
   def update_settings
   	@settings = UserBusiness.find_by(user_id: current_user.id, business_id: params[:id])
-  	@settings.update_attribute(:block_reg, params['block_reg'])
+  	@settings.update_attribute(:block_reg, params[:settings][:block_reg])
   	@settings.partner_link.update_attribute(:link, ref_link)
   	flash[:notice] = "Изменения сохранены"
   	redirect_to user_business_path, id: params[:id]
@@ -86,7 +81,7 @@ class BusinessController < ApplicationController
   	if (params[:link].blank? && params[:partner_link][:link].blank?) || params[:id].blank?
   	# if params[:ref_link].blank?
   	  flash[:error] = 'Введите свою реферральную ссылку, пожалуйста'
-  	  redirect_to business_path 'all'
+  	  redirect_to business_scope_path 'all'
   	end
   	# params.require(:ref_link)
   end
