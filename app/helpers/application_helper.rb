@@ -1,7 +1,6 @@
 module ApplicationHelper
     
     def business_link
-      
       link = (user_has_rights ? business_index_path : '#')
       htrml_classes = "menu-item " + is_active_controller('instruments/*').to_s + (user_has_rights ? "" : " disabled")      
       raw(
@@ -11,6 +10,7 @@ module ApplicationHelper
         '<span class="full-menu">Бизнес</span></a>'
         )
     end
+    
     def get_view_mode(type)
       unless session[:menu_bar_view_mode].blank?
         if session[:menu_bar_view_mode] == 'minimized'

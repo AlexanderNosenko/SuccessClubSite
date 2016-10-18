@@ -1,6 +1,6 @@
-<div id="content" class="flexbox <%=get_view_mode('content')%>">
+<div id="content" class="flexbox <%= get_view_mode('content') %>">
   <div class="tab-links flexbox">
-    <a href="#" class="active">Landing page</a>
+    <a href="<%= landings_path %>" class="active">Landing page</a>
     <a href="#" class="disabled">Блоги</a>
     <a href="#" class="disabled">Интернет магазины</a>
   </div>
@@ -8,30 +8,30 @@
     <div id="landings" class="flexbox">
       <div class="offers flexbox">
         <% @landings.each do |landing| %>
-        <% # JUST It looks really strange... #less ruby IN VIEWs%>
-        <% has_free = !@club_links.select { |x| x.id == landing.id } .empty? %>
-        <% pay = current_user.has_landing?(landing) and not @for_free %>
-        <% # TODO Add real images %>
-        <div class="goods flexbox"><%= image_tag "landings/redex-logo.png" %>
-          <div class="stuff-name"> <span>Landing page для <%= landing.name %></span></div>
-          <div class="img-price"><%= image_tag "landings/redex-preview.png", alt:"landing-preview", class: "preview" %>
-            <span class="price flexbox"><%= pay ? landing.price.to_s : '0' %>$</span>
-          </div>
-          <% if current_user.has_landing? landing %>
-            <a href="<%= "http://landings.improf.club/#{landing.path}/#{current_user.id}"%>" class="buy-stuff">Открыть</a>
-            <% if has_free %>
-              <span>Клубный landing page</span>
+          <% has_free = !@club_links.select { |x| x.landing_id == landing.id }.empty? %>
+          <% free = current_user.has_landing?(landing) or @for_free %>
+          <% # TODO Add real images %>
+          <div class="goods flexbox"><%= image_tag "landings/redex-logo.png" %>
+            <div class="stuff-name"> <span>Landing page для <%= landing.name %></span></div>
+            <div class="img-price"><%= image_tag "landings/redex-preview.png", alt:"landing-preview", class: "preview" %>
+              <span class="price flexbox"><%= free ? '0' : landing.price.to_s %>$</span>
+            </div>
+            <% if current_user.has_landing? landing %>
+              <%= link_to landing_outer_path(landing.path), class: "buy-stuff" do %>
+                Открыть
+              <% end %>
+              <% if has_free %>
+                <span>Клубный landing page</span>
+              <% else %>
+                <span class="activation">Дата активации: <%= land_activated_at landing.id %></span>
+                <span class="activation">Конец лицензии: <%= land_reactivate_at landing.id %></span>
+              <% end %>
             <% else %>
-              <span class="activation">Дата активации: <%= current_user.user_landings.find_by_landing_id(landing.id).activated_at.strftime("%d/%m/%y")%></span>
-              <span class="activation">Дата активации: <%= current_user.user_landings.find_by_landing_id(landing.id).reactivate_at.strftime("%d/%m/%y")%></span>
+              <%= form_tag(activate_landing_path(landing), onSubmit: 'return activate_landing(this)', method: :post) do %>
+                <%= button_tag "Активировать", class:'buy-stuff'%>
+              <% end %>
             <% end %>
-          <% else %>
-            <%= form_tag(activate_landing_path(landing), onSubmit: 'return activate_landing(this)', method: :post) do%>
-              <%= button_tag "Активировать", class:'buy-stuff'%>
-            <%end%>
-            
-          <% end %>
-        </div>
+          </div>
         <% end %>
       </div>
     </div>
