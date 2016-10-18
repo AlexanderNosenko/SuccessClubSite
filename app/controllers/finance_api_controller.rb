@@ -144,7 +144,7 @@ class FinanceApiController < ApplicationController
     # puts "Params\n" +  params.to_json + "\n"
     # puts "Sign\n" +  sign + "\n"
 
-    head 422  unless params['ac_hash'] == sign#render :status => 422
+    head 422  unless params['ac_hash'] == sign unless skip_validation
     status_of_payment = ["PENDING", "COMPLETED"].include?(params['ac_transaction_status'])
     make_responce_data(params['user_id'], params['ac_amount'], params['ac_merchant_currency'], status_of_payment)
   end
