@@ -1,13 +1,26 @@
 #main #content .info-bs.flexbox {
-  width: 100%;
+  width: 90%;
   justify-content: center;
 }
 
+@media screen and (max-width: 800px) {
+  #main #content .info-bs.flexbox {
+    flex-wrap: wrap;
+  }
+}
+
 #main #content .info-bs.flexbox .left-side {
-  align-items: flex-start;
+  align-items: center;
   text-align: left;
   flex-direction: column;
   margin: 0 10px;
+  width: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  #main #content .info-bs.flexbox .left-side {
+    width: 100%;
+  }
 }
 
 #main #content .info-bs.flexbox .left-side .logo-wrapper {
@@ -22,6 +35,12 @@
 #main #content .info-bs.flexbox .left-side .stars {
   align-self: center;
   margin: 10px 0;
+  font-size: 40px;
+  color: #ebebeb;
+}
+
+#main #content .info-bs.flexbox .left-side .stars .fullstar {
+  color: #ffba00;
 }
 
 #main #content .info-bs.flexbox .left-side .shrt-review {
@@ -50,12 +69,22 @@
 
 #main #content .info-bs.flexbox .right-side {
   flex-direction: column;
+  width: 50%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 800px) {
+  #main #content .info-bs.flexbox .right-side {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
 
 #main #content .info-bs.flexbox .right-side .video {
   height: 277px;
   background: #eee;
-  width: 500px;
+  width: 100%;
 }
 
 #main #content .info-bs.flexbox .right-side button {
@@ -69,4 +98,49 @@
 #main #content p {
   width: 80%;
   margin: 20px 0;
+  font-size: 14px;
+}
+
+#main #content .comments .comment-wrapper {
+  background: #eee;
+  padding: 10px;
+}
+
+#main #content .comments .comment-wrapper .img-wrapper {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+#main #content .comments .comment-wrapper .img-wrapper img {
+  height: 100%;
+}
+
+#main #content .comments .comment-wrapper form {
+  align-items: center;
+}
+
+#main #content .comments .comment-wrapper form textarea {
+  border: none;
+  height: 70px;
+  width: 600px;
+  padding: 5px;
+  margin: 0 20px;
+}
+
+@media screen and (max-width: 600px) {
+  #main #content .comments .comment-wrapper form textarea {
+    width: 90%;
+  }
+}
+
+#main #content .comments .comment-wrapper form button {
+  border: none;
+  background: transparent;
+  font-size: 40px;
+  color: #157260;
+  margin-right: -32px;
 }
