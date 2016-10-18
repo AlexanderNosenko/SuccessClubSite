@@ -128,7 +128,7 @@ class FinanceApiController < ApplicationController
 
   def adapte_advcash_data
 
-    head 400 if params['ac_hash'].blank? && Rails.env.production?#render :status => 400 
+    head 400 if params['ac_hash'].blank? && Rails.env.production? && !skip_validation#render :status => 400 
 
     status_params = [params['ac_transfer']]
     status_params.push(params['ac_start_date'])
@@ -151,7 +151,7 @@ class FinanceApiController < ApplicationController
 
   def make_responce_data(customer, amount ,currency, status)
     
-    head 400 if customer.blank? || amount.blank? || currency.blank? || status.blank? && Rails.env.production?#render :status => 400 
+    head 400 if customer.blank? || amount.blank? || currency.blank? || status.blank? && Rails.env.production? && !skip_validation#render :status => 400 
     @responce_data = {
         :user_id => customer,
         :amount => amount,
