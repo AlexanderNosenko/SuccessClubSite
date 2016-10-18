@@ -1,6 +1,6 @@
 <div id="content" class="flexbox <%= get_view_mode('content') %>">
   <div class="tab-links flexbox">
-    <a href="#" class="active">Landing page</a>
+    <a href="<%= landings_path %>" class="active">Landing page</a>
     <a href="#" class="disabled">Блоги</a>
     <a href="#" class="disabled">Интернет магазины</a>
   </div>
@@ -19,7 +19,7 @@
             <% if current_user.has_landing? landing %>
               <%= link_to landing_outer_path(landing.path), class: "buy-stuff" do %>
                 Открыть
-              <% end%>
+              <% end %>
               <% if has_free %>
                 <span>Клубный landing page</span>
               <% else %>
@@ -29,7 +29,7 @@
             <% else %>
               <%= form_tag(activate_landing_path(landing), onSubmit: 'return activate_landing(this)', method: :post) do %>
                 <%= button_tag "Активировать", class:'buy-stuff'%>
-              <%end%>
+              <% end %>
             <% end %>
           </div>
         <% end %>

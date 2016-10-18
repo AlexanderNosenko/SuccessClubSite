@@ -18,9 +18,9 @@ class Instruments::LandingsController < ApplicationController
 
     if params[:business_id]
       # TODO business_id should be added to landing model
-      @landings = Landing.where(business_id: params[:business_id]).order(created_at: :desc)
+      @landings = Landing.by_business(params[:business_id]).newest_first
     else
-      @landings = Landing.order(created_at: :desc)
+      @landings = Landing.newest_first
     end
     @landings = @landings.paginate(:per_page => 15, :page => params[:page])
   end
@@ -93,7 +93,7 @@ class Instruments::LandingsController < ApplicationController
     if params[:business_id].blank?
       redirect_to action: :index 
     else
-      redirect_to business_setting_path(params[:business_id]) unless params[:business_id].blank?            
+      redirect_to business_settings_path params[:business_id]
     end
     
   end
