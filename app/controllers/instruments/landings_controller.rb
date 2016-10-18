@@ -2,21 +2,27 @@ class Instruments::LandingsController < ApplicationController
   before_action :define_landing, only: [:show, :activate]
   before_action :authenticate_user!, only: [:index, :activate]
   # OPTIMIZE I'm sure we haven't have to do this
-  before_action :make_payment_services
+  # before_action :make_payment_services
   # What about this one?
   require "will_paginate/array"
+  
   def index
-    if current_user
-      @for_free = current_user.free_land_number > 0
-      @club_links = current_user.club_links
-    end
+    # Seems to be annessesary
+    # if current_user
+    #   @for_free = current_user.free_land_number > 0
+    #   @club_links = current_user.club_links
+    # end
+
+    @for_free = current_user.free_land_number > 0
+    @club_links = current_user.club_links
 
     if params[:business_id]
       # TODO business_id should be added to landing model
-      @landings = Landing.where(business_id: params[:business_id]).order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
+      @landings = Landing.where(business_id: params[:business_id]).order(created_at: :desc)
     else
-      @landings = Landing.order(created_at: :desc).paginate(:per_page => 15, :page => params[:page])
+      @landings = Landing.order(created_at: :desc)
     end
+    @landings = @landings.paginate(:per_page => 15, :page => params[:page])
   end
 
   def show

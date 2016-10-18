@@ -2,13 +2,13 @@ module ApplicationHelper
     
     def business_link
       
-      link = (user_has_rights ? 'href="' + business_index_path + '"' : '')
+      link = (user_has_rights ? business_index_path : '#')
       htrml_classes = "menu-item " + is_active_controller('instruments/*').to_s + (user_has_rights ? "" : " disabled")      
       raw(
-        "<a #{link} class='#{htrml_classes}'>" + 
+        "<a class='#{htrml_classes}' href='#{link}'>" + 
         '<i class="fa fa-bank"></i>' + 
         ( user_has_rights ? '' : '<span class="dis-popup">Временно недоступно</span>') + 
-        '<span class="full-menu">Бизнес</span>'
+        '<span class="full-menu">Бизнес</span></a>'
         )
     end
     def get_view_mode(type)

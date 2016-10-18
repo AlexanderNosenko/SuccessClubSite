@@ -1,38 +1,37 @@
 Rails.application.routes.draw do
 
   root 'landing#index'
-  get 'home' => 'home#index'
+  get 'home', to: 'home#index'
   
-  post '/view_mode' => 'home#set_view_mode'
-  post 'finance_api/responce_status/:id' => 'finance_api#responce_status'
-  post 'finance_api/output' => 'finance_api#output'
+  post '/view_mode', to: 'home#set_view_mode'
+  post 'finance_api/responce_status/:id', to: 'finance_api#responce_status'
+  post 'finance_api/output', to: 'finance_api#output'
   
-  get 'finance_api/success/:id' => 'finance_api#success'
-  post 'finance_api/success/:id' => 'finance_api#success'
+  get 'finance_api/success/:id', to: 'finance_api#success'
+  post 'finance_api/success/:id', to: 'finance_api#success'
   
-  get 'finance_api/error/:id' => 'finance_api#error'
-  post 'finance_api/error/:id' => 'finance_api#error'
+  get 'finance_api/error/:id', to: 'finance_api#error'
+  post 'finance_api/error/:id', to: 'finance_api#error'
   
-  get '/finance_api/payment_form' => 'finance_api#payment_form'
+  get '/finance_api/payment_form', to: 'finance_api#payment_form'
 
-  get 'business' => 'business#index', as: 'business_index'
+  get 'business', to: 'business#index', as: 'business_index'
 
-  get 'business/scope/:type' => 'business#business', as: 'business_scope'
-  # FIXME NO HTML
-  # get 'business/:id' => 'business#show', as: 'business'
+  get 'business/scope/:type', to: 'business#business', as: 'business_scope'
+  get 'business/:id', to: 'business#show', as: 'business'
 
-  post 'business/:id' => 'business#activate', as: 'activate_business'
-  patch 'business/:id' => 'business#update_settings', as: 'business_settings'
-  delete 'business/:id' => 'business#deactivate', as: 'deactivate_business'
-  get 'business/:id/settings' => 'business#settings', as: 'user_business'
+  post 'business/:id', to: 'business#activate', as: 'activate_business'
+  patch 'business/:id', to: 'business#update_settings', as: 'business_settings'
+  delete 'business/:id', to: 'business#deactivate', as: 'deactivate_business'
+  get 'business/:id/settings', to: 'business#settings', as: 'user_business'
 
   get 'team/:id', to: 'team#user_team', as: 'user_team'
-  get 'team' => 'team#index'
-  post 'team' => 'team#index'
+  get 'team', to: 'team#index'
+  post 'team', to: 'team#index'
   
-  get '/p/:id' => 'partner_link#partner', as: 'partner_link'
-  post '/p/:id' => 'partner_link#landing', as: 'landing_link'
-  delete '/p' => 'partner_link#delete', as: 'delete_partner_session'
+  get '/p/:id', to: 'partner_link#partner', as: 'partner_link'
+  post '/p/:id', to: 'partner_link#landing', as: 'landing_link'
+  delete '/p', to: 'partner_link#delete', as: 'delete_partner_session'
   
   get '/landings', to: 'instruments/landings#index', as: 'landings'
   get '/landings/:id', to: 'instruments/landings#show', as: 'landing'
@@ -40,7 +39,7 @@ Rails.application.routes.draw do
   #resources :landings, only: [:index, :activate], path: 'landings', controller:'instruments/landings'
   
   resources :users, controller: 'profile', path: 'profile'
-  match '/profile/:id/finish_signup' => 'profile#finish_signup', via: [:get, :patch], :as => :finish_signup
+  match '/profile/:id/finish_signup', to: 'profile#finish_signup', via: [:get, :patch], as: :finish_signup
   post '/profile/status', to: 'profile#change_role'
   
   devise_for :users, controllers:
@@ -57,7 +56,7 @@ Rails.application.routes.draw do
       sign_up: 'register',
       password: 'passwords'
     }
-    patch '/admin/withdrawals/:id/' => 'admin/withdrawals#update', as: :withdrawal
+    patch '/admin/withdrawals/:id/', to: 'admin/withdrawals#update', as: :withdrawal
 
   # Admin Pages
   namespace :admin do
@@ -82,10 +81,10 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  #   get 'products/:id', to: 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  #   get 'products/:id/purchase', to: 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

@@ -46,11 +46,9 @@
                 <%= image_tag 'html_logo' %>
               </div>
               <div class="business-rating">
-                <div class="i-star" id="i1-star"></div>
-                <div class="i-star" id="i2-star"></div>
-                <div class="i-star" id="i3-star"></div>
-                <div class="i-star" id="i4-star"></div>
-                <div class="i-star" id="i5-star"></div>
+                <% 5.times do |i| %>
+                  <div class="i-star" id="i<%= i + 1 %>-star"></div>
+                <% end %>
               </div>
               <div class="business-short-info">
                 <div class="business-short-info-text">
