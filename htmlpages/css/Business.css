@@ -78,7 +78,7 @@
           align-items: stretch;
 }
 
-#main #content .companies .company .about_and_btns .comp-btns button {
+#main #content .companies .company .about_and_btns .comp-btns button, #main #content .companies .company .about_and_btns .comp-btns a {
   margin: 10px 0 0;
   background: #256c5e;
   border: none;
