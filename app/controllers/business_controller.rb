@@ -4,14 +4,16 @@ class BusinessController < ApplicationController
   before_action :prepare_params, only: [:activate, :update_settings]
   # before_action :prepare_business_list, only: [:all_business]
   
-  def index
-  end
-  
   def business
+    @scopes = %w(my all recent problem)
+    unless @scopes.include? params[:type]
+      params[:type] = 'all'
+    end
+
     if(params[:type] == 'my')
-  	  @businesses = current_user.businesses.paginate(:per_page => 4, :page => params[:page])
-  	elsif ['all', 'problem', 'recent'].include? params[:type]
-	  @businesses = eval('Business.' + params[:type]).paginate(:per_page => 4, :page => params[:page])  
+      @businesses = current_user.businesses.paginate(:per_page => 4, :page => params[:page])
+    else
+      @businesses = eval('Business.' + params[:type]).paginate(:per_page => 4, :page => params[:page])
     end
   end
   
@@ -80,7 +82,7 @@ class BusinessController < ApplicationController
   def prepare_params
   	if (params[:link].blank? && params[:partner_link][:link].blank?) || params[:id].blank?
   	# if params[:ref_link].blank?
-  	  flash[:error] = 'Введите свою реферральную ссылку, пожалуйста'
+  	  flash[:error] = "Часть данных отсутствует\nВведите свою реферральную ссылку, пожалуйста"
   	  redirect_to business_scope_path 'all'
   	end
   	# params.require(:ref_link)

@@ -13,7 +13,7 @@ html(lang="ru")
 		link(rel='stylesheet' media='all' href='css/animate.css')/
 		link(rel='stylesheet' href='css/fonts.css')/
 		link(rel='stylesheet' href='css/main.css')/
-		link(rel='stylesheet' href='css/tools.css')/
+		link(rel='stylesheet' href='css/detailed-bs.css')/
 		script(type='text/javascript' src='js/jquery-3.1.0.min.js')
 		script(type='text/javascript' src='js/jquery-1.12.3.min.js')
 		script(src='js/bootstrap/bootstrap.min.js')
@@ -106,17 +106,24 @@ html(lang="ru")
 				div.modal-content
 					div.modal-body
 						.toolchoise.flexbox
-							a(href='buy-tools.html'): i.fa.fa-cart-plus
-							a(href='mytools.html'): i.fa.fa-cubes
+							a(href='buy-tools.html')
+								i.allvis.fa.fa-cart-plus
+								span.hidd Выбрать инструменты
+							a(href='mytools.html')
+								i.allvis.fa.fa-cubes
+								span.hidd Мои инструменты
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
-		div.modal.fade.activate#activate-website(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+		div.modal.fade#business-choose(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
 			div.modal-dialog
 				div.modal-content
 					div.modal-body
-						.flexbox
-							span.mheadline Активация лендинга
-							span.alert Подтверждаете активацию за $127001?
-							button.superbutt Активировать
+						.toolchoise.flexbox
+							a(href='mybusiness.html')
+								i.allvis.fa.fa-male
+								span.hidd Мой бизнес
+							a(href='business.html')
+								i.allvis.fa.fa-cog
+								span.hidd Выбрать направление
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
@@ -156,15 +163,14 @@ html(lang="ru")
 					<i class="fa fa-money"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Быстрые деньги
-				a.menu-item.disabled
+				a.active.menu-item(data-toggle="modal" data-target="#business-choose")
 					<i class="fa fa-bank"></i>
-					span.dis-popup Временно недоступно
 					span.full-menu Бизнес
 				a.menu-item.disabled
 					<i class="fa fa-usd" aria-hidden="true"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Инвестиции
-				a.menu-item.active#tools-menu(data-toggle="modal" data-target="#tools-choose")
+				a.menu-item(data-toggle="modal" data-target="#tools-choose")
 					<i class="fa fa-cogs"></i>
 					span.full-menu Инструменты
 				a.menu-item.disabled
@@ -201,38 +207,88 @@ html(lang="ru")
 					span.full-menu Вакансии
 		#main.flexbox
 			#content.flexbox.full
-				.tab-links.flexbox#main-l
-					a.active(href='#landings' data-toggle='tab') Landing Pages
-					a.disabled(href='#blogs' data-toggle='tab') Блоги
-					a.disabled(href='#online-shops' data-toggle='tab') Интернет магазины
-				//.tab-links.flexbox#notmain
-					a.active(href='#') Landing page
-					a.disabled(href='#') Блоги
-					a.disabled(href='#') Интернет магазины
-				.tab-content
-					#landings.tab-pane.active
-						.offers.flexbox
-							.goods.flexbox
-								img(src='img/oriflame-logo.png' alt='oriflame-logo')
-								.stuff-name 
-									span Landin page for Oriflame
-								.img-price
-									img.preview(src='' alt='landing-preview')
-									span.price.flexbox 10$
-								button.buy-stuff(data-toggle="modal" data-target="#activate-website") Активировать  
-									i.fa.fa-plus-circle
-							.goods.flexbox
-								img(src='img/oriflame-logo.png' alt='oriflame-logo')
-								.stuff-name 
-									span Landin page for Oriflame
-								.img-price
-									img.preview(src='' alt='landing-preview')
-									span.price.flexbox 10$
-								button.buy-stuff(data-toggle="modal" data-target="#activate-website") Активировать  
-									i.fa.fa-plus-circle
+				.info-bs.flexbox
+					.left-side.flexbox
+						.logo-wrapper
+							img(src='img/kp-logo.png')
+						.stars.flexbox
+							i.fa.fa-star.fullstar
+							i.fa.fa-star
+							i.fa.fa-star
+							i.fa.fa-star
+							i.fa.fa-star
+						.shrt-review.flexbox
+							span Срок работы: 
+								b 10 лет
+							span Количество дней в клубе: 
+								b 10 дней
+							span Участников от клуба: 
+								b 1234
+						.comp-btns.flexbox
+							button.grbtn Пошаговая инструкция
+							button.orbtn Позвонить спонсору
+					.right-side.flexbox
+						.video
+						button Связаться с помощником
+				p.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				.comments-block.flexbox
+					.comment-wrapper.flexbox
+						.img-wrapper.flexbox
+							img(src='img/mC1NkcwYsAM.jpg')
+						form.flexbox(name='comment' action='' method='post')
+							textarea(type='text' name='comm' placeholder='Написать комментарий')
+							button(type='submit'): i.fa.fa-check-circle
+					.comment.flexbox
+						.img-wrapper.flexbox
+							img(src='img/mC1NkcwYsAM.jpg')
+						span.
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat.
+						.stars.flexbox
+							i.fa.fa-star.fullstar
+							i.fa.fa-star
+							i.fa.fa-star
+							i.fa.fa-star
+							i.fa.fa-star
+					.comment.flexbox
+						.img-wrapper.flexbox
+							img(src='img/mC1NkcwYsAM.jpg')
+						span.
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat.
+						.stars.flexbox
+							i.fa.fa-star.fullstar
+							i.fa.fa-star
+							i.fa.fa-star
+							i.fa.fa-star
+							i.fa.fa-star
+					.comment.flexbox
+						.img-wrapper.flexbox
+							img(src='img/mC1NkcwYsAM.jpg')
+						span.
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat.
+						.stars.flexbox
+							i.fa.fa-star.fullstar
+							i.fa.fa-star
+							i.fa.fa-star
+							i.fa.fa-star
+							i.fa.fa-star
 		footer
-			span Клуб проффесионалов &copy2016 Все права защищены.
-			a(href='#') Правила сервиса
+			span Клуб Профессионалов &copy2016 Все права защищены.
+			a(href='#' target='_blank') Правила сервиса
 		script.
 			$('#menu-btn').click(function(){
 			  if ($( "#flex-sidebar" ).hasClass( "full" )){
@@ -243,12 +299,4 @@ html(lang="ru")
 			  		$( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
 			  		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
 			  }
-			});
-			$('#main-l a').click(function(){
-				$( "#main-l a" ).removeClass( "active" );
-				$(this).addClass( "active" );
-			});
-			$('#notmain a').click(function(){
-				$( "#notmain a" ).removeClass( "active" );
-				$(this).addClass( "active" );
 			});

@@ -60,6 +60,10 @@ hr {
   margin: 0;
 }
 
+textarea {
+  resize: none;
+}
+
 .disabled {
   background: #76a49b !important;
   cursor: not-allowed !important;

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	if(window.location.pathname.match(/\/business/)){
+	if(window.location.pathname.match(/\/business$/)){
 		$('#index-business-modal').modal({
 									  backdrop: 'static',
 									  keyboard: false

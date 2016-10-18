@@ -1,11 +1,32 @@
+#settings .modal-body .flexbox {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#settings .modal-body .flexbox button {
+  border: none;
+  background: #256c5e;
+  color: white;
+  padding: 3px 5px;
+}
+
 #main #content .companies .company {
-  align-items: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 #main #content .companies .company .pic_and_rate {
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 250px;
 }
 
@@ -13,8 +34,12 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  justify-content: center;
-  align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   overflow: hidden;
 }
 
@@ -32,15 +57,21 @@
 }
 
 #main #content .companies .company .pic_and_rate .shrt-review {
-  flex-direction: column;
-  align-items: flex-start;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   font-size: 13px;
   text-align: left;
 }
 
 #main #content .companies .company .about_and_btns {
   width: 200px;
-  flex-direction: column;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-size: 14px;
 }
 
@@ -49,12 +80,18 @@
 }
 
 #main #content .companies .company .about_and_btns .comp-btns {
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
-#main #content .companies .company .about_and_btns .comp-btns button {
+#main #content .companies .company .about_and_btns .comp-btns button, #main #content .companies .company .about_and_btns .comp-btns a {
   margin: 10px 0 0;
   background: #256c5e;
   border: none;

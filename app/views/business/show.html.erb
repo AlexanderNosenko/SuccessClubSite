@@ -1,0 +1,56 @@
+<div id="content" class="flexbox <%= get_view_mode('content') %>">
+  <div class="tab-content">
+    <div id="landings" class="flexbox">
+      <div class="offers flexbox">
+        <div class="goods flexbox business" data-id="<%= @business.id %>">
+          <div class="col-md-7 business-left">
+            <div class="business_name" style="display:none;">
+              <%= @business.name %>  
+            </div>
+            <div class="business-image">
+              <%= image_tag 'html_logo' %>
+            </div>
+            <div class="business-rating">
+              <% 5.times do |i| %>
+                <div class="i-star" id="i<%= i + 1 %>-star"></div>
+              <% end %>
+            </div>
+            <div class="business-short-info">
+              <div class="business-short-info-text">
+                Срок работы: <%= distance_of_time_in_words Time.now, @business.opened_at %>
+              </div>
+              <div class="business-short-info-text">
+                Состоит в клубе: <%= distance_of_time_in_words Time.now, @business.created_at %>
+              </div>
+              <div class="business-short-info-text">
+                Участников от клуба: <%= @business.users.size %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 business-right">
+            <div class="business-long-info">
+              <%= @business.description %>
+            </div>
+            <div class="business-btn business-step-btn">
+              Пошаговая инструкция
+            </div>
+            <%= link_to 'Позвонить спонсору', user_business_path(@business.id), 
+              class: "business-btn business-contact-btn" %>
+          </div>
+        </div>
+        <div class="right-side flexbox">
+          <div class="video"></div>
+          <button>Зарегестрироваться</button>
+        </div>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+  </div>
+</div>

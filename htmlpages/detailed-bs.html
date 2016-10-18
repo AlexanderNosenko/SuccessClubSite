@@ -13,7 +13,7 @@
     <link rel="stylesheet" media="all" href="css/animate.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/tools.css">
+    <link rel="stylesheet" href="css/detailed-bs.css">
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
@@ -151,49 +151,69 @@
       </div>
     </nav>
     <nav id="sidebar">
-      <div id="flex-sidebar" class="flexbox minimized"><a href="../" class="active menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="profile.html" class="menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="team.html" class="menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a><a class="menu-item disabled"><i class="fa fa-graduation-cap"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Обучение</span></a><a class="menu-item disabled"><i class="fa fa-money"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Быстрые деньги</span></a><a data-toggle="modal" data-target="#business-choose" class="menu-item"><i class="fa fa-bank"></i><span class="full-menu">Бизнес</span></a><a class="menu-item disabled"><i class="fa fa-usd" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инвестиции</span></a><a data-toggle="modal" data-target="#tools-choose" class="active menu-item"><i class="fa fa-cogs"></i><span class="full-menu">Инструменты</span></a><a class="menu-item disabled"><i class="fa fa-cubes" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Серфинг сайтов</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Финансы</span></a><a class="menu-item disabled"><i class="fa fa-trophy" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Лоторея</span></a><a class="menu-item disabled"><i class="fa fa-calendar"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Мероприятия</span></a><a class="menu-item disabled"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Новости</span></a><a class="menu-item disabled"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Благотворительность</span></a><a class="menu-item disabled"><i class="fa fa-book"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">FAQ</span></a><a class="menu-item disabled"><i class="fa fa-black-tie" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Вакансии</span></a></div>
+      <div id="flex-sidebar" class="flexbox minimized"><a href="../" class="menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="profile.html" class="menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="team.html" class="menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a><a class="menu-item disabled"><i class="fa fa-graduation-cap"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Обучение</span></a><a class="menu-item disabled"><i class="fa fa-money"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Быстрые деньги</span></a><a data-toggle="modal" data-target="#business-choose" class="active menu-item"><i class="fa fa-bank"></i><span class="full-menu">Бизнес</span></a><a class="menu-item disabled"><i class="fa fa-usd" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инвестиции</span></a><a data-toggle="modal" data-target="#tools-choose" class="menu-item"><i class="fa fa-cogs"></i><span class="full-menu">Инструменты</span></a><a class="menu-item disabled"><i class="fa fa-cubes" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Серфинг сайтов</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Финансы</span></a><a class="menu-item disabled"><i class="fa fa-trophy" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Лоторея</span></a><a class="menu-item disabled"><i class="fa fa-calendar"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Мероприятия</span></a><a class="menu-item disabled"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Новости</span></a><a class="menu-item disabled"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Благотворительность</span></a><a class="menu-item disabled"><i class="fa fa-book"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">FAQ</span></a><a class="menu-item disabled"><i class="fa fa-black-tie" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Вакансии</span></a></div>
     </nav>
     <div id="main" class="flexbox">
       <div id="content" class="flexbox full">
-        <div id="main-l" class="tab-links flexbox"><a href="#landings" data-toggle="tab" class="active">Landing Pages</a><a href="#blogs" data-toggle="tab" class="disabled">Блоги</a><a href="#online-shops" data-toggle="tab" class="disabled">Интернет магазины</a></div>
-        <!--.tab-links.flexbox#notmain
-        a.active(href='#') Landing page
-        a.disabled(href='#') Блоги
-        a.disabled(href='#') Интернет магазины
-        -->
-        <div class="tab-content">
-          <div id="landings" class="tab-pane active">
-            <div class="offers flexbox">
-              <div class="goods flexbox"><img src="img/oriflame-logo.png" alt="oriflame-logo">
-                <div class="stuff-name"> <span>Landin page for Oriflame</span></div>
-                <div class="img-price"><img src="" alt="landing-preview" class="preview"><span class="price flexbox">10$</span></div>
-                <div class="btns-inmt flexbox">
-                  <button data-toggle="modal" data-target="#links" class="link-inmt"><i class="fa fa-link" aria-hidden="true"></i></button>
-                  <button class="buy-stuff">Открыть  <i class="fa fa-eye"> </i></button>
-                </div><span class="activation">Дата активации: 16.09.2016</span><span class="activation">Активирован до: 16.09.2016</span>
-              </div>
-              <div class="goods flexbox"><img src="img/oriflame-logo.png" alt="oriflame-logo">
-                <div class="stuff-name"> <span>Landin page for Oriflame</span></div>
-                <div class="img-price"><img src="" alt="landing-preview" class="preview"><span class="price flexbox">10$</span></div>
-                <div class="btns-inmt flexbox">
-                  <button data-toggle="modal" data-target="#links" class="link-inmt"><i class="fa fa-link" aria-hidden="true"></i></button>
-                  <button class="buy-stuff">Открыть  <i class="fa fa-eye"> </i></button>
-                </div><span class="activation">Дата активации: 16.09.2016</span><span class="activation">Активирован до: 16.09.2016</span>
-              </div>
-              <div class="goods flexbox"><img src="img/oriflame-logo.png" alt="oriflame-logo">
-                <div class="stuff-name"> <span>Landin page for Oriflame</span></div>
-                <div class="img-price"><img src="" alt="landing-preview" class="preview"><span class="price flexbox">10$</span></div>
-                <div class="btns-inmt flexbox">
-                  <button data-toggle="modal" data-target="#links" class="link-inmt"><i class="fa fa-link" aria-hidden="true"></i></button>
-                  <button class="buy-stuff">Открыть  <i class="fa fa-eye"> </i></button>
-                </div><span class="activation">Дата активации: 16.09.2016</span><span class="activation">Активирован до: 16.09.2016</span>
-              </div>
+        <div class="info-bs flexbox">
+          <div class="left-side flexbox">
+            <div class="logo-wrapper"><img src="img/kp-logo.png"></div>
+            <div class="stars flexbox"><i class="fa fa-star fullstar"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+            <div class="shrt-review flexbox"><span>Срок работы: <b>10 лет</b></span><span>Количество дней в клубе: <b>10 дней</b></span><span>Участников от клуба: <b>1234</b></span></div>
+            <div class="comp-btns flexbox">
+              <button class="grbtn">Пошаговая инструкция</button>
+              <button class="orbtn">Позвонить спонсору</button>
             </div>
+          </div>
+          <div class="right-side flexbox">
+            <div class="video"></div>
+            <button>Связаться с помощником</button>
+          </div>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <div class="comments-block flexbox">
+          <div class="comment-wrapper flexbox">
+            <div class="img-wrapper flexbox"><img src="img/mC1NkcwYsAM.jpg"></div>
+            <form name="comment" action="" method="post" class="flexbox">
+              <textarea type="text" name="comm" placeholder="Написать комментарий"></textarea>
+              <button type="submit"><i class="fa fa-check-circle"></i></button>
+            </form>
+          </div>
+          <div class="comment flexbox">
+            <div class="img-wrapper flexbox"><img src="img/mC1NkcwYsAM.jpg"></div><span>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.</span>
+            <div class="stars flexbox"><i class="fa fa-star fullstar"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+          </div>
+          <div class="comment flexbox">
+            <div class="img-wrapper flexbox"><img src="img/mC1NkcwYsAM.jpg"></div><span>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.</span>
+            <div class="stars flexbox"><i class="fa fa-star fullstar"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+          </div>
+          <div class="comment flexbox">
+            <div class="img-wrapper flexbox"><img src="img/mC1NkcwYsAM.jpg"></div><span>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.</span>
+            <div class="stars flexbox"><i class="fa fa-star fullstar"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
           </div>
         </div>
       </div>
     </div>
-    <footer><span>Клуб Профессионалов &copy2016 Все права защищены.</span><a href="#">Правила сервиса</a></footer>
+    <footer><span>Клуб Профессионалов &copy2016 Все права защищены.</span><a href="#" target="_blank">Правила сервиса</a></footer>
     <script>
       $('#menu-btn').click(function(){
         if ($( "#flex-sidebar" ).hasClass( "full" )){
@@ -204,14 +224,6 @@
         		$( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
         		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
         }
-      });
-      $('#main-l a').click(function(){
-      	$( "#main-l a" ).removeClass( "active" );
-      	$(this).addClass( "active" );
-      });
-      $('#notmain a').click(function(){
-      	$( "#notmain a" ).removeClass( "active" );
-      	$(this).addClass( "active" );
       });
     </script>
   </body>

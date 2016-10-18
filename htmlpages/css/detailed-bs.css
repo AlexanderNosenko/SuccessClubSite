@@ -1,0 +1,285 @@
+#main #content .info-bs.flexbox {
+  width: 80%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+  #main #content .info-bs.flexbox {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+}
+
+#main #content .info-bs.flexbox .left-side {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: left;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 10px;
+  width: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  #main #content .info-bs.flexbox .left-side {
+    width: 100%;
+  }
+}
+
+#main #content .info-bs.flexbox .left-side .logo-wrapper {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  width: 200px;
+}
+
+#main #content .info-bs.flexbox .left-side .logo-wrapper img {
+  width: 100%;
+}
+
+#main #content .info-bs.flexbox .left-side .stars {
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  margin: 10px 0;
+  font-size: 40px;
+  color: #ebebeb;
+}
+
+#main #content .info-bs.flexbox .left-side .stars .fullstar {
+  color: #ffba00;
+}
+
+#main #content .info-bs.flexbox .left-side .shrt-review {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#main #content .info-bs.flexbox .left-side .comp-btns {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+#main #content .info-bs.flexbox .left-side .comp-btns button {
+  margin: 10px 0 0;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+}
+
+#main #content .info-bs.flexbox .left-side .comp-btns .grbtn {
+  background: #157260;
+}
+
+#main #content .info-bs.flexbox .left-side .comp-btns .orbtn {
+  background: #ee6023;
+}
+
+#main #content .info-bs.flexbox .right-side {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (max-width: 800px) {
+  #main #content .info-bs.flexbox .right-side {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+#main #content .info-bs.flexbox .right-side .video {
+  height: 277px;
+  background: #eee;
+  width: 100%;
+}
+
+#main #content .info-bs.flexbox .right-side button {
+  margin: 10px 0 0;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  background: #157260;
+}
+
+#main #content p {
+  width: 80%;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+#main #content .comments-block {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main #content .comments-block .comment-wrapper {
+  background: #eee;
+  padding: 10px;
+}
+
+#main #content .comments-block .comment-wrapper .img-wrapper {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  #main #content .comments-block .comment-wrapper .img-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+#main #content .comments-block .comment-wrapper .img-wrapper img {
+  height: 100%;
+}
+
+#main #content .comments-block .comment-wrapper form {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main #content .comments-block .comment-wrapper form textarea {
+  border: none;
+  height: 70px;
+  width: 600px;
+  padding: 5px;
+  margin: 0 20px;
+}
+
+@media screen and (max-width: 830px) {
+  #main #content .comments-block .comment-wrapper form textarea {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #main #content .comments-block .comment-wrapper form textarea {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  #main #content .comments-block .comment-wrapper form textarea {
+    width: 120px;
+  }
+}
+
+#main #content .comments-block .comment-wrapper form button {
+  border: none;
+  background: transparent;
+  font-size: 40px;
+  color: #157260;
+  margin-right: -32px;
+}
+
+@media screen and (max-width: 800px) {
+  #main #content .comments-block .comment-wrapper form button {
+    font-size: 20px;
+    margin-right: -23px;
+  }
+}
+
+#main #content .comments-block .comment {
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  #main #content .comments-block .comment {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+#main #content .comments-block .comment .img-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 450px) {
+  #main #content .comments-block .comment .img-wrapper {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+#main #content .comments-block .comment .img-wrapper img {
+  height: 100%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main #content .comments-block .comment span {
+  font-size: 12px;
+  width: 500px;
+  text-align: left;
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 830px) {
+  #main #content .comments-block .comment span {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #main #content .comments-block .comment span {
+    width: 150px;
+  }
+}
+
+#main #content .comments-block .comment .stars {
+  font-size: 15px;
+  color: #ebebeb;
+  width: 100px;
+}
+
+#main #content .comments-block .comment .stars .fullstar {
+  color: #ffba00;
+}

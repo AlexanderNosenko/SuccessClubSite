@@ -108,7 +108,7 @@ class FinanceApiController < ApplicationController
 
     head 422 unless Rails.env.development? || params['signature'] == sign#render :status => 422 
     puts 'liqpay_status:' + liqpay_data['status']
-    status_of_payment = (liqpay_data['status'] == "success") || (liqpay_data['status'] == "wait_accept") ? true : false
+    status_of_payment = (liqpay_data['status'] == "success") || (liqpay_data['status'] == "wait_accept")
 
     make_responce_data(liqpay_data['customer'], liqpay_data['amount'], liqpay_data['currency'], status_of_payment)
 
@@ -145,7 +145,7 @@ class FinanceApiController < ApplicationController
     # puts "Sign\n" +  sign + "\n"
 
     head 422  unless params['ac_hash'] == sign#render :status => 422
-    status_of_payment = params['ac_transaction_status'] == "COMPLETED" ? true : false
+    status_of_payment = ["PENDING", "COMPLETED"].include?(params['ac_transaction_status'])
     make_responce_data(params['user_id'], params['ac_amount'], params['ac_merchant_currency'], status_of_payment)
   end
 

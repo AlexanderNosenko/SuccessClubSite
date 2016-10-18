@@ -26,12 +26,34 @@
       </div>
     </div>
   </div>
+
+  <div id="index-business-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          
+          <h2>Направления бизнеса</h2>
+          <div class="toolchoise flexbox">
+            <%= link_to business_scope_path 'my' do %>
+              <i class="allvis fa fa-male"></i>
+              <span class="hidd">Мой бизнес</span>
+            <% end %>
+            <%= link_to business_scope_path 'all' do %> 
+              <i class="allvis fa fa-cog"></i>
+              <span class="hidd">Выбрать направление</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
+
 <div id="content" class="flexbox <%= get_view_mode('content') %>">
   <div class="tab-links flexbox">
-    <a href="<%= business_scope_path('all') %>" class="<%= active_class(params[:id]) %>">Популярные компании</a>
-    <a href="<%= business_scope_path('recent') %>" class="<%= active_class(params[:id]) %>">Новые компании</a>
-    <a href="<%= business_scope_path('problem') %>" class="<%= active_class(params[:id]) %>">Проблемные компании</a>
+    <% @scopes.zip(%w'Мои Популярные Новые Проблемные').to_h.each do |scope, name| %>
+      <a href="<%= business_scope_path(scope) %>" class="<%= active_class(scope) %>"><%= name %> компании</a>
+    <% end %>
   </div>
   <div class="tab-content">
     <div id="landings" class="flexbox">
@@ -46,18 +68,16 @@
                 <%= image_tag 'html_logo' %>
               </div>
               <div class="business-rating">
-                <div class="i-star" id="i1-star"></div>
-                <div class="i-star" id="i2-star"></div>
-                <div class="i-star" id="i3-star"></div>
-                <div class="i-star" id="i4-star"></div>
-                <div class="i-star" id="i5-star"></div>
+                <% 5.times do |i| %>
+                  <div class="i-star" id="i<%= i + 1 %>-star"></div>
+                <% end %>
               </div>
               <div class="business-short-info">
                 <div class="business-short-info-text">
-                  Срок работы: <%= distance_of_time_in_words Time.now, business.opened_at %>
+                  Срок работы: <%= opened_ago business %>
                 </div>
                 <div class="business-short-info-text">
-                  Количество дней в клубе: <%= distance_of_time_in_words Time.now, business.created_at %>
+                  Количество дней в клубе: <%= created_ago business %>
                 </div>
                 <div class="business-short-info-text">
                   Участников от клуба: <%= business.users.size %>
@@ -72,7 +92,9 @@
                 Больше
               </div>
               <% unless business.users.include?(current_user) %>
-                <%= activation_btn business %>
+                <div class="business-btn business-add-btn activate-business-btn">
+                  Активировать
+                </div>
               <% else %>
                 <%= link_to 'Настройки', user_business_path(business.id), 
                 class: "business-btn business-add-btn", id: "business-settings-btn" %>

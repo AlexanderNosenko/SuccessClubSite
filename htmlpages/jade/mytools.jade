@@ -106,8 +106,24 @@ html(lang="ru")
 				div.modal-content
 					div.modal-body
 						.toolchoise.flexbox
-							a(href='buy-tools.html'): i.fa.fa-cart-plus
-							a(href='mytools.html'): i.fa.fa-cubes
+							a(href='buy-tools.html')
+								i.allvis.fa.fa-cart-plus
+								span.hidd Выбрать инструменты
+							a(href='mytools.html')
+								i.allvis.fa.fa-cubes
+								span.hidd Мои инструменты
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#business-choose(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.toolchoise.flexbox
+							a(href='mybusiness.html')
+								i.allvis.fa.fa-male
+								span.hidd Мой бизнес
+							a(href='business.html')
+								i.allvis.fa.fa-cog
+								span.hidd Выбрать направление
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
@@ -126,7 +142,7 @@ html(lang="ru")
 				button#menu-btn <i class="fa fa-bars" aria-hidden="true"></i>
 		nav#sidebar
 			.flexbox.minimized#flex-sidebar
-				a.menu-item(href='../')
+				a.active.menu-item(href='../')
 					<i class="fa fa-th-large"></i>
 					span.full-menu Главная
 				a.menu-item(href='profile.html')
@@ -147,15 +163,14 @@ html(lang="ru")
 					<i class="fa fa-money"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Быстрые деньги
-				a.menu-item.disabled
+				a.menu-item(data-toggle="modal" data-target="#business-choose")
 					<i class="fa fa-bank"></i>
-					span.dis-popup Временно недоступно
 					span.full-menu Бизнес
 				a.menu-item.disabled
 					<i class="fa fa-usd" aria-hidden="true"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Инвестиции
-				a.menu-item.active#tools-menu(data-toggle="modal" data-target="#tools-choose")
+				a.active.menu-item(data-toggle="modal" data-target="#tools-choose")
 					<i class="fa fa-cogs"></i>
 					span.full-menu Инструменты
 				a.menu-item.disabled
@@ -243,7 +258,7 @@ html(lang="ru")
 								span.activation Дата активации: 16.09.2016
 								span.activation Активирован до: 16.09.2016
 		footer
-			span Клуб проффесионалов &copy2016 Все права защищены.
+			span Клуб Профессионалов &copy2016 Все права защищены.
 			a(href='#') Правила сервиса
 		script.
 			$('#menu-btn').click(function(){
