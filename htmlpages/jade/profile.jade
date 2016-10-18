@@ -50,12 +50,12 @@ html(lang="ru")
 								.input.flexbox
 									input#NixMoney(type='radio' name='system_input' value='NixMoney')
 									label.flexbox(for='NixMoney' class='label-img')
-										img(src='img/advcash.png')
+										img(src='img/nixm.png')
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 								//.input.flexbox
 									input#AdvCash(type='radio' name='system_input' value='AdvCash')
 									label.flexbox(for='AdvCash' class='label-img')
-										img(src='img/nixm.png')
+										img(src='img/advcash.png')
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 								//.input.flexbox
 									input#Liqpay(type='radio' name='system_input' value='LiqPay')
@@ -82,20 +82,20 @@ html(lang="ru")
 								.input.flexbox
 									input#NixMoney_o(type='radio' name='system_output' value='NixMoney')
 									label.flexbox(for='NixMoney_o' class='label-img')
-										img(src='img/advcash.png')
+										img(src='img/nixm.png')
 										span.red-span Комиссия 1%
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 								//.input.flexbox
 									input#AdvCash_o(type='radio' name='system_output' value='AdvCash')
 									label.flexbox(for='AdvCash_o' class='label-img')
-										img(src='img/nixm.png')
+										img(src='img/advcash.png')
 										span.red-span Без комиссии
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 								//.input.flexbox
 									input#Liqpay_o(type='radio' name='system_output' value='LiqPay')
 									label.flexbox(for='Liqpay_o' class='label-img')
 										img(src='img/liqpay.png')
-										span.red-span Комиссия 1%
+										span.red-span .
 										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
 							.confirm.flexbox
 								input(type='text' name='amount' value='Сумма, USD')
@@ -106,34 +106,39 @@ html(lang="ru")
 				div.modal-content
 					div.modal-body
 						.toolchoise.flexbox
-							a(href='buy-tools.html'): i.fa.fa-cart-plus
-							a(href='mytools.html'): i.fa.fa-cubes
+							a(href='buy-tools.html')
+								i.allvis.fa.fa-cart-plus
+								span.hidd Купить
+							a(href='mytools.html')
+								i.allvis.fa.fa-cubes
+								span.hidd Посмотреть свои
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
-		div.modal.fade.activate#activate-status(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+		div.modal.fade#business-choose(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
 			div.modal-dialog
 				div.modal-content
 					div.modal-body
-						.flexbox
-							span.mheadline Активация статуса: Партнер
-							span.alert Подтверждаете активацию за 5$?
-							button: img(src='img/order-butt.png')
+						.toolchoise.flexbox
+							a(href='mybusiness.html')
+								i.allvis.fa.fa-male
+								span.hidd Мой бизнес
+							a(href='business.html')
+								i.allvis.fa.fa-cog
+								span.hidd Выбрать направление
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
 					button(data-toggle="modal" data-target="#links") <i class="fa fa-link" aria-hidden="true"></i>
-					a.disabled(href='#') 
-						<i class="fa fa-user" aria-hidden="true"></i>
+					//a(href='#') <i class="fa fa-user" aria-hidden="true"></i>
 					a.disabled(href='#') 
 						i.fa.fa-bell(aria-hidden="true")
 						.notifications.flexbox.disabled
 							span 0
-					a.disabled(href='#')
+					a.disabled(href='#') 
 						i.fa.fa-comments(aria-hidden="true")
 						.notifications.flexbox.disabled
 							span 0
-					a.no-bg(href='#') 
-						<i class="fa fa-power-off" aria-hidden="true"></i>
+					a.no-bg(href='#') <i class="fa fa-power-off" aria-hidden="true"></i>
 				button#menu-btn <i class="fa fa-bars" aria-hidden="true"></i>
 		nav#sidebar
 			.flexbox.minimized#flex-sidebar
@@ -158,9 +163,8 @@ html(lang="ru")
 					<i class="fa fa-money"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Быстрые деньги
-				a.menu-item.disabled
+				a.menu-item(data-toggle="modal" data-target="#business-choose")
 					<i class="fa fa-bank"></i>
-					span.dis-popup Временно недоступно
 					span.full-menu Бизнес
 				a.menu-item.disabled
 					<i class="fa fa-usd" aria-hidden="true"></i>

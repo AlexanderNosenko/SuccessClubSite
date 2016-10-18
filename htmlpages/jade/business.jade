@@ -13,7 +13,7 @@ html(lang="ru")
 		link(rel='stylesheet' media='all' href='css/animate.css')/
 		link(rel='stylesheet' href='css/fonts.css')/
 		link(rel='stylesheet' href='css/main.css')/
-		link(rel='stylesheet' href='css/tools.css')/
+		link(rel='stylesheet' href='css/Business.css')/
 		script(type='text/javascript' src='js/jquery-3.1.0.min.js')
 		script(type='text/javascript' src='js/jquery-1.12.3.min.js')
 		script(src='js/bootstrap/bootstrap.min.js')
@@ -163,14 +163,14 @@ html(lang="ru")
 					<i class="fa fa-money"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Быстрые деньги
-				a.menu-item(data-toggle="modal" data-target="#business-choose")
+				a.menu-item.active(data-toggle="modal" data-target="#business-choose")
 					<i class="fa fa-bank"></i>
 					span.full-menu Бизнес
 				a.menu-item.disabled
 					<i class="fa fa-usd" aria-hidden="true"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Инвестиции
-				a.active.menu-item(data-toggle="modal" data-target="#tools-choose")
+				a.menu-item(data-toggle="modal" data-target="#tools-choose")
 					<i class="fa fa-cogs"></i>
 					span.full-menu Инструменты
 				a.menu-item.disabled
@@ -207,38 +207,40 @@ html(lang="ru")
 					span.full-menu Вакансии
 		#main.flexbox
 			#content.flexbox.full
-				.tab-links.flexbox#main-l
-					a.active(href='#landings' data-toggle='tab') Landing Pages
-					a.disabled(href='#blogs' data-toggle='tab') Блоги
-					a.disabled(href='#online-shops' data-toggle='tab') Интернет магазины
-				//.tab-links.flexbox#notmain
-					a.active(href='#') Landing page
-					a.disabled(href='#') Блоги
-					a.disabled(href='#') Интернет магазины
-				.tab-content
-					#landings.tab-pane.active
-						.offers.flexbox
-							.goods.flexbox
-								img(src='img/oriflame-logo.png' alt='oriflame-logo')
-								.stuff-name 
-									span Landin page for Oriflame
-								.img-price
-									img.preview(src='' alt='landing-preview')
-									span.price.flexbox 10$
-								button.buy-stuff(data-toggle="modal" data-target="#activate-website") Активировать  
-									i.fa.fa-plus-circle
-							.goods.flexbox
-								img(src='img/oriflame-logo.png' alt='oriflame-logo')
-								.stuff-name 
-									span Landin page for Oriflame
-								.img-price
-									img.preview(src='' alt='landing-preview')
-									span.price.flexbox 10$
-								button.buy-stuff(data-toggle="modal" data-target="#activate-website") Активировать  
-									i.fa.fa-plus-circle
+				.tab-links.flexbox
+					a.active(href='#iwp' data-toggle="tab") Популярные компании
+					a.disabled(href='#secure' data-toggle="tab") Новые компании
+					a.disabled(href='#statuspane' data-toggle="tab") Проблемные компании
+				.companies.flexbox
+					.company.flexbox
+						.pic_and_rate.flexbox
+							.img-wrapper.flexbox
+								img(src='img/redex.png')
+							.stars
+								i.fa.fa-star.fullstar
+								i.fa.fa-star
+								i.fa.fa-star
+								i.fa.fa-star
+								i.fa.fa-star
+							.shrt-review.flexbox
+								span Срок работы: 
+									b 10 лет
+								span Количество дней в клубе: 
+									b 10 дней
+								span Участников от клуба: 
+									b 1234
+						.about_and_btns.flexbox
+							.comp-about.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat.
+							.comp-btns.flexbox
+								button Добавить в мой бизнес
+								button Настройки
 		footer
 			span Клуб проффесионалов &copy2016 Все права защищены.
-			a(href='#') Правила сервиса
+			a(href='#' target='_blank') Правила сервиса
 		script.
 			$('#menu-btn').click(function(){
 			  if ($( "#flex-sidebar" ).hasClass( "full" )){
@@ -249,12 +251,4 @@ html(lang="ru")
 			  		$( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
 			  		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
 			  }
-			});
-			$('#main-l a').click(function(){
-				$( "#main-l a" ).removeClass( "active" );
-				$(this).addClass( "active" );
-			});
-			$('#notmain a').click(function(){
-				$( "#notmain a" ).removeClass( "active" );
-				$(this).addClass( "active" );
 			});

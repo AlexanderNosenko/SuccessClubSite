@@ -113,6 +113,18 @@ html(lang="ru")
 								i.allvis.fa.fa-cubes
 								span.hidd Посмотреть свои
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#business-choose(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.toolchoise.flexbox
+							a(href='mybusiness.html')
+								i.allvis.fa.fa-male
+								span.hidd Мой бизнес
+							a(href='business.html')
+								i.allvis.fa.fa-cog
+								span.hidd Выбрать направление
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
@@ -130,7 +142,7 @@ html(lang="ru")
 				button#menu-btn <i class="fa fa-bars" aria-hidden="true"></i>
 		nav#sidebar
 			.flexbox.minimized#flex-sidebar
-				a.active.menu-item(href='#')
+				a.menu-item(href='../')
 					<i class="fa fa-th-large"></i>
 					span.full-menu Главная
 				a.menu-item(href='profile.html')
@@ -151,9 +163,8 @@ html(lang="ru")
 					<i class="fa fa-money"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Быстрые деньги
-				a.menu-item.disabled
+				a.active.menu-item(data-toggle="modal" data-target="#business-choose")
 					<i class="fa fa-bank"></i>
-					span.dis-popup Временно недоступно
 					span.full-menu Бизнес
 				a.menu-item.disabled
 					<i class="fa fa-usd" aria-hidden="true"></i>

@@ -105,14 +105,30 @@ html(lang="ru")
 				div.modal-content
 					div.modal-body
 						.toolchoise.flexbox
-							a(href='buy-tools.html'): i.fa.fa-cart-plus
-							a(href='mytools.html'): i.fa.fa-cubes
+							a(href='buy-tools.html')
+								i.allvis.fa.fa-cart-plus
+								span.hidd Купить
+							a(href='mytools.html')
+								i.allvis.fa.fa-cubes
+								span.hidd Посмотреть свои
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#business-choose(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.toolchoise.flexbox
+							a(href='mybusiness.html')
+								i.allvis.fa.fa-male
+								span.hidd Мой бизнес
+							a(href='business.html')
+								i.allvis.fa.fa-cog
+								span.hidd Выбрать направление
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
 					button(data-toggle="modal" data-target="#links") <i class="fa fa-link" aria-hidden="true"></i>
-					a.disabled(href='#') <i class="fa fa-user" aria-hidden="true"></i>
+					//a(href='#') <i class="fa fa-user" aria-hidden="true"></i>
 					a.disabled(href='#') 
 						i.fa.fa-bell(aria-hidden="true")
 						.notifications.flexbox.disabled
@@ -146,9 +162,8 @@ html(lang="ru")
 					<i class="fa fa-money"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Быстрые деньги
-				a.menu-item.disabled
+				a.menu-item(data-toggle="modal" data-target="#business-choose")
 					<i class="fa fa-bank"></i>
-					span.dis-popup Временно недоступно
 					span.full-menu Бизнес
 				a.menu-item.disabled
 					<i class="fa fa-usd" aria-hidden="true"></i>
