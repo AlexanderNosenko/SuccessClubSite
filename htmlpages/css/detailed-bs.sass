@@ -1,13 +1,18 @@
 #main
 	#content
 		.info-bs.flexbox
-			width: 100%
+			width: 90%
 			justify-content: center
+			@media screen and (max-width: 800px)
+				flex-wrap: wrap
 			.left-side
-				align-items: flex-start
+				align-items: center
 				text-align: left
 				flex-direction: column
 				margin: 0 10px
+				width: 50%
+				@media screen and (max-width: 800px)
+					width: 100%
 				.logo-wrapper
 					align-self: center
 					width: 200px
@@ -16,6 +21,10 @@
 				.stars
 					align-self: center
 					margin: 10px 0
+					font-size: 40px
+					color: #ebebeb
+					.fullstar
+						color: #ffba00
 				.shrt-review
 					flex-direction: column
 				.comp-btns
@@ -32,10 +41,16 @@
 						background: #ee6023
 			.right-side
 				flex-direction: column
+				width: 50%
+				align-items: center
+				justify-content: space-between
+				@media screen and (max-width: 800px)
+					width: 100%
+					margin-top: 20px
 				.video
 					height: 277px
 					background: #eee
-					width: 500px
+					width: 100%
 				button
 					margin: 10px 0 0
 					border: none
@@ -45,3 +60,33 @@
 		p
 			width: 80%
 			margin: 20px 0
+			font-size: 14px
+		.comments
+			.comment-wrapper
+				background: #eee
+				padding: 10px
+				.img-wrapper
+					width: 70px
+					height: 70px
+					overflow: hidden
+					justify-content: center
+					align-items: center
+					border-radius: 50%
+					img
+						height: 100%
+				form
+					align-items: center
+					textarea
+						border: none
+						height: 70px
+						width: 600px
+						padding: 5px
+						margin: 0 20px
+						@media screen and (max-width: 600px)
+							width: 90%
+					button
+						border: none
+						background: transparent
+						font-size: 40px
+						color: #157260	
+						margin-right: -32px
