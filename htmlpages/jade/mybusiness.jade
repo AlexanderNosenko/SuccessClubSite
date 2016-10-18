@@ -125,6 +125,15 @@ html(lang="ru")
 								i.allvis.fa.fa-cog
 								span.hidd Выбрать направление
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#settings(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.flexbox
+							span https://redex.red/link/
+								input(type='text' name='name')
+								button(type='submit') Сохранить
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
@@ -237,7 +246,7 @@ html(lang="ru")
 								consequat.
 							.comp-btns.flexbox
 								button Подробнее
-								button Настройки
+								button(data-toggle="modal" data-target="#settings") Настройки
 		footer
 			span Клуб проффесионалов &copy2016 Все права защищены.
 			a(href='#' target='_blank') Правила сервиса

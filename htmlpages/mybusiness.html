@@ -139,6 +139,18 @@
         </div>
       </div>
     </div>
+    <div id="settings" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="flexbox"><span>https://redex.red/link/
+                <input type="text" name="name">
+                <button type="submit">Сохранить</button></span></div>
+            <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
     <nav id="top">
       <div id="flex-top" class="flexbox">
         <div id="right-bar">
@@ -172,7 +184,7 @@
               </div>
               <div class="comp-btns flexbox">
                 <button>Подробнее</button>
-                <button>Настройки</button>
+                <button data-toggle="modal" data-target="#settings">Настройки</button>
               </div>
             </div>
           </div>
