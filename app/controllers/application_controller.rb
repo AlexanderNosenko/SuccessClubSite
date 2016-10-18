@@ -88,7 +88,7 @@ class ApplicationController < ActionController::Base
             'ac_amount' => 2,
             'ac_currency' => 'USD',
             'ac_status_url' => "http://improf.club/finance_api/responce_status/advcash",
-            'ac_status_url_method' => 'GET',
+            'ac_status_url_method' => 'POST',
             'ac_success_url' => 'http://improf.club/finance_api/success/advcash',
             'ac_success_url_method' => "GET",
             'ac_fail_url' => 'http://improf.club/finance_api/error/advcash',
