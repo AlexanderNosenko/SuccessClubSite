@@ -4,7 +4,7 @@ module BusinessHelper
   end
 
   def opened_ago business
-  	distance_of_time_in_words Time.now, business.opened_at
+  	distance_of_time_in_words Time.now, business.opened_at || business.created_at
   end
 
   def created_ago business
