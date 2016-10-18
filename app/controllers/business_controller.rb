@@ -8,11 +8,17 @@ class BusinessController < ApplicationController
   end
   
   def business
-    if(params[:type] == 'my')
-  	  @businesses = current_user.businesses.paginate(:per_page => 4, :page => params[:page])
-  	elsif ['all', 'problem', 'recent'].include? params[:type]
-	  @businesses = eval('Business.' + params[:type]).paginate(:per_page => 4, :page => params[:page])  
+    unless params[:type]
+      params[:type] = 'all'
     end
+
+    if(params[:type] == 'my')
+      @businesses = current_user.businesses.paginate(:per_page => 4, :page => params[:page])
+    elsif ['all', 'problem', 'recent'].include? params[:type]
+    @businesses = eval('Business.' + params[:type]).paginate(:per_page => 4, :page => params[:page])  
+    end
+
+    @businesses ||= [].paginate(:per_page => 4, :page => params[:page])
   end
   
   def show

@@ -15,8 +15,7 @@ Rails.application.routes.draw do
   
   get '/finance_api/payment_form', to: 'finance_api#payment_form'
 
-  get 'business', to: 'business#index', as: 'business_index'
-
+  get 'business', to: 'business#business', as: 'business_index'
   get 'business/scope/:type', to: 'business#business', as: 'business_scope'
   get 'business/:id', to: 'business#show', as: 'business'
 

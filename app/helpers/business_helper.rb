@@ -1,16 +1,13 @@
 module BusinessHelper
+  def active_class type
+    params[:type] == type ? "active" : ""
+  end
 
-	def activation_btn(business)
-	    activated  = business.users.include? current_user
-	    raw(
-	    	'<div class="business-btn business-add-btn '+(activated ? 'disabled' : '')+' activate-business-btn" ' + 
-	    	(activated ? 'disabled' : '') +'>' + 
-	    	(activated ? 'Активирован' : 'Активировать') +
-	    	'</div>'
-	    	)
-	end
+  def opened_ago business
+  	distance_of_time_in_words Time.now, business.opened_at
+  end
 
-	def active_class id
-		params[:id] == id ? "active" : ""
-	end
+  def created_ago business
+  	distance_of_time_in_words Time.now, business.created_at  	
+  end
 end
