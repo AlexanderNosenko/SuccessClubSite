@@ -1,150 +1,107 @@
 // Place all the styles related to the business controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.business{
-	width: 400px;
-	height: 300px;
-	margin: 11px;
+#settings .modal-body .flexbox {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.business-left{
-	width: 200px;
-	height: 300px;
-	position: absolute;
-	display: inline-block;
+#settings .modal-body .flexbox button {
+  border: none;
+  background: #256c5e;
+  color: white;
+  padding: 3px 5px;
 }
 
-.business-right{
-	width: 170px;
-	height: 300px;
-	float: right;
-	position: relative;
-	display: inline-block;
-	color: #747373;
-}
-div.business-btn[disabled] {
-    cursor: default;
-    }
-.business-btn{
-	width: 170px;
-	height: 30px;
-	background: #256C5E;
-	position: absolute;
-	bottom: 0;
-	text-align: center;
-	color: white;
-	font-family: Century Gothic;
-	line-height: 28px;
-	font-size: 0.75em;
-	cursor: pointer;
+#main #content .companies .company {
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
-.business-more-btn{
-	bottom: 40px;
+#main #content .companies .company .pic_and_rate {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 250px;
 }
 
-.business-image>img{
-	width: 200px;
-	height: 200px;
+#main #content .companies .company .pic_and_rate .img-wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
 }
 
-.business-rating{
-	width: 200px;
-	height: 50px;
+#main #content .companies .company .pic_and_rate .img-wrapper img {
+  width: 100%;
 }
 
-.business-short-info{
-	width: 200px;
-	height: 65px;
-	font-weight: bold;
-	font-size: 0.85em;
-	text-align: bottom;
-	position: relative;
+#main #content .companies .company .pic_and_rate .stars {
+  font-size: 35px;
+  color: #ebebeb;
 }
 
-#text-notes{
-	position: absolute;
-	bottom: 0;
+#main #content .companies .company .pic_and_rate .stars .fullstar {
+  color: #ffba00;
 }
 
-.i-star{
-	height: 50px;
-	width: 35px;
-	display: inline-block;
-	background-image: url("images/star-icon-1-w.png");
-	background-size: contain;
-	background-repeat: no-repeat;
-	margin-top: 5px;
-	cursor: pointer;
+#main #content .companies .company .pic_and_rate .shrt-review {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-size: 13px;
+  text-align: left;
 }
 
-
-
- #text {
-    text-indent: 20px;
-   }
-.offers{
-	flex-wrap: wrap;
-	width: 76%;
-    margin: auto;
-}
-.business-long-info{
-	    width: 170px;
+#main #content .companies .company .about_and_btns {
+  width: 200px;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 14px;
 }
 
-#index-business-modal .toolchoise, #business-choose .toolchoise {
--webkit-justify-content: center;
--ms-flex-pack: center;
-justify-content: center;
--webkit-align-items: center;
--ms-flex-align: center;
-align-items: center;
-height: 150px;
+#main #content .companies .company .about_and_btns .comp-about {
+  text-align: justify;
 }
 
-#index-business-modal .toolchoise a, #business-choose .toolchoise a {
-display: -webkit-flex;
-display: -ms-flexbox;
-display: flex;
--webkit-justify-content: center;
--ms-flex-pack: center;
-justify-content: center;
--webkit-align-items: center;
--ms-flex-align: center;
-align-items: center;
-height: 100px;
-width: 100px;
-background: #167562;
-margin: 10px;
-font-size: 50px;
-color: white;
-border-radius: 10px;
-position: relative;
-transition: all 500ms;
+#main #content .companies .company .about_and_btns .comp-btns {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
-#index-business-modal .toolchoise a i, #business-choose .toolchoise a i {
-transition: all 500ms;
+#main #content .companies .company .about_and_btns .comp-btns button, #main #content .companies .company .about_and_btns .comp-btns a {
+  margin: 10px 0 0;
+  background: #256c5e;
+  border: none;
+  color: white;
+  padding: 6px 0;
 }
 
-#index-business-modal .toolchoise a span, #business-choose .toolchoise a span {
-font-size: 14px;
-transition: all 500ms;
-font-weight: bold;
-}
-
-#index-business-modal .toolchoise a .hidd, #business-choose .toolchoise a .hidd {
-position: absolute;
-opacity: 0;
-}
-
-#index-business-modal .toolchoise a:hover .hidd, #business-choose .toolchoise a:hover .hidd {
-opacity: 1;
-}
-
-#index-business-modal .toolchoise a:hover .allvis, #business-choose .toolchoise a:hover .allvis {
-opacity: 0;
-}
 
 // Detailed bs
 

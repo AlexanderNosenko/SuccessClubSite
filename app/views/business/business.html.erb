@@ -55,55 +55,45 @@
       <a href="<%= business_scope_path(scope) %>" class="<%= active_class(scope) %>"><%= name %> компании</a>
     <% end %>
   </div>
-  <div class="tab-content">
-    <div id="landings" class="flexbox">
-      <div class="offers flexbox">
-        <% @businesses.each do |business| %>
-          <div class="goods flexbox business" data-id="<%= business.id %>">
-            <div class="col-md-7 business-left">
-              <div class="business_name" style="display:none;">
-                <%= business.name %>
-              </div>
-              <div class="business-image">
-                <%= business.logo %>
-              </div>
-              <div class="business-rating">
-                <% 5.times do |i| %>
-                  <div class="i-star" id="i<%= i + 1 %>-star"></div>
-                <% end %>
-              </div>
-              <div class="business-short-info">
-                <div class="business-short-info-text">
-                  Срок работы: <%= opened_ago business %>
-                </div>
-                <div class="business-short-info-text">
-                  Количество дней в клубе: <%= created_ago business %>
-                </div>
-                <div class="business-short-info-text">
-                  Участников от клуба: <%= business.users.size %>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 business-right">
-              <div class="business-long-info">
-                <%= business.description %>
-              </div>
-              <div class="business-btn business-more-btn">
-                Больше
-              </div>
-              <% unless business.users.include?(current_user) %>
-                <div class="business-btn business-add-btn activate-business-btn">
-                  Активировать
-                </div>
-              <% else %>
-                <%= link_to 'Настройки', user_business_path(business.id),
-                class: "business-btn business-add-btn", id: "business-settings-btn" %>
-              <% end %>
-            </div>
+
+  <div class="companies flexbox">
+    <% @businesses.each do |business| %>
+      <div class="company flexbox" data-id="<%= business.id %>">
+        <div class="pic_and_rate flexbox">
+          <div class="img-wrapper flexbox">
+            <%= image_tag business.logo %>
           </div>
-        <% end %>
+          <div class="stars">
+            <%= get_stars 4 %> <%# TODO: business.rating %>
+          </div>
+          <div class="shrt-review flexbox">
+            <span>Срок работы: <b><%= opened_ago business %></b></span>
+            <span>Количество дней в клубе: <b><%= created_ago business %></b></span>
+            <span>Участников от клуба: <b><%= business.users.size %></b></span>
+          </div>
+        </div>
+        <div class="about_and_btns flexbox">
+          <div class="comp-about">
+            <%= business.description %>
+          </div>
+          <div class="comp-btns flexbox">
+            <% unless business.users.include?(current_user) %>
+              <button class="business-btn business-add-btn activate-business-btn">
+                Активировать
+              </button>
+            <% else %>
+              <%= link_to 'Настройки', user_business_path(business.id),
+              class: "business-btn business-add-btn", id: "business-settings-btn" %>
+            <% end %>
+            <%= link_to business_path(business) do %>
+              <div class="business-btn business-more-btn">
+                Подробнее
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
     <%= will_paginate @businesses %>
   </div>
 </div>
