@@ -31,14 +31,14 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
-          
+
           <h2>Направления бизнеса</h2>
           <div class="toolchoise flexbox">
             <%= link_to business_scope_path 'my' do %>
               <i class="allvis fa fa-male"></i>
               <span class="hidd">Мой бизнес</span>
             <% end %>
-            <%= link_to business_scope_path 'all' do %> 
+            <%= link_to business_scope_path 'all' do %>
               <i class="allvis fa fa-cog"></i>
               <span class="hidd">Выбрать направление</span>
             <% end %>
@@ -62,10 +62,10 @@
           <div class="goods flexbox business" data-id="<%= business.id %>">
             <div class="col-md-7 business-left">
               <div class="business_name" style="display:none;">
-                <%= business.name %>  
+                <%= business.name %>
               </div>
               <div class="business-image">
-                <%= image_tag 'html_logo' %>
+                <%= business.logo %>
               </div>
               <div class="business-rating">
                 <% 5.times do |i| %>
@@ -96,7 +96,7 @@
                   Активировать
                 </div>
               <% else %>
-                <%= link_to 'Настройки', user_business_path(business.id), 
+                <%= link_to 'Настройки', user_business_path(business.id),
                 class: "business-btn business-add-btn", id: "business-settings-btn" %>
               <% end %>
             </div>
@@ -107,4 +107,3 @@
     <%= will_paginate @businesses %>
   </div>
 </div>
-

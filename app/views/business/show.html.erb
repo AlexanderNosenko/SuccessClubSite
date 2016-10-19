@@ -1,56 +1,57 @@
 <div id="content" class="flexbox <%= get_view_mode('content') %>">
-  <div class="tab-content">
-    <div id="landings" class="flexbox">
-      <div class="offers flexbox">
-        <div class="goods flexbox business" data-id="<%= @business.id %>">
-          <div class="col-md-7 business-left">
-            <div class="business_name" style="display:none;">
-              <%= @business.name %>  
-            </div>
-            <div class="business-image">
-              <%= image_tag 'html_logo' %>
-            </div>
-            <div class="business-rating">
-              <% 5.times do |i| %>
-                <div class="i-star" id="i<%= i + 1 %>-star"></div>
-              <% end %>
-            </div>
-            <div class="business-short-info">
-              <div class="business-short-info-text">
-                Срок работы: <%= distance_of_time_in_words Time.now, @business.opened_at %>
-              </div>
-              <div class="business-short-info-text">
-                Состоит в клубе: <%= distance_of_time_in_words Time.now, @business.created_at %>
-              </div>
-              <div class="business-short-info-text">
-                Участников от клуба: <%= @business.users.size %>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-5 business-right">
-            <div class="business-long-info">
-              <%= @business.description %>
-            </div>
-            <div class="business-btn business-step-btn">
-              Пошаговая инструкция
-            </div>
-            <%= link_to 'Позвонить спонсору', user_business_path(@business.id), 
-              class: "business-btn business-contact-btn" %>
-          </div>
-        </div>
-        <div class="right-side flexbox">
-          <div class="video"></div>
-          <button>Зарегестрироваться</button>
-        </div>
+  <div class="info-bs flexbox">
+    <div class="left-side flexbox">
+      <div class="logo-wrapper"><%= image_tag "kp-logo.png" %></div>
+      <div class="stars flexbox">
+        <%= get_stars 4 %>
       </div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+      <div class="shrt-review flexbox">
+        <span>Срок работы: <b><%= opened_ago @business %></b></span>
+        <span>Количество дней в клубе: <b><%= created_ago @business %></b></span>
+        <span>Участников от клуба: <b><%= @business.users.size %></b></span>
+      </div>
+      <div class="comp-btns flexbox">
+        <button class="grbtn disabled">Пошаговая инструкция</button>
+        <button class="orbtn disabled">Позвонить спонсору</button>
+      </div>
     </div>
+    <div class="right-side flexbox">
+      <div class="video">
+        <%# TODO: add video iframe here %>
+      </div>
+      <button class="disabled">Связаться с помощником</button>
+    </div>
+  </div>
+  <p>
+    <%= @business.description %>
+  </p>
+  <div class="comments-block flexbox">
+    <div class="comment-wrapper flexbox">
+      <div class="img-wrapper flexbox"><%= get_avatar current_user%></div>
+      <%# TODO: make generated form %>
+      <form name="comment" action="" method="post" class="flexbox">
+        <textarea type="text" name="comm" placeholder="Написать комментарий"></textarea>
+        <button type="submit"><i class="fa fa-check-circle"></i></button>
+      </form>
+    </div>
+    <% 3.times do |i| %> <%# TODO: change to something like @business.comments do |comment| %>
+    <div class="comment flexbox">
+      <div class="img-wrapper flexbox">
+        <%= get_avatar current_user %> <%# TODO: change avatar to something like get_avatar comment.author %>
+      </div>
+      <span>
+        <%#= comment.text %>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </span>
+      <div class="stars flexbox">
+        <%= get_stars 3 %> <%# TODO: change to get_stars comment.rating %>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
