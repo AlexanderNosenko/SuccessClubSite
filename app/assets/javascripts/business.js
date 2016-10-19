@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	if(window.location.pathname.match(/\/business$/)){
-		$('#index-business-modal').modal({
+		$('#tools-choose').modal({
 									  backdrop: 'static',
 									  keyboard: false
 									}).show();
