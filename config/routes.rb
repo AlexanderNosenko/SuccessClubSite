@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   post '/p/:id', to: 'partner_link#landing', as: 'landing_link'
   delete '/p', to: 'partner_link#delete', as: 'delete_partner_session'
   
+  get 'landings/scope/:type', to: 'instruments/landings#index', as: 'landings_scope'
   get '/landings', to: 'instruments/landings#index', as: 'landings'
   get '/landings/:id', to: 'instruments/landings#show', as: 'landing'
   post '/landings/:id', to: 'instruments/landings#activate', as: 'activate_landing'

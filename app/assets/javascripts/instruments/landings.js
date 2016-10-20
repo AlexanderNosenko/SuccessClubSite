@@ -1,3 +1,12 @@
+$(document).ready(function (e) {
+  console.log('s');
+  if(window.location.pathname.match(/\/landings$/)){
+    $('#tools-choose').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                  }).show();
+  }
+})
 function activate_landing(form){
 	business_id = localStorage.getItem("business_id");
 	form = $(form);

@@ -15,14 +15,33 @@ class Instruments::LandingsController < ApplicationController
 
     @for_free = current_user.free_land_number > 0
     @club_links = current_user.club_links
-
+    
+    @scopes = %w(my all recent problem)
+    unless @scopes.include? params[:type]
+      params[:type] = 'all'
+      params[:show_modal] = 'index'
+    end
     if params[:business_id]
       # TODO business_id should be added to landing model
       @landings = Landing.by_business(params[:business_id]).newest_first
+    elsif(params[:type] == 'my')
+      @landings = Landing.newest_first #MY LENDINGS
     else
-      @landings = Landing.newest_first
+      @landings = eval('Landing.' + params[:type])
     end
     @landings = @landings.paginate(:per_page => 15, :page => params[:page])
+
+    # if params[:business_id]
+    #   # TODO business_id should be added to landing model
+    #   @landings = Landing.by_business(params[:business_id]).newest_first
+    # else
+    #   @landings = Landing.newest_first
+    # end
+    # @landings = @landings.paginate(:per_page => 15, :page => params[:page])
+
+
+
+
   end
 
   def show

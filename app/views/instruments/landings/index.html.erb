@@ -1,3 +1,32 @@
+<%content_for :modals do%>
+<div id="tools-choose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="toolchoise flexbox">
+            <%= link_to landings_scope_path 'all' do %>
+              <i class="allvis fa fa-cart-plus"></i>
+              <span class="hidd">Выбрать инструменты</span>
+            <% end %>
+            <%= link_to landings_scope_path 'my' do %>
+              <i class="allvis fa fa-cubes"></i>
+              <span class="hidd">Мои инструменты</span></a>
+            <% end %>
+          </div>
+          <!-- <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% if params[:show_modal] == 'index'%>
+
+<style>
+  div#content{
+    filter: blur(5px);
+  }
+</style>
+<%end%>
 <div id="content" class="flexbox <%= get_view_mode('content') %>">
   <div class="tab-links flexbox">
     <a href="<%= landings_path %>" class="active">Landing page</a>
