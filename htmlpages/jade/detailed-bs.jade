@@ -243,6 +243,16 @@ html(lang="ru")
 							img(src='img/mC1NkcwYsAM.jpg')
 						form.flexbox(name='comment' action='' method='post')
 							textarea(type='text' name='comm' placeholder='Написать комментарий')
+							input#onestar(type='radio' name='mark' value='1')
+							input#twostar(type='radio' name='mark' value='2')
+							input#threestar(type='radio' name='mark' value='3')
+							input#fourstar(type='radio' name='mark' value='4')
+							input#fivestar(type='radio' name='mark' value='5')
+							label(for='onestar'): i.fa.fa-star
+							label(for='twostar'): i.fa.fa-star
+							label(for='threestar'): i.fa.fa-star
+							label(for='fourstar'): i.fa.fa-star
+							label(for='fivestar'): i.fa.fa-star
 							button(type='submit'): i.fa.fa-check-circle
 					.comment.flexbox
 						.img-wrapper.flexbox

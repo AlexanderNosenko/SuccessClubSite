@@ -2,6 +2,7 @@
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 20px;
 }
 
 #settings .modal-body .flexbox button {
@@ -76,7 +77,7 @@
 }
 
 #main #content .companies .company .about_and_btns .comp-about {
-  text-align: justify;
+  text-align: left;
 }
 
 #main #content .companies .company .about_and_btns .comp-btns {

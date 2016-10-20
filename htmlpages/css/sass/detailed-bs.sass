@@ -58,7 +58,7 @@
 					padding: 5px 10px
 					background: #157260
 		p
-			width: 80%
+			width: 60%
 			margin: 20px 0
 			font-size: 14px
 		.comments-block
@@ -102,6 +102,22 @@
 							margin-right: -23px
 						color: #157260	
 						margin-right: -32px
+					input[type='radio']
+						display: none
+					label
+						color: #a7a7a7
+						margin: 0 1px
+						cursor: pointer
+					#fivestar:checked + label, #fivestar:checked + label + label, #fivestar:checked + label + label + label, #fivestar:checked + label + label + label + label, #fivestar:checked + label + label + label + label + label
+						color: #ffba00
+					#fourstar:checked + input + label, #fourstar:checked + input + label + label, #fourstar:checked + input + label + label + label, #fourstar:checked + input + label + label + label + label
+						color: #ffba00
+					#threestar:checked + input + input + label, #threestar:checked + input + input + label + label, #threestar:checked + input + input + label + label + label
+						color: #ffba00
+					#twostar:checked + input + input + input + label, #twostar:checked + input + input + input + label + label
+						color: #ffba00
+					#onestar:checked + input + input + input + input + label
+						color: #ffba00
 			.comment
 				justify-content: space-between
 				align-items: flex-start
