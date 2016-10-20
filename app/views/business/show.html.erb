@@ -17,7 +17,7 @@
     </div>
     <div class="right-side flexbox">
       <div class="video">
-        <%# TODO: add video iframe here %>
+        <iframe width="560" height="300" src="https://www.youtube.com/embed/_Of2hBD1oS4" frameborder="0" allowfullscreen></iframe>
       </div>
       <button class="disabled">Связаться с помощником</button>
     </div>
@@ -25,7 +25,7 @@
   <p>
     <%= @business.description %>
   </p>
-  <div class="comments-block flexbox">
+  <div class="comments-block flexbox" style="display:none;">
     <div class="comment-wrapper flexbox">
       <div class="img-wrapper flexbox"><%= get_avatar current_user%></div>
       <%# TODO: make generated form %>

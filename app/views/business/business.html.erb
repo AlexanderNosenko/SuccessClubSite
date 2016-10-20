@@ -4,7 +4,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <h2>Активация {business_name} бизнеса</h2>
-          <%= form_tag '/business/', method: :post, class: "row", id: "activate-business-form" do %>
+          <%= form_tag '/business/', method: :post, 'data-action' => '/business/', class: "row", id: "activate-business-form" do %>
             <div class="col-sm-6">
               <input type="text" name="link" class="form-control" placeholder="Реферальная ссылка">
             </div>
@@ -40,13 +40,19 @@
               <span class="hidd">Мои инструменты</span></a>
             <% end %>
           </div>
-          <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+          <!-- <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button> -->
         </div>
       </div>
     </div>
   </div>
 <% end %>
-
+<% if params[:action] == 'index'%>
+<style>
+  div#content{
+    filter: blur(5px);
+  }
+</style>
+<%end%>
 <div id="content" class="flexbox <%= get_view_mode('content') %>">
   <div class="tab-links flexbox">
     <% @scopes.zip(%w'Мои Популярные Новые Проблемные').to_h.each do |scope, name| %>

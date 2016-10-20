@@ -10,10 +10,10 @@ $(document).ready(function () {
 $('.activate-business-btn').on('click', function () {
 
 	if($(this).attr('disabled') == 'disabled') return;
-	console.log($(this).attr('disabled'));
-	var action_link = $('#activate-business-form').attr('action');
+	
+	var action_link = $('#activate-business-form').data('action');
 	var business = $(this).closest('.company');
-
+	console.log(business.data('id'));
 	action_link += business.data('id');
 	$('#activate-business-form').attr('action', action_link);
 	$('.modal-body>h2').text('Активация ' + business.find('.business_name').text() + ' бизнеса');

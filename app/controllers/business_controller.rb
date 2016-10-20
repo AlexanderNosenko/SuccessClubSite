@@ -8,6 +8,7 @@ class BusinessController < ApplicationController
     @scopes = %w(my all recent problem)
     unless @scopes.include? params[:type]
       params[:type] = 'all'
+      params[:action] = 'index'
     end
 
     if(params[:type] == 'my')
