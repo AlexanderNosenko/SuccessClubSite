@@ -4,16 +4,24 @@
       <div class="modal-content">
         <div class="modal-body">
           <h2>Активация {business_name} бизнеса</h2>
+          <style>
+            #activate-business-form div{
+              padding: 0px!important;
+            }
+          </style>
           <%= form_tag '/business/', method: :post, 'data-action' => '/business/', class: "row", id: "activate-business-form" do %>
+            <div class="col-sm-3">
+              <p style="margin-top:7px;">https://redex.red/link/</p>
+            </div>
             <div class="col-sm-6">
               <input type="text" name="link" class="form-control" placeholder="Реферальная ссылка">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
+              <button class="btn btn-success" style="background-color:#256c5e;">Активировать</button>
+            </div>
+            <div class="col-md-12" style="margin-top:10px;">
               <label for="block_reg">Блокировать регистрацию?</label>
               <input type="checkbox" id="block_reg" name="block_reg">
-            </div>
-            <div class="col-md-2">
-              <button class="btn btn-success">Активировать</button>
             </div>
           <% end %>
           <br>
@@ -32,11 +40,11 @@
         <div class="modal-body">
           <div class="toolchoise flexbox">
             <%= link_to business_scope_path 'all' do %>
-              <i class="allvis fa fa-cart-plus"></i>
+               <i class="allvis fa fa-cog"></i>
               <span class="hidd">Выбрать инструменты</span>
             <% end %>
             <%= link_to business_scope_path 'my' do %>
-              <i class="allvis fa fa-cubes"></i>
+              <i class="allvis fa fa-male"></i>
               <span class="hidd">Мои инструменты</span></a>
             <% end %>
           </div>
