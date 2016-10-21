@@ -4,5 +4,4 @@ class Role < ActiveRecord::Base
   def self.info_select()
     self.select(:id, :name, :description, :partnership_depth)
   end
-
 end

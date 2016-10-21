@@ -1,7 +1,11 @@
 class Landing < ActiveRecord::Base
+  belongs_to :business
+
   has_many :user_landings, dependent: :destroy
   has_many :users, through: :user_landings
-  belongs_to :business
+  has_many :comments, as: :commentable, dependent: :destroy
+
+  validates_presence_of :name, :price, :path
 
   scope :recent, -> { where("updated_at > ?",1.month.ago) }
   scope :problem, -> { where(status: nil) }

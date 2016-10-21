@@ -1,14 +1,14 @@
 class Withdrawal < ActiveRecord::Base
+  belongs_to :user
 
-	def allow
-		self.status = true;
-		self.save()
-	end
-	def deny
-		self.status = false;
-		self.save()
-	end
-	def user
-		User.find(self.user_id)
-	end
+  validates_presence_of :user
+
+  def allow
+  	self.status = true;
+  	self.save
+  end
+  def deny
+  	self.status = false;
+  	self.save
+  end
 end
