@@ -11,11 +11,8 @@ class BusinessController < ApplicationController
       params[:action] = 'index'
     end
 
-    if(params[:type] == 'my')
-      @businesses = current_user.businesses.paginate(:per_page => 4, :page => params[:page])
-    else
-      @businesses = eval('Business.' + params[:type]).paginate(:per_page => 4, :page => params[:page])
-    end
+    @businesses = params[:type] == 'my' ? current_user.businesses : eval('Business.' + params[:type])
+    @businesses = @businesses.newest_first.paginate_by params[:page]
   end
   
   def show

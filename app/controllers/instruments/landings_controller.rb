@@ -7,12 +7,6 @@ class Instruments::LandingsController < ApplicationController
   require "will_paginate/array"
   
   def index
-    # Seems to be annessesary
-    # if current_user
-    #   @for_free = current_user.free_land_number > 0
-    #   @club_links = current_user.club_links
-    # end
-
     @for_free = current_user.free_land_number > 0
     @club_links = current_user.club_links
     
@@ -21,34 +15,20 @@ class Instruments::LandingsController < ApplicationController
       params[:type] = 'all'
       params[:show_modal] = 'index'
     end
+
     if params[:business_id]
-      # TODO business_id should be added to landing model
-      @landings = Landing.by_business(params[:business_id]).newest_first
+      params[:show_modal] = 'index'
+      @landings = Landing.by_business(params[:business_id])
     elsif(params[:type] == 'my')
-      @landings = Landing.newest_first #MY LENDINGS
+      @landings = @current_user.landings
     else
       @landings = eval('Landing.' + params[:type])
     end
-    @landings = @landings.paginate(:per_page => 15, :page => params[:page])
-
-    # if params[:business_id]
-    #   # TODO business_id should be added to landing model
-    #   @landings = Landing.by_business(params[:business_id]).newest_first
-    # else
-    #   @landings = Landing.newest_first
-    # end
-    # @landings = @landings.paginate(:per_page => 15, :page => params[:page])
-
-
-
-
+    @landings = @landings.newest_first.paginate_by params[:page]
   end
 
   def show
     respond_to do |format|
-      # format.html do
-      #   render 'instruments/landings/_detailed_landing.html'
-      # end
       format.partial do
         render :partial => 'instruments/landings/detailed_landing.html', :locals => { :user => User.find(params[:id])}
       end

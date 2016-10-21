@@ -13,7 +13,7 @@ class TeamController < ApplicationController
       end
       format.js do
         # if params[:type] == 'partners'
-        # TODO Need to fix search trought parents, not partners
+        # TODO Need to fix search trought parents, not partners, and use different users
         @user = (true) ? current_user : User.find(params[:id])
         if true
       	  @team = current_user.search_descendants(params[:search])
