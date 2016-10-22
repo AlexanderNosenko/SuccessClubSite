@@ -99,8 +99,9 @@ class Instruments::LandingsController < ApplicationController
     
   end
   def update_settings
+    # current_user.landings.find_by(landing_id: params[:id]).update_attributes(landing_params)
     UserLanding.where(landing_id: params[:id], user_id: current_user.id).first.update_attributes(landing_params)
-    redirect_to landings_scope_path('my')
+    redirect_to landings_scope_path('my'), notice: 'Ссылка сохранена!'
   end
   private
   def landing_params
