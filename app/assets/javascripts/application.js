@@ -9,15 +9,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require clipboard
-$(document).ready(function (e) {
-  console.log('s');
-  if(window.location.pathname.match(/\/landings$/)){
-    $('#tools-choose').modal({
-                    backdrop: 'static',
-                    keyboard: false
-                  }).show();
-  }
-})
+
 function copyToClipboard(element) {
     var $temp = $("<input>");
     $("body").append($temp);

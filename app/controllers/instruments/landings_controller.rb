@@ -1,6 +1,7 @@
 class Instruments::LandingsController < ApplicationController
-  before_action :define_landing, only: [:show, :activate]
+  before_action :define_landing, only: [:show, :activate, :update_settings]
   before_action :authenticate_user!, only: [:index, :activate]
+  before_action :landing_params, only: [:update_settings]
   # OPTIMIZE I'm sure we haven't have to do this
   # before_action :make_payment_services
   # What about this one?
@@ -117,8 +118,14 @@ class Instruments::LandingsController < ApplicationController
     end
     
   end
-
+  def update_settings
+    UserLanding.where(landing_id: params[:id], user_id: current_user.id).first.update_attributes(landing_params)
+    redirect_to landings_scope_path('my')
+  end
   private
+  def landing_params
+    params.require(:landing).permit(:video_link)
+  end
   def define_landing
     @landing = Landing.find(params[:id])
     # TODO Check for existance?

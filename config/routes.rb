@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   get '/landings', to: 'instruments/landings#index', as: 'landings'
   get '/landings/:id', to: 'instruments/landings#show', as: 'landing'
   post '/landings/:id', to: 'instruments/landings#activate', as: 'activate_landing'
+  patch '/landings/:id/update_settings', to: 'instruments/landings#update_settings', as: 'update_landing_settings'
+  
   #resources :landings, only: [:index, :activate], path: 'landings', controller:'instruments/landings'
   
   resources :users, controller: 'profile', path: 'profile'

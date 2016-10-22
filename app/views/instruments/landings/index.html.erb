@@ -18,6 +18,42 @@
       </div>
     </div>
   </div>
+  <div id="copy-landing-link" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+          <h2>Ссылка на лендинг:</h2>
+        <div class="col-md-12">
+          <div class="form-group" id="link">
+            <input type="text" id="landing-url" value="">
+            <!-- <i class="fa fa-clipboard" aria-hidden="true"></i> -->
+            <button id="copy" data-clipboard-target="#landing-url">Копировать</button>
+          </div>
+        </div>
+        <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="edit-landing-settings" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>Настройки лендинга:</h2>
+        <div class="col-md-12">
+          <%= form_tag('', method: :patch) do %>
+            <div class="form-group">
+              <label for="landing-url">https://www.youtube.com/watch?v=</label>
+              <input type="text" name="landing[video_link]" id="landing-video-url">
+              <button type="submit" class="btn btn-green">Сохранить</button>
+            </div>
+          <% end %>
+        </div>
+        <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
 <% if params[:show_modal] == 'index'%>
 
@@ -45,20 +81,28 @@
             <div class="img-price"><%= image_tag "landings/redex-preview.png", alt:"landing-preview", class: "preview" %>
               <span class="price flexbox"><%= free ? '0' : landing.price.to_s %>$</span>
             </div>
-            <% if current_user.has_landing? landing %>
-              <%= link_to landing_outer_path(landing.path), class: "buy-stuff" do %>
-                Открыть
-              <% end %>
-              <% if has_free %>
-                <span>Клубный landing page</span>
+            <div class="landing-controls">
+              <button class="green-btn green-copy-btn" data-url='<%=landing_outer_path(landing.path)%>'><i class="fa fa-link"></i></button>
+              <% if current_user.has_landing? landing %>
+                <%= link_to landing_outer_path(landing.path) do %>
+                <div class="buy-stuff green-btn">
+                  <i class="fa fa-eye"> </i>
+                </div>
+                <% end %>
+                <button class="green-btn edit-landing-settings" data-action="<%=update_landing_settings_path(landing)%>">
+                  <i class="fa fa-cogs"></i>
+                </button>  
               <% else %>
-                <span class="activation">Дата активации: <%= land_activated_at landing.id %></span>
-                <span class="activation">Конец лицензии: <%= land_reactivate_at landing.id %></span>
+                <%= form_tag(activate_landing_path(landing), onSubmit: 'return activate_landing(this)', method: :post) do %>
+                  <%= button_tag "Активировать", class:'buy-stuff'%>
+                <% end %>
               <% end %>
+            </div>
+           <% if has_free %>
+              <span>Клубный landing page</span>
             <% else %>
-              <%= form_tag(activate_landing_path(landing), onSubmit: 'return activate_landing(this)', method: :post) do %>
-                <%= button_tag "Активировать", class:'buy-stuff'%>
-              <% end %>
+              <span class="activation">Дата активации: <%= land_activated_at landing.id %></span>
+              <span class="activation">Конец лицензии: <%= land_reactivate_at landing.id %></span>
             <% end %>
           </div>
         <% end %>
