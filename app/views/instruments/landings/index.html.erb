@@ -22,7 +22,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-          <h2>Ссылка на лендинг:</h2>
+          <h2>Ссылка:</h2>
         <div class="col-md-12">
           <div class="form-group" id="link">
             <input type="text" id="landing-url" value="">
@@ -39,7 +39,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <h2>Настройки лендинга:</h2>
+        <h2>Настройки:</h2>
         <div class="col-md-12">
           <%= form_tag('', method: :patch) do %>
             <div class="form-group">
@@ -84,19 +84,19 @@
             <div class="landing-controls">
               <button class="green-btn green-copy-btn" data-url='<%=landing_outer_path(landing.path)%>'><i class="fa fa-link"></i></button>
               <% if current_user.has_landing? landing %>
-                <%= link_to landing_outer_path(landing.path) do %>
+                <%= link_to landing_outer_path(landing.path), target: '_blank' do %>
                 <div class="buy-stuff green-btn">
                   <i class="fa fa-eye"> </i>
                 </div>
                 <% end %>
-                <button class="green-btn edit-landing-settings" data-action="<%=update_landing_settings_path(landing)%>">
+                <button class="green-btn edit-landing-settings" data-video="<%=current_user.landing_settings(landing).video_link%>" data-action="<%=update_landing_settings_path(landing)%>">
                   <i class="fa fa-cogs"></i>
                 </button>
                 <% if has_free %>
-                  <span>Клубный landing page</span>
+                  <!-- <span>Клубный landing page</span> -->
                 <% else %>
-                  <span class="activation">Дата активации: <%= land_activated_at landing.id %></span>
-                  <span class="activation">Конец лицензии: <%= land_reactivate_at landing.id %></span>
+                  <!-- <span class="activation">Дата активации: <%= land_activated_at landing.id %></span>
+                  <s -->pan class="activation">Конец лицензии: <%= land_reactivate_at landing.id %></span>
                 <% end %>  
               <% else %>
                 <%= form_tag(activate_landing_path(landing), onSubmit: 'return activate_landing(this)', method: :post) do %>

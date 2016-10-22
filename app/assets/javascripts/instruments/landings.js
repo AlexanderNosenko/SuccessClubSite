@@ -12,7 +12,7 @@ $(document).ready(function (e) {
   });
   $('.edit-landing-settings').on('click', function (e) {
   	var modal_container = $('#edit-landing-settings');
-  	// modal_container.find('#landing-video-url').val($(this).data('action'));
+  	modal_container.find('#landing-video-url').val($(this).data('video'));
   	modal_container.find('form').attr('action', $(this).data('action'));
   	modal_container.modal().show();
   })

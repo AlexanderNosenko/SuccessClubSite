@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'business/:id', to: 'business#show', as: 'business'
 
   post 'business/:id', to: 'business#activate', as: 'activate_business'
-  patch 'business/:id', to: 'business#update_settings', as: 'business_settings'
+  patch 'business/:id/settings', to: 'business#update_settings', as: 'business_settings'
   delete 'business/:id', to: 'business#deactivate', as: 'deactivate_business'
   get 'business/:id/settings', to: 'business#settings', as: 'user_business'
 

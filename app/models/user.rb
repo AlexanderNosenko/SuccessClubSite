@@ -157,6 +157,10 @@ class User < ActiveRecord::Base
   end
 
   # Landings
+  def landing_settings landing
+    UserLanding.find_by(user_id: id, landing_id: landing.id)
+  end
+
   def has_landing? landing
     !UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
   end
@@ -250,6 +254,9 @@ class User < ActiveRecord::Base
   def all_business
     user_businesses = UserBusiness.includes(:business).where(user_id: self.id)
     user_businesses.collect {|u_b| u_b.business}.compact
+  end
+  def business_settings business
+    UserBusiness.includes(:partner_link).find_by(user_id: self.id, business_id: business.id)
   end
   private
   def avatar_size_validation

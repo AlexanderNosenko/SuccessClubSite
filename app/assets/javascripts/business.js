@@ -6,7 +6,14 @@ $(document).ready(function () {
 									}).show();
 	}
 });
-
+$('.edit-business-settings').on('click', function (e) {
+	var modal_container = $('#edit-business-settings');
+	modal_container.find('input[name="link"]').val($(this).data('ref_link'));
+	console.log($(this).data('block_reg'));
+	modal_container.find('#settings_block_reg').attr('checked',$(this).data('block_reg'));
+	modal_container.find('form').attr('action', $(this).data('action'));
+	modal_container.modal().show();
+})
 $('.activate-business-btn').on('click', function () {
 
 	if($(this).attr('disabled') == 'disabled') return;

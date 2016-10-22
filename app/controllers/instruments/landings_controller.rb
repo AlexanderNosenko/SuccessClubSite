@@ -37,7 +37,7 @@ class Instruments::LandingsController < ApplicationController
   end
 
   def activate
-    return
+    # return
     @user = current_user
     @wallet = @user.wallet
     @price = @landing.price.to_f
@@ -99,13 +99,14 @@ class Instruments::LandingsController < ApplicationController
     
   end
   def update_settings
-    # current_user.landings.find_by(landing_id: params[:id]).update_attributes(landing_params)
-    UserLanding.where(landing_id: params[:id], user_id: current_user.id).first.update_attributes(landing_params)
+    current_user.landing_settings(@landing).update_attributes(landing_params)
     redirect_to landings_scope_path('my'), notice: 'Ссылка сохранена!'
   end
   private
   def landing_params
+    # params[:landing][:video_link] = 'https://www.youtube.com/watch?v=' + params[:landing][:video_link]
     params.require(:landing).permit(:video_link)
+    
   end
   def define_landing
     @landing = Landing.find(params[:id])

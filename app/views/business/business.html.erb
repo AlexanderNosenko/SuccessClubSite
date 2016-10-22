@@ -34,6 +34,42 @@
       </div>
     </div>
   </div>
+  <div id="edit-business-settings" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h2>Настройки бизнеса</h2>
+          <style>
+            #activate-business-form div{
+              padding: 0px!important;
+            }
+          </style>
+          <%= form_tag '', method: :patch, class: "row" do %>
+            <div class="col-sm-3">
+              <p style="margin-top:7px;">https://redex.red/link/</p>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="link" class="form-control" placeholder="Реферальная ссылка">
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-success" style="background-color:#256c5e;">Сохранить</button>
+            </div>
+            <div class="col-md-12" style="margin-top:10px;">
+              <label for="block_reg">Блокировать регистрацию?</label>
+              <%= check_box :settings, :block_reg %>
+            </div>
+          <% end %>
+          <br>
+          <div class="row">
+            <div class="col-sm-2 col-sm-offset-5">
+              <button type="button" data-dismiss="modal" class="btn"><i class="fa fa-undo" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="tools-choose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -41,14 +77,14 @@
           <div class="toolchoise flexbox">
             <%= link_to business_scope_path 'all' do %>
                <i class="allvis fa fa-cog"></i>
-              <span class="hidd">Выбрать бизнес</span>
+              <span class="hidd">Выбрать направление</span>
             <% end %>
             <%= link_to business_scope_path 'my' do %>
               <i class="allvis fa fa-male"></i>
-              <span class="hidd">Мои бизнесы</span></a>
+              <span class="hidd">Мой бизнес</span></a>
             <% end %>
           </div>
-          <!-- <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button> -->
+          <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -94,8 +130,14 @@
                 Активировать
               </button>
             <% else %>
-              <%= link_to 'Настройки', user_business_path(business.id),
-              class: "business-btn business-add-btn", id: "business-settings-btn" %>
+            <button class="green-btn edit-business-settings" 
+            data-ref_link="<%=current_user.business_settings(business).partner_link.link%>" 
+            data-block_reg="<%=current_user.business_settings(business).block_reg%>" 
+            data-action="<%=user_business_path(business.id)%>">
+                  Настройки
+            </button>
+            <% link_to 'Настройки',
+            class: "business-btn business-add-btn", id: "business-settings-btn" %>
             <% end %>
             <%= link_to business_path(business) do %>
               <div class="business-btn business-more-btn">
