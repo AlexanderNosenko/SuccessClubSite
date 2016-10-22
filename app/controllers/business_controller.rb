@@ -69,7 +69,7 @@ class BusinessController < ApplicationController
   	@settings.update_attribute(:block_reg, params[:settings][:block_reg])
   	@settings.partner_link.update_attribute(:link, ref_link)
   	flash[:notice] = "Изменения сохранены"
-  	redirect_to business_path
+  	redirect_to business_scope_path 'all'
   end
   
   private
@@ -78,7 +78,7 @@ class BusinessController < ApplicationController
   end
 
   def prepare_params
-  	if (params[:link].blank? && params[:partner_link][:link].blank?) || params[:id].blank?
+  	if (params[:link].blank?) || params[:id].blank?
   	# if params[:ref_link].blank?
   	  flash[:error] = "Часть данных отсутствует\nВведите свою реферральную ссылку, пожалуйста"
   	  redirect_to business_scope_path 'all'
@@ -93,6 +93,7 @@ class BusinessController < ApplicationController
   	else
   	  ref_link_str
   	end  	
+    ref_link_str
   end
 
   def redex_business?
