@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008221543) do
+ActiveRecord::Schema.define(version: 20161021174448) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name",             limit: 255
@@ -22,9 +22,22 @@ ActiveRecord::Schema.define(version: 20161008221543) do
     t.datetime "opened_at"
     t.integer  "min_investitions", limit: 4
     t.string   "status",           limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "link_template",    limit: 255, default: "https://"
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content",          limit: 65535
+    t.integer  "rate",             limit: 4,     default: 5
+    t.integer  "user_id",          limit: 4
+    t.integer  "commentable_id",   limit: 4
+    t.string   "commentable_type", limit: 255
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id",    limit: 4

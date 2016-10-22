@@ -400,3 +400,32 @@
 #main #content .comments-block .comment .stars .fullstar {
   color: #ffba00;
 }
+#main #content .comments-block .comment-wrapper form input[type='radio'] {
+  display: none;
+}
+
+#main #content .comments-block .comment-wrapper form label {
+  color: #a7a7a7;
+  margin: 0 1px;
+  cursor: pointer;
+}
+
+#main #content .comments-block .comment-wrapper form #fivestar:checked + label, #main #content .comments-block .comment-wrapper form #fivestar:checked + label + label, #main #content .comments-block .comment-wrapper form #fivestar:checked + label + label + label, #main #content .comments-block .comment-wrapper form #fivestar:checked + label + label + label + label, #main #content .comments-block .comment-wrapper form #fivestar:checked + label + label + label + label + label {
+  color: #ffba00;
+}
+
+#main #content .comments-block .comment-wrapper form #fourstar:checked + input + label, #main #content .comments-block .comment-wrapper form #fourstar:checked + input + label + label, #main #content .comments-block .comment-wrapper form #fourstar:checked + input + label + label + label, #main #content .comments-block .comment-wrapper form #fourstar:checked + input + label + label + label + label {
+  color: #ffba00;
+}
+
+#main #content .comments-block .comment-wrapper form #threestar:checked + input + input + label, #main #content .comments-block .comment-wrapper form #threestar:checked + input + input + label + label, #main #content .comments-block .comment-wrapper form #threestar:checked + input + input + label + label + label {
+  color: #ffba00;
+}
+
+#main #content .comments-block .comment-wrapper form #twostar:checked + input + input + input + label, #main #content .comments-block .comment-wrapper form #twostar:checked + input + input + input + label + label {
+  color: #ffba00;
+}
+
+#main #content .comments-block .comment-wrapper form #onestar:checked + input + input + input + input + label {
+  color: #ffba00;
+}

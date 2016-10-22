@@ -1,11 +1,12 @@
 <div class="top-block flexbox">
   <%= link_to image_tag("kp-logo.png"), root_path %>
-  <span class="bigger">АВТОРИЗАЦИЯ</span><span class="smaller">Заполните необходимые данные:</span>
+  <span class="bigger">АВТОРИЗАЦИЯ</span>
   <% if flash[:recaptcha_error] %>
-    <span class="smaller">  <%= flash[:recaptcha_error] %> </span>
+    <span class="smaller" style="color:red">  <%= flash[:recaptcha_error] %> </span>
   <% end %>
-  <span class="smaller"><%= alert %></span>
-  <span class="smaller"><%= notice %></span>
+  <span class="smaller" style="color:red"><%= alert %></span>
+  <span class="smaller" style="color:red"><%= notice %></span>
+  <span class="smaller">Заполните необходимые данные:</span>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="input-container flexbox">
       <%= f.email_field :email, autofocus: true, placeholder: "Email" %>

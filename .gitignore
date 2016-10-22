@@ -19,3 +19,4 @@
 *.pdf
 *.save
 node_modules/*
+config/nginx.conf
