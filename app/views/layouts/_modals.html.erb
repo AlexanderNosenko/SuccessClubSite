@@ -20,4 +20,42 @@
     </div>
   </div>
 </div>
+<div id="tools-choose-business" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade tools-choose">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="toolchoise flexbox">
+          <%= link_to business_scope_path 'all' do %>
+             <i class="allvis fa fa-cog"></i>
+            <span class="hidd">Выбрать направление</span>
+          <% end %>
+          <%= link_to business_scope_path 'my' do %>
+            <i class="allvis fa fa-male"></i>
+            <span class="hidd">Мой бизнес</span></a>
+          <% end %>
+        </div>
+        <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="tools-choose-instruments" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade tools-choose">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="toolchoise flexbox">
+          <%= link_to landings_scope_path 'all' do %>
+            <i class="allvis fa fa-cart-plus"></i>
+            <span class="hidd">Выбрать инструменты</span>
+          <% end %>
+          <%= link_to landings_scope_path 'my' do %>
+            <i class="allvis fa fa-cubes"></i>
+            <span class="hidd">Мои инструменты</span></a>
+          <% end %>
+        </div>
+        <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
 <%= yield(:modals) %>
