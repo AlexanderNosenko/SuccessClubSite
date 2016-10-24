@@ -2,17 +2,17 @@ Rails.application.routes.draw do
 
   root 'landing#index'
   get 'home', to: 'home#index'
-  
+
   post '/view_mode', to: 'home#set_view_mode'
   post 'finance_api/responce_status/:id', to: 'finance_api#responce_status'
   post 'finance_api/output', to: 'finance_api#output'
-  
+
   get 'finance_api/success/:id', to: 'finance_api#success'
   post 'finance_api/success/:id', to: 'finance_api#success'
-  
+
   get 'finance_api/error/:id', to: 'finance_api#error'
   post 'finance_api/error/:id', to: 'finance_api#error'
-  
+
   get '/finance_api/payment_form', to: 'finance_api#payment_form'
 
   get 'business', to: 'business#business', as: 'business_index'
@@ -23,27 +23,27 @@ Rails.application.routes.draw do
   patch 'business/:id/settings', to: 'business#update_settings', as: 'business_settings'
   delete 'business/:id', to: 'business#deactivate', as: 'deactivate_business'
   get 'business/:id/settings', to: 'business#settings', as: 'user_business'
-
+  post 'business/:id/comment', to: 'business#comment', as: 'new_comment' # TODO: move comment to their own controller
   get 'team/:id', to: 'team#user_team', as: 'user_team'
   get 'team', to: 'team#index'
   post 'team', to: 'team#index'
-  
+
   get '/p/:id', to: 'partner_link#partner', as: 'partner_link'
   post '/p/:id', to: 'partner_link#landing', as: 'landing_link'
   delete '/p', to: 'partner_link#delete', as: 'delete_partner_session'
-  
+
   get 'landings/scope/:type', to: 'instruments/landings#index', as: 'landings_scope'
   get '/landings', to: 'instruments/landings#index', as: 'landings'
   get '/landings/:id', to: 'instruments/landings#show', as: 'landing'
   post '/landings/:id', to: 'instruments/landings#activate', as: 'activate_landing'
   patch '/landings/:id/update_settings', to: 'instruments/landings#update_settings', as: 'update_landing_settings'
-  
+
   #resources :landings, only: [:index, :activate], path: 'landings', controller:'instruments/landings'
-  
+
   resources :users, controller: 'profile', path: 'profile'
   match '/profile/:id/finish_signup', to: 'profile#finish_signup', via: [:get, :patch], as: :finish_signup
   post '/profile/status', to: 'profile#change_role'
-  
+
   devise_for :users, controllers:
     {
       sessions: 'users/sessions',

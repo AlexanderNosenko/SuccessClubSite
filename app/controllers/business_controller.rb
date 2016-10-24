@@ -3,7 +3,7 @@ class BusinessController < ApplicationController
   before_action :pro_user
   before_action :prepare_params, only: [:activate, :update_settings]
   # before_action :prepare_business_list, only: [:all_business]
-  
+
   def business
     @scopes = %w(my all recent problem)
     unless @scopes.include? params[:type]
@@ -14,21 +14,22 @@ class BusinessController < ApplicationController
     @businesses = params[:type] == 'my' ? current_user.businesses : eval('Business.' + params[:type])
     @businesses = @businesses.newest_first.paginate_by params[:page]
   end
-  
+
   def show
   	@business = Business.find(params[:id])
+    @comments = @business.comments
   end
 
   def activate
   	# begin
   	  @business = Business.find(params[:id])
   	  parent_link = PartnerLink.find_or_create_by(
-  	  	user_id: current_user.id, 
+  	  	user_id: current_user.id,
   	  	use_for: @business.name
   	  )
   	  parent_link.update_attribute(:link, ref_link)
   	  UserBusiness.find_or_create_by(
-  	    user_id: current_user.id, 
+  	    user_id: current_user.id,
         business_id: @business.id
       ).update_attributes(partner_link_id: parent_link.id, block_reg: params['block_reg'])
 
@@ -39,7 +40,7 @@ class BusinessController < ApplicationController
   	#   redirect_to business_scope_path 'all'
   	# end
   end
-  
+
   def deactivate
   	settings = UserBusiness.find_by(user_id: current_user.id, business_id: params[:id])
   	unless settings
@@ -63,7 +64,7 @@ class BusinessController < ApplicationController
   	@partner_link = @settings.partner_link
   	@business = Business.find(params[:id])
   end
-  
+
   def update_settings
   	@settings = UserBusiness.find_by(user_id: current_user.id, business_id: params[:id])
   	@settings.update_attribute(:block_reg, params[:settings][:block_reg])
@@ -71,7 +72,21 @@ class BusinessController < ApplicationController
   	flash[:notice] = "Изменения сохранены"
   	redirect_to business_scope_path 'all'
   end
-  
+
+  def comment
+    @business = Business.find(params[:id])
+    @comment = @business.comments.new(
+      user: current_user,
+      content: params[:content],
+      rate: params[:mark] )
+    if @comment.save then
+      flash[:notice] = "Комментарий отправлен"
+    else
+      flash[:notice] = "Нельзя отправить пустой комментарий"
+    end
+    redirect_to business_path(@business)
+  end
+
   private
   def pro_user
   	redirect_to '/' unless user_has_rights
@@ -92,15 +107,14 @@ class BusinessController < ApplicationController
   	  'redex_site.com/' + ref_link_str
   	else
   	  ref_link_str
-  	end  	
+  	end
     ref_link_str
   end
 
   def redex_business?
   	params[:id] == "1" #Redex business_id
   end
-  
-  def prepare_business_list	
+
+  def prepare_business_list
   end
 end
-  

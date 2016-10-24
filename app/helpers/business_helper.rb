@@ -13,6 +13,7 @@ module BusinessHelper
 
   def get_stars number
     text = ""
+    return "" if number.nil?
     number.times do
       text += '<i class="fa fa-star fullstar"></i>'
     end
