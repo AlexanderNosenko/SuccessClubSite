@@ -9,7 +9,7 @@
     <%= link_to team_path, class: "menu-item " + is_active_controller('team').to_s do %>
       <i class="fa fa-users"></i><span class="full-menu">Команда</span>
     <% end %>
-    <%= link_to landings_path, class: "menu-item " + is_active_controller('instruments/*').to_s do %>
+    <%= link_to '#', 'data-toggle'=>"modal", 'data-target' => "#tools-choose-instruments", class: "menu-item instruments" + is_active_controller('instruments/*').to_s do %>
       <i class="fa fa-cogs"></i><span class="full-menu">Инструменты</span>
     <% end %>
     <%= business_link %>

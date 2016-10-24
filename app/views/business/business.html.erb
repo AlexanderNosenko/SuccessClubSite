@@ -69,34 +69,7 @@
       </div>
     </div>
   </div>
-
-  <div id="tools-choose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="toolchoise flexbox">
-            <%= link_to business_scope_path 'all' do %>
-               <i class="allvis fa fa-cog"></i>
-              <span class="hidd">Выбрать направление</span>
-            <% end %>
-            <%= link_to business_scope_path 'my' do %>
-              <i class="allvis fa fa-male"></i>
-              <span class="hidd">Мой бизнес</span></a>
-            <% end %>
-          </div>
-          <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
 <% end %>
-<% if params[:action] == 'index'%>
-<style>
-  div#content{
-    filter: blur(5px);
-  }
-</style>
-<%end%>
 <div id="content" class="flexbox <%= get_view_mode('content') %>">
   <div class="tab-links flexbox">
     <% @scopes.zip(%w'Мои Популярные Новые Проблемные').to_h.each do |scope, name| %>

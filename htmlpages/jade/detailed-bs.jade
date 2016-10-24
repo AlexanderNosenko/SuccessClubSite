@@ -125,6 +125,26 @@ html(lang="ru")
 								i.allvis.fa.fa-cog
 								span.hidd Выбрать направление
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#helper(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						.cons.flexbox
+							.upper.flexbox
+								.help-logo.flexbox
+									img(src='img/mC1NkcwYsAM.jpg')
+								.help-info.flexbox
+									span Ваш консультант:
+									span ФИО
+									span +7-000-00-00-00
+							.lower.flexbox
+								a(href=''): img(src='img/skype-icon.png')
+								a(href=''): img(src='img/vk-icon.png')
+								a(href=''): img(src='img/viber-icon.ico')
+								a(href=''): img(src='img/ok-icon.png')
+								a(href=''): img(src='img/facebook-icon.png')
+								a(href=''): img(src='img/youtube-icon.png')
+						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
 		nav#top
 			.flexbox#flex-top
 				#right-bar
@@ -229,7 +249,7 @@ html(lang="ru")
 							button.orbtn Позвонить спонсору
 					.right-side.flexbox
 						.video
-						button Связаться с помощником
+						button(data-toggle="modal" data-target="#helper") Связаться с помощником
 				p.
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

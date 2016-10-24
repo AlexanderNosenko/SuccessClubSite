@@ -25,10 +25,10 @@
   <p class="business-description">
     <%= @business.description %>
   </p>
-  <div class="comments-block flexbox">
+<div class="comments-block flexbox">
     <div class="comment-wrapper flexbox">
       <div class="img-wrapper flexbox"><%= get_avatar current_user%></div>
-      <%# TODO: make generated form %>
+      <%# TODO: make generated fully form %>
       <%= form_tag new_comment_path(@business.id), method: 'post', class:"flexbox" do %>
         <%= text_area_tag "content", "", placeholder:"Написать комментарий" %>
         <input id="onestar" type="radio" name="mark" value="1">
@@ -44,16 +44,16 @@
         <button type="submit"><i class="fa fa-check-circle"></i></button>
       <% end %>
     </div>
-    <% @comments.each do |comment| %> <%# TODO: change to something like @business.comments do |comment| %>
+    <% @comments.each do |comment| %>
     <div class="comment flexbox">
       <div class="img-wrapper flexbox">
-        <%= get_avatar comment.user %> <%# TODO: change avatar to something like get_avatar comment.author %>
+        <%= get_avatar comment.user %>
       </div>
       <span>
         <%= comment.content %>
       </span>
       <div class="stars flexbox">
-        <%= get_stars comment.rate %> <%# TODO: change to get_stars comment.rating %>
+        <%= get_stars comment.rate %>
       </div>
     </div>
     <% end %>
