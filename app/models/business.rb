@@ -15,4 +15,10 @@ class Business < ActiveRecord::Base
   def self.paginate_by page
   	paginate(per_page: 4, page: page)
   end
+
+  def rating
+    count = Comment.where.not(rate: nil).count
+    sum = Comment.where.not(rate: nil).sum(:rate)
+    sum / count
+  end
 end

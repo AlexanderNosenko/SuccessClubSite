@@ -112,7 +112,7 @@
             <%= image_tag business.logo %>
           </div>
           <div class="stars">
-            <%= get_stars 4 %> <%# TODO: business.rating %>
+            <%= get_stars business.rating %>
           </div>
           <div class="shrt-review flexbox">
             <span>Срок работы: <b><%= opened_ago business %></b></span>
@@ -130,9 +130,9 @@
                 Активировать
               </button>
             <% else %>
-            <button class="green-btn edit-business-settings" 
-            data-ref_link="<%=current_user.business_settings(business).partner_link.link%>" 
-            data-block_reg="<%=current_user.business_settings(business).block_reg%>" 
+            <button class="green-btn edit-business-settings"
+            data-ref_link="<%=current_user.business_settings(business).partner_link.link%>"
+            data-block_reg="<%=current_user.business_settings(business).block_reg%>"
             data-action="<%=user_business_path(business.id)%>">
                   Настройки
             </button>

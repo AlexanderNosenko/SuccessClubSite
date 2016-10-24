@@ -17,7 +17,7 @@ class BusinessController < ApplicationController
 
   def show
   	@business = Business.find(params[:id])
-    @comments = @business.comments
+    @comments = @business.comments.order(created_at: :desc)
   end
 
   def activate
