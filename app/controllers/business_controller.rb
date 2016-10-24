@@ -18,23 +18,34 @@ class BusinessController < ApplicationController
   def show
   	@business = Business.find(params[:id])
     @comments = @business.comments.order(created_at: :desc)
+    @unblocked = false
+    unless @current_user.parent.nil?
+      unless @current_user.parent.business_settings(@business).nil?
+        @unblocked = !@current_user.parent.business_settings(@business).block_reg
+      end
+    end
   end
 
   def activate
   	# begin
-  	  @business = Business.find(params[:id])
-  	  parent_link = PartnerLink.find_or_create_by(
-  	  	user_id: current_user.id,
-  	  	use_for: @business.name
-  	  )
-  	  parent_link.update_attribute(:link, ref_link)
-  	  UserBusiness.find_or_create_by(
-  	    user_id: current_user.id,
-        business_id: @business.id
-      ).update_attributes(partner_link_id: parent_link.id, block_reg: params['block_reg'])
+    if current_user.role.name == 'user'
+      flash[:error] = "Для активации бизнеса вам необходимо \nподключить статус 'Партнер'\nНа странице профиля"
+      redirect_to business_scope_path 'all'
+      return
+    end
+	  @business = Business.find(params[:id])
+	  parent_link = PartnerLink.find_or_create_by(
+	  	user_id: current_user.id,
+	  	use_for: @business.name
+	  )
+	  parent_link.update_attribute(:link, ref_link)
+	  UserBusiness.find_or_create_by(
+	    user_id: current_user.id,
+      business_id: @business.id
+    ).update_attributes(partner_link_id: parent_link.id, block_reg: params['block_reg'])
 
-  	  flash[:notice] = 'Поздавляем, бизнес успешно активирован'
-  	  redirect_to "/landings/?business_id=#{@business.id}"
+	  flash[:notice] = 'Поздавляем, бизнес успешно активирован'
+	  redirect_to "/landings/?business_id=#{@business.id}"
   	# rescue
   	#   flash[:error] = 'Что то пошло не так, обратитесь в тех поддержку'
   	#   redirect_to business_scope_path 'all'

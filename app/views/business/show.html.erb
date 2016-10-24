@@ -47,7 +47,7 @@
       <div class="">
         <iframe width="560" height="300" src="https://www.youtube.com/embed/_Of2hBD1oS4?controls=0&&showinfo=0&fmodestbranding=1" frameborder="0" allowfullscreen></iframe>
       </div>
-      <button class="<%= 'disabled' if current_user.parent.nil? %>" data-toggle="modal" data-target="#helper">Связаться с помощником</button>
+      <button class="<%= "disabled" unless @unblocked %>" data-toggle="modal" data-target="#helper">Связаться с помощником</button>
     </div>
   </div>
   <p class="business-description">
