@@ -1,3 +1,31 @@
+<% content_for :modals do %>
+  <% if current_user.parent %>
+    <div id="helper" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="cons flexbox">
+              <div class="upper flexbox">
+                <div class="help-logo flexbox"><%= get_avatar current_user.parent%></div>
+                <div class="help-info flexbox"><span>Ваш консультант:</span><span><%= current_user.parent.full_name %></span><span><%= current_user.parent.phone%></span></div>
+              </div>
+              <div class="lower flexbox">
+                <a href="skype:<%= current_user.parent.skype %>"><%= image_tag "skype-icon.png" %></a>
+                <a href="<%= current_user.parent.vk %>"><%= image_tag "vk-icon.png" %></a>
+                <a href="viber://chat:<%= current_user.parent.phone %>"><%= image_tag "viber-icon.ico" %></a>
+                <a href="<%= current_user.parent.ok %>"><%= image_tag "ok-icon.png" %></a>
+                <a href="<%= current_user.parent.fb %>"><%= image_tag "facebook-icon.png" %></a>
+                <a href="<%= current_user.parent.youtube %>"><%= image_tag "youtube-icon.png" %></a>
+              </div>
+            </div>
+            <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 <div id="content" class="flexbox <%= get_view_mode('content') %>">
   <div class="info-bs flexbox">
     <div class="left-side flexbox">
@@ -19,7 +47,7 @@
       <div class="">
         <iframe width="560" height="300" src="https://www.youtube.com/embed/_Of2hBD1oS4?controls=0&&showinfo=0&fmodestbranding=1" frameborder="0" allowfullscreen></iframe>
       </div>
-      <button class="disabled">Связаться с помощником</button>
+      <button class="<%= 'disabled' if current_user.parent.nil? %>" data-toggle="modal" data-target="#helper">Связаться с помощником</button>
     </div>
   </div>
   <p class="business-description">

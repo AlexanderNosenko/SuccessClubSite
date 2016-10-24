@@ -429,3 +429,64 @@
 #main #content .comments-block .comment-wrapper form #onestar:checked + input + input + input + input + label {
   color: #ffba00;
 }
+#helper .cons {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#helper .cons .upper {
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#helper .cons .upper .help-logo {
+  width: 100px;
+  height: 100px;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+#helper .cons .upper .help-logo img {
+  height: 100%;
+}
+
+#helper .cons .upper .help-info {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#helper .cons .lower {
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 10px;
+}
+
+#helper .cons .lower a {
+  margin: 0 2px;
+}
+
+#helper .cons .lower a img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
