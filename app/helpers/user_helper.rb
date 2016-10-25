@@ -9,6 +9,6 @@ module UserHelper
   end
 
   def landing_outer_path landing_path
-    "http://landings.improf.club/#{landing_path}/#{current_user.id}"
+    "http://promo.improf.club/#{landing_path}/#{current_user.id}"
   end
 end
