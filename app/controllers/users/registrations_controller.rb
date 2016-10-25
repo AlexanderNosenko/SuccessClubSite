@@ -14,6 +14,7 @@ skip_before_action :verify_authenticity_token, only: [:create]
   def create
     if params[:from_landing]
       session[:parent_id] = params[:parent_id]
+      session[:came_from] = Landing.find_by_path(params[:company_name]).business.name
     end
     super
   end
