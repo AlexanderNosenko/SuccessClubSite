@@ -18,7 +18,7 @@ class Business < ActiveRecord::Base
 
   def rating
     count = Comment.where.not(rate: nil).count
-    return nil if count.nil?
+    return nil if count == 0
     sum = Comment.where.not(rate: nil).sum(:rate)
     sum / count
   end
