@@ -22,6 +22,7 @@ class BusinessController < ApplicationController
     unless @current_user.parent.nil?
       unless @current_user.parent.business_settings(@business).nil?
         @unblocked = !@current_user.parent.business_settings(@business).block_reg
+        @link = @current_user.parent.business_settings(@business).partner_link.link
       end
     end
   end
