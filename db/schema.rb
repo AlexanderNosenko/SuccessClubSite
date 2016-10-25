@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025125515) do
+ActiveRecord::Schema.define(version: 20161025154001) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name",             limit: 255
     t.string   "logo",             limit: 255
-    t.string   "description",      limit: 255
+    t.text     "description",      limit: 65535
     t.string   "video_link",       limit: 255
     t.string   "instruction",      limit: 255
     t.datetime "opened_at"
     t.integer  "min_investitions", limit: 4
     t.string   "status",           limit: 255
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.string   "link_template",    limit: 255, default: "https://"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.string   "link_template",    limit: 255,   default: "https://"
   end
 
   create_table "comments", force: :cascade do |t|
