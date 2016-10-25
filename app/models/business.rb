@@ -21,4 +21,20 @@ class Business < ActiveRecord::Base
     sum = Comment.where.not(rate: nil).sum(:rate)
     sum / count
   end
+
+  def get_link user
+    link = link_template
+    user.ancestors.sort_by { |ancestor| ancestor.depth }.each do |ancestor|
+      settings = ancestor.business_settings(self)
+      unless settings.nil?
+        unless settings.block_reg || settings.partner_link.link.nil?
+          link = settings.partner_link.link
+          break
+        end
+      end
+    end
+    if link == link_template
+      link = 'https://redex.red/reg'
+    end
+  end
 end

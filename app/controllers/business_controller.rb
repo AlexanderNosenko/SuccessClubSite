@@ -18,11 +18,11 @@ class BusinessController < ApplicationController
   def show
   	@business = Business.find(params[:id])
     @comments = @business.comments.order(created_at: :desc)
-    @unblocked = false
-    unless @current_user.parent.nil?
-      unless @current_user.parent.business_settings(@business).nil?
-        @unblocked = !@current_user.parent.business_settings(@business).block_reg
-        @link = @current_user.parent.business_settings(@business).partner_link.link
+    @link = @business.get_link @current_user 
+    @has_parent = false
+    unless @current_user.parent.nil? 
+      if @current_user.parent.business_settings @business
+        @has_parent = true
       end
     end
   end
