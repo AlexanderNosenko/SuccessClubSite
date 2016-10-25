@@ -245,6 +245,8 @@ class User < ActiveRecord::Base
     @role = Role.find_by_name(role.name)
     return if @role.nil?
     self.role = @role
+    self.activated_at = Time.now
+    self.reactivate_at = Time.now + 30.days
     save
   end
   def full_name
