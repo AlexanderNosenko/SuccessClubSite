@@ -95,7 +95,7 @@
         </div>
         <div class="about_and_btns flexbox">
           <div class="comp-about">
-            <%= business.description %>
+            <%= truncate business.description, 170 %>
           </div>
           <div class="comp-btns flexbox">
             <% unless business.users.include?(current_user) %>
