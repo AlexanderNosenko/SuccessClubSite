@@ -47,7 +47,7 @@
       <div>
         <iframe width="560" height="300" src="https://www.youtube.com/embed/_Of2hBD1oS4?controls=0&&showinfo=0&fmodestbranding=1" frameborder="0" allowfullscreen></iframe>
       </div>
-      <a class="<%= 'disabled' unless @link == @business.link_template %>" href="<%= @link %>"><button>Зарегистрироваться в <%= @business.name %></button></a>
+      <a class="<%= 'disabled' unless @link == @business.link_template %>" href="<%= @link %>"><button class="<%= 'disabled' unless @link == @business.link_template %>">Зарегистрироваться в <%= @business.name %></button></a>
     </div>
   </div>
   <p class="business-description">
