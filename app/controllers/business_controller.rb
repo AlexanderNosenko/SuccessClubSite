@@ -115,8 +115,8 @@ class BusinessController < ApplicationController
 
   def ref_link
   	ref_link_str = params[:link] || params[:partner_link][:link]
-  	if redex_business? and not ref_link_str.start_with?('redex_site.com/')
-  	  'redex_site.com/' + ref_link_str
+  	if redex_business? and not ref_link_str.start_with?(Business.find(params[:id]).link_template)
+  	  ref_link_str = Business.find(params[:id]).link_template + ref_link_str
   	else
   	  ref_link_str
   	end
