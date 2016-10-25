@@ -123,7 +123,9 @@ class User < ActiveRecord::Base
 
   def self.new_with_session(params, session)
     # OPTIMIZE Why do we need this?
+    # RESPONSE cause we dont have access to session in model
     pars = (session[:parent_id]) ? params.merge({parent: User.find(session[:parent_id])}) : params
+    pars.merge!({came_from: session[:came_from]})
     logger.debug "session: " + session.to_json.to_s
     logger.debug "pars: " + pars.to_json.to_s
     new(pars)
@@ -216,7 +218,7 @@ class User < ActiveRecord::Base
         refback_percent = ancestor.refback_percent / 100
         if percent == 0.0
           ancestor.give_money(amount * percent)
-        else  
+        else
           ancestor.give_money(amount * percent * (1 - refback_percent))
           self.give_money(amount * percent * refback_percent)
         end

@@ -24,6 +24,6 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
 
   # The path used after confirmation.
   def after_confirmation_path_for(resource_name, resource)
-    (resource.parent && !resource.parent.user_landings.empty?) ? business_index_path : users_path
+    (resource.parent && !resource.parent.user_landings.empty?) ? business_path(Business.find_by_name(resource.came_from)) : users_path
   end
 end
