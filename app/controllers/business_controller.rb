@@ -1,6 +1,6 @@
 class BusinessController < ApplicationController
   before_action :authenticate_user!
-  before_action :pro_user
+  before_action :pro_user, except: [:show]
   before_action :prepare_params, only: [:activate, :update_settings]
   # before_action :prepare_business_list, only: [:all_business]
 
@@ -18,9 +18,9 @@ class BusinessController < ApplicationController
   def show
   	@business = Business.find(params[:id])
     @comments = @business.comments.order(created_at: :desc)
-    @link = @business.get_link @current_user 
+    @link = @business.get_link @current_user
     @has_parent = false
-    unless @current_user.parent.nil? 
+    unless @current_user.parent.nil?
       if @current_user.parent.business_settings @business
         @has_parent = true
       end
