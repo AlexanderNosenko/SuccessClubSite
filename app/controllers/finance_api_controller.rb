@@ -52,7 +52,7 @@ class FinanceApiController < ApplicationController
       'perfectmoney' => 2,
       'nixmoney' => 0.5
     }
-    amount.to_f + amount.to_f * commitions[service_name].to_f / 100
+    amount.to_f - amount.to_f * commitions[service_name].to_f / 100
   end
   def make_withdrawal
 
