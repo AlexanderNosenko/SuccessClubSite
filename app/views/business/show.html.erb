@@ -11,11 +11,11 @@
               </div>
               <div class="lower flexbox">
                 <a href="skype:<%= current_user.parent.skype %>"><%= image_tag "skype-icon.png" %></a>
-                <a href="<%= current_user.parent.vk %>"><%= image_tag "vk-icon.png" %></a>
+                <a href="<%= current_user.parent.vk %>" target="_blank"><%= image_tag "vk-icon.png" %></a>
                 <a href="viber://chat:<%= current_user.parent.phone %>"><%= image_tag "viber-icon.ico" %></a>
-                <a href="<%= current_user.parent.ok %>"><%= image_tag "ok-icon.png" %></a>
-                <a href="<%= current_user.parent.fb %>"><%= image_tag "facebook-icon.png" %></a>
-                <a href="<%= current_user.parent.youtube %>"><%= image_tag "youtube-icon.png" %></a>
+                <a href="<%= current_user.parent.ok %>" target="_blank"><%= image_tag "ok-icon.png" %></a>
+                <a href="<%= current_user.parent.fb %>" target="_blank"><%= image_tag "facebook-icon.png" %></a>
+                <a href="<%= current_user.parent.youtube %>" target="_blank"><%= image_tag "youtube-icon.png" %></a>
               </div>
             </div>
             <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
