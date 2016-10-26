@@ -33,7 +33,7 @@ class TeamController < ApplicationController
           redirect_to team_path
           return
         end
-        if @user.nil? or !current_user.descendant_ids.include?(@user.id)
+        if @user.nil? || !current_user.descendant_ids.include?(@user.id)
           flash[:notice] = 'Вы не можете просматривать эту команду'
           redirect_to team_path
           return
