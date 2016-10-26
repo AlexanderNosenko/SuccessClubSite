@@ -3,6 +3,19 @@ module ApplicationHelper
     def truncate(str, length)
       (str.length < length)? str : str[0..length] + "..."
     end
+    def markdown(text) # thx to https://habrahabr.ru/company/centosadmin/blog/163947/
+      renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: true)
+      options = {
+          autolink: true,
+          no_intra_emphasis: true,
+          fenced_code_blocks: true,
+          lax_html_blocks: true,
+          strikethrough: true,
+          superscript: true,
+          space_after_headers: true
+      }
+      Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+    end
     def business_link
       link = (user_has_rights ? business_index_path : '#')
       htrml_classes = "menu-item " + is_active_controller('instruments/*').to_s + (user_has_rights ? "" : " disabled")

@@ -52,9 +52,9 @@
       <% end %>
     </div>
   </div>
-  <p class="business-description">
-    <%= @business.description %>
-  </p>
+  <div class="business-description">
+    <%= markdown @business.description %>
+  </div>
 <div class="comments-block flexbox">
     <div class="comment-wrapper flexbox">
       <div class="img-wrapper flexbox"><%= get_avatar current_user%></div>

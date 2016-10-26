@@ -19,6 +19,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem 'recaptcha', require: 'recaptcha/rails'
+gem "redcarpet" # mardown parser gem
 
 #Liqpay plagin
 gem 'liqpay', github: 'liqpay/sdk-ruby'

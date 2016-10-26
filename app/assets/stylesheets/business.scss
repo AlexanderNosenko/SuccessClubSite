@@ -237,11 +237,12 @@
   background: #157260;
 }
 
-#main #content p {
+#main #content .business-description {
   width: 80%;
   margin: 20px 0;
   font-size: 14px;
 }
+
 
 #main #content .comments-block {
   -webkit-flex-direction: column;
