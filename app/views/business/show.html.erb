@@ -39,7 +39,7 @@
         <span>Участников от клуба: <b><%= @business.users.size %></b></span>
       </div>
       <div class="comp-btns flexbox">
-        <a href="<%= business_instructions_path %>" style="padding:0"><button class="grbtn" style="width:100%">Пошаговая инструкция</button></a>
+        <a href="<%= business_instructions_path %>" style="padding:0" target="_blank"><button class="grbtn" style="width:100%">Пошаговая инструкция</button></a>
         <button class="orbtn <%= 'disabled' unless @has_parent %>" data-toggle="modal" data-target="#helper">Связаться с наставником</button>
       </div>
     </div>

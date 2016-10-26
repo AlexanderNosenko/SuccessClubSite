@@ -89,11 +89,7 @@ class Instruments::LandingsController < ApplicationController
     end
 
     flash[:notice] = 'Landing page успешно активирован!'
-    if params[:business_id].blank?
-      redirect_to landings_scope_path('my')
-    else
-      redirect_to business_path params[:business_id]
-    end
+    redirect_to landings_scope_path('my')
 
   end
   def update_settings
