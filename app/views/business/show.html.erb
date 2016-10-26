@@ -40,7 +40,7 @@
       </div>
       <div class="comp-btns flexbox">
         <button class="grbtn disabled">Пошаговая инструкция</button>
-        <button class="orbtn <%= 'disabled' unless @has_parent %>" data-toggle="modal" data-target="#helper">Позвонить спонсору</button>
+        <button class="orbtn <%= 'disabled' unless @has_parent %>" data-toggle="modal" data-target="#helper">Связаться с наставником</button>
       </div>
     </div>
     <div class="right-side flexbox">
@@ -48,7 +48,7 @@
         <iframe width="560" height="300" src="https://www.youtube.com/embed/_Of2hBD1oS4?controls=0&&showinfo=0&fmodestbranding=1" frameborder="0" allowfullscreen></iframe>
       </div>
       <% unless @link.nil? %>
-        <a href="<%= @link %>"><button>Зарегистрироваться в <%= @business.name %></button></a>
+        <a href="<%= @link %>" target="_blank"><button>Зарегистрироваться в <%= @business.name %></button></a>
       <% end %>
     </div>
   </div>
