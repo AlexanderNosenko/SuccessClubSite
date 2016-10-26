@@ -11,7 +11,9 @@ class BusinessController < ApplicationController
       params[:action] = 'index'
     end
 
-    @businesses = params[:type] == 'my' ? current_user.businesses : eval('Business.' + params[:type])
+    user_busi = current_user.businesses
+
+    @businesses = params[:type] == 'my' ? user_busi : eval('Business.' + params[:type]).where.not(id: user_busi.ids)
     @businesses = @businesses.newest_first.paginate_by params[:page]
   end
 

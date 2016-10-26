@@ -1,16 +1,14 @@
 class Instruments::LandingsController < ApplicationController
   before_action :define_landing, only: [:show, :activate, :update_settings]
-  before_action :authenticate_user!, only: [:index, :activate]
+  before_action :authenticate_user!
   before_action :landing_params, only: [:update_settings]
-  # OPTIMIZE I'm sure we haven't have to do this
-  # before_action :make_payment_services
-  # What about this one?
   require "will_paginate/array"
   
   def index
     @for_free = current_user.free_land_number > 0
     @club_links = current_user.club_links
-    
+    user_landings = current_user.landings
+     
     @scopes = %w(my all recent problem)
     unless @scopes.include? params[:type]
       params[:type] = 'all'
@@ -21,9 +19,9 @@ class Instruments::LandingsController < ApplicationController
       params[:show_modal] = 'index'
       @landings = Landing.by_business(params[:business_id])
     elsif(params[:type] == 'my')
-      @landings = @current_user.landings
+      @landings = user_landings
     else
-      @landings = eval('Landing.' + params[:type])
+      @landings = eval('Landing.' + params[:type]).where.not(id: user_landings.ids)
     end
     @landings = @landings.newest_first.paginate_by params[:page]
   end
@@ -92,9 +90,9 @@ class Instruments::LandingsController < ApplicationController
 
     flash[:notice] = 'Landing page успешно активирован!'
     if params[:business_id].blank?
-      redirect_to action: :index 
+      redirect_to landings_scope_path('my')
     else
-      redirect_to business_settings_path params[:business_id]
+      redirect_to business_path params[:business_id]
     end
     
   end
@@ -102,6 +100,7 @@ class Instruments::LandingsController < ApplicationController
     current_user.landing_settings(@landing).update_attributes(landing_params)
     redirect_to landings_scope_path('my'), notice: 'Ссылка сохранена!'
   end
+
   private
   def landing_params
     # params[:landing][:video_link] = 'https://www.youtube.com/watch?v=' + params[:landing][:video_link]
