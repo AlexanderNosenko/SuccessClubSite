@@ -23,19 +23,12 @@ class Business < ActiveRecord::Base
     sum / count
   end
 
-  def get_link user
-    link = link_template
-    user.ancestors.sort_by { |ancestor| ancestor.depth }.each do |ancestor|
-      settings = ancestor.business_settings(self)
-      unless settings.nil?
-        unless settings.block_reg || settings.partner_link.link.nil?
-          link = settings.partner_link.link
-          break
-        end
-      end
-    end
-    if link == link_template
-      link = 'https://redex.red/reg'
+  def get_link parent # TODO: optimize it
+    unless parent.nil?
+      settings = parent.business_settings(self)
+      return settings.partner_link.link unless settings.block_reg
+    else
+      return nil
     end
   end
 end

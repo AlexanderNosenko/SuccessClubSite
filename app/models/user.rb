@@ -265,9 +265,10 @@ class User < ActiveRecord::Base
   end
 
   def find_active_parent(business)
-    user.ancestors.sort_by { |ancestor| ancestor.depth }.each do |ancestor|
-      return ancestor unless ancestor.business_settings(self).nil?
+    ancestors.sort_by { |ancestor| ancestor.depth }.each do |ancestor|
+      return ancestor unless ancestor.business_settings(business).nil?
     end
+    nil
   end
   private
   def avatar_size_validation
