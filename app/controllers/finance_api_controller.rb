@@ -9,11 +9,11 @@ class FinanceApiController < ApplicationController
 
   def responce_status
     if !skip_validation
-      unless @responce_data[:success] 
+      unless @responce_data[:success]
         head 444
         return
       end
-      update_user_balance 
+      update_user_balance
     end
     puts "#{params[:id]} balance after function :" + Wallet.find_by(user_id: @responce_data[:user_id]).main_balance.to_s + "\n"
     head 200
@@ -32,17 +32,17 @@ class FinanceApiController < ApplicationController
   def payment_form
 
     render inline: get_payment_form
-  
+
   end
   def output
-    
+
     if current_user.wallet.main_balance - params['amount'].to_f >= 0
       make_withdrawal
     else
       flash[:notice] = "Приносим свои извининия, на ващем счету недостаточно средств."
     end
     redirect_to home_path
-    
+
   end
 
   private
@@ -55,13 +55,13 @@ class FinanceApiController < ApplicationController
     amount.to_f + amount.to_f * commitions[service_name].to_f / 100
   end
   def make_withdrawal
-    
+
     withdrawal_created = Withdrawal.create(
         user_id: current_user.id,
         amount: get_amount_with_commision(params['amount'], params['system_output']),
         method: params['system_output']
     )
-    if(withdrawal_created) 
+    if(withdrawal_created)
       flash[:notice] = "Поздравляем! Ваш зарос на вывод средств принят."
     else
       flash[:notice] = "Приносим свои извининия, произошла ошибка, обратитесь в техподдержку."
@@ -82,7 +82,7 @@ class FinanceApiController < ApplicationController
       method: params['id']
     )
     wallet = Wallet.find_by(user_id: @responce_data[:user_id])
-    
+
     wallet.update_attributes!(
       main_balance: wallet.main_balance + @responce_data[:amount].to_f
     )
@@ -96,7 +96,7 @@ class FinanceApiController < ApplicationController
 
   def adapte_liqpay_data
 
-    head 400 if (params['data'].blank? || params['signature'].blank?)# && Rails.env.production? #render :status => 400 
+    head 400 if (params['data'].blank? || params['signature'].blank?)# && Rails.env.production? #render :status => 400
 
     liqpay = Liqpay::Liqpay.new
     sign = liqpay.str_to_sign(
@@ -106,7 +106,7 @@ class FinanceApiController < ApplicationController
     )
     liqpay_data = JSON.parse(Base64.decode64(params['data']))
 
-    head 422 unless Rails.env.development? || params['signature'] == sign#render :status => 422 
+    head 422 unless Rails.env.development? || params['signature'] == sign#render :status => 422
     puts 'liqpay_status:' + liqpay_data['status']
     status_of_payment = (liqpay_data['status'] == "success") || (liqpay_data['status'] == "wait_accept")
 
@@ -122,13 +122,13 @@ class FinanceApiController < ApplicationController
   def adapte_perfectmoney_data
     Rails.logger.debug "params.to_json:"
     Rails.logger.debug params.to_json
-    head 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['PERFECT_MONEY_PASS']), 'MD5')&& !skip_validation#render :status => 422 
+    head 422 if params['V2_HASH'] != make_hash_for_ckeck_from(params_for_check(ENV['PERFECT_MONEY_PASS']), 'MD5')&& !skip_validation#render :status => 422
     make_responce_data(params['user_id'], params['PAYMENT_AMOUNT'], params['PAYMENT_UNITS'], true)
   end
 
   def adapte_advcash_data
 
-    head 400 if params['ac_hash'].blank? && Rails.env.production? && !skip_validation#render :status => 400 
+    head 400 if params['ac_hash'].blank? && Rails.env.production? && !skip_validation#render :status => 400
 
     status_params = [params['ac_transfer']]
     status_params.push(params['ac_start_date'])
@@ -145,13 +145,13 @@ class FinanceApiController < ApplicationController
     # puts "Sign\n" +  sign + "\n"
 
     head 422  unless params['ac_hash'] == sign unless skip_validation
-    status_of_payment = ["PENDING", "COMPLETED"].include?(params['ac_transaction_status'])
+    status_of_payment = ["COMPLETED"].include?(params['ac_transaction_status'])
     make_responce_data(params['user_id'], params['ac_amount'], params['ac_merchant_currency'], status_of_payment)
   end
 
   def make_responce_data(customer, amount ,currency, status)
-    
-    head 400 if customer.blank? || amount.blank? || currency.blank? || status.blank? && Rails.env.production? && !skip_validation#render :status => 400 
+
+    head 400 if customer.blank? || amount.blank? || currency.blank? || status.blank? && Rails.env.production? && !skip_validation#render :status => 400
     @responce_data = {
         :user_id => customer,
         :amount => amount,
@@ -177,8 +177,8 @@ class FinanceApiController < ApplicationController
       :language     => "ru"
       }).html_safe
     when 'advcash'
-      if (params['order_id'].blank? || params['amount'].blank?) 
-        'some params are missing' 
+      if (params['order_id'].blank? || params['amount'].blank?)
+        'some params are missing'
       else
         string_to_sign = ["club.mlm30@gmail.com"]
         string_to_sign.push("Professionals Club")
@@ -199,7 +199,7 @@ class FinanceApiController < ApplicationController
   end
 
   def make_hash_for_ckeck_from( values, mode )
-    
+
     # puts '(Digest::' + mode + ".new).digest('" + values.join(":") + "')"
     # exec('(Digest::' + mode + ".new).digest('" + values.join(":") + "')")#.upcase
     puts "Encoded suppsosedly what's needed " + (Digest::SHA256.new).hexdigest("235f9d0b-b48f-462c-9949-621c4930490c:2012-06-23 12:30:00:My Shop:U123456789012:U210987654321:123456:123.45:USD:P@ssw0rd")
@@ -210,7 +210,7 @@ class FinanceApiController < ApplicationController
       values = [values]
     end
 
-    
+
     case mode
     when 'MD5'
       puts "\n #{params[:id]} Encoded " + (Digest::MD5.new).hexdigest(values.join(":")).upcase + "\n"
