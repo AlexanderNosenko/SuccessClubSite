@@ -39,7 +39,7 @@ class FinanceApiController < ApplicationController
     if current_user.wallet.main_balance - params['amount'].to_f >= 0
       make_withdrawal
     else
-      flash[:notice] = "Приносим свои извининия, на ващем счету недостаточно средств."
+      flash[:notice] = "Приносим свои извинения, на вашем счету недостаточно средств."
     end
     redirect_to home_path
     
@@ -64,7 +64,7 @@ class FinanceApiController < ApplicationController
     if(withdrawal_created) 
       flash[:notice] = "Поздравляем! Ваш зарос на вывод средств принят."
     else
-      flash[:notice] = "Приносим свои извининия, произошла ошибка, обратитесь в техподдержку."
+      flash[:notice] = "Приносим свои извинения, произошла ошибка, обратитесь в техподдержку."
     end
 
   end
