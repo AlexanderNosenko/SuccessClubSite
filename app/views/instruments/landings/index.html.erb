@@ -56,9 +56,9 @@
               <span class="price flexbox"><%= free ? '0' : landing.price.to_s %>$</span>
             </div>
             <div class="landing-controls">
-              <button class="green-btn green-copy-btn" data-url='<%=landing_outer_path(landing.path)%>'><i class="fa fa-link"></i></button>
+              <button class="green-btn green-copy-btn" data-url='<%=landing_outer_path(landing.short_path)%>'><i class="fa fa-link"></i></button>
               <% if current_user.has_landing? landing %>
-                <%= link_to landing_outer_path(landing.path), target: '_blank' do %>
+                <%= link_to landing_outer_path(landing.short_path), target: '_blank' do %>
                   <div class="buy-stuff green-btn">
                     <i class="fa fa-eye"> </i>
                   </div>
