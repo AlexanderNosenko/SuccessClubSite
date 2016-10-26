@@ -80,7 +80,7 @@ class BusinessController < ApplicationController
   	@settings.update_attribute(:block_reg, params[:settings][:block_reg])
   	@settings.partner_link.update_attribute(:link, ref_link)
   	flash[:notice] = "Изменения сохранены"
-  	redirect_to business_scope_path 'all'
+  	redirect_to business_scope_path 'my'
   end
 
   def comment
