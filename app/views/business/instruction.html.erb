@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Клуб Професcионалов</title>
+    <%= render partial: 'layouts/favicons' %>
+    <%= stylesheet_link_tag "instructions" %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+</head>
+<body class="flexbox">
+    <%= render partial: 'layouts/modals'%>
+    <%= render 'layouts/topnavbar' %>
+
+    <!-- Navigation -->
+    <%= render 'layouts/navigation' %>
+    <div id="main" class="flexbox">
+      <div id="content" class="flexbox full">
+        <div class="inst-container flexbox">
+          <div class="instr-links flexbox"><a id="fstep" href="#fvideo" data-toggle="tab" class="flexbox"></a><a id="sstep" href="#svideo" data-toggle="tab" class="flexbox"></a><a id="tstep" href="#tvideo" data-toggle="tab" class="flexbox"></a><a id="fostep" href="#fovideo" data-toggle="tab" class="flexbox"></a></div>
+          <div class="tab-content flexbox">
+            <div id="fvideo" class="tab-pane active">
+              <div class="video-i">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/qhu-KA0fKeg" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div id="svideo" class="tab-pane">
+              <div class="video-i">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RPMuZFQrSy4" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div id="tvideo" class="tab-pane">
+              <div class="video-i">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/PYeeDQgWpoo" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div id="fovideo" class="tab-pane">
+              <div class="video-i">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/8XtUNMOdGcw" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render 'layouts/footer' %>
+
+    <% if flash[:notice] %>
+      <div class="toastr info">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:message] %>
+      <div class="toastr warning">
+        <%= flash[:message] %>
+      </div>
+    <% end %>
+    <% if flash[:error] %>
+      <div class="toastr error">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <!-- End wrapper-->
+    <%= javascript_include_tag :defaults %>
+
+    <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
+    <%= yield :javascript %>
+
+</body>
+</html>

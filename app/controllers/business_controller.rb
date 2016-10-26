@@ -97,6 +97,10 @@ class BusinessController < ApplicationController
     redirect_to business_path(@business)
   end
 
+  def instructions
+    render "instruction", layout: false
+  end
+
   private
   def pro_user
   	redirect_to '/' unless user_has_rights

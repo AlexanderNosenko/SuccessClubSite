@@ -3,12 +3,12 @@ class Instruments::LandingsController < ApplicationController
   before_action :authenticate_user!
   before_action :landing_params, only: [:update_settings]
   require "will_paginate/array"
-  
+
   def index
     @for_free = current_user.free_land_number > 0
     @club_links = current_user.club_links
     user_landings = current_user.landings
-     
+
     @scopes = %w(my all recent problem)
     unless @scopes.include? params[:type]
       params[:type] = 'all'
@@ -94,7 +94,7 @@ class Instruments::LandingsController < ApplicationController
     else
       redirect_to business_path params[:business_id]
     end
-    
+
   end
   def update_settings
     current_user.landing_settings(@landing).update_attributes(landing_params)
@@ -105,7 +105,7 @@ class Instruments::LandingsController < ApplicationController
   def landing_params
     # params[:landing][:video_link] = 'https://www.youtube.com/watch?v=' + params[:landing][:video_link]
     params.require(:landing).permit(:video_link)
-    
+
   end
   def define_landing
     @landing = Landing.find(params[:id])
