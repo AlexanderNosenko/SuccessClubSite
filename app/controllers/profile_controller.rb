@@ -84,7 +84,7 @@ class ProfileController < ApplicationController
 
     flash[:notice] = "Статус успешно изменен!"
 
-    redirect_to users_path
+    redirect_to business_index_path
   end
 
   protected
