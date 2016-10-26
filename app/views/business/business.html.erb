@@ -104,7 +104,7 @@
               </button>
             <% else %>
             <button class="green-btn edit-business-settings"
-            data-ref_link="<%=current_user.business_settings(business).partner_link.link%>"
+            data-ref_link="<%=current_user.business_settings(business).partner_link.link.sub(business.link_template, '')%>"
             data-block_reg="<%=current_user.business_settings(business).block_reg%>"
             data-action="<%=user_business_path(business.id)%>">
                   Настройки
