@@ -255,12 +255,19 @@ class User < ActiveRecord::Base
     # JUST Even simpler way to avoid nil to string convertation error
     "#{name} #{last_name}"
   end
+  # Business part`
   def all_business
     user_businesses = UserBusiness.includes(:business).where(user_id: self.id)
     user_businesses.collect {|u_b| u_b.business}.compact
   end
   def business_settings business
     UserBusiness.includes(:partner_link).find_by(user_id: self.id, business_id: business.id)
+  end
+
+  def find_active_parent(business)
+    user.ancestors.sort_by { |ancestor| ancestor.depth }.each do |ancestor|
+      return ancestor unless ancestor.business_settings(self).nil?
+    end
   end
   private
   def avatar_size_validation
