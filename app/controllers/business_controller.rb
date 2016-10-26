@@ -109,7 +109,7 @@ class BusinessController < ApplicationController
   def prepare_params
   	if (params[:link].blank?) || params[:id].blank?
   	# if params[:ref_link].blank?
-  	  flash[:error] = "Часть данных отсутствует\nВведите свою реферральную ссылку, пожалуйста"
+  	  flash[:error] = "Часть данных отсутствует.\nВведите свою реферральную ссылку, пожалуйста"
   	  redirect_to business_scope_path 'all'
   	end
   	# params.require(:ref_link)
