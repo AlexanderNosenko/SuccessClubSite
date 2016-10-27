@@ -1,5 +1,5 @@
-<h1>Here we go:</h1>
-<p>Users have money on wallets: <strong><%= @users_money %></strong></p>
-<p>Money got (during all time): <strong><%= @got %></strong></p>
-<p>Money withdrawn (during all time): <strong><%= @withdrawn %></strong></p>
-<p>So we have: <strong><%= @we_have %></strong></p>
+<h1>Вот:</h1>
+<p>У пользователей денег на кошельках: <strong><%= @users_money.round(2) %></strong></p>
+<p>Денег получено (за все время): <strong><%= @got.round(2) %></strong></p>
+<p>Денег выведено (за все время): <strong><%= @withdrawn.round(2) %></strong></p>
+<p>В итоге для вывода: <strong><%= (@we_have - 19).round(2) %></strong></p>
