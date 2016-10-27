@@ -53,7 +53,9 @@
           <div class="goods flexbox"><%= image_tag "landings/redex-logo.png" %>
             <div class="stuff-name"> <span>Landing page для <%= landing.name %></span></div>
             <div class="img-price"><%= image_tag "landings/redex-preview.png", alt:"landing-preview", class: "preview" %>
-              <span class="price flexbox"><%= free ? '0' : landing.price.to_s %>$</span>
+              <% unless free %>
+                <span class="price flexbox"><%= landing.price.to_s %>$</span>
+              <% end %>
             </div>
             <div class="landing-controls">
               <% if current_user.has_landing? landing %>
