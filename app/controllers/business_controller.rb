@@ -2,7 +2,6 @@ class BusinessController < ApplicationController
   before_action :authenticate_user!
   before_action :pro_user, except: [:show]
   before_action :prepare_params, only: [:activate, :update_settings]
-  # before_action :prepare_business_list, only: [:all_business]
 
   def business
     @scopes = %w(my all recent problem)
@@ -26,7 +25,6 @@ class BusinessController < ApplicationController
   end
 
   def activate
-  	# begin
     if current_user.role.name == 'user'
       flash[:error] = "Для активации бизнеса вам необходимо \nподключить статус 'Партнер'\nНа странице профиля"
       redirect_to business_scope_path 'all'
@@ -45,10 +43,6 @@ class BusinessController < ApplicationController
 
 	  flash[:notice] = 'Поздавляем, бизнес успешно активирован'
 	  redirect_to "/landings/?business_id=#{@business.id}"
-  	# rescue
-  	#   flash[:error] = 'Что то пошло не так, обратитесь в тех поддержку'
-  	#   redirect_to business_scope_path 'all'
-  	# end
   end
 
   def deactivate
@@ -127,8 +121,5 @@ class BusinessController < ApplicationController
 
   def redex_business?
   	params[:id] == "1" #Redex business_id
-  end
-
-  def prepare_business_list
   end
 end

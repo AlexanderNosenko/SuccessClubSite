@@ -8,4 +8,9 @@ class UserLanding < ActiveRecord::Base
   def init
   	self.is_club ||= false
   end
+
+  # JUST To the ActiveJob
+  def expired?
+  	!is_club && (Time.now > reactivate_at))
+  end
 end

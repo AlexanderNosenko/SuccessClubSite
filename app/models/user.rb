@@ -4,9 +4,6 @@ class User < ActiveRecord::Base
   belongs_to :role
   before_create :set_default_role
 
-  # OPTIMIZE We never used this table, really
-  # belongs_to :parent, class_name: 'User'
-
   has_many :partner_links, dependent: :destroy
 
   has_many :user_landings, dependent: :destroy
@@ -160,26 +157,27 @@ class User < ActiveRecord::Base
 
   # Landings
   def landing_settings landing
-    UserLanding.find_by(user_id: id, landing_id: landing.id)
+    # UserLanding.find_by(user_id: id, landing_id: landing.id)
+    user_landings.find_by(landing_id: landing.id)
   end
 
   def has_landing? landing
-    !UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
+    # !UserLanding.find_by(user_id: id, landing_id: landing.id).nil?
+    !user_landings.find_by(landing_id: landing.id).nil?
   end
   def club_links
     user_landings.select { |x| x.is_club }
   end
   def free_land_number
-    links = user_landings
     free_number = role.landing_pages_number
     club_number = club_links.size
     free_number - club_number
   end
-  def landing_viewed landing
-    # FIXME But we still cannot use this one..(and may be would not)
-    link = UserLanding.find_by(user_id: id, landing_id: landing.id)
-    link.viewed += 1
-    link.save
+  def drop_landing landing
+    landing_link = landing_settings
+    landing_link.destroy
+    # Not sure about this 
+    self.save
   end
 
   # Money part
@@ -198,13 +196,13 @@ class User < ActiveRecord::Base
     wallet.save
   end
   def take_money amount
-    return if !enough? amount.to_f
+    return unless enough? amount.to_f
 
     wallet.main_balance -= amount.to_f
     wallet.save
   end
   def take_bonus_money amount
-    return if !bonus_enough? amount.to_f
+    return unless bonus_enough? amount.to_f
 
     wallet.bonus_balance -= amount.to_f
     wallet.save
@@ -241,7 +239,6 @@ class User < ActiveRecord::Base
   end
 
   # Roles part
-  # JUST This will be a mark for recently implemented features
   def set_role role
     # Available names are "user", "partner", "leader", "vip"
     @role = Role.find_by_name(role.name)
@@ -251,17 +248,34 @@ class User < ActiveRecord::Base
     self.reactivate_at = Time.now + 30.days
     save
   end
+
+  # JUST For Active Job, to be called when no money left 
+  def drop_role
+    old_role = role
+    default = Role.find_by(name: 'user')
+    return unless default
+
+    user_landings.each do |landing_link|
+      if landing_link.is_club
+        landing_link.destroy
+      end
+    end
+
+    user_businesses.each do |business_link|
+      business_link.destroy
+    end
+
+    self.save
+  end
+
   def full_name
     # JUST Even simpler way to avoid nil to string convertation error
     "#{name} #{last_name}"
   end
-  # Business part`
-  def all_business
-    user_businesses = UserBusiness.includes(:business).where(user_id: self.id)
-    user_businesses.collect {|u_b| u_b.business}.compact
-  end
+  # Business part
   def business_settings business
-    UserBusiness.includes(:partner_link).find_by(user_id: self.id, business_id: business.id)
+    # UserBusiness.includes(:partner_link).find_by(user_id: self.id, business_id: business.id)
+    user_businesses.includes(:partner_link).find_by(business_id: business.id)
   end
 
   def find_active_parent(business)
