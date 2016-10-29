@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   has_many :to_payments, class_name: 'Payment', foreign_key: 'to_user_id'
   has_many :from_payments, class_name: 'Payment', foreign_key: 'from_user_id'
+  has_many :withdrawals
 
   has_one :wallet, dependent: :destroy
   after_create :create_wallet
