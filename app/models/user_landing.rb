@@ -10,7 +10,10 @@ class UserLanding < ActiveRecord::Base
   end
 
   # JUST To the ActiveJob
+  def expiring?
+    (Time.now + 2.days) > reactivate_at
+  end
   def expired?
-  	!is_club && (Time.now > reactivate_at))
+  	!is_club && (Time.now > reactivate_at)
   end
 end

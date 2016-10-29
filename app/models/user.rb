@@ -176,8 +176,6 @@ class User < ActiveRecord::Base
   def drop_landing landing
     landing_link = landing_settings
     landing_link.destroy
-    # Not sure about this 
-    self.save
   end
 
   # Money part
@@ -250,8 +248,13 @@ class User < ActiveRecord::Base
   end
 
   # JUST For Active Job, to be called when no money left 
+  def expiring?
+    (Time.now + 2.days) > self.reactivate_at
+  end 
+  def expired?
+    Time.now > self.reactivate_at
+  end
   def drop_role
-    old_role = role
     default = Role.find_by(name: 'user')
     return unless default
 
@@ -265,6 +268,7 @@ class User < ActiveRecord::Base
       business_link.destroy
     end
 
+    self.role = default
     self.save
   end
 
