@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025154001) do
+ActiveRecord::Schema.define(version: 20161029185803) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name",             limit: 255
@@ -193,12 +193,13 @@ ActiveRecord::Schema.define(version: 20161025154001) do
   end
 
   create_table "withdrawals", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.float    "amount",     limit: 24
-    t.string   "method",     limit: 255
+    t.integer  "user_id",      limit: 4
+    t.float    "amount",       limit: 24
+    t.string   "method",       limit: 255
     t.boolean  "status"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "user_account", limit: 255
   end
 
   add_foreign_key "identities", "users"

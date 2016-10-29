@@ -2,6 +2,7 @@ class FinanceApiController < ApplicationController
 
   before_action :prepare_input_data, except: [:payment_form, :output]
   skip_before_filter :verify_authenticity_token
+  before_action :prepera_params_output, only: [:output]
 
   require 'digest'
   require "base64"
@@ -52,6 +53,9 @@ class FinanceApiController < ApplicationController
   end
 
   private
+  def prepera_params_output
+    redirect_to home_path, notice: "Введите все параменты пожалуйста." if params['amount'].blank? || params['user_account'].blank?
+  end
   def get_amount_with_commision(amount, service_name)
     commitions = {
       'advcash' => 0,
@@ -64,7 +68,8 @@ class FinanceApiController < ApplicationController
     Withdrawal.create(
         user_id: current_user.id,
         amount: get_amount_with_commision(params['amount'], params['system_output']),
-        method: params['system_output']
+        method: params['system_output'],
+        user_account: params['user_account']
     ) && current_user.take_money(params['amount'])
   end
   def method_name

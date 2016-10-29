@@ -7,20 +7,21 @@
           <div class="col-lg-1 <%=withdrawal.status ? 'btn-success' : 'btn-danger'%>">
             <%= withdrawal.status.nil? ? "false" : withdrawal.status.to_s %>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-1">
             <%= withdrawal.created_at.strftime("%d/%m/%y %H:%M:%S") %>
           </div>
           <div class="col-lg-1">
             <%= withdrawal.amount %>$
           </div>
+          <div class="col-lg-2">
+            <%= withdrawal.user_account %>
+          </div>
           <div class="col-lg-3">
             User: <%= link_to withdrawal.user.full_name ,admin_user_path(withdrawal.user.id) %>
           </div>
-          <% if withdrawal.method %>
           <div class="col-lg-2">
-            <%= withdrawal.method %>
+            <%= withdrawal.method || ''%>
           </div>
-          <% end %>
           <div class="col-lg-1">
       		    <%= form_for(withdrawal) do |f| %>
 				          <%= f.hidden_field :status, :value => true %>
@@ -33,9 +34,9 @@
 				  <%= f.submit('Deny', :class => "btn btn-danger") %>
 				<% end %>
           	</div>
-          </div>
-        </div>
+          </div>   
       <% end %>
+     </div>
     </div>
     <%= will_paginate @withdrawals %>
   </div>
