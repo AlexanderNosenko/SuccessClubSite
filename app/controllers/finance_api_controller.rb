@@ -36,8 +36,14 @@ class FinanceApiController < ApplicationController
   end
   def output
 
-    if current_user.wallet.main_balance - params['amount'].to_f >= 0
-      make_withdrawal
+    if current_user.enough? params['amount'].to_f
+      
+      if(make_withdrawal)
+        flash[:notice] = "Поздравляем! Ваш зарос на вывод средств принят."
+      else
+        flash[:notice] = "Приносим свои извинения, произошла ошибка, обратитесь в техподдержку."
+      end
+
     else
       flash[:notice] = "Приносим свои извинения, на вашем счету недостаточно средств."
     end
@@ -55,18 +61,14 @@ class FinanceApiController < ApplicationController
     amount.to_f - amount.to_f * commitions[service_name].to_f / 100
   end
   def make_withdrawal
-
-    withdrawal_created = Withdrawal.create(
+    Withdrawal.create(
         user_id: current_user.id,
         amount: get_amount_with_commision(params['amount'], params['system_output']),
         method: params['system_output']
-    )
-    if(withdrawal_created)
-      flash[:notice] = "Поздравляем! Ваш зарос на вывод средств принят."
-    else
-      flash[:notice] = "Приносим свои извинения, произошла ошибка, обратитесь в техподдержку."
-    end
-
+    ) && current_user.take_money(params['amount'])
+  end
+  def method_name
+    
   end
 
   def skip_validation
@@ -81,11 +83,7 @@ class FinanceApiController < ApplicationController
       to: 'user',
       method: params['id']
     )
-    wallet = Wallet.find_by(user_id: @responce_data[:user_id])
-
-    wallet.update_attributes!(
-      main_balance: wallet.main_balance + @responce_data[:amount].to_f
-    )
+    user.give_money(@responce_data[:amount].to_f)
   end
 
   def prepare_input_data
