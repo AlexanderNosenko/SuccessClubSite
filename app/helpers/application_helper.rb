@@ -1,6 +1,7 @@
 module ApplicationHelper
     # TODO: improve this function to words count
     def truncate(str, length)
+      str = str.to_s
       (str.length < length)? str : str[0..length] + "..."
     end
     def markdown(text) # thx to https://habrahabr.ru/company/centosadmin/blog/163947/
