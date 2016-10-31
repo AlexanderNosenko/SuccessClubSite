@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe FinanceApiController, type: :controller do
 
-  describe "POST #responce_status" do
+  describe "#responce_status" do
     it "NIX MONEY increae number of payments in the system" do
     
       expect { 

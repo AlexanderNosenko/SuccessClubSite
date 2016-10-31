@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe FinanceApiController, type: :controller do
 
-  describe "POST #responce_status" do
+  describe "#success" do
     subject {
         post :success, :id => "advcash", 
         "ac_src_wallet"=>"Bitcoin", 

@@ -53,6 +53,9 @@ class FinanceApiController < ApplicationController
   end
 
   private
+  def payment_exists payment_code
+    Payment.find_by(code: payment_code)
+  end
   def prepera_params_output
     redirect_to home_path, notice: "Введите все параменты пожалуйста." if params['amount'].blank? || params['user_account'].blank?
   end
@@ -86,9 +89,10 @@ class FinanceApiController < ApplicationController
       to_user_id: @responce_data[:user_id],
       from: params['id'][0, 7],
       to: 'user',
-      method: params['id']
+      method: params['id'],
+      code: @responce_data[:payment_code]
     )
-    user.give_money(@responce_data[:amount].to_f)
+    User.find(@responce_data[:user_id]).give_money(@responce_data[:amount].to_f)
   end
 
   def prepare_input_data
@@ -131,7 +135,7 @@ class FinanceApiController < ApplicationController
 
   def adapte_advcash_data
 
-    head 400 if params['ac_hash'].blank? && Rails.env.production? && !skip_validation#render :status => 400
+    head 400 if params['ac_hash'].blank? && !skip_validation#render :status => 400
 
     status_params = [params['ac_transfer']]
     status_params.push(params['ac_start_date'])
@@ -145,21 +149,24 @@ class FinanceApiController < ApplicationController
 
     sign = make_hash_for_ckeck_from(status_params, 'SHA256')
     # puts "Params\n" +  params.to_json + "\n"
-    # puts "Sign\n" +  sign + "\n"
-
-    head 422  unless params['ac_hash'] == sign unless skip_validation
+    #puts "Sign\n" +  sign + "\n"
+    unless skip_validation
+      head 422 if  params['ac_hash'] != sign || payment_exists(params['ac_sci_name'])#||
+    end
+    puts 'advcash_status:' + params['ac_transaction_status']
     status_of_payment = ["COMPLETED"].include?(params['ac_transaction_status'])
-    make_responce_data(params['user_id'], params['ac_amount'], params['ac_merchant_currency'], status_of_payment)
+    make_responce_data(params['user_id'], params['ac_amount'], params['ac_merchant_currency'], status_of_payment, params['ac_order_id'])
   end
 
-  def make_responce_data(customer, amount ,currency, status)
+  def make_responce_data(customer, amount ,currency, status, payment_code = '')
 
     head 400 if customer.blank? || amount.blank? || currency.blank? || status.blank? && Rails.env.production? && !skip_validation#render :status => 400
     @responce_data = {
         :user_id => customer,
         :amount => amount,
         :currency => currency,
-        :success => status
+        :success => status,
+        :payment_code => payment_code
     }
     puts "#{params[:id]} responce values : " + @responce_data.to_json + "\n"
   end
@@ -205,21 +212,21 @@ class FinanceApiController < ApplicationController
 
     # puts '(Digest::' + mode + ".new).digest('" + values.join(":") + "')"
     # exec('(Digest::' + mode + ".new).digest('" + values.join(":") + "')")#.upcase
-    puts "Encoded suppsosedly what's needed " + (Digest::SHA256.new).hexdigest("235f9d0b-b48f-462c-9949-621c4930490c:2012-06-23 12:30:00:My Shop:U123456789012:U210987654321:123456:123.45:USD:P@ssw0rd")
+    # puts "Encoded suppsosedly what's needed " + (Digest::SHA256.new).hexdigest("235f9d0b-b48f-462c-9949-621c4930490c:2012-06-23 12:30:00:My Shop:U123456789012:U210987654321:123456:123.45:USD:P@ssw0rd")
     begin
-      puts "\n #{params[:id]} String to encode " + values.join(":")
+      # puts "\n #{params[:id]} String to encode " + values.join(":")
     rescue
-      puts "\n #{params[:id]} Password to encode " + values
-      values = [values]
+      # puts "\n #{params[:id]} Password to encode " + values
+      
     end
-
+    values = [values] if values.is_a? String 
 
     case mode
     when 'MD5'
-      puts "\n #{params[:id]} Encoded " + (Digest::MD5.new).hexdigest(values.join(":")).upcase + "\n"
+      # puts "\n #{params[:id]} Encoded " + (Digest::MD5.new).hexdigest(values.join(":")).upcase + "\n"
       (Digest::MD5.new).hexdigest(values.join(":")).upcase
     when 'SHA256'
-      puts "\n #{params[:id]} Encoded " + (Digest::SHA256.new).hexdigest(values.join(":")) + "\n"
+      # puts "\n #{params[:id]} Encoded " + (Digest::SHA256.new).hexdigest(values.join(":")) + "\n"
       (Digest::SHA256.new).hexdigest(values.join(":"))
     else
       "error in hash generation"
