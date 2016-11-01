@@ -1,8 +1,9 @@
 class FinanceApiController < ApplicationController
-
-  before_action :prepare_input_data, except: [:payment_form, :output]
+  
   skip_before_filter :verify_authenticity_token
+  before_action :prepare_input_data, except: [:payment_form, :output]
   before_action :prepera_params_output, only: [:output]
+
 
   require 'digest'
   require "base64"
@@ -113,7 +114,7 @@ class FinanceApiController < ApplicationController
     )
     liqpay_data = JSON.parse(Base64.decode64(params['data']))
 
-    head 422 unless Rails.env.development? || params['signature'] == sign#render :status => 422
+    head 422 unless params['signature'] == sign #render :status => 422
     puts 'liqpay_status:' + liqpay_data['status']
     status_of_payment = (liqpay_data['status'] == "success") || (liqpay_data['status'] == "wait_accept")
 
@@ -151,7 +152,7 @@ class FinanceApiController < ApplicationController
     # puts "Params\n" +  params.to_json + "\n"
     #puts "Sign\n" +  sign + "\n"
     unless skip_validation
-      head 422 if  params['ac_hash'] != sign || payment_exists(params['ac_sci_name'])#||
+      head 422 if  params['ac_hash'] != sign || payment_exists(params['ac_order_id'])#||
     end
     puts 'advcash_status:' + params['ac_transaction_status']
     status_of_payment = ["COMPLETED"].include?(params['ac_transaction_status'])

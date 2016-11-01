@@ -4,26 +4,7 @@ RSpec.describe FinanceApiController, type: :controller do
 
   describe "#success" do
     subject {
-        post :success, :id => "advcash", 
-        "ac_src_wallet"=>"Bitcoin", 
-        "ac_dest_wallet"=>"U757631680131", 
-        "ac_amount"=>"1.00", 
-        "ac_merchant_amount"=>"1.00", 
-        "ac_merchant_currency"=>"USD", 
-        "ac_fee"=>"0.00", 
-        "ac_buyer_amount_without_commission"=>"0.001608", 
-        "ac_buyer_amount_with_commission"=>"0.001608", 
-        "ac_buyer_currency"=>"BTC", 
-        "ac_transfer"=>"2beb4773-c857-4883-bbb4-5d39db2f563a", 
-        "ac_sci_name"=>"Professionals Club", 
-        "ac_start_date"=>"2016-10-18 19:41:54", 
-        "ac_order_id"=>"TLAUIMGX", 
-        "ac_ps"=>"BITCOIN", 
-        "ac_transaction_status"=>"PENDING", 
-        "ac_comments"=>"Adcanced Cash payment.", 
-        "utf8"=>"✓", 
-        "user_id"=>"6", 
-        "authenticity_token"=>"EokDnHgn82wEH/ghcPivkWJzGzgBzbX7 O4UgioWyatQke1B824BrLb/6U7QBmCvu0FWFxaRLyYxCDbuXP3/Yg=="
+        post :success, "ac_src_wallet"=>"Bitcoin", "ac_dest_wallet"=>"U757631680131", "ac_amount"=>"5.00", "ac_merchant_amount"=>"5.00", "ac_merchant_currency"=>"USD", "ac_fee"=>"0.00", "ac_buyer_amount_without_commission"=>"0.007109", "ac_buyer_amount_with_commission"=>"0.007109", "ac_buyer_currency"=>"BTC", "ac_transfer"=>"103bf741-913c-4074-8237-bbfe65018ce7", "ac_sci_name"=>"Professionals Club", "ac_start_date"=>"2016-10-29 21:09:31", "ac_order_id"=>"CMGJFRCD", "ac_ps"=>"BITCOIN", "ac_transaction_status"=>"PENDING", "ac_comments"=>"Adcanced Cash payment.", "utf8"=>"✓", "user_id"=>"1205", "authenticity_token"=>"kTbVzWDmVbE7IilnKY8ALQoJXbDaiCbnD9LV1YqNUYYdRdvdHjZFL8DbK8LKE/AuoLUVaiC9EaIOUi4NEL6hQw==", "id"=>"advcash"
     }
     it "ADVCASH redirect to home with good status" do
     
