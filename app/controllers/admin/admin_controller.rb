@@ -4,6 +4,6 @@ class Admin::AdminController < ApplicationController
 
   private
   def check_for_admin
-    redirect_to "/" unless (!current_user.nil? && current_user.email == ENV['CLUB_ADMIN_EMAIL'])
+    redirect_to "/" unless (!current_user.nil? && [ENV['CLUB_ADMIN_EMAIL'], ENV['CLUB_ADMIN_EMAIL2']].include?(current_user.email))
   end
 end
