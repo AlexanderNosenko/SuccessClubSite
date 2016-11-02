@@ -34,12 +34,12 @@ header {
 }
 
 .top .video_form .video {
-  width: 60%;
+  width: 70%;
   background: rgba(255, 255, 255, 0.5);
 }
 
 .top .video_form form {
-  width: 40%;
+  width: 30%;
   padding: 0 5%;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
@@ -70,9 +70,12 @@ header {
 .opports {
   width: 80%;
   margin: 0 auto 30px;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 
 .opports .opp {
@@ -80,6 +83,7 @@ header {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 200px;
+  margin: 10px;
   background: #212121;
   color: white;
   padding: 15px;
@@ -113,7 +117,13 @@ header {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-bottom: 20px;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 
 .bonuses-container .bonuses i {
@@ -154,6 +164,21 @@ footer form {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 0;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+footer form .lower, footer form .upper {
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 footer form input {
