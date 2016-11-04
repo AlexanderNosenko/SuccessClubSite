@@ -6,6 +6,9 @@
         <% @services.each do |service| %>
           <%= get_trasfer_money_form(service) %>
         <% end %>
+        <div class="row">
+          <%=link_to 'Инструкция', instructions_path('payments'), 'target' => '_blank', class: 'btn btn-success instruction-payment'%>  
+        </div>
         <div id="money_input" class="flexbox">
           <h2>Пополнение баланса:</h2>
           <div class="inputs flexbox">

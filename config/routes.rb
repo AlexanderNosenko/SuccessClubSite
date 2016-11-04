@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get 'business', to: 'business#business', as: 'business_index'
   get 'business/scope/:type', to: 'business#business', as: 'business_scope'
   get 'business/:id', to: 'business#show', as: 'business'
-  get 'business/:id/instructions', to: "business#instructions", as: 'business_instructions'
+
+  get 'instructions/:for', to: 'instructions#index', as: 'instructions'
 
   post 'business/:id', to: 'business#activate', as: 'activate_business'
   patch 'business/:id/settings', to: 'business#update_settings', as: 'business_settings'

@@ -1,0 +1,113 @@
+body
+	margin: 0
+	padding: 0
+	font-size: 16px
+	font-family: "RobotoRegular", sans-serif
+	transition:all 400ms
+	text-align: center
+.flexbox
+	display: flex
+header
+	padding: 20px 0
+	font-family: "GoodVibes"
+	font-size: 40px
+.top
+	width: 100%
+	background: url("../img/top-bg.png")
+	background-size: cover
+	flex-direction: column
+	padding: 30px 0
+	.video_form
+		width: 80%
+		margin: 0 auto
+		.video
+			width: 70%
+			background: rgba(white, 0.5)
+		form
+			width: 30%
+			padding: 0 5%
+			flex-direction: column
+			input 
+				margin: 10px
+				padding: 10px
+				border: none
+			input[type='submit']
+				background: #ff0000
+				color: white
+				font-size: 16px
+				font-weight: bold
+				cursor: pointer
+.opp-h
+	margin: 30px 0
+	display: block
+	font-size: 30px
+	font-weight: bold
+.opports
+	width: 80%
+	margin: 0 auto 30px
+	justify-content: center
+	flex-wrap: wrap
+	.opp 
+		flex-direction: column
+		width: 200px
+		margin: 10px
+		background: #212121
+		color: white
+		padding: 15px
+		i
+			font-size: 100px
+			height: 120px
+			color: #505050
+.bonuses-container
+	background: url('../img/bonuses-bg.png')
+	background-size: cover
+	align-items: center
+	flex-direction: column
+	>span 
+		color: white 
+		font-size: 30px 
+		font-weight: bold
+		margin: 30px 0 50px
+	.bonuses
+		align-items: center
+		justify-content: center
+		margin-bottom: 20px
+		flex-wrap: wrap
+		i 
+			width: 250px
+			font-size: 120px
+			color: #212121
+			text-shadow: 0 0 1px white
+		.text-block
+			width: 250px
+			flex-direction: column
+			color: white 
+			text-align: center
+			.main
+				font-size: 25px
+				font-weight: bold
+			.about
+				font-size: 15px
+footer
+	background: #111111
+	padding: 20px 0
+	form
+		flex-direction: column
+		align-items: center
+		margin-bottom: 0
+		flex-wrap: wrap
+		.lower, .upper
+			flex-wrap: wrap
+			align-items: center
+			justify-content: center
+		input 
+			margin: 0 10px 10px
+			padding: 10px
+			border: none
+			width: 200px
+		input[type='submit']
+			background: #ff0000
+			color: white
+			font-size: 16px
+			font-weight: bold
+			cursor: pointer
