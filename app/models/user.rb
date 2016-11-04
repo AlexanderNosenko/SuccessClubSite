@@ -284,7 +284,7 @@ class User < ActiveRecord::Base
   end
 
   def find_active_parent business
-    ancestors.reverse do |ancestor|
+    ancestors.includes(:user_businesses).reverse do |ancestor|
       return ancestor unless ancestor.business_settings(business).nil?
     end
     nil
