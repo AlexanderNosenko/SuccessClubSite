@@ -283,8 +283,8 @@ class User < ActiveRecord::Base
     user_businesses.includes(:partner_link).find_by(business_id: business.id)
   end
 
-  def find_active_parent(business)
-    ancestors.sort_by { |ancestor| ancestor.depth }.each do |ancestor|
+  def find_active_parent business
+    ancestors.reverse do |ancestor|
       return ancestor unless ancestor.business_settings(business).nil?
     end
     nil
