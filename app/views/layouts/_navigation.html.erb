@@ -9,9 +9,7 @@
     <%= link_to team_path, class: "menu-item " + is_active_controller('team').to_s do %>
       <i class="fa fa-users"></i><span class="full-menu">Команда</span>
     <% end %>
-    <%= link_to '#', 'data-toggle'=>"modal", 'data-target' => "#tools-choose-instruments", class: "menu-item instruments" + is_active_controller('instruments/*').to_s do %>
-      <i class="fa fa-cogs"></i><span class="full-menu">Инструменты</span>
-    <% end %>
+    <%= instruments_link %>
     <%= business_link %>
     <a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a>
     <a class="menu-item disabled"><i class="fa fa-graduation-cap"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Обучение</span></a>

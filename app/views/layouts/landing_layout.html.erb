@@ -27,6 +27,6 @@
     <!-- Include javascript per-view -->
     <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
     <%= yield :javascript %>
-
+    <%= render partial: 'layouts/online_helper'%>
 </body>
 </html>
