@@ -20,6 +20,9 @@ function copyToClipboard(element) {
 }
 
 $(document).ready(function(){
+  if($('#enter-aditional-data')){
+    $('#enter-aditional-data').modal().show();
+  }
   $('#menu-btn').click(function(){
     if ($( "#flex-sidebar" ).hasClass( "full" )){
         $.post( "/view_mode?view_mode=full", function( data ) { console.log( data );});

@@ -58,4 +58,33 @@
     </div>
   </div>
 </div>
+<%if current_user.deserve_bonus?%>
+<div id="enter-aditional-data" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>Введите дополнительный данные что бы получить 50 на свой бонусный счет!</h2>
+        <%=form_for(current_user, :url => @user, html: {method: :patch
+        }) do |f|%>
+        <%= hidden_field_tag :option, value: 'addbonus'%>  
+          <div clas="form-group">
+            <%= f.label :phone%>
+            <%= f.text_field :phone , class: "form-control", placeholder: 'Телефон'%>  
+          </div>
+          <div clas="form-group">
+            <%= f.label :skype%>
+            <%= f.text_field :skype, class: "form-control", placeholder: 'Skype'%>
+          </div>
+          <div clas="form-group">
+            <%= f.label :vk%>
+            <%= f.text_field :vk, class: "form-control", placeholder: 'VK'%>
+          </div>
+          <%= f.submit('Сохранить', :class => "btn btn-success") %>
+        <%end%>
+        <button type="button" data-dismiss="modal"><i class="fa fa-undo" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
 <%= yield(:modals) %>

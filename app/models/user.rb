@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   #validates_integrity_of  :avatar
   #validates_processing_of :avatar
   validates_format_of :email, :without => @TEMP_EMAIL_REGEX, on: :update
-
+  before_update Proc.new { |user| Payment.create(to_user_id: user.id, from: 'system'); user.give_bonus_money(50) }, if: :deserve_bonus?
   def payments
     to_payments << from_payments
   end
@@ -226,7 +226,9 @@ class User < ActiveRecord::Base
     return if !ancestor.descendant_ids.include? id
     depth - ancestor.depth
   end
-
+  def deserve_bonus?
+    true if Payment.where(to_user_id: id, from: 'system').length < 1 && (phone_was.blank?||vk_was.blank?||skype_was.blank?) 
+  end
   # Select part
   @contacts = [:phone, :skype, :vk, :fb, :ok, :youtube]
   @main_data = [:id, :role_id, :parent_id, :ancestry, :email, :name, :last_name, :avatar]
