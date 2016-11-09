@@ -10,10 +10,12 @@ class Admin::UsersController < Admin::AdminController
     @descendants = @user.descendants
     @parent = @user.parent
     @user_paid = 0;
+    # We have scope for this
     Payment.where(to_user_id: @user.id).each do |p|
-      @user_paid += p.amount
+      @user_paid += p.amount.to_f
     end
     @user_got = 0;
+    # We have scope for this
     Withdrawal.where(user_id: @user.id, status: true).each do |w|# I'm not sure about this one)), .amount...
       @user_got += w.amount;
     end
