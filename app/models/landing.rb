@@ -10,6 +10,9 @@ class Landing < ActiveRecord::Base
   scope :recent, -> { where("updated_at > ?",1.month.ago) }
   scope :problem, -> { where(status: nil) }
   
+  def preview_image
+    'landings/' + name.downcase + '-preview.png'
+  end
   def self.by_business business_id
     where(business_id: business_id)
   end
