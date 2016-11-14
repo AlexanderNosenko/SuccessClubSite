@@ -207,6 +207,7 @@ body {
 footer {
   width: 100%;
   height: 400px;
+  flex-wrap: wrap;
 }
 
 footer .left-wrapper {
@@ -214,6 +215,14 @@ footer .left-wrapper {
   background: url("../img/footer-bg.png");
   background-size: cover;
   align-items: flex-end;
+}
+
+@media screen and (max-width: 1020px) {
+  footer .left-wrapper {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 footer .left-wrapper .inner-block {
@@ -225,6 +234,15 @@ footer .left-wrapper .inner-block {
   align-items: center;
   justify-content: center;
   padding: 0 100px 0 200px;
+}
+
+@media screen and (max-width: 1020px) {
+  footer .left-wrapper .inner-block {
+    padding: 10px;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 0;
+  }
 }
 
 footer .left-wrapper .inner-block .bigger {
@@ -241,6 +259,13 @@ footer .right-wrapper {
   background-size: cover;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 1020px) {
+  footer .right-wrapper {
+    width: 100%;
+    padding-top: 10px;
+  }
 }
 
 footer .right-wrapper form {

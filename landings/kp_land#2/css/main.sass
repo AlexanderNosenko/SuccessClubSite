@@ -142,11 +142,16 @@ body
 footer
 	width: 100%
 	height: 400px
+	flex-wrap: wrap
 	.left-wrapper
 		width: 70%
 		background: url('../img/footer-bg.png')
 		background-size: cover
 		align-items: flex-end
+		@media screen and (max-width: 1020px)
+			width: 100%
+			align-items: center
+			justify-content: center
 		.inner-block
 			background: rgba(black, 0.9)
 			min-height: 200px
@@ -156,12 +161,20 @@ footer
 			align-items: center
 			justify-content: center
 			padding: 0 100px 0 200px
+			@media screen and (max-width: 1020px)
+				padding: 10px
+				width: 100%
+				height: 200px
+				margin-bottom: 0
 			.bigger
 				font-size: 25px
 			.smaller
 				font-size: 18px
 	.right-wrapper
 		width: 30%
+		@media screen and (max-width: 1020px)
+			width: 100%
+			padding-top: 10px
 		background: url('../img/footer-bg2.png')
 		background-size: cover
 		justify-content: center
