@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030233641) do
+ActiveRecord::Schema.define(version: 20161114231657) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name",             limit: 255
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20161030233641) do
     t.string   "description", limit: 255
     t.string   "short_path",  limit: 255
     t.integer  "business_id", limit: 4
+    t.string   "preview",     limit: 255
   end
 
   add_index "landings", ["path"], name: "index_landings_on_path", unique: true, using: :btree
