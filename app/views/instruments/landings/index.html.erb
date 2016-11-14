@@ -50,9 +50,9 @@
         <% @landings.each do |landing| %>
           <% has_free = !@club_links.select { |x| x.landing_id == landing.id }.empty? %>
           <% free = current_user.has_landing?(landing) || @for_free %>
-          <div class="goods flexbox"><%= image_tag 'landings/' + landing.logo.to_s%>
+          <div class="goods flexbox"><%= image_tag landing.logo %>
             <div class="stuff-name"> <span>Landing page для <%= landing.name %></span></div>
-            <div class="img-price"><%= image_tag landing.preview_image, alt:"landing-preview", class: "preview"%>
+            <div class="img-price"><%= image_tag landing.preview, alt:"landing-preview", class: "preview"%>
               <% unless free %>
                 <span class="price flexbox"><%= landing.price.to_s %>$</span>
               <% end %>
