@@ -1,0 +1,74 @@
+%html{:lang => "ru"}
+	%head
+		%title Landing
+		%meta{:charset => "utf-8"}
+		%meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0, user-scalable=no"}
+		%link{:rel => "shortcut icon", :href => "favicon.ico"}
+		%link{:rel => "stylesheet", :href => "css/font-awesome-4.6.3/css/font-awesome.css"}
+		%link{:rel => 'stylesheet', :media => 'all', :href => 'css/animate.css'}
+		%link{:rel => 'stylesheet', :href => 'css/fonts.css'}
+		%link{:rel => 'stylesheet', :href => 'css/main.css'}
+	%body
+		.top.flexbox
+			%span.bigger УЗНАЙТЕ СЕКРЕТНЫЕ ЗНАНИЯ!
+			%span.smaller Как оптимизировать свой кредит, создать активы, инвестировать, организовать денежный поток прямо сегодня и многое другое!
+			.video_info.flexbox
+				%iframe.full{:width => "45%", :src => "https://www.youtube.com/embed/hMGzp5F3_Cg", :frameborder => "0", :allowfullscreen => 'True'}
+				%iframe.mob{:width => "100%", :src => "https://www.youtube.com/embed/hMGzp5F3_Cg", :frameborder => "0", :allowfullscreen => 'True'}
+				.info.flexbox
+					%span Став участником платформы Клуб Профессионалов Вы получите инструменты для работы и готовую бизнес систему, которая будет работать на Вас и приносить пассивный доход!
+					.numbers.flexbox
+						.number.flexbox
+							%span 24
+							.additional.flexbox
+								%span часа
+								%span в сутки
+						.number.flexbox
+							%span 7
+							.additional.flexbox
+								%span дней
+								%span в неделю
+						.number.flexbox
+							%span 365
+							.additional.flexbox
+								%span дней
+								%span в году
+		%form.flexbox.first_form{:action => '#', :method => 'post'}
+			.inputs.flexbox
+				%input{:name => "name", :type => "text", :placeholder => "Имя"}
+				%input{:name => "surname", :type => "text", :placeholder => "Фамилия"}
+				%input{:name => "Skype", :type => "text", :placeholder => "Skype"}
+				%input{:name => "email", :type => "email", :placeholder => "Почта"}
+			%input{:type => "submit", :value => "Получить доступ"}
+		.opp-wrapper.flexbox
+			%span СРАЗУ ПОСЛЕ РЕГИСТРАЦИИ ВЫ ПОЛУЧИТЕ:
+			.opportunities.flexbox
+				.opportunity.flexbox
+					.i_wrapper.flexbox
+						%i.fa.fa-angle-double-up
+					%span Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				.opportunity.flexbox
+					.i_wrapper.flexbox
+						%i.fa.fa-cog
+					%span Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				.opportunity.flexbox
+					.i_wrapper.flexbox
+						%i.fa.fa-umbrella
+					%span Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				.opportunity.flexbox
+					.i_wrapper.flexbox
+						%i.fa.fa-users
+					%span Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		%footer.flexbox
+			.left-wrapper.flexbox
+				.inner-block.flexbox
+					%span.bigger СДЕЛАЙТЕ ПЕРВЫЙ ШАГ ПРЯМО СЕЙЧАС!
+					%span.smaller И заработайте свои первые 100$ уже сегодня!
+			.right-wrapper.flexbox
+				%form.flexbox
+					%input{:name => "name", :type => "text", :placeholder => "Имя"}
+					%input{:name => "surname", :type => "text", :placeholder => "Фамилия"}
+					%input{:name => "Skype", :type => "text", :placeholder => "Skype"}
+					%input{:name => "email", :type => "email", :placeholder => "Почта"}
+					%input{:type => "submit", :value => "Получить доступ"}
+
