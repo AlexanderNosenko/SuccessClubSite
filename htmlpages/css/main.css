@@ -352,6 +352,20 @@ a:hover, a:focus, button:focus {
   opacity: 0;
 }
 
+#reg-end form input {
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+}
+
+#reg-end form input[type='submit'] {
+  color: #d4f0ea;
+  background: #167562;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+}
+
 .activate .flexbox {
   -webkit-justify-content: center;
       -ms-flex-pack: center;

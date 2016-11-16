@@ -125,6 +125,16 @@ html(lang="ru")
 								i.allvis.fa.fa-cog
 								span.hidd Выбрать направление
 						button(type="button" data-dismiss="modal") <i class="fa fa-undo" aria-hidden="true"></i>
+		div.modal.fade#reg-end(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+			div.modal-dialog
+				div.modal-content
+					div.modal-body
+						h1 Завершение регистрации:
+						form
+							input(type='text' name='vk' placeholder='VK')						
+							input(type='text' name='skype' placeholder='Skype(По желанию)')						
+							input(type='text' name='phone' placeholder='Телефон в формате +...')						
+							input(type='submit' value='Сохранить')						
 		nav#top
 			.flexbox#flex-top
 				#right-bar
