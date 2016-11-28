@@ -66,10 +66,10 @@
         <h2>Введите дополнительный данные что бы получить 50 на свой бонусный счет!</h2>
         <%=form_for(current_user, :url => @user, html: {method: :patch
         }) do |f|%>
-        <%= hidden_field_tag :option, value: 'addbonus'%>  
+        <%= hidden_field_tag :option, value: 'addbonus'%>
           <div clas="form-group">
             <%= f.label :phone%>
-            <%= f.text_field :phone , class: "form-control", placeholder: 'Телефон'%>  
+            <%= f.text_field :phone , class: "form-control", placeholder: 'Телефон'%>
           </div>
           <div clas="form-group">
             <%= f.label :skype%>
@@ -87,4 +87,28 @@
   </div>
 </div>
 <%end%>
+<% if @no_need_finish_rigistration %>
+  <div id="reg-end" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h1>Завершение регистрации:</h1>
+          <%= form_for current_user, method: 'patch', url: user_path(current_user) do |f| %>
+            <%= f.text_field :vk, placeholder:"VK" %>
+            <%= f.text_field :skype, placeholder: "Skype(По желанию)"%>
+            <%= f.text_field :phone, placeholder: "Телефон в формате +..." %>
+            <%= f.submit "Сохранить" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% content_for :javascript do -%>
+    <script>
+      $(document).ready(function(){
+        $('#reg-end').modal("show");
+      });
+    </script>
+  <% end -%>
+<% end %>
 <%= yield(:modals) %>

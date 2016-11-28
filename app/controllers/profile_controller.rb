@@ -27,6 +27,8 @@ class ProfileController < ApplicationController
         @show_errors = true
         render "edit"
       end
+    else
+      render plain: "An error occured. Please notify administrators about it and try again later"
     end
   end
   def finish_signup

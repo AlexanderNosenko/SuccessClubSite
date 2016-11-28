@@ -21,6 +21,7 @@
   <span class="bigger">АВТОРИЗАЦИЯ</span><span class="smaller">Заполните необходимые данные:</span>
   <span class="smaller"><%= alert %></span>
   <span class="smaller"><%= notice %></span>
+  <span class="smaller"><%= devise_error_messages! %></span>
   <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post}) do |f| %>
     <div class="input-container flexbox">
       <%= f.email_field :email, autofocus: true, placeholder: "Ваш Email" %>
