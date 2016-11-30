@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
   def ensure_signup_complete
     if user_signed_in?
-      @no_need_finish_rigistration = !(
+      @need_finish_rigistration = !(
         current_user.vk &&
         current_user.phone)
     end

@@ -87,14 +87,14 @@
   </div>
 </div>
 <%end%>
-<% if @no_need_finish_rigistration %>
+<% if @need_finish_rigistration %>
   <div id="reg-end" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
           <h1>Завершение регистрации:</h1>
           <%= form_for current_user, method: 'patch', url: user_path(current_user) do |f| %>
-            <%= f.text_field :vk, placeholder:"VK" %>
+            <%= f.text_field :vk, placeholder:"Ссылка на профиль в ВК" %>
             <%= f.text_field :skype, placeholder: "Skype(По желанию)"%>
             <%= f.text_field :phone, placeholder: "Телефон в формате +..." %>
             <%= f.submit "Сохранить" %>
