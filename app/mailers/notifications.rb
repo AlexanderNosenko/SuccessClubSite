@@ -5,9 +5,10 @@ class Notifications < ApplicationMailer
   #
   #   en.notifications.role_reset.subject
   #
-  def role_reset
-    @greeting = "Hi"
+  default from: "notify@improf.club"
 
-    mail to: "to@example.org"
+
+  def role_reset user
+    mail to: user.email, subject: "Статус Партнер"
   end
 end
