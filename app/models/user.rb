@@ -227,7 +227,7 @@ class User < ActiveRecord::Base
     depth - ancestor.depth
   end
   def deserve_bonus?
-    true if Payment.where(to_user_id: id, from: 'system').length < 1 && (phone_was.blank?||vk_was.blank?||skype_was.blank?) 
+    true if Payment.where(to_user_id: id, from: 'system').length < 1 && (phone_was.blank?||vk_was.blank?||skype_was.blank?)
   end
   # Select part
   @contacts = [:phone, :skype, :vk, :fb, :ok, :youtube]
@@ -250,10 +250,10 @@ class User < ActiveRecord::Base
     save
   end
 
-  # JUST For Active Job, to be called when no money left 
+  # JUST For Active Job, to be called when no money left
   def expiring?
     (Time.now + 2.days) > self.reactivate_at
-  end 
+  end
   def expired?
     Time.now > self.reactivate_at
   end
@@ -262,9 +262,9 @@ class User < ActiveRecord::Base
     return unless default
 
     user_landings.each do |landing_link|
-      if landing_link.is_club
+      #if landing_link.is_club ### TODO: ask owner what to do in such case
         landing_link.destroy
-      end
+      #end
     end
 
     user_businesses.each do |business_link|
