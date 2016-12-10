@@ -11,4 +11,8 @@ class Notifications < ApplicationMailer
   def role_reset user
     mail to: user.email, subject: "Статус Партнер"
   end
+
+  def role_expiring user
+    mail to: user.email, subject: "Статус Партнер"
+  end
 end
