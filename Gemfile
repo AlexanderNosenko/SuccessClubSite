@@ -72,6 +72,9 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# whenever for cron tasks
+gem 'whenever', :require => false
+
 # SINATRA gems
 gem 'sinatra'
 gem 'haml'
