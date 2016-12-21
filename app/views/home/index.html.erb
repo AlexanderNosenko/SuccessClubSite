@@ -152,11 +152,11 @@
   <div id="all-stat" class="flexbox">
     <h2>Статистика</h2>
     <div id="mini-stat-circ" class="flexbox">
-      <div class="info-block3 flexbox">
+      <!-- <div class="info-block3 flexbox">
         <span class="alwvis">0</span><span class="undercover">Инвестиционных проектов</span>
-      </div>
+      </div> -->
       <div class="info-block3 flexbox">
-        <span class="alwvis">0</span>
+        <span class="alwvis">1</span>
         <span class="undercover">Бизнес направлений</span>
       </div>
       <div class="info-block3 flexbox">
@@ -172,7 +172,7 @@
         <span class="undercover">Заявок на выплаты</span>
       </div>
       <div class="info-block3 flexbox">
-        <span class="alwvis">0</span>
+        <span class="alwvis"><%=@withdrawn.round(2)%></span>
         <span class="undercover">Выплачено средств</span>
       </div>
     </div>
