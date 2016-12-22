@@ -4,6 +4,12 @@
     <span class="as"><%= @user.role.description %></span>
   </div>
   <div class="hr"></div>
+  <div class="flexbox">
+    <span class="active-from"><%= @user.activated_at.strftime("Дата активации %d/%m/%Y") %> </span>
+  </div>
+  <div class="flexbox">
+    <span class="active-to"><%= @user.reactivate_at.strftime("Дата окончания %d/%m/%Y") %></span>
+  </div>
   <% if current_user.role.name != 'partner' %>
     <span class="bigh">Партнер</span>
     <div class="stat-offer flexbox">

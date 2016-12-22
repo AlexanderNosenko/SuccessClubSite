@@ -53,7 +53,7 @@ class ProfileController < ApplicationController
     # name = params[:role_name]
     name = 'partner'
     @role = Role.find_by(name: name)
-
+    # elmv
     # OPTIMIZE A lot of similar checks...
     if @role.nil?
       flash[:notice] = "Что-то пошло не так"
@@ -81,6 +81,7 @@ class ProfileController < ApplicationController
     end
 
     @user.set_role(@role)
+    dvd
     @user.distribute_money @price
 
     flash[:notice] = "Статус успешно изменен!"

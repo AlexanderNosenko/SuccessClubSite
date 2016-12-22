@@ -4,6 +4,7 @@
 //= require fullcalendar/fullcalendar.min.js
 //= require peity/jquery.peity.min.js
 $(document).ready(function (e) {
+  console.log('loaded');
   var detailedContainer = $("#detailed-member-info");
   $("#member-search").on("ajax:complete", function (e, data, status, xhr) {
   	console.log($(data.responseText));
@@ -15,6 +16,10 @@ $(document).ready(function (e) {
     detailedContainer.load(text + ".partial");
     //console.log(elem);
     return false;
+  });
+  $(document).on('click', '.moreinfo', function () {
+    var link = $(this).find('button').data('href');
+    detailedContainer.load(link + ".partial");
   });
   $('#partners').find(".moreinfo").find('a').click(function (e) {
     e.preventDefault();
