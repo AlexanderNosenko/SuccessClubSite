@@ -138,22 +138,31 @@ class User < ActiveRecord::Base
     end
   end
 
-  def search_users search, collection
-    search_res = []
-    collection.each do |user|
-      unless (/.*#{search}.*/i =~ "#{user.name} #{user.last_name}").nil?
-        search_res.push(user)
+  def search_users search, collection, filters
+    search_res = collection.where('name LIKE ? OR last_name LIKE ?', "%#{search}%", "%#{search}%");
+    filters = [] if filters.nil?
+    filters.each do |filter|
+      case filter[0]
+        when 'partner'
+          role_id = Role.where(name: 'partner').first.id
+          search_res = search_res.where('role_id = ?',role_id)
+        break
       end
     end
+    # collection.each do |user|
+    #   unless (/.*#{search}.*/i =~ "#{user.name} #{user.last_name}").nil? &&
+    #     search_res.push(user)
+    #   end
+    # end
     return search_res
   end
 
-  def search_descendants search
-    search_users(search, descendants)
+  def search_descendants search, filters = []
+    search_users(search, descendants, filters)
   end
 
-  def search_ancestors search
-    search_users(search, ancestors)
+  def search_ancestors search, filters = []
+    search_users(search, ancestors, filters)
   end
 
   # Landings
@@ -169,8 +178,9 @@ class User < ActiveRecord::Base
   def club_links
     user_landings.select { |x| x.is_club }
   end
+  #TODO remove following 2 craps from User model
   def free_land_number
-    free_number = role.landing_pages_number
+    free_number = role.landing_pages_number || 0
     club_number = club_links.size
     free_number - club_number
   end
