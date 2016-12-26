@@ -5,6 +5,7 @@ class ProfileController < ApplicationController
   before_action :make_payment_services, only: [:index, :finish_signup, :show]
 
   def index
+  
   end
 
   def show
