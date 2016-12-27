@@ -1,2 +1,47 @@
-#main
-	#content
+body
+	height: 100vh
+	width: 100%
+	overflow: hidden
+	margin: 0
+	padding: 0
+iframe
+	margin: 0 auto
+form
+	position: fixed
+	right: 100px
+	bottom: -320px
+	display: flex
+	flex-direction: column
+	background: #e3e3e3
+	padding: 10px 20px
+	transition: all 500ms
+	width: 300px
+	border-top-left-radius: 10px
+	border-top-right-radius: 10px
+	overflow: hidden
+	a
+		display: block
+		background: #992323
+		color: white
+		text-decoration: none
+		font-size: 25px
+		text-align: center
+		margin: -10px -20px 0
+		padding: 10px 0
+	#close
+		position: absolute
+		right: 20px
+		top: 57px
+		padding: 0
+		font-size: 14px
+	input
+		margin: 10px 0
+		padding: 10px 5px
+	input[type='submit']
+		background: #992323
+		color: white
+		border: none
+		font-size: 25px
+		cursor: pointer
+form:target
+	bottom: 0
