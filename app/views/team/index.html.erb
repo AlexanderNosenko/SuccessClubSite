@@ -4,8 +4,12 @@
       <div id="member-search" class="flexbox">
         <div id="exact-search" class="flexbox">
           <h1>Команда <%= @foreign ? @user.full_name : "" %></h1>
-          <%= form_tag team_path, :method => 'get', :id => "team_search", class: 'flexbox', remote: true do %>
+          <%= form_tag team_path, :method => 'get', :id => "team_search", class: 'flexbox', remote: true do %>                        
             <%= text_field_tag 'search', nil, placeholder: "Имя/Фамилия" %>
+            <div class="partner-filter">
+              <%= label_tag 'partner', 'Статус партнер'%>
+              <%= check_box_tag 'filters[partner]', '1', params['filter'] == 'partner' ? true : false%>  
+            </div>            
             <input type="submit" value="Поиск" name="submit">
           <% end %>
         </div>

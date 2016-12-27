@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     @today = Time.now.beginning_of_day
     @users_today = User.where('created_at > ?', @today).count
     @descendants_today = current_user.children.where('created_at > ?', @today).count
+    @withdrawn = Withdrawal.where(status: true).sum(:amount)
   end
   def set_view_mode
   	session[:menu_bar_view_mode] = params['view_mode'];
