@@ -10,8 +10,10 @@ html(lang="ru")
 		script(type='text/javascript' src='js/jquery-3.1.0.min.js')
 		script(type='text/javascript' src='js/jquery-1.12.3.min.js')
 		script(src='js/bootstrap/bootstrap.min.js')
-	body.flexbox
-		iframe(src="http://login.myownmeeting.com" width="99%" height="99%") You have an old browser
+	body
+		object(type="application/x-shockwave-flash" data="http://login.myownmeeting.com/conference.mlmcp" width="99%" height="99%" id="conference" style="visibility: visible;")
+			param(name="allowfullscreen" value="true")
+			param(name="flashvars" value="room=34997906&amp;fontSize=12&amp;fontColor=#000000&amp;fontFamily=Verdana&amp;backgroundColor=0x6B8EB8")
 		form#panel(action='#' method='post')
 			a(href='#panel') Получить доступ
 			a#close(href='#') X

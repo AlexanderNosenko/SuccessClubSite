@@ -138,8 +138,8 @@ html(lang="ru")
 		nav#top
 			.flexbox#flex-top
 				#right-bar
+					a.right-bar(href='#') <i class="fa fa-user" aria-hidden="true"></i>
 					button(data-toggle="modal" data-target="#links") <i class="fa fa-link" aria-hidden="true"></i>
-					//a(href='#') <i class="fa fa-user" aria-hidden="true"></i>
 					a.disabled(href='#') 
 						i.fa.fa-bell(aria-hidden="true")
 						.notifications.flexbox.disabled
@@ -215,16 +215,41 @@ html(lang="ru")
 					<i class="fa fa-black-tie" aria-hidden="true"></i>
 					span.dis-popup Временно недоступно
 					span.full-menu Вакансии
+		#user-right-bar.flexbox
+			.user-pic.flexbox
+				img(src='https://images.vivino.com/avatars/default_user.png')
+				.about-user.flexbox
+					span.name Олег Коваленко
+					span.status VIP
+			.bal-block.flexbox
+				.main-bl.flexbox.info-block1
+					span.balance Доступный баланс
+					.circle.flexbox
+						.btwn.flexbox
+							<i class="fa fa-usd flexbox" aria-hidden="true"></i>
+							span.undercover 34632$
+					.bl-btn
+						button(data-toggle="modal" data-target="#input") Пополнить
+						button(data-toggle="modal" data-target="#output") Вывести
+				.bonus-bl.flexbox.info-block1
+					span.balance Бонусный баланс
+					.circle.flexbox
+						.btwn.flexbox
+							<i class="fa fa-gift flexbox" aria-hidden="true"></i>
+							span.undercover 57344$
+					.bl-btn
+						button.disabled Заработать
+						button.disabled Перевести	
 		#main.flexbox
 			#content.flexbox.full
 				#user-info.flexbox
-					#user-pic.flexbox
+					.user-pic.flexbox
 						img(src='https://images.vivino.com/avatars/default_user.png')
-						#about-user.flexbox
+						.about-user.flexbox
 							span.name Олег Коваленко
 							span.status VIP
-					#bal-block.flexbox
-						#main-bl.flexbox.info-block1
+					.bal-block.flexbox
+						.main-bl.flexbox.info-block1
 							span.balance Доступный баланс
 							.circle.flexbox
 								.btwn.flexbox
@@ -233,7 +258,7 @@ html(lang="ru")
 							.bl-btn
 								button(data-toggle="modal" data-target="#input") Пополнить
 								button(data-toggle="modal" data-target="#output") Вывести
-						#bonus-bl.flexbox.info-block1
+						.bonus-bl.flexbox.info-block1
 							span.balance Бонусный баланс
 							.circle.flexbox
 								.btwn.flexbox
@@ -295,4 +320,15 @@ html(lang="ru")
 			  		$( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
 			  		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
 			  }
+			});
+			$(".right-bar").click(function(event){
+				event.preventDefault();
+				if ($("#user-right-bar").hasClass("visunuto")){
+					$("#user-right-bar").fadeOut('1000');
+					$("#user-right-bar").removeClass("visunuto");
+				}
+				else{
+					$("#user-right-bar").fadeIn('1000');
+					$("#user-right-bar").addClass("visunuto");
+				}
 			});

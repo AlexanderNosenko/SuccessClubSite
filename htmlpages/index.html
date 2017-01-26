@@ -156,9 +156,8 @@
     </div>
     <nav id="top">
       <div id="flex-top" class="flexbox">
-        <div id="right-bar">
-          <button data-toggle="modal" data-target="#links"><i class="fa fa-link" aria-hidden="true"></i></button>
-          <!--a(href='#') <i class="fa fa-user" aria-hidden="true"></i>--><a href="#" class="disabled"> <i aria-hidden="true" class="fa fa-bell"></i>
+        <div id="right-bar"><a href="#" class="right-bar"><i class="fa fa-user" aria-hidden="true"></i></a>
+          <button data-toggle="modal" data-target="#links"><i class="fa fa-link" aria-hidden="true"></i></button><a href="#" class="disabled"> <i aria-hidden="true" class="fa fa-bell"></i>
             <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="disabled"> <i aria-hidden="true" class="fa fa-comments"></i>
             <div class="notifications flexbox disabled"><span>0</span></div></a><a href="#" class="no-bg"><i class="fa fa-power-off" aria-hidden="true"></i></a>
         </div>
@@ -168,14 +167,39 @@
     <nav id="sidebar">
       <div id="flex-sidebar" class="flexbox minimized"><a href="#" class="active menu-item"><i class="fa fa-th-large"></i><span class="full-menu">Главная</span></a><a href="profile.html" class="menu-item"><i class="fa fa-diamond"></i><span class="full-menu">Профиль</span></a><a href="team.html" class="menu-item"><i class="fa fa-users"></i><span class="full-menu">Команда</span></a><a class="menu-item disabled"><i class="fa fa-envelope"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Сообщения</span></a><a class="menu-item disabled"><i class="fa fa-graduation-cap"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Обучение</span></a><a class="menu-item disabled"><i class="fa fa-money"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Быстрые деньги</span></a><a data-toggle="modal" data-target="#business-choose" class="menu-item"><i class="fa fa-bank"></i><span class="full-menu">Бизнес</span></a><a class="menu-item disabled"><i class="fa fa-usd" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Инвестиции</span></a><a data-toggle="modal" data-target="#tools-choose" class="menu-item"><i class="fa fa-cogs"></i><span class="full-menu">Инструменты</span></a><a class="menu-item disabled"><i class="fa fa-cubes" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Серфинг сайтов</span></a><a class="menu-item disabled"><i class="fa fa-line-chart"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Финансы</span></a><a class="menu-item disabled"><i class="fa fa-trophy" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Лоторея</span></a><a class="menu-item disabled"><i class="fa fa-calendar"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Мероприятия</span></a><a class="menu-item disabled"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Новости</span></a><a class="menu-item disabled"><i class="fa fa-heart-o" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Благотворительность</span></a><a class="menu-item disabled"><i class="fa fa-book"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">FAQ</span></a><a class="menu-item disabled"><i class="fa fa-black-tie" aria-hidden="true"></i><span class="dis-popup">Временно недоступно</span><span class="full-menu">Вакансии</span></a></div>
     </nav>
+    <div id="user-right-bar" class="flexbox">
+      <div class="user-pic flexbox"><img src="https://images.vivino.com/avatars/default_user.png">
+        <div class="about-user flexbox"><span class="name">Олег Коваленко</span><span class="status">VIP</span></div>
+      </div>
+      <div class="bal-block flexbox">
+        <div class="main-bl flexbox info-block1"><span class="balance">Доступный баланс</span>
+          <div class="circle flexbox">
+            <div class="btwn flexbox"><i class="fa fa-usd flexbox" aria-hidden="true"></i><span class="undercover">34632$</span></div>
+          </div>
+          <div class="bl-btn">
+            <button data-toggle="modal" data-target="#input">Пополнить</button>
+            <button data-toggle="modal" data-target="#output">Вывести</button>
+          </div>
+        </div>
+        <div class="bonus-bl flexbox info-block1"><span class="balance">Бонусный баланс</span>
+          <div class="circle flexbox">
+            <div class="btwn flexbox"><i class="fa fa-gift flexbox" aria-hidden="true"></i><span class="undercover">57344$</span></div>
+          </div>
+          <div class="bl-btn">
+            <button class="disabled">Заработать</button>
+            <button class="disabled">Перевести	</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="main" class="flexbox">
       <div id="content" class="flexbox full">
         <div id="user-info" class="flexbox">
-          <div id="user-pic" class="flexbox"><img src="https://images.vivino.com/avatars/default_user.png">
-            <div id="about-user" class="flexbox"><span class="name">Олег Коваленко</span><span class="status">VIP</span></div>
+          <div class="user-pic flexbox"><img src="https://images.vivino.com/avatars/default_user.png">
+            <div class="about-user flexbox"><span class="name">Олег Коваленко</span><span class="status">VIP</span></div>
           </div>
-          <div id="bal-block" class="flexbox">
-            <div id="main-bl" class="flexbox info-block1"><span class="balance">Доступный баланс</span>
+          <div class="bal-block flexbox">
+            <div class="main-bl flexbox info-block1"><span class="balance">Доступный баланс</span>
               <div class="circle flexbox">
                 <div class="btwn flexbox"><i class="fa fa-usd flexbox" aria-hidden="true"></i><span class="undercover">34632$</span></div>
               </div>
@@ -184,7 +208,7 @@
                 <button data-toggle="modal" data-target="#output">Вывести</button>
               </div>
             </div>
-            <div id="bonus-bl" class="flexbox info-block1"><span class="balance">Бонусный баланс</span>
+            <div class="bonus-bl flexbox info-block1"><span class="balance">Бонусный баланс</span>
               <div class="circle flexbox">
                 <div class="btwn flexbox"><i class="fa fa-gift flexbox" aria-hidden="true"></i><span class="undercover">57344$</span></div>
               </div>
@@ -233,6 +257,17 @@
         		$( "#flex-sidebar" ).removeClass( "minimized" ).addClass( "full" );
         		$( "#content" ).removeClass( "full" ).addClass( "minimized" );
         }
+      });
+      $(".right-bar").click(function(event){
+      	event.preventDefault();
+      	if ($("#user-right-bar").hasClass("visunuto")){
+      		$("#user-right-bar").fadeOut('1000');
+      		$("#user-right-bar").removeClass("visunuto");
+      	}
+      	else{
+      		$("#user-right-bar").fadeIn('1000');
+      		$("#user-right-bar").addClass("visunuto");
+      	}
       });
     </script>
   </body>

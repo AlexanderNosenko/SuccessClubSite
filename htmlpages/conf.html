@@ -11,8 +11,11 @@
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
   </head>
-  <body class="flexbox">
-    <iframe src="http://login.myownmeeting.com" width="99%" height="99%">You have an old browser</iframe>
+  <body>
+    <object type="application/x-shockwave-flash" data="http://login.myownmeeting.com/conference.mlmcp" width="99%" height="99%" id="conference" style="visibility: visible;">
+      <param name="allowfullscreen" value="true">
+      <param name="flashvars" value="room=34997906&amp;amp;fontSize=12&amp;amp;fontColor=#000000&amp;amp;fontFamily=Verdana&amp;amp;backgroundColor=0x6B8EB8">
+    </object>
     <form id="panel" action="#" method="post"><a href="#panel">Получить доступ</a><a id="close" href="#">X</a>
       <input name="name" type="text" placeholder="Имя">
       <input name="surname" type="text" placeholder="Фамилия">

@@ -606,6 +606,187 @@ a:hover, a:focus, button:focus {
   margin: 0 5px 0 0;
 }
 
+#user-right-bar {
+  position: fixed;
+  max-width: 300px;
+  width: 100%;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  background: #167562;
+  z-index: 10;
+  overflow-y: scroll;
+  display: none;
+}
+
+#user-right-bar img {
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+}
+
+#user-info, #user-right-bar {
+  width: 80%;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  padding: 20px;
+  background: #ccebe5;
+}
+
+@media screen and (max-width: 767px) {
+  #user-info, #user-right-bar {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+#user-info .user-pic, #user-right-bar .user-pic {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 12px 0 0;
+  text-align: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+
+@media screen and (max-width: 767px) {
+  #user-info .user-pic, #user-right-bar .user-pic {
+    height: auto;
+  }
+}
+
+#user-info .user-pic .about-user, #user-right-bar .user-pic .about-user {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#user-info .user-pic img, #user-right-bar .user-pic img {
+  height: 150px;
+}
+
+@media screen and (max-width: 767px) {
+  #user-info .user-pic img, #user-right-bar .user-pic img {
+    margin: 0 auto;
+    height: auto;
+  }
+}
+
+#user-info .user-pic .status, #user-right-bar .user-pic .status {
+  color: #859a96;
+}
+
+#user-info .bal-block, #user-right-bar .bal-block {
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+#user-info .bal-block .info-block1, #user-right-bar .bal-block .info-block1 {
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  margin: 0 20px;
+}
+
+@media screen and (max-width) {
+  #user-info .bal-block .info-block1, #user-right-bar .bal-block .info-block1 {
+    margin: 10px;
+  }
+}
+
+#user-info .bal-block .info-block1 .balance, #user-right-bar .bal-block .info-block1 .balance {
+  font-size: 20px;
+  color: #61716e;
+}
+
+#user-info .bal-block .info-block1 button, #user-right-bar .bal-block .info-block1 button {
+  background: #167461;
+  border: none;
+  color: #c2eae2;
+  width: 100px;
+  padding: 10px 0;
+  margin: 1px 0;
+  border-radius: 5px;
+}
+
+#user-info .bal-block .info-block1 .circle, #user-right-bar .bal-block .info-block1 .circle {
+  overflow: hidden;
+  margin: 2px 0;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 120px;
+}
+
+@media screen and (max-width: 767px) {
+  #user-info .bal-block .info-block1 .circle, #user-right-bar .bal-block .info-block1 .circle {
+    width: auto;
+    padding: 10px;
+  }
+}
+
+#user-info .bal-block .info-block1 .circle .btwn, #user-right-bar .bal-block .info-block1 .circle .btwn {
+  background: #167562;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+#user-info .bal-block .info-block1 .circle .btwn i, #user-right-bar .bal-block .info-block1 .circle .btwn i {
+  font-size: 120px;
+  color: #c2eae2;
+  transition: all 500ms;
+}
+
+#user-info .bal-block .info-block1 .circle .btwn .undercover, #user-right-bar .bal-block .info-block1 .circle .btwn .undercover {
+  font-size: 50px;
+  color: transparent;
+  font-weight: bold;
+  position: absolute;
+  transition: all 500ms;
+}
+
+#user-info .bal-block .info-block1 .circle .btwn:hover i, #user-right-bar .bal-block .info-block1 .circle .btwn:hover i {
+  color: transparent;
+}
+
+#user-info .bal-block .info-block1 .circle .btwn:hover .undercover, #user-right-bar .bal-block .info-block1 .circle .btwn:hover .undercover {
+  color: #c2eae2;
+}
+
 #main {
   width: 100%;
 }
