@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
           'name' => "nixmoney",
           'fields' => {
             'PAYMENT_ID' => random_key,
-            'PAYEE_ACCOUNT' => '***REMOVED***',
+            'PAYEE_ACCOUNT' => ENV['NIXMONEY_PAYEE_ACC'],
             'PAYEE_NAME' => 'Test',
             'PAYMENT_AMOUNT' => 2,
             'PAYMENT_UNITS' => 'USD',
@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
           'name' => "perfectmoney",
           'fields' => {
             'PAYMENT_ID' => random_key,
-            'PAYEE_ACCOUNT' => "***REMOVED***",
+            'PAYEE_ACCOUNT' => ENV['PERFECT_MONEY_ACC'],
             'PAYEE_NAME' => "improf.club",
             'PAYMENT_AMOUNT' => 2,
             'PAYMENT_UNITS' => 'USD',
